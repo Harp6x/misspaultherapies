@@ -46,16 +46,18 @@ export function BurnoutQuiz() {
     setShowEmail(false);
   }
 
-  function handleShare() {
+  async function handleShare() {
     const scores = calculateScores(answers);
     const tier = getTier(scores);
     const info = tierInfo[tier];
     const text = `I just took a burnout assessment. Result: ${info.label}.\n\nCheck yours → mspaultherapies.com/tools/burnout-quiz`;
-    if (navigator.share) {
-      navigator.share({ title: "Burnout Assessment", text, url: "https://mspaultherapies.com/tools/burnout-quiz" });
-    } else {
-      navigator.clipboard.writeText(text);
-    }
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: "Burnout Assessment", text, url: "https://mspaultherapies.com/tools/burnout-quiz" });
+      } else {
+        await navigator.clipboard.writeText(text);
+      }
+    } catch { /* user cancelled or share already in progress */ }
   }
 
   // ── Result screen ──

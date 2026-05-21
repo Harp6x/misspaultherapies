@@ -50,13 +50,15 @@ export function EmotionalCheckIn() {
   const reflection = getReflection(result);
   const moodData = moodOptions.find((m) => m.value === mood);
 
-  function handleShare() {
+  async function handleShare() {
     const text = `I just checked in with my emotions. ${reflection.headline}\n\nTry it yourself → mspaultherapies.com/tools/check-in`;
-    if (navigator.share) {
-      navigator.share({ title: "Emotional Check-In", text, url: "https://mspaultherapies.com/tools/check-in" });
-    } else {
-      navigator.clipboard.writeText(text);
-    }
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: "Emotional Check-In", text, url: "https://mspaultherapies.com/tools/check-in" });
+      } else {
+        await navigator.clipboard.writeText(text);
+      }
+    } catch { /* user cancelled or share already in progress */ }
   }
 
   function reset() {

@@ -45,7 +45,7 @@ const tools = [
     icon: Sparkles,
     title: "Guided Reflection",
     description:
-      "Adaptive prompts that meet you where you are — anxiety, self-worth, relationships, or growth.",
+      "Choose a theme, answer 5 questions, and get personalised feedback on anxiety, self-worth, relationships, grief, growth, or stress.",
     tag: "Live",
     tagColor: "bg-emerald-100 text-emerald-700",
     painPoint: "I want to understand myself better",
@@ -65,7 +65,7 @@ const tools = [
     icon: Brain,
     title: "Self-Awareness Journey",
     description:
-      "A 7-day guided exploration of identity, values, patterns, and strengths.",
+      "A 7-day scored journey: 3 questions per day across identity, values, patterns, triggers, strengths, shadow, and integration.",
     tag: "Live",
     tagColor: "bg-emerald-100 text-emerald-700",
     painPoint: "I feel lost or stuck",
@@ -75,7 +75,7 @@ const tools = [
     icon: MessageCircle,
     title: "Relationship Reflection",
     description:
-      "Guided prompts for communication, attachment, and connection — solo or with a partner.",
+      "A 3-part scored assessment for attachment style, relationship needs, and boundary health — with personalised guidance.",
     tag: "Live",
     tagColor: "bg-emerald-100 text-emerald-700",
     painPoint: "My relationships feel strained",

@@ -1,3 +1,5 @@
+// ── Theme definitions ──
+
 export interface ReflectionTheme {
   id: string;
   label: string;
@@ -6,221 +8,141 @@ export interface ReflectionTheme {
   color: string;
 }
 
-export interface ReflectionPrompt {
-  theme: string;
-  stage: number;
-  prompt: string;
-  followUp: string;
-}
-
 export const themes: ReflectionTheme[] = [
-  {
-    id: "anxiety",
-    label: "Anxiety & Worry",
-    emoji: "🌊",
-    description: "When your mind won't stop racing",
-    color: "bg-violet-100 text-violet-700 border-violet-200",
-  },
-  {
-    id: "self-worth",
-    label: "Self-Worth",
-    emoji: "🪞",
-    description: "When you're doubting yourself",
-    color: "bg-amber-100 text-amber-700 border-amber-200",
-  },
-  {
-    id: "relationships",
-    label: "Relationships",
-    emoji: "💬",
-    description: "When connection feels hard",
-    color: "bg-rose-100 text-rose-700 border-rose-200",
-  },
-  {
-    id: "grief",
-    label: "Grief & Loss",
-    emoji: "🕊️",
-    description: "When you're carrying something heavy",
-    color: "bg-blue-100 text-blue-700 border-blue-200",
-  },
-  {
-    id: "growth",
-    label: "Growth & Change",
-    emoji: "🌱",
-    description: "When you're in transition",
-    color: "bg-emerald-100 text-emerald-700 border-emerald-200",
-  },
-  {
-    id: "stress",
-    label: "Stress & Overwhelm",
-    emoji: "🔥",
-    description: "When everything feels like too much",
-    color: "bg-orange-100 text-orange-700 border-orange-200",
-  },
+  { id: "anxiety", label: "Anxiety & Worry", emoji: "🌊", description: "When your mind won't stop racing", color: "bg-violet-100 text-violet-700 border-violet-200" },
+  { id: "self-worth", label: "Self-Worth", emoji: "🪞", description: "When you're doubting yourself", color: "bg-amber-100 text-amber-700 border-amber-200" },
+  { id: "relationships", label: "Relationships", emoji: "💬", description: "When connection feels hard", color: "bg-rose-100 text-rose-700 border-rose-200" },
+  { id: "grief", label: "Grief & Loss", emoji: "🕊️", description: "When you're carrying something heavy", color: "bg-blue-100 text-blue-700 border-blue-200" },
+  { id: "growth", label: "Growth & Change", emoji: "🌱", description: "When you're in transition", color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
+  { id: "stress", label: "Stress & Overwhelm", emoji: "🔥", description: "When everything feels like too much", color: "bg-orange-100 text-orange-700 border-orange-200" },
 ];
 
-export const reflectionPrompts: ReflectionPrompt[] = [
-  // ── Anxiety ──
-  {
-    theme: "anxiety",
-    stage: 1,
-    prompt: "What is the worry or fear that's loudest in your mind right now? Write it out as specifically as you can — not a vague feeling, but the actual thought.",
-    followUp: "You've named it. That's already powerful. Anxiety thrives in the fog — the more specific you make it, the smaller it gets.",
-  },
-  {
-    theme: "anxiety",
-    stage: 2,
-    prompt: "If this fear actually came true — what would you do? Not what you'd feel, but what would your first concrete step be?",
-    followUp: "Most anxiety lives in the 'what if.' When you answer 'then what,' you remind your brain that you can cope. You've coped before.",
-  },
-  {
-    theme: "anxiety",
-    stage: 3,
-    prompt: "What is one thing you know to be true right now — in this moment — that your anxiety is asking you to forget?",
-    followUp: "Your anxiety tells one story. Reality tells another. Both exist, but you get to choose which one you act from.",
-  },
+// ── Scored questions per theme ──
 
-  // ── Self-Worth ──
-  {
-    theme: "self-worth",
-    stage: 1,
-    prompt: "What is the critical thought about yourself that keeps showing up? Write it down exactly as your inner voice says it.",
-    followUp: "Notice: that voice has a tone, a rhythm, maybe even a face. It's not truth — it's a pattern. And patterns can change.",
-  },
-  {
-    theme: "self-worth",
-    stage: 2,
-    prompt: "If your closest friend told you they felt this way about themselves — what would you say to them? Write it as if you're speaking to them.",
-    followUp: "The compassion you just showed your friend? You deserve that same voice. The gap between how you treat others and how you treat yourself is where the work lives.",
-  },
-  {
-    theme: "self-worth",
-    stage: 3,
-    prompt: "Name one thing you did recently — however small — that took courage, effort, or care. Something you haven't given yourself credit for.",
-    followUp: "Self-worth isn't built in grand gestures. It's built in the moments you notice the small things and say 'that mattered.'",
-  },
-
-  // ── Relationships ──
-  {
-    theme: "relationships",
-    stage: 1,
-    prompt: "Think of a relationship that's weighing on you right now. What's the feeling underneath the conflict or distance? Not the situation — the feeling.",
-    followUp: "Relationships problems are rarely about the thing you're arguing about. They're about the unmet need underneath. You just found yours.",
-  },
-  {
-    theme: "relationships",
-    stage: 2,
-    prompt: "What do you need from this person that you haven't been able to ask for? Write it as a simple, honest sentence: 'I need ___.'",
-    followUp: "Needs aren't demands. They're invitations for connection. The fact that you can name yours means you're closer to being heard than you think.",
-  },
-  {
-    theme: "relationships",
-    stage: 3,
-    prompt: "What is one small thing you could do this week — not to fix the relationship, but to take care of yourself within it?",
-    followUp: "You can't control how someone responds. But you can always choose how you show up for yourself. That's not selfish — that's necessary.",
-  },
-
-  // ── Grief ──
-  {
-    theme: "grief",
-    stage: 1,
-    prompt: "What have you lost — or what are you afraid of losing? It doesn't have to be a person. It can be a version of yourself, a dream, a chapter.",
-    followUp: "Grief isn't only about death. It's about any gap between what is and what you wished would be. All grief is valid.",
-  },
-  {
-    theme: "grief",
-    stage: 2,
-    prompt: "What is one thing about what you've lost that you want to make sure you never forget? A moment, a feeling, a quality.",
-    followUp: "Memory isn't just nostalgia — it's a form of love. The things you hold onto become part of who you are now.",
-  },
-  {
-    theme: "grief",
-    stage: 3,
-    prompt: "If the person, thing, or version of yourself you're grieving could speak to you right now — what do you think they'd want you to know?",
-    followUp: "Sometimes the most healing thing is to hear, in your own voice, the permission you need. You just gave it to yourself.",
-  },
-
-  // ── Growth ──
-  {
-    theme: "growth",
-    stage: 1,
-    prompt: "What feels like it's shifting or changing in your life right now — even if you can't fully name it yet?",
-    followUp: "Growth often starts as discomfort. The fact that you feel something moving means something is working — even if it doesn't feel like it yet.",
-  },
-  {
-    theme: "growth",
-    stage: 2,
-    prompt: "What would you need to let go of to make space for what's trying to emerge? A belief, a habit, a role, an expectation?",
-    followUp: "Letting go isn't giving up. It's making room. And you're the only one who gets to decide what stays and what goes.",
-  },
-  {
-    theme: "growth",
-    stage: 3,
-    prompt: "Imagine yourself one year from now, having navigated this transition well. What does that version of you want you to know today?",
-    followUp: "That future version of you already exists in the choices you make now. You're closer than you think.",
-  },
-
-  // ── Stress ──
-  {
-    theme: "stress",
-    stage: 1,
-    prompt: "List everything that's on your plate right now — work, personal, emotional. Don't edit. Just dump it all out.",
-    followUp: "When stress lives in your head, it feels infinite. On paper, it becomes finite. You just made the invisible visible.",
-  },
-  {
-    theme: "stress",
-    stage: 2,
-    prompt: "Look at your list. Circle (or highlight) the ONE thing that would make the biggest difference if it were handled. Just one.",
-    followUp: "You can't do everything. But you can always do one thing. Overwhelm dissolves when you find the first domino.",
-  },
-  {
-    theme: "stress",
-    stage: 3,
-    prompt: "What is one thing on your list that you can let go of, delegate, or postpone — without the world ending?",
-    followUp: "Saying no to one thing is saying yes to your capacity. Rest isn't earned. It's required. You've done enough today.",
-  },
-];
-
-export function getPromptsForTheme(themeId: string): ReflectionPrompt[] {
-  return reflectionPrompts
-    .filter((p) => p.theme === themeId)
-    .sort((a, b) => a.stage - b.stage);
+export interface ThemeQuestion {
+  id: string;
+  text: string;
+  options: { label: string; value: number }[];
 }
 
-export function getReflectionSummary(
-  themeId: string,
-  responses: string[],
-): { headline: string; body: string } {
-  const summaries: Record<string, { headline: string; body: string }> = {
-    anxiety: {
-      headline: "You faced the worry instead of running from it.",
-      body: "Most people try to outrun anxiety. You just sat with it, named it, and found the ground underneath. That takes more courage than you think. Come back to these words when the noise gets loud again.",
-    },
-    "self-worth": {
-      headline: "You practiced the hardest kind of kindness — towards yourself.",
-      body: "The way you speak to yourself matters more than almost anything else. Today you interrupted the harsh voice, even briefly. That's not small. That's the beginning of change.",
-    },
-    relationships: {
-      headline: "You got honest about what you need.",
-      body: "Connection starts with clarity — about your own feelings and needs, not about fixing the other person. What you wrote here is the conversation you've been avoiding. Maybe it's time to have it.",
-    },
-    grief: {
-      headline: "You honoured what you've lost.",
-      body: "Grief doesn't have a timeline or a finish line. What you did here — sitting with it, remembering, listening — is not dwelling. It's loving. And that love doesn't have to go anywhere.",
-    },
-    growth: {
-      headline: "You're making sense of the in-between.",
-      body: "Transitions are uncomfortable because the old story has ended and the new one hasn't started yet. But you just wrote a few lines of that new chapter. Keep going.",
-    },
-    stress: {
-      headline: "You took the weight out of your head and put it on paper.",
-      body: "You can't solve overwhelm by thinking harder. You solve it by making the invisible visible, choosing one thing, and letting the rest wait. You just did all three.",
-    },
-  };
+export interface ThemeTierResult {
+  tier: string;
+  headline: string;
+  body: string;
+  strengths: string[];
+  actions: string[];
+  warning?: string;
+}
 
-  return (
-    summaries[themeId] || {
-      headline: "You showed up for yourself.",
-      body: "Reflection is a form of self-care that most people skip. The fact that you paused, wrote, and sat with your thoughts? That's not nothing. That's everything.",
-    }
-  );
+export interface ThemeConfig {
+  questions: ThemeQuestion[];
+  tiers: { max: number; result: ThemeTierResult }[];
+}
+
+export const themeConfigs: Record<string, ThemeConfig> = {
+  anxiety: {
+    questions: [
+      { id: "ax1", text: "How often does worry interfere with your daily tasks?", options: [{ label: "Rarely", value: 0 }, { label: "A few times a week", value: 1 }, { label: "Most days", value: 2 }, { label: "Almost constantly", value: 3 }] },
+      { id: "ax2", text: "When you worry, can you usually stop or redirect your thoughts?", options: [{ label: "Yes, fairly easily", value: 0 }, { label: "Sometimes, with effort", value: 1 }, { label: "Rarely — they spiral", value: 2 }, { label: "No — I feel trapped in them", value: 3 }] },
+      { id: "ax3", text: "Does anxiety affect your sleep?", options: [{ label: "No", value: 0 }, { label: "Occasionally", value: 1 }, { label: "Often — hard to fall or stay asleep", value: 2 }, { label: "Severely — most nights", value: 3 }] },
+      { id: "ax4", text: "Do you experience physical symptoms (racing heart, tight chest, stomach issues)?", options: [{ label: "No", value: 0 }, { label: "Sometimes", value: 1 }, { label: "Frequently", value: 2 }, { label: "Daily or near-daily", value: 3 }] },
+      { id: "ax5", text: "Do you avoid situations or decisions because of anxiety?", options: [{ label: "No", value: 0 }, { label: "Occasionally", value: 1 }, { label: "Often — it limits what I do", value: 2 }, { label: "Significantly — my world is shrinking", value: 3 }] },
+    ],
+    tiers: [
+      { max: 3, result: { tier: "mild", headline: "Your anxiety is present but manageable.", body: "Your worry levels are within a normal range. Everyone experiences anxiety — it's your brain's alarm system. Yours seems to be functioning without significantly disrupting your life.", strengths: ["You can generally redirect anxious thoughts", "Your sleep isn't severely impacted", "You're not avoiding life because of worry"], actions: ["Continue to notice when anxiety spikes — awareness is protection", "Try the 5-4-3-2-1 grounding technique when worry surfaces", "Regular exercise and sleep hygiene support your nervous system"] } },
+      { max: 7, result: { tier: "moderate", headline: "Your anxiety is starting to take up significant space.", body: "You're experiencing anxiety at a level that's beginning to interfere with your quality of life — your sleep, your decisions, or your body. This isn't weakness. It's a signal that your nervous system needs support.", strengths: ["You're aware that something needs attention", "You can still function, even if it's harder than it should be", "You're seeking self-understanding — that's a powerful first step"], actions: ["Start a worry log: write down worries for 5 minutes per day, then close the notebook", "Learn diaphragmatic breathing — it directly calms your nervous system", "Consider speaking with a therapist, especially one trained in CBT or ACT", "Reduce caffeine and screen time before bed"] } },
+      { max: 11, result: { tier: "significant", headline: "Anxiety is running a large part of your life.", body: "Your responses suggest anxiety is significantly affecting your sleep, your body, your decisions, and your ability to be present. This level of anxiety is exhausting and unsustainable — and you deserve support.", strengths: ["You showed up and answered honestly — that takes strength", "You're still functioning, even while carrying this weight", "Awareness of the problem is the first step toward change"], actions: ["Professional support is strongly recommended at this level", "Talk to a therapist who specialises in anxiety (CBT, ACT, or EMDR)", "Your GP can rule out medical contributors and discuss options", "In the meantime: grounding, breath work, and physical movement are your allies"], warning: "If anxiety is causing panic attacks, suicidal thoughts, or complete avoidance of daily life, please reach out to a professional or crisis service immediately." } },
+      { max: 15, result: { tier: "severe", headline: "This level of anxiety needs professional attention.", body: "Your responses indicate severe anxiety that is pervasive across your daily life — physically, mentally, and behaviourally. Living like this takes an extraordinary toll. You don't have to keep pushing through alone.", strengths: ["You completed this assessment despite the difficulty — that matters", "You're looking for answers — that's the beginning of change"], actions: ["Please speak to a mental health professional as soon as possible", "If you're in crisis, contact your nearest helpline or emergency service", "You deserve treatment. Anxiety at this level is highly treatable with the right support", "This isn't something to manage with self-help alone — seek therapy, consider whether medication might help"], warning: "If you're experiencing panic attacks, persistent dread, or thoughts of self-harm, please contact emergency services or a crisis helpline now." } },
+    ],
+  },
+  "self-worth": {
+    questions: [
+      { id: "sw1", text: "How do you typically talk to yourself when you make a mistake?", options: [{ label: "I'm understanding with myself", value: 0 }, { label: "I'm a bit hard on myself but move on", value: 1 }, { label: "I criticise myself harshly", value: 2 }, { label: "I berate myself — it can ruin my day", value: 3 }] },
+      { id: "sw2", text: "Do you compare yourself negatively to others?", options: [{ label: "Rarely", value: 0 }, { label: "Sometimes", value: 1 }, { label: "Often — especially on social media", value: 2 }, { label: "Constantly — I always feel less than", value: 3 }] },
+      { id: "sw3", text: "When someone compliments you, how do you respond internally?", options: [{ label: "I accept it and feel good", value: 0 }, { label: "I'm a bit awkward but appreciate it", value: 1 }, { label: "I deflect or assume they're being polite", value: 2 }, { label: "I don't believe them — they must not see the real me", value: 3 }] },
+      { id: "sw4", text: "Do you hold back from pursuing things because you feel you're not good enough?", options: [{ label: "No — I go for it", value: 0 }, { label: "Occasionally", value: 1 }, { label: "Often — fear of failure stops me", value: 2 }, { label: "Regularly — I've given up trying", value: 3 }] },
+      { id: "sw5", text: "Do you feel deserving of love, success, and good things?", options: [{ label: "Yes, genuinely", value: 0 }, { label: "Mostly, but I have doubts", value: 1 }, { label: "I struggle to believe I deserve good things", value: 2 }, { label: "No — I feel fundamentally flawed", value: 3 }] },
+    ],
+    tiers: [
+      { max: 3, result: { tier: "healthy", headline: "Your self-worth has a solid foundation.", body: "You have a generally healthy relationship with yourself. You can accept imperfection, receive kindness, and pursue things without being paralysed by self-doubt. This doesn't mean you never struggle — but your baseline is self-respect.", strengths: ["You can be compassionate with yourself after mistakes", "You don't let comparison dominate your self-image", "You pursue goals despite imperfection"], actions: ["Keep practising self-compassion — it's a muscle, not a mood", "Notice when the inner critic gets louder — stress amplifies it", "Model healthy self-talk for people around you"] } },
+      { max: 7, result: { tier: "wavering", headline: "Your self-worth depends on external conditions.", body: "You have a conditional relationship with yourself — you feel okay when things are going well, but your self-image is fragile under pressure. Comparison, criticism, and failure hit harder than they should.", strengths: ["You can recognise the pattern — that's self-awareness", "You haven't completely internalised the critic", "You're still seeking growth — that takes a kind of courage"], actions: ["Start a daily 'done well' note: 3 things you handled today, however small", "When the inner critic speaks, ask: 'Would I say this to someone I love?'", "Limit social media to 15 minutes per day for 2 weeks — notice what changes", "Consider therapy focused on self-compassion (CFT) or schema work"] } },
+      { max: 11, result: { tier: "low", headline: "You're living under a constant inner critic.", body: "Your self-worth has been significantly eroded. You hold yourself to impossible standards, deflect kindness, and probably make yourself small to avoid the pain of not being enough. This isn't truth — it's a pattern, likely rooted in how you were treated, not who you actually are.", strengths: ["You're honest about where you are — that's brave", "You're still here, still trying, still looking for answers", "The fact that this hurts means you want more for yourself"], actions: ["Therapy is strongly recommended — especially schema therapy, CFT, or psychodynamic work", "Your inner critic has a history. Understanding where it came from is how you quieten it", "Small daily rituals: name one thing you did well, one thing you're grateful for in yourself", "Be very careful with social media, toxic relationships, and environments that reinforce the critic"], warning: "If you're experiencing persistent feelings of worthlessness, hopelessness, or self-harm urges, please reach out to a professional." } },
+      { max: 15, result: { tier: "depleted", headline: "Your sense of self needs urgent care.", body: "Your responses suggest a deeply depleted sense of self-worth. You may feel fundamentally broken, undeserving, or invisible. This isn't who you are — it's what life has taught you. And it can be unlearned, with the right support.", strengths: ["You completed this — even when everything in you says you're not worth the effort", "Your pain isn't weakness. It's evidence of carrying too much for too long"], actions: ["Please talk to a therapist. This level of self-criticism is not something to manage alone", "You are not broken. You are hurt. Those are very different things", "Consider trauma-informed therapy (EMDR, IFS, schema therapy)", "If you're in crisis, contact your nearest helpline — you deserve to be heard"], warning: "If you're experiencing suicidal thoughts or self-harm, please reach out immediately to emergency services or a crisis helpline." } },
+    ],
+  },
+  relationships: {
+    questions: [
+      { id: "rl1", text: "How safe do you feel being emotionally honest with the people closest to you?", options: [{ label: "Very safe", value: 0 }, { label: "Mostly safe, with some limits", value: 1 }, { label: "Not very — I hide how I really feel", value: 2 }, { label: "Not at all — honesty feels dangerous", value: 3 }] },
+      { id: "rl2", text: "When conflict arises, how do you typically respond?", options: [{ label: "I address it calmly and directly", value: 0 }, { label: "I try to resolve it but get anxious", value: 1 }, { label: "I avoid it or shut down", value: 2 }, { label: "I explode or completely withdraw", value: 3 }] },
+      { id: "rl3", text: "Do you feel your emotional needs are being met in your closest relationship?", options: [{ label: "Yes, mostly", value: 0 }, { label: "Partially — some needs are met", value: 1 }, { label: "Barely — I feel emotionally alone", value: 2 }, { label: "No — I've stopped expecting it", value: 3 }] },
+      { id: "rl4", text: "Do you feel like an equal in your key relationships?", options: [{ label: "Yes — we respect each other", value: 0 }, { label: "Mostly, but there's some imbalance", value: 1 }, { label: "No — there's a clear power imbalance", value: 2 }, { label: "I feel controlled or diminished", value: 3 }] },
+      { id: "rl5", text: "How connected do you feel to the people around you?", options: [{ label: "Deeply connected", value: 0 }, { label: "Connected to some, distant from others", value: 1 }, { label: "Mostly disconnected", value: 2 }, { label: "Profoundly lonely", value: 3 }] },
+    ],
+    tiers: [
+      { max: 3, result: { tier: "connected", headline: "Your relationships are generally healthy.", body: "You feel safe, heard, and connected in your key relationships. Conflict exists but doesn't destroy trust. This is a strong foundation — protect it by continuing to invest in honest communication.", strengths: ["You feel safe being emotionally honest", "Conflict doesn't trigger shutdown or explosion", "You feel connected and respected"], actions: ["Keep investing in vulnerability — it deepens trust over time", "Schedule regular check-ins with your partner or close people", "Don't take healthy relationships for granted — they need maintenance"] } },
+      { max: 7, result: { tier: "strained", headline: "There are real gaps in your relational world.", body: "Your relationships have some health but significant strain. You may be suppressing needs, tolerating imbalance, or feeling emotionally alone within connections that look fine from the outside. That gap between appearance and reality is worth examining.", strengths: ["You can identify what's missing — that's clarity", "Some of your needs are being met — you have a foundation to build on", "You're willing to reflect honestly — that's the first step toward change"], actions: ["Name one unmet need and communicate it this week — gently but clearly", "Notice when you're performing instead of connecting", "Consider couples therapy or relational coaching if patterns repeat", "Invest in one friendship that feels genuinely reciprocal"] } },
+      { max: 11, result: { tier: "disconnected", headline: "You're emotionally isolated — even if surrounded by people.", body: "Your relational world isn't meeting your core needs. You may be hiding your true feelings, tolerating disrespect, or living with a persistent sense of loneliness. This doesn't mean the relationships are unsalvageable — but something fundamental needs to shift.", strengths: ["You're naming the disconnect — most people numb it or deny it", "Your need for connection is healthy, not needy", "Recognising loneliness is the first step toward addressing it"], actions: ["Talk to a therapist about your relational patterns — this is treatable", "Consider whether certain relationships need repair, restructuring, or release", "Start small: share one vulnerable truth with one person you trust this week", "Loneliness is a health risk. Take it as seriously as physical symptoms"] } },
+      { max: 15, result: { tier: "crisis", headline: "Your relationships are causing significant harm to your wellbeing.", body: "You're describing a relational environment marked by emotional unsafety, power imbalance, and deep disconnection. Living like this takes an enormous toll on your mental health. You deserve relationships where you feel safe, respected, and valued.", strengths: ["You answered honestly about painful dynamics — that takes courage", "You haven't lost the awareness that you deserve better"], actions: ["If you feel unsafe, contact a domestic support service or helpline", "Therapy is essential — look for someone trained in relational trauma", "You are allowed to leave relationships that consistently harm you", "Rebuild your support network: one safe person, one honest conversation at a time"], warning: "If you are experiencing abuse, control, or fear in a relationship, please seek help from a domestic violence service or crisis helpline." } },
+    ],
+  },
+  grief: {
+    questions: [
+      { id: "gr1", text: "How present is the loss in your daily thoughts?", options: [{ label: "It comes and goes — I'm adjusting", value: 0 }, { label: "It's there regularly but I can function", value: 1 }, { label: "It dominates most of my thinking", value: 2 }, { label: "It's all I can think about", value: 3 }] },
+      { id: "gr2", text: "Can you still experience moments of joy or peace?", options: [{ label: "Yes — more often than not", value: 0 }, { label: "Sometimes, but they feel brief", value: 1 }, { label: "Rarely — happiness feels wrong or impossible", value: 2 }, { label: "No — I feel numb or empty", value: 3 }] },
+      { id: "gr3", text: "How are you functioning day-to-day (work, self-care, responsibilities)?", options: [{ label: "Mostly normally", value: 0 }, { label: "It's harder but I'm managing", value: 1 }, { label: "I'm struggling with basic tasks", value: 2 }, { label: "I've stopped functioning in key areas", value: 3 }] },
+      { id: "gr4", text: "Do you have people you can talk to about your loss?", options: [{ label: "Yes — I feel supported", value: 0 }, { label: "Some, but I don't want to burden them", value: 1 }, { label: "Not really — I grieve alone", value: 2 }, { label: "No one understands what I'm going through", value: 3 }] },
+      { id: "gr5", text: "How long has it been since the loss, and does the pain feel like it's shifting?", options: [{ label: "It's shifting — painful but moving", value: 0 }, { label: "Some days better, some worse", value: 1 }, { label: "It feels stuck — no progress", value: 2 }, { label: "It's getting worse, not better", value: 3 }] },
+    ],
+    tiers: [
+      { max: 3, result: { tier: "processing", headline: "You're grieving — and that's exactly right.", body: "Your grief is present but moving. You're experiencing the natural waves of loss while still maintaining your daily life and connections. There's no timeline for this — you're doing it at your pace.", strengths: ["You can hold sadness and function simultaneously", "You have support and you're using it", "You're allowing the grief to move through you"], actions: ["Keep talking about your loss — with people, in writing, in whatever form works", "Let yourself feel it when it comes. Suppressing grief extends it", "Mark meaningful dates and rituals — grief needs ceremony", "Be patient with yourself. This takes as long as it takes"] } },
+      { max: 7, result: { tier: "heavy", headline: "Your grief is weighing heavily — and you may be carrying it alone.", body: "The loss is taking up significant space in your life. You may be functioning, but barely. Joy feels distant. Support feels inadequate. This level of grief is hard to carry without help.", strengths: ["You're still showing up, even when it's excruciating", "You're seeking understanding — that's a form of self-care", "Your grief is proportional to how much you loved. That's not a problem to fix"], actions: ["Please consider grief counselling or therapy. You don't have to process this alone", "If you're isolating, tell one person: 'I'm struggling more than I show'", "Physical movement helps your body process grief — even a short walk", "Journaling can help when talking feels impossible"] } },
+      { max: 11, result: { tier: "complicated", headline: "Your grief may have become stuck.", body: "What you're describing goes beyond typical grief. The pain isn't shifting, daily life is severely affected, and you may feel numb, hopeless, or unable to see a future. This isn't failure — it may be complicated grief, and it responds very well to specific treatment.", strengths: ["You recognised that something isn't right — that's important", "You're still reaching for answers — that shows something in you wants to heal"], actions: ["Seek a therapist specialising in grief — specifically, complicated or prolonged grief disorder", "Treatment exists and it works: grief-focused CBT and meaning reconstruction therapy", "If you've lost functioning (work, self-care, relationships), tell your GP", "Grief support groups can break the isolation"], warning: "If you're experiencing suicidal thoughts or a desire to join the person you've lost, please reach out to a crisis service immediately." } },
+      { max: 15, result: { tier: "acute", headline: "You need support now — please don't carry this alone.", body: "Your grief is at a level that's severely impacting every area of your life. The numbness, the inability to function, the hopelessness — these aren't signs that you're grieving wrong. They're signs you need more support than you currently have.", strengths: ["You completed this, even in this much pain. That matters", "Your capacity to love this deeply is not something to fix — it's something to honour"], actions: ["Please contact a mental health professional or crisis service as soon as possible", "If you're unable to care for yourself, tell someone today", "You are not weak. You are human. And you need help right now", "Treatment for complicated grief is effective — there is a path forward"], warning: "If you are in crisis or having thoughts of self-harm, please call emergency services or your nearest crisis helpline now." } },
+    ],
+  },
+  growth: {
+    questions: [
+      { id: "gw1", text: "How clear are you about the direction you want your life to go?", options: [{ label: "Very clear", value: 0 }, { label: "Somewhat clear", value: 1 }, { label: "Unclear — I feel foggy", value: 2 }, { label: "Completely lost", value: 3 }] },
+      { id: "gw2", text: "Are you taking actions aligned with the person you want to become?", options: [{ label: "Yes — consistently", value: 0 }, { label: "Sometimes, but I get off track", value: 1 }, { label: "Rarely — I know what to do but don't do it", value: 2 }, { label: "No — I feel paralysed", value: 3 }] },
+      { id: "gw3", text: "How comfortable are you with uncertainty and change?", options: [{ label: "I handle it well", value: 0 }, { label: "It's uncomfortable but manageable", value: 1 }, { label: "It causes significant anxiety", value: 2 }, { label: "It terrifies me", value: 3 }] },
+      { id: "gw4", text: "Do you feel stuck in patterns or roles that no longer serve you?", options: [{ label: "No — I'm evolving", value: 0 }, { label: "A little — some habits linger", value: 1 }, { label: "Yes — I keep repeating the same cycles", value: 2 }, { label: "Deeply stuck — I can't see a way out", value: 3 }] },
+      { id: "gw5", text: "Do you believe you're capable of real, lasting change?", options: [{ label: "Yes — I've done it before", value: 0 }, { label: "I think so, but I have doubts", value: 1 }, { label: "I want to believe it but struggle", value: 2 }, { label: "No — I feel like I'll always be this way", value: 3 }] },
+    ],
+    tiers: [
+      { max: 3, result: { tier: "thriving", headline: "You're growing — and you know it.", body: "You have clarity, momentum, and comfort with change. You're not stuck — you're actively becoming. Keep building on this energy.", strengths: ["You have a clear direction", "You take action aligned with your values", "You tolerate uncertainty well"], actions: ["Stretch into discomfort: set a goal that scares you slightly", "Mentor or support someone else in transition — teaching deepens your own growth", "Document your progress: future-you will want to see how far you've come"] } },
+      { max: 7, result: { tier: "transitioning", headline: "You're in the messy middle — and that's okay.", body: "You have some clarity but also real uncertainty. You know you're changing but you're not sure where it's leading. This in-between space is uncomfortable — but it's also where all meaningful transformation happens.", strengths: ["You haven't given up on yourself", "You can identify what needs to change", "You're willing to be uncomfortable — that's the price of growth"], actions: ["Pick ONE area to focus on and give it 30 days of deliberate attention", "Write down what you want your life to look like in 1 year — make it specific", "Get accountability: a friend, coach, or therapist who checks in with you", "Reduce decision fatigue: simplify everything else so you have energy for the changes that matter"] } },
+      { max: 11, result: { tier: "stuck", headline: "You're caught in a loop — and it's exhausting.", body: "You know you want to change, but fear, habit, or hopelessness keeps pulling you back. The gap between who you are and who you want to be feels painfully wide. This isn't laziness — it's a system that needs reconfiguring.", strengths: ["You're self-aware — you know the patterns", "You haven't stopped wanting more — that's fuel", "Your frustration with stuckness is proof that growth is trying to happen"], actions: ["Therapy can help you identify the beliefs keeping you stuck (schema therapy, ACT, psychodynamic)", "Redefine 'progress': one 1% shift per day is revolutionary over a year", "Stop trying to overhaul everything. Pick the smallest possible action and do it today", "Your identity isn't fixed. Neuroplasticity means change is always possible"] } },
+      { max: 15, result: { tier: "frozen", headline: "Something deeper is holding you in place.", body: "You're not just stuck — you may have lost hope that change is possible. This level of paralysis often points to deeper issues: unresolved trauma, depression, or a self-concept that says 'I'm not the kind of person who gets to change.' None of that is true — but it feels true, and that matters.", strengths: ["You're here, looking at this honestly. That's not nothing", "The fact that you feel frustrated means something in you still wants to move"], actions: ["Please talk to a therapist. This isn't a motivation problem — it's often a trauma or identity problem", "If you feel hopeless about the future, tell someone. Hopelessness is a symptom, not reality", "You don't have to change everything. You just have to take one step. That's enough for today"], warning: "If hopelessness feels persistent or if you're having thoughts of self-harm, please contact a professional or crisis service." } },
+    ],
+  },
+  stress: {
+    questions: [
+      { id: "st1", text: "How often do you feel overwhelmed by your responsibilities?", options: [{ label: "Rarely", value: 0 }, { label: "A few times a week", value: 1 }, { label: "Most days", value: 2 }, { label: "Constantly", value: 3 }] },
+      { id: "st2", text: "Do you have time for rest, hobbies, or things that recharge you?", options: [{ label: "Yes — I protect that time", value: 0 }, { label: "Sometimes, but it's squeezed", value: 1 }, { label: "Rarely — rest feels like a luxury", value: 2 }, { label: "Never — I can't remember the last time", value: 3 }] },
+      { id: "st3", text: "Can you say no when your plate is full?", options: [{ label: "Yes — I set limits", value: 0 }, { label: "Sometimes, but I feel guilty", value: 1 }, { label: "Rarely — I over-commit", value: 2 }, { label: "No — I can't say no", value: 3 }] },
+      { id: "st4", text: "How is stress affecting your body (headaches, tension, fatigue, digestion)?", options: [{ label: "Minimal physical impact", value: 0 }, { label: "Some symptoms occasionally", value: 1 }, { label: "Regular physical symptoms", value: 2 }, { label: "Significant physical health issues", value: 3 }] },
+      { id: "st5", text: "Do you feel like you're just surviving rather than living?", options: [{ label: "No — I feel balanced", value: 0 }, { label: "Sometimes", value: 1 }, { label: "Most of the time", value: 2 }, { label: "I'm in pure survival mode", value: 3 }] },
+    ],
+    tiers: [
+      { max: 3, result: { tier: "managed", headline: "Your stress is present but under control.", body: "You experience normal life stress but have the tools and boundaries to manage it. You protect your rest and can say no. This is sustainable — keep it up.", strengths: ["You set boundaries around your energy", "You have recovery time built into your life", "Physical symptoms are minimal"], actions: ["Maintain your recovery rituals — they're what keeps you resilient", "Check in monthly: 'Am I still protecting what matters?'", "Be alert for slow creep — stress builds gradually before it breaks through"] } },
+      { max: 7, result: { tier: "elevated", headline: "You're running on more fumes than fuel.", body: "Your stress is elevated beyond what's sustainable. You're probably functional but depleted — getting through the days but not enjoying them. The guilt around rest and the difficulty saying no are warning signs.", strengths: ["You're aware something needs to change", "You can still identify what recharges you (even if you're not doing it)", "You haven't completely shut down yet — your awareness is a resource"], actions: ["Block 30 minutes of non-negotiable recovery time daily — treat it like a meeting", "Practice one 'no' this week. Start small. Notice how it feels", "Track your energy: what drains you most? What's the first thing you could reduce?", "Physical stress symptoms are your body's early warning system — listen to them"] } },
+      { max: 11, result: { tier: "overwhelmed", headline: "You're drowning — and pretending you're fine.", body: "Your stress has crossed into overwhelm. You're physically symptomatic, emotionally depleted, and probably holding everything together through sheer willpower. This isn't sustainable. Something has to give — and it shouldn't be you.", strengths: ["Your capacity is remarkable — you've been holding too much for too long", "You recognise the problem — most people in this state are too exhausted to see it"], actions: ["Something needs to come off your plate this week. One thing. Non-negotiable", "Talk to someone: a therapist, a trusted friend, your GP", "Stress at this level affects your immune system, heart, and brain. This is a health issue", "Consider whether your environment (job, relationship, caregiving load) is structurally unsustainable"], warning: "If you're experiencing chest pain, panic attacks, or thoughts of self-harm, please seek medical attention or contact a crisis service." } },
+      { max: 15, result: { tier: "crisis", headline: "This is a stress emergency.", body: "You're in survival mode across every area of your life. Your body is breaking down, your mind is running on empty, and rest feels impossible. This isn't a productivity problem — it's a crisis. And you deserve emergency-level care.", strengths: ["You're still standing. That takes extraordinary resilience", "You answered honestly — that's the first step out"], actions: ["Please see your GP or therapist this week. Not next month. This week", "If your work or caregiving load is destroying your health, that needs to change — not 'eventually,' now", "You are allowed to ask for help. You are allowed to stop. You are allowed to rest", "If you have no support system, a therapist is your first call"], warning: "Chronic, unmanaged stress leads to serious physical and mental health consequences. If you're in crisis, please reach out to emergency services." } },
+    ],
+  },
+};
+
+export function calculateThemeResult(themeId: string, answers: Record<string, number>): ThemeTierResult & { score: number; maxScore: number } {
+  const config = themeConfigs[themeId];
+  if (!config) throw new Error(`Unknown theme: ${themeId}`);
+
+  let score = 0;
+  for (const q of config.questions) {
+    score += answers[q.id] ?? 0;
+  }
+
+  const maxScore = config.questions.length * 3;
+  const tier = config.tiers.find((t) => score <= t.max) || config.tiers[config.tiers.length - 1];
+
+  return { ...tier.result, score, maxScore };
 }
