@@ -1,6 +1,3 @@
-import Image from "next/image";
-import { Award } from "lucide-react";
-import { urlFor } from "@/sanity/image";
 import * as LucideIcons from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { getAboutPage } from "@/lib/data";
@@ -37,52 +34,31 @@ export default async function AboutPage() {
         <Breadcrumbs items={[{ name: "About", href: "/about" }]} />
 
         {/* Intro */}
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brown">
-              {about.title}
-            </h1>
-            <p className="mt-6 text-lg text-brown-light leading-relaxed">
-              {about.bioParagraph1}
-            </p>
-            <p className="mt-4 text-brown-light leading-relaxed">
-              {about.bioParagraph2}
-            </p>
-            <p className="mt-4 text-brown-light leading-relaxed">
-              {about.bioParagraph3}
-            </p>
+        <div className="mx-auto max-w-3xl">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brown">
+            {about.title}
+          </h1>
+          <p className="mt-6 text-lg text-brown-light leading-relaxed">
+            {about.bioParagraph1}
+          </p>
+          <p className="mt-4 text-brown-light leading-relaxed">
+            {about.bioParagraph2}
+          </p>
+          <p className="mt-4 text-brown-light leading-relaxed">
+            {about.bioParagraph3}
+          </p>
 
-            {/* Credentials */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              {about.credentials.map((c) => (
-                <div
-                  key={c.label}
-                  className="inline-flex items-center gap-2 rounded-full bg-sage/10 px-4 py-2 text-sm text-sage-dark"
-                >
-                  <Icon name={c.icon} className="h-4 w-4" />
-                  {c.label}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-2xl bg-sage/10 overflow-hidden flex items-center justify-center aspect-[3/4]">
-            {about.photo?.asset ? (
-              <Image
-                src={urlFor(about.photo).width(500).height(667).fit("crop").url()}
-                alt={about.photo.alt ?? `${siteConfig.author} — Clinical Psychologist & Psychotherapist`}
-                width={500}
-                height={667}
-                className="rounded-2xl object-cover w-full h-full"
-                priority
-              />
-            ) : (
-              <div className="text-center p-8">
-                <Award className="h-16 w-16 text-sage mx-auto mb-4" />
-                <p className="font-serif text-xl font-semibold text-brown">{siteConfig.author}</p>
-                <p className="text-sm text-muted-foreground mt-2">Clinical Psychologist &amp; Psychotherapist</p>
+          {/* Credentials */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            {about.credentials.map((c) => (
+              <div
+                key={c.label}
+                className="inline-flex items-center gap-2 rounded-full bg-sage/10 px-4 py-2 text-sm text-sage-dark"
+              >
+                <Icon name={c.icon} className="h-4 w-4" />
+                {c.label}
               </div>
-            )}
+            ))}
           </div>
         </div>
 

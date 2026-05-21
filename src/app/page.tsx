@@ -21,7 +21,6 @@ import { TestimonialCard } from "@/components/TestimonialCard";
 import { MediaEmbed } from "@/components/MediaEmbed";
 import { CTASection } from "@/components/CTASection";
 import { TrustBar } from "@/components/TrustBar";
-import { LeadMagnet } from "@/components/LeadMagnet";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { buildMetadata, organizationJsonLd, websiteJsonLd, localBusinessJsonLd } from "@/lib/seo";
 
@@ -183,36 +182,29 @@ export default async function Home() {
       {/* ── About Preview ── */}
       <section className="py-16 sm:py-20 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brown">
-                Hi, I&apos;m Aishani Paul
-              </h2>
-              <p className="mt-4 text-brown-light leading-relaxed">
-                I&apos;m a{" "}
-                {siteConfig.qualifications.join(", ").toLowerCase()} with a
-                passion for helping people navigate life&apos;s challenges with
-                greater clarity and compassion.
-              </p>
-              <p className="mt-3 text-brown-light leading-relaxed">
-                I believe therapy should be a warm, non-judgmental space where
-                you feel truly heard. My integrative approach combines
-                evidence-based techniques with cultural sensitivity — because
-                your background and experiences matter.
-              </p>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brown text-center">
+              Hi, I&apos;m Aishani Paul
+            </h2>
+            <p className="mt-4 text-brown-light leading-relaxed text-center">
+              I&apos;m a{" "}
+              {siteConfig.qualifications.join(", ").toLowerCase()} with a
+              passion for helping people navigate life&apos;s challenges with
+              greater clarity and compassion.
+            </p>
+            <p className="mt-3 text-brown-light leading-relaxed text-center">
+              I believe therapy should be a warm, non-judgmental space where
+              you feel truly heard. My integrative approach combines
+              evidence-based techniques with cultural sensitivity — because
+              your background and experiences matter.
+            </p>
+            <div className="mt-6 text-center">
               <Link
                 href="/about"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-sage-dark transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-sage-dark transition-colors"
               >
                 Read more about me <ArrowRight className="h-4 w-4" />
               </Link>
-            </div>
-            <div className="rounded-2xl bg-sage/10 p-8 flex items-center justify-center aspect-square">
-              <div className="text-center">
-                <Heart className="h-12 w-12 text-sage mx-auto mb-4" />
-                <p className="font-serif text-lg font-semibold text-brown">Aishani Paul</p>
-                <p className="text-sm text-muted-foreground mt-1">Clinical Psychologist &<br />Psychotherapist</p>
-              </div>
             </div>
           </div>
         </div>
@@ -417,9 +409,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-
-      {/* ── Lead Magnet ── */}
-      <LeadMagnet />
 
       {/* ── Final CTA ── */}
       <CTASection />

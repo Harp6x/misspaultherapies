@@ -50,6 +50,8 @@ export default defineConfig({
             S.divider(),
             S.documentTypeListItem("galleryItem").title("Gallery / Media"),
             S.documentTypeListItem("workshop").title("Workshops"),
+            S.divider(),
+            S.documentTypeListItem("leadCapture").title("Lead Captures"),
           ]),
     }),
     visionTool({ defaultApiVersion: apiVersion }),

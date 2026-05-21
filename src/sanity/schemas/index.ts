@@ -8,6 +8,7 @@ import { locationSchema } from "./location";
 import { aboutPageSchema } from "./aboutPage";
 import { galleryItemSchema } from "./galleryItem";
 import { workshopSchema } from "./workshop";
+import { leadCaptureSchema } from "./leadCapture";
 
 export const schemaTypes = [
   siteConfigSchema,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   aboutPageSchema,
   galleryItemSchema,
   workshopSchema,
+  leadCaptureSchema,
 ];
