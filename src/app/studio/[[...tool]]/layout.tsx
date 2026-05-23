@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "CMS — Ms Paul Therapies",
+  title: "CMS - Ms Paul Therapies",
   description: "Content management for Ms Paul Therapies website",
 };
 

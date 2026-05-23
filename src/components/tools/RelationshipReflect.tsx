@@ -70,10 +70,10 @@ export function RelationshipReflect() {
       <div className="mx-auto max-w-2xl">
         <PhaseProgress phases={phases} current={phaseIndex} />
         <div className="text-center mb-8">
-          <p className="text-xs font-semibold text-sage uppercase tracking-wider">Part 1 of 3 — Attachment Style</p>
+          <p className="text-xs font-semibold text-sage uppercase tracking-wider">Part 1 of 3 - Attachment Style</p>
           <h2 className="mt-1 font-serif text-2xl font-bold text-brown">How Do You Attach?</h2>
           <p className="mt-2 text-sm text-muted-foreground max-w-lg mx-auto">
-            Select the response that feels most true for you — not what you think you should say.
+            Select the response that feels most true for you - not what you think you should say.
           </p>
         </div>
         <div className="space-y-6">
@@ -126,7 +126,7 @@ export function RelationshipReflect() {
           </button>
         </div>
         <div className="text-center mb-8">
-          <p className="text-xs font-semibold text-sage uppercase tracking-wider">Part 2 of 3 — Unmet Needs</p>
+          <p className="text-xs font-semibold text-sage uppercase tracking-wider">Part 2 of 3 - Unmet Needs</p>
           <h2 className="mt-1 font-serif text-2xl font-bold text-brown">What&apos;s Missing in Your Relationships?</h2>
           <p className="mt-2 text-sm text-muted-foreground max-w-lg mx-auto">
             Rate how much each statement resonates with you right now.
@@ -181,7 +181,7 @@ export function RelationshipReflect() {
           </button>
         </div>
         <div className="text-center mb-8">
-          <p className="text-xs font-semibold text-sage uppercase tracking-wider">Part 3 of 3 — Boundary Health</p>
+          <p className="text-xs font-semibold text-sage uppercase tracking-wider">Part 3 of 3 - Boundary Health</p>
           <h2 className="mt-1 font-serif text-2xl font-bold text-brown">How Strong Are Your Boundaries?</h2>
           <p className="mt-2 text-sm text-muted-foreground max-w-lg mx-auto">
             How often do these apply to you?
@@ -377,7 +377,7 @@ export function RelationshipReflect() {
             Want to change these patterns?
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Understanding your relationship patterns is the first step. Therapy helps you rewrite them — safely, at your own pace.
+            Understanding your relationship patterns is the first step. Therapy helps you rewrite them - safely, at your own pace.
           </p>
           <a href="/book" className="mt-4 inline-flex items-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-semibold text-white hover:bg-sage-dark transition-colors">
             Book a free discovery call <ArrowRight className="h-4 w-4" />

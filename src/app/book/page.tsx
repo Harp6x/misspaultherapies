@@ -53,7 +53,7 @@ export default function BookPage() {
         Book a Session
       </h1>
       <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-        Taking the first step is often the hardest part — and I&apos;m here to
+        Taking the first step is often the hardest part - and I&apos;m here to
         make it as easy as possible.
       </p>
 
@@ -88,7 +88,7 @@ export default function BookPage() {
           Not sure yet? Start with a free call.
         </h2>
         <p className="mt-2 text-muted-foreground">
-          A 15-minute discovery call — no pressure, no commitment.
+          A 15-minute discovery call - no pressure, no commitment.
         </p>
         {hasDiscovery ? (
           <a
@@ -159,7 +159,7 @@ export default function BookPage() {
           <div>
             <p className="font-semibold text-brown">Package Deal</p>
             <p className="text-sm text-brown-light">
-              {siteConfig.fees.package} — a great option if you&apos;re
+              {siteConfig.fees.package} - a great option if you&apos;re
               committing to regular sessions.
             </p>
           </div>

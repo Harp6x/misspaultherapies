@@ -69,10 +69,10 @@ export function SelfAwareness() {
         <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-sm">
           <div className="text-center mb-6">
             <span className="text-4xl">{activeDay.emoji}</span>
-            <p className="mt-2 text-xs font-semibold text-sage uppercase tracking-wider">Day {activeDay.day} — {activeDay.theme}</p>
+            <p className="mt-2 text-xs font-semibold text-sage uppercase tracking-wider">Day {activeDay.day} - {activeDay.theme}</p>
             <h2 className="mt-1 font-serif text-2xl font-bold text-brown">{dayResult.headline}</h2>
             <span className={cn("mt-2 inline-block rounded-full px-3 py-1 text-xs font-bold", tierColor)}>
-              {dayResult.label} — {dayResult.score}/{dayResult.maxScore}
+              {dayResult.label} - {dayResult.score}/{dayResult.maxScore}
             </span>
           </div>
           <p className="text-brown-light leading-relaxed">{dayResult.body}</p>
@@ -226,7 +226,7 @@ export function SelfAwareness() {
                 {isCompleted ? <Check className="h-5 w-5 text-sage" /> : isUnlocked ? <span>{day.emoji}</span> : <Lock className="h-4 w-4 text-muted-foreground" />}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs text-muted-foreground">Day {day.day} — {day.theme}</p>
+                <p className="text-xs text-muted-foreground">Day {day.day} - {day.theme}</p>
                 <p className="font-serif text-sm font-semibold text-brown">{day.title}</p>
                 <p className="text-xs text-muted-foreground/70">3 questions</p>
               </div>

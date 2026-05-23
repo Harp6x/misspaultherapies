@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { AIJournal } from "@/components/tools/AIJournal";
 
 export const metadata = buildMetadata({
-  title: "AI Journaling — Therapeutic Writing with Intelligent Reflections",
+  title: "AI Journaling - Therapeutic Writing with Intelligent Reflections",
   description:
     "Free AI-powered journaling tool with therapeutic prompts. Write freely and receive gentle, clinically-informed reflections. Your entries stay on your device. By a clinical psychologist.",
   path: "/tools/journal",

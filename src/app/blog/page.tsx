@@ -7,9 +7,9 @@ import { CTASection } from "@/components/CTASection";
 export const revalidate = 60;
 
 export const metadata = buildMetadata({
-  title: "Mental Health Blog — Therapy Tips, Anxiety, Depression & Relationships | India",
+  title: "Mental Health Blog - Therapy Tips, Anxiety, Depression & Relationships | India",
   description:
-    "Expert articles on anxiety, depression, relationships, self-care, and therapy in India — by Aishani Paul, RCI-licensed clinical psychologist. Evidence-based mental health insights.",
+    "Expert articles on anxiety, depression, relationships, self-care, and therapy in India - by Aishani Paul, RCI-licensed clinical psychologist. Evidence-based mental health insights.",
   path: "/blog",
 });
 
@@ -70,7 +70,7 @@ export default async function BlogPage() {
 
       <CTASection
         headline="Want Personalised Support?"
-        description="Reading is a great start — but sometimes you need someone in your corner. Let's talk."
+        description="Reading is a great start - but sometimes you need someone in your corner. Let's talk."
       />
     </>
   );

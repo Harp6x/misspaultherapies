@@ -1,3 +1,4 @@
+import Image from "next/image";
 import * as LucideIcons from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { getAboutPage } from "@/lib/data";
@@ -6,13 +7,14 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { CTASection } from "@/components/CTASection";
 import { SocialIcon } from "@/components/SocialIcon";
+import { urlFor } from "@/sanity/image";
 
 export const revalidate = 60;
 
 export const metadata = buildMetadata({
-  title: "About Aishani Paul — Licensed Clinical Psychologist | Online Therapy India",
+  title: "About Aishani Paul, Licensed Clinical Psychologist | Online Therapy India",
   description:
-    "Meet Aishani Paul (M.Phil Clinical Psychology, RCI Licensed) — compassionate, culturally sensitive online therapy for individuals, couples & families across India and NRIs abroad.",
+    "Meet Aishani Paul (M.Phil Clinical Psychology, RCI Licensed). Compassionate, culturally sensitive online therapy for individuals, couples & families across India and NRIs abroad.",
   path: "/about",
 });
 
@@ -26,6 +28,10 @@ function Icon({ name, className }: { name: string; className?: string }) {
 export default async function AboutPage() {
   const about = await getAboutPage();
 
+  const photoUrl = about.photo
+    ? urlFor(about.photo).width(600).height(750).fit("crop").url()
+    : null;
+
   return (
     <>
       <SEOJsonLd data={personJsonLd()} />
@@ -33,55 +39,74 @@ export default async function AboutPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Breadcrumbs items={[{ name: "About", href: "/about" }]} />
 
-        {/* Intro */}
-        <div className="mx-auto max-w-3xl">
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brown">
-            {about.title}
-          </h1>
-          <p className="mt-6 text-lg text-brown-light leading-relaxed">
-            {about.bioParagraph1}
-          </p>
-          <p className="mt-4 text-brown-light leading-relaxed">
-            {about.bioParagraph2}
-          </p>
-          <p className="mt-4 text-brown-light leading-relaxed">
-            {about.bioParagraph3}
-          </p>
-
-          {/* Credentials */}
-          <div className="mt-8 flex flex-wrap gap-3">
-            {about.credentials.map((c) => (
-              <div
-                key={c.label}
-                className="inline-flex items-center gap-2 rounded-full bg-sage/10 px-4 py-2 text-sm text-sage-dark"
-              >
-                <Icon name={c.icon} className="h-4 w-4" />
-                {c.label}
+        {/* Intro: Photo left, Bio right */}
+        <div className="mt-8 grid gap-10 lg:grid-cols-5 items-start">
+          {/* Photo */}
+          {photoUrl && (
+            <div className="lg:col-span-2">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lg">
+                <Image
+                  src={photoUrl}
+                  alt={about.photo?.alt || "Aishani Paul, Clinical Psychologist"}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
               </div>
-            ))}
-          </div>
-
-          {/* Resume */}
-          {about.resumeUrl && (
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={about.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-brown px-5 py-2.5 text-sm font-medium text-white hover:bg-brown/90 transition-colors"
-              >
-                <Icon name="FileText" className="h-4 w-4" />
-                View Resume
-              </a>
-              <a
-                href={`${about.resumeUrl}?dl=Aishani_Paul_Resume.pdf`}
-                className="inline-flex items-center gap-2 rounded-full border border-brown px-5 py-2.5 text-sm font-medium text-brown hover:bg-brown/5 transition-colors"
-              >
-                <Icon name="Download" className="h-4 w-4" />
-                Download Resume
-              </a>
             </div>
           )}
+
+          {/* Bio */}
+          <div className={photoUrl ? "lg:col-span-3" : "lg:col-span-5 max-w-3xl mx-auto"}>
+            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brown">
+              {about.title}
+            </h1>
+            <p className="mt-6 text-lg text-brown-light leading-relaxed">
+              {about.bioParagraph1}
+            </p>
+            <p className="mt-4 text-brown-light leading-relaxed">
+              {about.bioParagraph2}
+            </p>
+            <p className="mt-4 text-brown-light leading-relaxed">
+              {about.bioParagraph3}
+            </p>
+
+            {/* Credentials */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              {about.credentials.map((c) => (
+                <div
+                  key={c.label}
+                  className="inline-flex items-center gap-2 rounded-full bg-sage/10 px-4 py-2 text-sm text-sage-dark"
+                >
+                  <Icon name={c.icon} className="h-4 w-4" />
+                  {c.label}
+                </div>
+              ))}
+            </div>
+
+            {/* Resume */}
+            {about.resumeUrl && (
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={about.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-brown px-5 py-2.5 text-sm font-medium text-white hover:bg-brown/90 transition-colors"
+                >
+                  <Icon name="FileText" className="h-4 w-4" />
+                  View Resume
+                </a>
+                <a
+                  href={`${about.resumeUrl}?dl=Aishani_Paul_Resume.pdf`}
+                  className="inline-flex items-center gap-2 rounded-full border border-brown px-5 py-2.5 text-sm font-medium text-brown hover:bg-brown/5 transition-colors"
+                >
+                  <Icon name="Download" className="h-4 w-4" />
+                  Download Resume
+                </a>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* My Approach */}

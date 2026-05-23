@@ -60,7 +60,7 @@ export const needOptions: NeedOption[] = [
   { label: "Connection", id: "connection", description: "To talk to someone who understands" },
   { label: "Space", id: "space", description: "Time alone to process and breathe" },
   { label: "Validation", id: "validation", description: "To hear 'your feelings make sense'" },
-  { label: "Movement", id: "movement", description: "Physical release — walk, stretch, shake it off" },
+  { label: "Movement", id: "movement", description: "Physical release - walk, stretch, shake it off" },
   { label: "Structure", id: "structure", description: "A plan or next small step" },
   { label: "Comfort", id: "comfort", description: "Something warm, soft, or soothing" },
   { label: "Expression", id: "expression", description: "To write, cry, create, or let it out" },
@@ -86,7 +86,7 @@ export function getReflection(result: CheckInResult): {
   const reflections: Record<string, { headline: string; body: string; suggestion: string }> = {
     calm: {
       headline: "You're in a steady place right now.",
-      body: "Calm doesn't mean everything is perfect — it means your nervous system is regulated enough to handle what's here. That's worth noticing.",
+      body: "Calm doesn't mean everything is perfect - it means your nervous system is regulated enough to handle what's here. That's worth noticing.",
       suggestion: "This is a good moment to anchor. Take 3 deep breaths and let your body remember this feeling. It's yours to come back to.",
     },
     happy: {
@@ -97,14 +97,14 @@ export function getReflection(result: CheckInResult): {
     anxious: {
       headline: "Your nervous system is on high alert.",
       body: intensity > 6
-        ? "When anxiety is this strong, your body is convinced something dangerous is happening — even if your rational mind knows better. That's not weakness. That's biology."
+        ? "When anxiety is this strong, your body is convinced something dangerous is happening - even if your rational mind knows better. That's not weakness. That's biology."
         : "A level of unease is present. Your mind might be scanning for threats or playing 'what if.' This is your brain trying to protect you, even when the danger isn't real.",
       suggestion: "Try the 5-4-3-2-1 grounding technique: Name 5 things you see, 4 you hear, 3 you can touch, 2 you smell, 1 you taste. It brings you back to now.",
     },
     sad: {
       headline: "Something heavy is sitting with you.",
-      body: "Sadness often carries a message — about loss, unmet needs, or a gap between where you are and where you wish you were. It's valid to feel this, even if you can't name exactly why.",
-      suggestion: "If tears come, let them. Crying isn't breaking down — it's your body processing. If you can, tell one person how you're feeling today.",
+      body: "Sadness often carries a message - about loss, unmet needs, or a gap between where you are and where you wish you were. It's valid to feel this, even if you can't name exactly why.",
+      suggestion: "If tears come, let them. Crying isn't breaking down - it's your body processing. If you can, tell one person how you're feeling today.",
     },
     angry: {
       headline: "There's fire in you right now.",
@@ -113,32 +113,32 @@ export function getReflection(result: CheckInResult): {
     },
     numb: {
       headline: "You might be protecting yourself right now.",
-      body: "Numbness isn't the absence of feeling — it's your nervous system's way of saying 'too much.' When emotions feel unsafe or overwhelming, the brain shuts them down. This is survival, not failure.",
+      body: "Numbness isn't the absence of feeling - it's your nervous system's way of saying 'too much.' When emotions feel unsafe or overwhelming, the brain shuts them down. This is survival, not failure.",
       suggestion: "Gentle sensory input can help: hold ice, smell something strong, splash cold water on your face. Small signals that tell your body it's safe to feel again.",
     },
     overwhelmed: {
       headline: "There's too much happening at once.",
-      body: "Overwhelm is the space between what's being asked of you and what you have capacity for right now. It doesn't mean you're incapable — it means the load is too heavy for one person.",
+      body: "Overwhelm is the space between what's being asked of you and what you have capacity for right now. It doesn't mean you're incapable - it means the load is too heavy for one person.",
       suggestion: "Pause everything for 2 minutes. Breathe. Then ask: What is the ONE smallest thing I can do right now? Just one. The rest can wait.",
     },
     lonely: {
       headline: "You're craving connection.",
-      body: "Loneliness isn't about being alone — it's about feeling unseen. You can be surrounded by people and still feel this. It means your heart is reaching out for something real.",
-      suggestion: "Send a message to someone. It doesn't have to be deep — 'thinking of you' is enough. Or, consider booking a session. Sometimes, being truly heard is the medicine.",
+      body: "Loneliness isn't about being alone - it's about feeling unseen. You can be surrounded by people and still feel this. It means your heart is reaching out for something real.",
+      suggestion: "Send a message to someone. It doesn't have to be deep - 'thinking of you' is enough. Or, consider booking a session. Sometimes, being truly heard is the medicine.",
     },
     hopeful: {
       headline: "Something is shifting inside you.",
-      body: "Hope is quiet but powerful. It means part of you believes that change is possible — even if another part is still scared. Trust the hopeful part. It knows something.",
+      body: "Hope is quiet but powerful. It means part of you believes that change is possible - even if another part is still scared. Trust the hopeful part. It knows something.",
       suggestion: "Write down what you're hopeful about. When harder days come (and they will), this note will be your anchor.",
     },
     exhausted: {
       headline: "You've been running on empty.",
-      body: "Exhaustion isn't just physical — it can be emotional, social, or mental. If you've been pushing through without rest, your body is sending a clear signal. Listen to it.",
+      body: "Exhaustion isn't just physical - it can be emotional, social, or mental. If you've been pushing through without rest, your body is sending a clear signal. Listen to it.",
       suggestion: "Rest is not earned. It's a right. Cancel one thing today if you can. Give yourself permission to be unproductive. That IS the productive thing right now.",
     },
     grateful: {
       headline: "You're noticing what's good.",
-      body: "Gratitude doesn't erase pain — but it does expand your view. The fact that you can hold both difficulty and appreciation at the same time shows emotional depth and resilience.",
+      body: "Gratitude doesn't erase pain - but it does expand your view. The fact that you can hold both difficulty and appreciation at the same time shows emotional depth and resilience.",
       suggestion: "Write down 3 specific things you're grateful for right now. Specificity makes gratitude stick. Not 'my family' but 'the way my friend checked in on me yesterday.'",
     },
     unsure: {
@@ -152,7 +152,7 @@ export function getReflection(result: CheckInResult): {
     reflections[mood] || {
       headline: "You showed up for yourself today.",
       body: "The simple act of checking in with your emotional state is an act of self-care. Most people don't pause long enough to ask 'how am I really doing?' You did.",
-      suggestion: "Save this check-in. Come back tomorrow. Over time, patterns emerge — and patterns are the doorway to change.",
+      suggestion: "Save this check-in. Come back tomorrow. Over time, patterns emerge - and patterns are the doorway to change.",
     }
   );
 }

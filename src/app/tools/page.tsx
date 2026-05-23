@@ -13,9 +13,9 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 
 export const metadata = buildMetadata({
-  title: "Free Mental Health Tools — Interactive Self-Help by a Clinical Psychologist",
+  title: "Free Mental Health Tools - Interactive Self-Help by a Clinical Psychologist",
   description:
-    "Free, evidence-based interactive mental health tools: emotional check-ins, burnout assessments, guided reflections, and journaling — by Aishani Paul, RCI-licensed clinical psychologist.",
+    "Free, evidence-based interactive mental health tools: emotional check-ins, burnout assessments, guided reflections, and journaling - by Aishani Paul, RCI-licensed clinical psychologist.",
   path: "/tools",
 });
 
@@ -25,7 +25,7 @@ const tools = [
     icon: Heart,
     title: "Emotional Check-In",
     description:
-      "A guided 2-minute check-in to explore how you're really feeling — mood, body, thoughts, and needs.",
+      "A guided 2-minute check-in to explore how you're really feeling - mood, body, thoughts, and needs.",
     tag: "Live",
     tagColor: "bg-emerald-100 text-emerald-700",
     painPoint: "I don't know how I feel",
@@ -35,7 +35,7 @@ const tools = [
     icon: Flame,
     title: "Burnout Assessment",
     description:
-      "12 honest questions to measure your exhaustion, cynicism, and efficacy — with a personalised recovery plan.",
+      "12 honest questions to measure your exhaustion, cynicism, and efficacy - with a personalised recovery plan.",
     tag: "Live",
     tagColor: "bg-emerald-100 text-emerald-700",
     painPoint: "Am I burned out or just tired?",
@@ -75,7 +75,7 @@ const tools = [
     icon: MessageCircle,
     title: "Relationship Reflection",
     description:
-      "A 3-part scored assessment for attachment style, relationship needs, and boundary health — with personalised guidance.",
+      "A 3-part scored assessment for attachment style, relationship needs, and boundary health - with personalised guidance.",
     tag: "Live",
     tagColor: "bg-emerald-100 text-emerald-700",
     painPoint: "My relationships feel strained",
@@ -151,9 +151,9 @@ export default function ToolsPage() {
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Most mental health content online tells you <em>what</em> to do. These tools
-            help you <em>actually do it</em> — through guided, interactive experiences
+            help you <em>actually do it</em> - through guided, interactive experiences
             grounded in evidence-based therapeutic frameworks like CBT, DBT, and
-            emotion-focused approaches. They&apos;re not a replacement for therapy — but
+            emotion-focused approaches. They&apos;re not a replacement for therapy - but
             they&apos;re a powerful complement.
           </p>
         </div>

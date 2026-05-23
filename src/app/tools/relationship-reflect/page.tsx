@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelationshipReflect } from "@/components/tools/RelationshipReflect";
 
 export const metadata = buildMetadata({
-  title: "Relationship Patterns Assessment — Attachment, Needs & Boundaries",
+  title: "Relationship Patterns Assessment - Attachment, Needs & Boundaries",
   description:
     "Free relationship assessment: discover your attachment style, identify unmet needs, and audit your boundary health. Evidence-based, scored, and personalised. By a clinical psychologist.",
   path: "/tools/relationship-reflect",
@@ -28,11 +28,11 @@ export default function RelationshipReflectPage() {
         </h1>
         <p className="mt-4 mx-auto max-w-xl text-muted-foreground leading-relaxed">
           A 3-part assessment covering your attachment style, unmet relationship
-          needs, and boundary health — with scored, personalised results and
+          needs, and boundary health - with scored, personalised results and
           actionable next steps.
         </p>
         <p className="mt-2 text-xs text-muted-foreground/70">
-          8–10 minutes &middot; 30 questions &middot; No login required &middot; 100% private
+          8-10 minutes &middot; 30 questions &middot; No login required &middot; 100% private
         </p>
       </div>
 

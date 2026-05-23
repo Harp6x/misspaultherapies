@@ -98,7 +98,7 @@ export function AIJournal() {
         entry.aiReflection = data.reflection;
       }
     } catch {
-      // AI unavailable — use client-side reflection
+      // AI unavailable - use client-side reflection
     }
     setAiLoading(false);
 
@@ -260,7 +260,7 @@ export function AIJournal() {
           <EmailCapture
             source="ai-journal"
             headline="Daily journaling prompts"
-            description="A new therapeutic writing prompt every morning — crafted to help you reflect, process, and grow."
+            description="A new therapeutic writing prompt every morning - crafted to help you reflect, process, and grow."
             buttonText="Start my daily prompts"
           />
         </div>

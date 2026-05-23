@@ -11,9 +11,9 @@ export const metadata = buildMetadata({
 
 const helplines = [
   {
-    name: "iCall — TISS",
+    name: "iCall - TISS",
     number: "9152987821",
-    hours: "Mon–Sat, 8am–10pm",
+    hours: "Mon-Sat, 8am-10pm",
     description: "Professional counselling helpline by Tata Institute of Social Sciences.",
   },
   {

@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const revalidate = 60;
 
 export const metadata = buildMetadata({
-  title: "Online Therapy Services — Individual, Couples, Family Counselling India",
+  title: "Online Therapy Services - Individual, Couples, Family Counselling India",
   description:
     "Explore therapy services by Aishani Paul: individual therapy, couples counselling, adolescent therapy, family therapy, psychological assessments & NRI support. 100% online across India.",
   path: "/services",
@@ -27,7 +27,7 @@ export default async function ServicesPage() {
           </h1>
           <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
             Every person and relationship is unique. I offer a range of
-            specialised services — all delivered online for maximum
+            specialised services - all delivered online for maximum
             accessibility.
           </p>
         </div>

@@ -108,27 +108,27 @@ export const siteConfigSchema = defineType({
     // Fees
     defineField({
       name: "feeIndividual",
-      title: "Fee — Individual Session",
+      title: "Fee - Individual Session",
       type: "string",
     }),
     defineField({
       name: "feeCouples",
-      title: "Fee — Couples Session",
+      title: "Fee - Couples Session",
       type: "string",
     }),
     defineField({
       name: "feeFamily",
-      title: "Fee — Family Session",
+      title: "Fee - Family Session",
       type: "string",
     }),
     defineField({
       name: "feeAssessment",
-      title: "Fee — Assessment",
+      title: "Fee - Assessment",
       type: "string",
     }),
     defineField({
       name: "feePackage",
-      title: "Fee — Package Deal",
+      title: "Fee - Package Deal",
       type: "string",
     }),
     defineField({

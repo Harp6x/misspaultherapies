@@ -111,7 +111,7 @@ export function GuidedReflection() {
             <span className="text-4xl">{selectedTheme.emoji}</span>
             <h2 className="mt-3 font-serif text-2xl font-bold text-brown">{result.headline}</h2>
             <span className={cn("mt-2 inline-block rounded-full px-3 py-1 text-xs font-bold capitalize", severityColor)}>
-              {result.tier} — {result.score}/{result.maxScore}
+              {result.tier} - {result.score}/{result.maxScore}
             </span>
           </div>
           <p className="text-brown-light leading-relaxed">{result.body}</p>
@@ -171,7 +171,7 @@ export function GuidedReflection() {
           </div>
         ) : (
           <div className="mt-6">
-            <EmailCapture source="guided-reflection" resultTier={`${selectedTheme.id}-${result.tier}`} headline="Get weekly mental health insights" description="A short, therapeutic check-in every week — grounded, honest, and useful." buttonText="Send me check-ins" />
+            <EmailCapture source="guided-reflection" resultTier={`${selectedTheme.id}-${result.tier}`} headline="Get weekly mental health insights" description="A short, therapeutic check-in every week - grounded, honest, and useful." buttonText="Send me check-ins" />
           </div>
         )}
 

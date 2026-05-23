@@ -23,19 +23,19 @@ export const aboutPageSchema = defineType({
     }),
     defineField({
       name: "bioParagraph1",
-      title: "Bio — Paragraph 1",
+      title: "Bio - Paragraph 1",
       type: "text",
       rows: 3,
     }),
     defineField({
       name: "bioParagraph2",
-      title: "Bio — Paragraph 2",
+      title: "Bio - Paragraph 2",
       type: "text",
       rows: 3,
     }),
     defineField({
       name: "bioParagraph3",
-      title: "Bio — Paragraph 3",
+      title: "Bio - Paragraph 3",
       type: "text",
       rows: 3,
     }),
@@ -55,7 +55,7 @@ export const aboutPageSchema = defineType({
     }),
     defineField({
       name: "approachIntro",
-      title: "Approach — Intro Text",
+      title: "Approach - Intro Text",
       type: "text",
       rows: 4,
     }),
@@ -83,12 +83,12 @@ export const aboutPageSchema = defineType({
     }),
     defineField({
       name: "connectHeading",
-      title: "Connect Section — Heading",
+      title: "Connect Section - Heading",
       type: "string",
     }),
     defineField({
       name: "connectText",
-      title: "Connect Section — Subtext",
+      title: "Connect Section - Subtext",
       type: "string",
     }),
     defineField({

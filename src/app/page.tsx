@@ -27,7 +27,7 @@ import { buildMetadata, organizationJsonLd, websiteJsonLd, localBusinessJsonLd }
 export const revalidate = 60;
 
 export const metadata = buildMetadata({
-  title: "Online Therapy & Counselling in India — Ms Paul Therapies",
+  title: "Online Therapy & Counselling in India - Ms Paul Therapies",
   description:
     "Book online therapy with Aishani Paul, RCI-licensed clinical psychologist. Individual, couples, adolescent & family therapy across India and for NRIs abroad. Free 15-min discovery call.",
   path: "",
@@ -77,7 +77,7 @@ const howItWorks = [
     step: 2,
     title: "Begin Your Journey",
     description:
-      "Schedule your first session online — from anywhere in India or abroad.",
+      "Schedule your first session online - from anywhere in India or abroad.",
   },
   {
     step: 3,
@@ -109,7 +109,7 @@ export default async function Home() {
               <span className="text-sage">Meaningful Change</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-brown-light leading-relaxed">
-              Professional online psychotherapy and counselling — for
+              Professional online psychotherapy and counselling - for
               individuals, couples, adolescents, and families across India and
               abroad.
             </p>
@@ -195,7 +195,7 @@ export default async function Home() {
             <p className="mt-3 text-brown-light leading-relaxed text-center">
               I believe therapy should be a warm, non-judgmental space where
               you feel truly heard. My integrative approach combines
-              evidence-based techniques with cultural sensitivity — because
+              evidence-based techniques with cultural sensitivity - because
               your background and experiences matter.
             </p>
             <div className="mt-6 text-center">
@@ -245,7 +245,7 @@ export default async function Home() {
               How It Works
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Getting started is simple — and you&apos;re in control every step
+              Getting started is simple - and you&apos;re in control every step
               of the way.
             </p>
           </div>
@@ -275,7 +275,7 @@ export default async function Home() {
               What Clients Say
             </h2>
             <p className="mt-3 text-sm text-muted-foreground">
-              Placeholder testimonials — real testimonials will be added with
+              Placeholder testimonials - real testimonials will be added with
               client consent.
             </p>
           </div>

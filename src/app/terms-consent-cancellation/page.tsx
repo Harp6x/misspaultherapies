@@ -112,7 +112,7 @@ export default function TermsPage() {
             </li>
             <li>
               <strong>Emergencies:</strong> Genuine emergencies are handled on a
-              case-by-case basis — please communicate as soon as possible.
+              case-by-case basis - please communicate as soon as possible.
             </li>
           </ul>
         </section>

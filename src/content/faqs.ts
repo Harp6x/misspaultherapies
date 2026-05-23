@@ -41,7 +41,7 @@ export const faqs: FAQ[] = [
   {
     question: "What therapeutic approaches do you use?",
     answer:
-      "I use an integrative approach, drawing from Cognitive Behavioural Therapy (CBT), Dialectical Behaviour Therapy (DBT), Emotionally Focused Therapy (EFT), psychodynamic therapy, and mindfulness-based techniques — tailored to each client's needs.",
+      "I use an integrative approach, drawing from Cognitive Behavioural Therapy (CBT), Dialectical Behaviour Therapy (DBT), Emotionally Focused Therapy (EFT), psychodynamic therapy, and mindfulness-based techniques - tailored to each client's needs.",
     category: "general",
   },
   {
@@ -85,13 +85,13 @@ export const faqs: FAQ[] = [
   {
     question: "How long does therapy typically last?",
     answer:
-      "It varies by individual and concern. Some clients see meaningful change in 8–12 sessions, while others benefit from longer-term work. We'll regularly review progress and adjust as needed.",
+      "It varies by individual and concern. Some clients see meaningful change in 8-12 sessions, while others benefit from longer-term work. We'll regularly review progress and adjust as needed.",
     category: "sessions",
   },
   {
     question: "What platform do you use for online sessions?",
     answer:
-      "I use secure, encrypted video conferencing platforms. You'll receive a link before each session — all you need is a stable internet connection and a private space.",
+      "I use secure, encrypted video conferencing platforms. You'll receive a link before each session - all you need is a stable internet connection and a private space.",
     category: "sessions",
   },
   {
@@ -105,13 +105,13 @@ export const faqs: FAQ[] = [
   {
     question: "How much do sessions cost?",
     answer:
-      "Individual and adolescent therapy: ₹1,500 per session. Couples therapy: ₹3,500 per session. Family therapy: ₹3,500–₹5,000 per session. Psychological assessments: ₹500–₹7,500 depending on the assessment. Package: ₹3,899 for 4 individual sessions. Please visit the Book page for full details.",
+      "Individual and adolescent therapy: ₹1,500 per session. Couples therapy: ₹3,500 per session. Family therapy: ₹3,500-₹5,000 per session. Psychological assessments: ₹500-₹7,500 depending on the assessment. Package: ₹3,899 for 4 individual sessions. Please visit the Book page for full details.",
     category: "fees",
   },
   {
     question: "Do you offer a sliding scale or concessions?",
     answer:
-      "Yes, I offer a sliding scale for students, unemployed individuals, homemakers, and others in financial need. Please reach out to discuss — I want to make sure cost is not a barrier to getting the support you deserve.",
+      "Yes, I offer a sliding scale for students, unemployed individuals, homemakers, and others in financial need. Please reach out to discuss - I want to make sure cost is not a barrier to getting the support you deserve.",
     category: "fees",
   },
   {
@@ -131,7 +131,7 @@ export const faqs: FAQ[] = [
   {
     question: "Is therapy confidential?",
     answer:
-      "Yes, everything discussed in therapy is strictly confidential. There are limited legal exceptions — if there is an imminent risk of harm to yourself or others, or in cases of child abuse — which I will explain during our first session.",
+      "Yes, everything discussed in therapy is strictly confidential. There are limited legal exceptions - if there is an imminent risk of harm to yourself or others, or in cases of child abuse - which I will explain during our first session.",
     category: "confidentiality",
   },
   {

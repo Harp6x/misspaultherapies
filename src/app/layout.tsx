@@ -22,11 +22,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — Online Therapy & Counselling in India | ${siteConfig.tagline}`,
+    default: `${siteConfig.name} - Online Therapy & Counselling in India | ${siteConfig.tagline}`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Online therapy & counselling by Aishani Paul — RCI-licensed clinical psychologist. Individual, couples, adolescent & family therapy across India and for NRIs abroad. Book a free discovery call.",
+    "Online therapy & counselling by Aishani Paul - RCI-licensed clinical psychologist. Individual, couples, adolescent & family therapy across India and for NRIs abroad. Book a free discovery call.",
   keywords: [
     "online therapy India",
     "clinical psychologist India",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — Online Therapy & Counselling`,
+        alt: `${siteConfig.name} - Online Therapy & Counselling`,
       },
     ],
   },

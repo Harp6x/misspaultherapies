@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             <li>Information provided via intake forms</li>
             <li>Session notes (stored securely and confidentially)</li>
             <li>
-              Website usage data (if analytics are enabled via cookies — see
+              Website usage data (if analytics are enabled via cookies - see
               below)
             </li>
           </ul>
@@ -66,7 +66,7 @@ export default function PrivacyPolicyPage() {
           <p>
             All therapeutic communications are strictly confidential, in line
             with professional ethical guidelines. Exceptions apply only where
-            required by law — such as imminent risk of harm to yourself or
+            required by law - such as imminent risk of harm to yourself or
             others, or suspected child abuse.
           </p>
         </section>

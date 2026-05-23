@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Ms Paul Therapies — Online Therapy & Counselling in India";
+export const alt = "Ms Paul Therapies - Online Therapy & Counselling in India";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -57,7 +57,7 @@ export default function OGImage() {
               lineHeight: 1.5,
             }}
           >
-            Online therapy by Aishani Paul — RCI-licensed clinical psychologist.
+            Online therapy by Aishani Paul - RCI-licensed clinical psychologist.
             Individual, couples, adolescent & family therapy across India and for NRIs abroad.
           </div>
           <div

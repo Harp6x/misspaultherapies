@@ -12,7 +12,7 @@ interface Props {
 
 export function CTASection({
   headline = "Ready to Take the First Step?",
-  description = "Book a free 15-minute discovery call to see if we're the right fit — or go ahead and schedule your first session.",
+  description = "Book a free 15-minute discovery call to see if we're the right fit - or go ahead and schedule your first session.",
   primaryHref = "/book",
   primaryLabel = "Book a Session",
   secondaryHref = "/faq",

@@ -156,7 +156,7 @@ export function BurnoutQuiz() {
               responses={answers}
               resultTier={tier}
               headline="Get your free Burnout Recovery Roadmap"
-              description="A personalized PDF with strategies based on your score — plus weekly burnout prevention tips."
+              description="A personalized PDF with strategies based on your score - plus weekly burnout prevention tips."
               buttonText="Send me the roadmap"
             />
           </div>

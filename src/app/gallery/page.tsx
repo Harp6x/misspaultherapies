@@ -6,9 +6,9 @@ import { CTASection } from "@/components/CTASection";
 import { MediaEmbed } from "@/components/MediaEmbed";
 
 export const metadata = buildMetadata({
-  title: "Mental Health Videos & Reels — Therapy Tips & Insights",
+  title: "Mental Health Videos & Reels - Therapy Tips & Insights",
   description:
-    "Watch Instagram reels, YouTube videos, and mental health content from Ms Paul Therapies — practical therapy tips, coping strategies, and wellness conversations by Aishani Paul.",
+    "Watch Instagram reels, YouTube videos, and mental health content from Ms Paul Therapies - practical therapy tips, coping strategies, and wellness conversations by Aishani Paul.",
   path: "/gallery",
 });
 
@@ -26,12 +26,12 @@ export default async function GalleryPage() {
           Gallery &amp; Media
         </h1>
         <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
-          Reels, videos, and moments — follow along for mental health tips, insights, and conversations.
+          Reels, videos, and moments - follow along for mental health tips, insights, and conversations.
         </p>
 
         {items.length === 0 ? (
           <p className="mt-12 text-center text-muted-foreground">
-            Coming soon — check back for reels, videos, and more!
+            Coming soon - check back for reels, videos, and more!
           </p>
         ) : (
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

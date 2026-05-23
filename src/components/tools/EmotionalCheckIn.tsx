@@ -339,7 +339,7 @@ export function EmotionalCheckIn() {
               Want to explore these feelings with someone?
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Therapy is a space to understand what your emotions are telling you — and what to do with them.
+              Therapy is a space to understand what your emotions are telling you - and what to do with them.
             </p>
             <a
               href="/book"

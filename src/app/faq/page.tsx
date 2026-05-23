@@ -8,9 +8,9 @@ import { CTASection } from "@/components/CTASection";
 export const revalidate = 60;
 
 export const metadata = buildMetadata({
-  title: "Therapy FAQ — Sessions, Fees, Confidentiality & How to Get Started",
+  title: "Therapy FAQ - Sessions, Fees, Confidentiality & How to Get Started",
   description:
-    "Answers to common questions about online therapy with Aishani Paul — how sessions work, fees, confidentiality, insurance, and how to book your first appointment.",
+    "Answers to common questions about online therapy with Aishani Paul - how sessions work, fees, confidentiality, insurance, and how to book your first appointment.",
   path: "/faq",
 });
 
@@ -50,7 +50,7 @@ export default async function FAQPage() {
 
       <CTASection
         headline="Still Have Questions?"
-        description="Reach out via email or book a free 15-minute discovery call — I'm happy to answer anything."
+        description="Reach out via email or book a free 15-minute discovery call - I'm happy to answer anything."
       />
     </>
   );

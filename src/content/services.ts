@@ -21,7 +21,7 @@ export const services: Service[] = [
     highlights: [
       "Evidence-based approaches (CBT, DBT, psychodynamic)",
       "Personalised treatment plans",
-      "Flexible scheduling — online sessions",
+      "Flexible scheduling - online sessions",
     ],
     idealFor: [
       "Anxiety & stress",
@@ -32,7 +32,7 @@ export const services: Service[] = [
       "Life transitions",
     ],
     approach:
-      "Integrative and client-centred — combining cognitive-behavioural, psychodynamic, and mindfulness-based techniques tailored to your unique needs.",
+      "Integrative and client-centred - combining cognitive-behavioural, psychodynamic, and mindfulness-based techniques tailored to your unique needs.",
     fee: "₹1,500 per session",
   },
   {
@@ -63,7 +63,7 @@ export const services: Service[] = [
     title: "Adolescent Therapy",
     shortTitle: "Adolescent",
     description:
-      "Supportive therapy for teenagers (ages 13–19) dealing with academic pressure, identity exploration, peer relationships, and emotional regulation.",
+      "Supportive therapy for teenagers (ages 13-19) dealing with academic pressure, identity exploration, peer relationships, and emotional regulation.",
     icon: "GraduationCap",
     highlights: [
       "Age-appropriate, engaging therapeutic style",
@@ -78,7 +78,7 @@ export const services: Service[] = [
       "Family conflict",
     ],
     approach:
-      "A warm, relatable therapeutic style that meets adolescents where they are — using creative, cognitive, and talk-based approaches.",
+      "A warm, relatable therapeutic style that meets adolescents where they are - using creative, cognitive, and talk-based approaches.",
     fee: "₹1,500 per session",
   },
   {
@@ -101,8 +101,8 @@ export const services: Service[] = [
       "Supporting a family member's mental health",
     ],
     approach:
-      "Systemic family therapy — exploring relationships, roles, and patterns to create lasting positive change for the whole family unit.",
-    fee: "₹3,500 – ₹5,000 per session",
+      "Systemic family therapy - exploring relationships, roles, and patterns to create lasting positive change for the whole family unit.",
+    fee: "₹3,500 - ₹5,000 per session",
   },
   {
     slug: "psychological-assessments",
@@ -124,7 +124,7 @@ export const services: Service[] = [
     ],
     approach:
       "A thorough, multi-session evaluation process using internationally recognised psychometric tools, culminating in a detailed report and feedback session.",
-    fee: "₹500 – ₹7,500 (varies by assessment)",
+    fee: "₹500 - ₹7,500 (varies by assessment)",
   },
   {
     slug: "nri-abroad",

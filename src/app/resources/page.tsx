@@ -11,7 +11,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 
 export const metadata = buildMetadata({
-  title: "Resources — Guides, Checklists & Crisis Links",
+  title: "Resources - Guides, Checklists & Crisis Links",
   description:
     "Free mental health resources including therapy preparation guides, self-care checklists, and crisis helpline numbers.",
   path: "/resources",
@@ -24,9 +24,9 @@ const resources = [
     tag: "Guide",
     content: `<ul>
 <li><strong>Find a private, quiet space</strong> where you won't be interrupted for 50 minutes. Use headphones if needed.</li>
-<li><strong>Test your tech</strong> — check your internet, camera, and microphone 5 minutes before.</li>
+<li><strong>Test your tech</strong> - check your internet, camera, and microphone 5 minutes before.</li>
 <li><strong>Fill out the intake form</strong> on the <a href="/book" style="text-decoration:underline">Book page</a> before your session.</li>
-<li><strong>Jot down your thoughts</strong> — what brought you to therapy, what you'd like to work on, any questions for me.</li>
+<li><strong>Jot down your thoughts</strong> - what brought you to therapy, what you'd like to work on, any questions for me.</li>
 <li><strong>Have water nearby</strong> and give yourself 10 minutes of buffer time afterwards to decompress.</li>
 <li><strong>Remember:</strong> there's no right or wrong way to start. Just show up as you are.</li>
 </ul>`,
@@ -37,12 +37,12 @@ const resources = [
     tag: "Worksheet",
     content: `<p>Use these prompts to reflect before or between sessions:</p>
 <ol>
-<li><strong>What brought me to therapy?</strong> Write 2–3 sentences about your main concern.</li>
+<li><strong>What brought me to therapy?</strong> Write 2-3 sentences about your main concern.</li>
 <li><strong>How is this affecting my daily life?</strong> (Work, relationships, sleep, mood, energy.)</li>
-<li><strong>What does "feeling better" look like for me?</strong> Be specific — e.g. "I want to sleep through the night" rather than "I want to be happy."</li>
+<li><strong>What does "feeling better" look like for me?</strong> Be specific - e.g. "I want to sleep through the night" rather than "I want to be happy."</li>
 <li><strong>What have I already tried?</strong> List coping strategies that have or haven't worked.</li>
-<li><strong>What am I hoping to gain from therapy?</strong> Skills, insight, relief, a safe space — all are valid.</li>
-<li><strong>On a scale of 1–10, where am I right now?</strong> Track this monthly to see progress.</li>
+<li><strong>What am I hoping to gain from therapy?</strong> Skills, insight, relief, a safe space - all are valid.</li>
+<li><strong>On a scale of 1-10, where am I right now?</strong> Track this monthly to see progress.</li>
 </ol>
 <p><em>Bring this to your first session or share it with your therapist anytime.</em></p>`,
   },
@@ -52,44 +52,44 @@ const resources = [
     tag: "Reading List",
     content: `<h3>Anxiety & Stress</h3>
 <ul>
-<li><strong>The Anxiety & Phobia Workbook</strong> — Edmund Bourne</li>
-<li><strong>Dare: The New Way to End Anxiety</strong> — Barry McDonagh</li>
+<li><strong>The Anxiety & Phobia Workbook</strong> - Edmund Bourne</li>
+<li><strong>Dare: The New Way to End Anxiety</strong> - Barry McDonagh</li>
 </ul>
 <h3>Depression</h3>
 <ul>
-<li><strong>Feeling Good: The New Mood Therapy</strong> — David Burns</li>
-<li><strong>Lost Connections</strong> — Johann Hari</li>
+<li><strong>Feeling Good: The New Mood Therapy</strong> - David Burns</li>
+<li><strong>Lost Connections</strong> - Johann Hari</li>
 </ul>
 <h3>Relationships</h3>
 <ul>
-<li><strong>Hold Me Tight</strong> — Sue Johnson</li>
-<li><strong>The Seven Principles for Making Marriage Work</strong> — John Gottman</li>
-<li><strong>Attached</strong> — Amir Levine & Rachel Heller</li>
+<li><strong>Hold Me Tight</strong> - Sue Johnson</li>
+<li><strong>The Seven Principles for Making Marriage Work</strong> - John Gottman</li>
+<li><strong>Attached</strong> - Amir Levine & Rachel Heller</li>
 </ul>
 <h3>Self-Esteem & Boundaries</h3>
 <ul>
-<li><strong>Set Boundaries, Find Peace</strong> — Nedra Glover Tawwab</li>
-<li><strong>The Gifts of Imperfection</strong> — Brene Brown</li>
+<li><strong>Set Boundaries, Find Peace</strong> - Nedra Glover Tawwab</li>
+<li><strong>The Gifts of Imperfection</strong> - Brene Brown</li>
 </ul>
 <h3>Trauma</h3>
 <ul>
-<li><strong>The Body Keeps the Score</strong> — Bessel van der Kolk</li>
-<li><strong>What Happened to You?</strong> — Bruce Perry & Oprah Winfrey</li>
+<li><strong>The Body Keeps the Score</strong> - Bessel van der Kolk</li>
+<li><strong>What Happened to You?</strong> - Bruce Perry & Oprah Winfrey</li>
 </ul>
 <h3>Mindfulness</h3>
 <ul>
-<li><strong>Wherever You Go, There You Are</strong> — Jon Kabat-Zinn</li>
-<li><strong>The Miracle of Mindfulness</strong> — Thich Nhat Hanh</li>
+<li><strong>Wherever You Go, There You Are</strong> - Jon Kabat-Zinn</li>
+<li><strong>The Miracle of Mindfulness</strong> - Thich Nhat Hanh</li>
 </ul>`,
   },
   {
     icon: CheckSquare,
     title: "Self-Care Audit Checklist",
     tag: "Checklist",
-    content: `<p>Rate yourself 1–5 on each area (1 = neglected, 5 = thriving):</p>
+    content: `<p>Rate yourself 1-5 on each area (1 = neglected, 5 = thriving):</p>
 <h3>Physical</h3>
 <ul>
-<li>I get 7–9 hours of sleep most nights</li>
+<li>I get 7-9 hours of sleep most nights</li>
 <li>I move my body regularly (walking, yoga, exercise)</li>
 <li>I eat nourishing meals and stay hydrated</li>
 <li>I attend medical/dental check-ups when needed</li>
@@ -119,7 +119,7 @@ const resources = [
   },
   {
     icon: FileText,
-    title: "When to Seek Help — A Quick Guide",
+    title: "When to Seek Help - A Quick Guide",
     tag: "Guide",
     content: `<p>It can be hard to know when to reach out. Consider seeking professional support if:</p>
 <ul>
@@ -129,7 +129,7 @@ const resources = [
 <li>You're relying on alcohol, substances, or other unhealthy coping mechanisms more than usual</li>
 <li>You're having difficulty functioning at work, school, or in relationships</li>
 <li>You feel stuck in the same patterns despite trying to change on your own</li>
-<li>You've experienced a major life event — loss, breakup, move, job change — and are struggling to adjust</li>
+<li>You've experienced a major life event - loss, breakup, move, job change - and are struggling to adjust</li>
 <li>You're having thoughts of self-harm or suicide (if so, please visit our <a href="/emergency-resources" style="text-decoration:underline">Emergency Resources</a> page immediately)</li>
 </ul>
 <p><strong>You don't need to be in crisis to benefit from therapy.</strong> If something feels "off," that's reason enough to explore support.</p>`,
@@ -149,7 +149,7 @@ const resources = [
 <p>Explores how past experiences, unconscious patterns, and early relationships shape your current behaviour and feelings. Helpful for deeper self-understanding.</p>
 <h3>Mindfulness-Based Approaches</h3>
 <p>Incorporates present-moment awareness, acceptance, and non-judgement. Often combined with CBT (as MBCT) for relapse prevention in depression and anxiety management.</p>
-<p><em>I use an integrative approach — drawing from multiple modalities based on what works best for you. We'll discuss this together in your sessions.</em></p>`,
+<p><em>I use an integrative approach - drawing from multiple modalities based on what works best for you. We'll discuss this together in your sessions.</em></p>`,
   },
 ];
 

@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GuidedReflection } from "@/components/tools/GuidedReflection";
 
 export const metadata = buildMetadata({
-  title: "Guided Reflection — Personalised Mental Health Check-In",
+  title: "Guided Reflection - Personalised Mental Health Check-In",
   description:
     "Free mental health reflection tool: choose a theme (anxiety, self-worth, relationships, grief, growth, stress), answer 5 questions, and get personalised, clinically grounded feedback. No login required.",
   path: "/tools/reflect",
@@ -32,7 +32,7 @@ export default function ReflectPage() {
           guidance. Everything stays on your device.
         </p>
         <p className="mt-2 text-xs text-muted-foreground/70">
-          3–5 minutes &middot; 5 questions &middot; No login required &middot; 100% private
+          3-5 minutes &middot; 5 questions &middot; No login required &middot; 100% private
         </p>
       </div>
 

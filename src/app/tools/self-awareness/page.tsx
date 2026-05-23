@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SelfAwareness } from "@/components/tools/SelfAwareness";
 
 export const metadata = buildMetadata({
-  title: "7-Day Self-Awareness Journey — Scored Assessments for Inner Clarity",
+  title: "7-Day Self-Awareness Journey - Scored Assessments for Inner Clarity",
   description:
     "A free 7-day self-awareness journey with scored assessments: identity, values, patterns, triggers, strengths, shadow, and integration. Personalised results each day. By a clinical psychologist.",
   path: "/tools/self-awareness",
@@ -32,7 +32,7 @@ export default function SelfAwarenessPage() {
           strengths, shadow, and integration. Progress saved locally.
         </p>
         <p className="mt-2 text-xs text-muted-foreground/70">
-          2–3 min per day &middot; 3 questions each &middot; Unlock days sequentially &middot; 100% private
+          2-3 min per day &middot; 3 questions each &middot; Unlock days sequentially &middot; 100% private
         </p>
       </div>
 

@@ -29,22 +29,22 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>It's Completely Normal to Feel Nervous</h2>
-<p>If you're about to attend your first therapy session, you might be feeling a mix of emotions — hope, anxiety, curiosity, maybe even a little dread. That's completely normal. Most people feel some level of nervousness before their first session, and that's okay. The fact that you've taken this step already says a lot about your courage.</p>
+<p>If you're about to attend your first therapy session, you might be feeling a mix of emotions - hope, anxiety, curiosity, maybe even a little dread. That's completely normal. Most people feel some level of nervousness before their first session, and that's okay. The fact that you've taken this step already says a lot about your courage.</p>
 
 <h2>Before the Session</h2>
 <p>Here are a few things you can do to prepare:</p>
 <ul>
-<li><strong>Complete any intake forms:</strong> Your therapist may send you a brief questionnaire beforehand. Fill it out honestly — it helps your therapist understand your background and tailor the session to you.</li>
+<li><strong>Complete any intake forms:</strong> Your therapist may send you a brief questionnaire beforehand. Fill it out honestly - it helps your therapist understand your background and tailor the session to you.</li>
 <li><strong>Find a quiet, private space:</strong> Since sessions are online, choose a room where you won't be interrupted. Use headphones if it helps you feel more comfortable.</li>
 <li><strong>Test your tech:</strong> Check your internet connection, camera, and microphone a few minutes before. A smooth setup helps you feel at ease.</li>
 <li><strong>Jot down your thoughts:</strong> You don't need a script, but it can help to write down what brought you to therapy and what you'd like to work on.</li>
 </ul>
 
 <h2>What Actually Happens in the First Session</h2>
-<p>The first session — sometimes called an intake or assessment session — is mostly about getting to know each other. Here's what typically happens:</p>
+<p>The first session - sometimes called an intake or assessment session - is mostly about getting to know each other. Here's what typically happens:</p>
 <ul>
 <li><strong>Introductions and rapport building:</strong> Your therapist will introduce themselves, explain how therapy works, and create a warm, welcoming space.</li>
-<li><strong>Understanding your concerns:</strong> You'll be invited to share what brought you to therapy. There's no pressure to reveal everything at once — go at your own pace.</li>
+<li><strong>Understanding your concerns:</strong> You'll be invited to share what brought you to therapy. There's no pressure to reveal everything at once - go at your own pace.</li>
 <li><strong>Background information:</strong> Your therapist may ask about your personal history, relationships, work, health, and any previous experience with therapy or counselling.</li>
 <li><strong>Setting goals together:</strong> Toward the end, you'll discuss what you'd like to achieve and begin mapping out a plan together.</li>
 <li><strong>Questions and logistics:</strong> You'll have time to ask questions about the process, session frequency, confidentiality, and anything else on your mind.</li>
@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>What You Don't Need to Worry About</h2>
 <p>There's no "right" way to do therapy. You don't need to have your thoughts perfectly organised. You don't need to cry (though it's perfectly fine if you do). You don't need to impress your therapist. This space is entirely for you.</p>
-<p>Your therapist is trained to meet you where you are — no judgement, no expectations. The first session is simply the beginning of a conversation.</p>
+<p>Your therapist is trained to meet you where you are - no judgement, no expectations. The first session is simply the beginning of a conversation.</p>
 
 <h2>After the Session</h2>
 <p>You might feel lighter, or you might feel emotionally stirred up. Both are normal responses. Give yourself some time to decompress. Take a walk, journal, or simply rest. Over the next few sessions, you'll start to settle into the process and begin noticing shifts in how you think and feel.</p>
@@ -73,7 +73,7 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>What Is Anxiety, Really?</h2>
-<p>Anxiety is your body's natural response to perceived threat or stress. In small doses, it's actually helpful — it keeps you alert before a big presentation, motivates you to prepare for an exam, and helps you stay safe in genuinely dangerous situations.</p>
+<p>Anxiety is your body's natural response to perceived threat or stress. In small doses, it's actually helpful - it keeps you alert before a big presentation, motivates you to prepare for an exam, and helps you stay safe in genuinely dangerous situations.</p>
 <p>But when anxiety becomes persistent, overwhelming, or disproportionate to the situation, it starts to interfere with your daily life. That's when it shifts from a normal emotion to a clinical concern.</p>
 
 <h2>Common Signs of Anxiety</h2>
@@ -84,7 +84,7 @@ export const blogPosts: BlogPost[] = [
 <li>Racing or pounding heartbeat</li>
 <li>Shortness of breath or chest tightness</li>
 <li>Muscle tension, especially in the jaw, neck, or shoulders</li>
-<li>Stomach problems — nausea, churning, or loss of appetite</li>
+<li>Stomach problems - nausea, churning, or loss of appetite</li>
 <li>Difficulty sleeping or restless sleep</li>
 <li>Fatigue and exhaustion, even after rest</li>
 </ul>
@@ -114,22 +114,22 @@ export const blogPosts: BlogPost[] = [
 <p>When anxiety pulls you into your head, grounding brings you back to the present. Try the <strong>5-4-3-2-1 technique</strong>: name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste.</p>
 
 <h3>2. Box Breathing</h3>
-<p>Inhale for 4 counts, hold for 4 counts, exhale for 4 counts, hold for 4 counts. Repeat 4–5 times. This activates your parasympathetic nervous system and calms the fight-or-flight response.</p>
+<p>Inhale for 4 counts, hold for 4 counts, exhale for 4 counts, hold for 4 counts. Repeat 4-5 times. This activates your parasympathetic nervous system and calms the fight-or-flight response.</p>
 
 <h3>3. Challenge Anxious Thoughts</h3>
 <p>Ask yourself: <em>"Is this thought based on facts or feelings? What would I say to a friend thinking this? What's the most realistic outcome?"</em> This is a core technique in Cognitive Behavioural Therapy (CBT).</p>
 
 <h3>4. Limit Avoidance</h3>
-<p>Avoidance feels good in the short term but reinforces anxiety in the long run. Gradually facing feared situations — with support — helps your brain learn that the threat is manageable.</p>
+<p>Avoidance feels good in the short term but reinforces anxiety in the long run. Gradually facing feared situations - with support - helps your brain learn that the threat is manageable.</p>
 
 <h3>5. Routine and Structure</h3>
-<p>Anxiety thrives on uncertainty. Building a predictable daily routine — regular sleep, meals, movement, and downtime — can significantly reduce baseline anxiety levels.</p>
+<p>Anxiety thrives on uncertainty. Building a predictable daily routine - regular sleep, meals, movement, and downtime - can significantly reduce baseline anxiety levels.</p>
 
 <h3>6. Movement</h3>
 <p>Physical activity is one of the most powerful anxiety reducers available. Even a 20-minute walk can lower cortisol levels and boost mood-regulating neurotransmitters.</p>
 
 <h2>When to Seek Professional Help</h2>
-<p>If anxiety is interfering with your work, relationships, sleep, or overall quality of life — it's time to talk to a professional. You don't need to wait until things feel unbearable. Early intervention leads to better outcomes.</p>
+<p>If anxiety is interfering with your work, relationships, sleep, or overall quality of life - it's time to talk to a professional. You don't need to wait until things feel unbearable. Early intervention leads to better outcomes.</p>
 
 <p>Therapy approaches like CBT, DBT, and mindfulness-based interventions are highly effective for anxiety. <a href="/book" style="color: inherit; text-decoration: underline;">Reach out</a> if you'd like to explore how therapy can help.</p>
 `,
@@ -145,7 +145,7 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>Why Communication Breaks Down</h2>
-<p>Most relationship conflicts aren't really about the dishes, the in-laws, or who forgot to reply to a message. They're about unmet needs, unspoken expectations, and feeling unheard. When communication breaks down, partners often fall into patterns of criticism, defensiveness, stonewalling, or contempt — what relationship researcher Dr. John Gottman calls the "Four Horsemen."</p>
+<p>Most relationship conflicts aren't really about the dishes, the in-laws, or who forgot to reply to a message. They're about unmet needs, unspoken expectations, and feeling unheard. When communication breaks down, partners often fall into patterns of criticism, defensiveness, stonewalling, or contempt - what relationship researcher Dr. John Gottman calls the "Four Horsemen."</p>
 <p>The good news? Communication is a skill, and skills can be learned.</p>
 
 <h2>Techniques That Actually Work</h2>
@@ -154,14 +154,14 @@ export const blogPosts: BlogPost[] = [
 <p>Instead of <em>"You never listen to me,"</em> try <em>"I feel unheard when I'm speaking and I notice you're on your phone."</em> "I" statements express your experience without blaming, which makes your partner less likely to become defensive.</p>
 
 <h3>2. Listen to Understand, Not to Respond</h3>
-<p>Active listening means giving your full attention, reflecting back what you heard, and asking clarifying questions. It's not about agreeing — it's about making your partner feel genuinely understood.</p>
+<p>Active listening means giving your full attention, reflecting back what you heard, and asking clarifying questions. It's not about agreeing - it's about making your partner feel genuinely understood.</p>
 <p>Try this: After your partner finishes speaking, say <em>"What I'm hearing is…"</em> and summarise. Ask <em>"Did I get that right?"</em></p>
 
 <h3>3. Take Time-Outs (Without Shutting Down)</h3>
 <p>When emotions escalate, it's okay to press pause. But there's a difference between a healthy time-out and stonewalling. A healthy time-out sounds like: <em>"I need 20 minutes to calm down. I'll come back and we can continue."</em> Then follow through.</p>
 
 <h3>4. Express Appreciation Regularly</h3>
-<p>Relationships that thrive have a ratio of at least 5 positive interactions for every 1 negative one. Make it a habit to express genuine gratitude, affection, and acknowledgment — not just during conflict resolution, but daily.</p>
+<p>Relationships that thrive have a ratio of at least 5 positive interactions for every 1 negative one. Make it a habit to express genuine gratitude, affection, and acknowledgment - not just during conflict resolution, but daily.</p>
 
 <h3>5. Repair After Conflict</h3>
 <p>No couple communicates perfectly. What matters is how you repair. A sincere apology, a gentle touch, humour, or simply saying <em>"I didn't handle that well. Can we try again?"</em> goes a long way.</p>
@@ -176,7 +176,7 @@ export const blogPosts: BlogPost[] = [
     slug: "breaking-the-stigma-mental-health-in-indian-culture",
     title: "Breaking the Stigma: Mental Health in Indian Culture",
     description:
-      "Exploring the cultural barriers to seeking mental health support in India and why it's okay — and important — to ask for help.",
+      "Exploring the cultural barriers to seeking mental health support in India and why it's okay - and important - to ask for help.",
     category: "Cultural Perspectives",
     datePublished: "2025-02-10",
     readingTime: "8 min read",
@@ -197,8 +197,8 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>The Cost of Silence</h2>
-<p>When we don't talk about mental health, people suffer alone. They turn to unhealthy coping mechanisms — substance use, self-harm, withdrawal, or aggression. Relationships deteriorate. Work performance drops. Physical health declines. And in the worst cases, lives are lost.</p>
-<p>India has one of the highest rates of suicide in the world, particularly among young people aged 15–29. Behind every statistic is a person who didn't get the help they needed — often because they felt they couldn't ask.</p>
+<p>When we don't talk about mental health, people suffer alone. They turn to unhealthy coping mechanisms - substance use, self-harm, withdrawal, or aggression. Relationships deteriorate. Work performance drops. Physical health declines. And in the worst cases, lives are lost.</p>
+<p>India has one of the highest rates of suicide in the world, particularly among young people aged 15-29. Behind every statistic is a person who didn't get the help they needed - often because they felt they couldn't ask.</p>
 
 <h2>How Things Are Changing</h2>
 <p>The conversation <em>is</em> shifting, slowly but meaningfully:</p>
@@ -213,7 +213,7 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li><strong>Start the conversation:</strong> Talk about feelings openly with friends and family. Normalise checking in on each other's mental health.</li>
 <li><strong>Educate yourself:</strong> Learn to recognise signs of common mental health conditions. Share reliable resources with your circle.</li>
-<li><strong>Challenge stigma gently:</strong> When someone dismisses mental health, offer a different perspective. You don't need to argue — just plant a seed.</li>
+<li><strong>Challenge stigma gently:</strong> When someone dismisses mental health, offer a different perspective. You don't need to argue - just plant a seed.</li>
 <li><strong>Lead by example:</strong> If you've benefited from therapy, share your experience (when safe to do so). Your story might encourage someone else to seek help.</li>
 </ul>
 
@@ -233,20 +233,20 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>What Self-Care Actually Means</h2>
-<p>Self-care has become a buzzword, often reduced to spa days, scented candles, and "treat yourself" culture. While there's nothing wrong with those things, genuine self-care goes much deeper. It's about consistently meeting your own needs — physical, emotional, social, and mental — so that you can function at your best.</p>
+<p>Self-care has become a buzzword, often reduced to spa days, scented candles, and "treat yourself" culture. While there's nothing wrong with those things, genuine self-care goes much deeper. It's about consistently meeting your own needs - physical, emotional, social, and mental - so that you can function at your best.</p>
 <p>Real self-care isn't always glamorous. Sometimes it looks like going to bed on time, saying no to a social event when you're drained, having a difficult conversation, or booking that doctor's appointment you've been putting off.</p>
 
 <h2>Why We Struggle with Self-Care</h2>
-<p>Many of us — especially women, caregivers, and people from collectivist cultures — are taught to put others first. Self-care feels selfish, indulgent, or even guilty. But here's the truth: <strong>you cannot pour from an empty cup.</strong></p>
+<p>Many of us - especially women, caregivers, and people from collectivist cultures - are taught to put others first. Self-care feels selfish, indulgent, or even guilty. But here's the truth: <strong>you cannot pour from an empty cup.</strong></p>
 <p>Neglecting your own needs doesn't make you a better partner, parent, friend, or professional. It makes you depleted, resentful, and more vulnerable to burnout and mental health struggles.</p>
 
 <h2>The Four Pillars of Self-Care</h2>
 
 <h3>1. Physical Self-Care</h3>
 <ul>
-<li>Regular sleep (7–9 hours, consistent schedule)</li>
-<li>Nourishing food (not restrictive diets — food that makes you feel good)</li>
-<li>Movement you enjoy (walking, dancing, yoga — it doesn't have to be a gym)</li>
+<li>Regular sleep (7-9 hours, consistent schedule)</li>
+<li>Nourishing food (not restrictive diets - food that makes you feel good)</li>
+<li>Movement you enjoy (walking, dancing, yoga - it doesn't have to be a gym)</li>
 <li>Medical check-ups and attention to physical symptoms</li>
 </ul>
 
@@ -299,7 +299,7 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>Couples Therapy Isn't Just for "Bad" Relationships</h2>
-<p>There's a common misconception that couples therapy is a last resort — something you try when your relationship is already falling apart. In reality, the most successful outcomes happen when couples seek support <em>before</em> things reach a breaking point.</p>
+<p>There's a common misconception that couples therapy is a last resort - something you try when your relationship is already falling apart. In reality, the most successful outcomes happen when couples seek support <em>before</em> things reach a breaking point.</p>
 <p>Think of it like physiotherapy. You don't wait until you can't walk to see a physio. You go when something feels off, when movement is restricted, when a small pain starts affecting your daily life. Relationships work the same way.</p>
 
 <h2>Signs It Might Be Time</h2>
@@ -312,19 +312,19 @@ export const blogPosts: BlogPost[] = [
 <p>You fight about the same issues over and over without resolution. The specifics change, but the underlying dynamic stays the same. This often signals deeper unmet needs that haven't been addressed.</p>
 
 <h3>Emotional or Physical Distance</h3>
-<p>You feel more like roommates than partners. Intimacy — emotional or physical — has faded. You spend time together but don't truly connect.</p>
+<p>You feel more like roommates than partners. Intimacy - emotional or physical - has faded. You spend time together but don't truly connect.</p>
 
 <h3>Trust Has Been Damaged</h3>
 <p>Whether through infidelity, dishonesty, or broken promises, trust is difficult to rebuild without professional guidance. A therapist can help both partners process hurt and create a path toward repair.</p>
 
 <h3>A Major Life Transition</h3>
-<p>Moving cities, having a baby, career changes, loss of a family member, or navigating cultural differences — major transitions put stress on relationships. Therapy helps you adapt together rather than drift apart.</p>
+<p>Moving cities, having a baby, career changes, loss of a family member, or navigating cultural differences - major transitions put stress on relationships. Therapy helps you adapt together rather than drift apart.</p>
 
 <h3>You're Considering Separation</h3>
 <p>If you're thinking about ending the relationship, therapy can help you either find a path forward together or part ways with clarity and mutual respect. Both are valid outcomes.</p>
 
 <h2>What Happens in Couples Therapy?</h2>
-<p>In the first session, your therapist will get to know both of you — your relationship history, current challenges, and what you each hope to achieve. Sessions typically involve:</p>
+<p>In the first session, your therapist will get to know both of you - your relationship history, current challenges, and what you each hope to achieve. Sessions typically involve:</p>
 <ul>
 <li>Identifying unhelpful communication patterns</li>
 <li>Learning to express needs without blame or criticism</li>
@@ -334,7 +334,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <p>Your therapist is not a referee. They won't take sides. Their role is to create a safe space where both partners can be heard and understood.</p>
 
-<h2>It Takes Two — But One Can Start</h2>
+<h2>It Takes Two - But One Can Start</h2>
 <p>Ideally, both partners attend. But if your partner is hesitant, you can start with individual sessions to explore your own feelings and relationship patterns. Sometimes, one partner beginning therapy creates enough positive change to motivate the other to join.</p>
 
 <p>Ready to invest in your relationship? <a href="/services/couples-therapy" style="color: inherit; text-decoration: underline;">Learn more about couples therapy</a> or <a href="/book" style="color: inherit; text-decoration: underline;">book a session</a>.</p>
@@ -351,7 +351,7 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>The Weight of Expectations</h2>
-<p>For many teenagers in India, academic performance isn't just about grades — it's tied to self-worth, family pride, and future security. The pressure to crack competitive exams, maintain a high percentage, and "make it" can feel relentless.</p>
+<p>For many teenagers in India, academic performance isn't just about grades - it's tied to self-worth, family pride, and future security. The pressure to crack competitive exams, maintain a high percentage, and "make it" can feel relentless.</p>
 <p>While some degree of academic motivation is healthy, excessive pressure can lead to anxiety, burnout, sleep disorders, social withdrawal, and in severe cases, depression and self-harm.</p>
 
 <h2>Signs That Academic Pressure Is Too Much</h2>
@@ -362,7 +362,7 @@ export const blogPosts: BlogPost[] = [
 <li>Loss of interest in hobbies, friends, or activities they used to enjoy</li>
 <li>Irritability, mood swings, or emotional outbursts</li>
 <li>Physical symptoms like headaches, stomach aches, or fatigue</li>
-<li>Perfectionism — feeling that anything less than the best is failure</li>
+<li>Perfectionism - feeling that anything less than the best is failure</li>
 <li>Procrastination driven by fear of not meeting expectations</li>
 <li>Statements like "I'm not good enough" or "What's the point?"</li>
 </ul>
@@ -376,10 +376,10 @@ export const blogPosts: BlogPost[] = [
 <p>Aim for <em>your</em> best, not someone else's. Compare yourself to where you were last month, not to the class topper. Growth is personal.</p>
 
 <h3>3. Build in Breaks</h3>
-<p>Studying for hours without breaks doesn't improve performance — it kills it. Use the Pomodoro technique: 25 minutes of focused study, 5-minute break. After 4 rounds, take a longer break.</p>
+<p>Studying for hours without breaks doesn't improve performance - it kills it. Use the Pomodoro technique: 25 minutes of focused study, 5-minute break. After 4 rounds, take a longer break.</p>
 
 <h3>4. Maintain a Life Outside Studies</h3>
-<p>Hobbies, physical activity, friendships, and creative outlets aren't distractions — they're essential. A balanced life supports a balanced mind.</p>
+<p>Hobbies, physical activity, friendships, and creative outlets aren't distractions - they're essential. A balanced life supports a balanced mind.</p>
 
 <h3>5. Talk About How You Feel</h3>
 <p>You don't have to carry the pressure alone. Talk to a trusted friend, sibling, teacher, or counsellor. Sometimes just saying "I'm stressed" out loud can lighten the load.</p>
@@ -388,9 +388,9 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li><strong>Check your own expectations:</strong> Are your academic goals for your child based on their abilities and interests, or on comparison with others?</li>
 <li><strong>Praise effort, not just results:</strong> "I'm proud of how hard you worked" matters more than "I'm proud you got 95%."</li>
-<li><strong>Create space for honest conversations:</strong> Ask how they're feeling — and really listen. Don't dismiss their stress with "You'll be fine."</li>
+<li><strong>Create space for honest conversations:</strong> Ask how they're feeling - and really listen. Don't dismiss their stress with "You'll be fine."</li>
 <li><strong>Model healthy coping:</strong> How you handle your own stress teaches your child how to handle theirs.</li>
-<li><strong>Know when to seek help:</strong> If your teen is showing persistent signs of distress, a professional can help. There's no shame in that — it's responsible parenting.</li>
+<li><strong>Know when to seek help:</strong> If your teen is showing persistent signs of distress, a professional can help. There's no shame in that - it's responsible parenting.</li>
 </ul>
 
 <blockquote>Your worth is not defined by a number on a marksheet. You are so much more than your grades.</blockquote>
@@ -409,18 +409,18 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>The Unique Challenges of Being an NRI</h2>
-<p>Moving to a new country is exciting — but it also comes with a set of psychological challenges that are rarely talked about. As an NRI (Non-Resident Indian), you might be navigating:</p>
+<p>Moving to a new country is exciting - but it also comes with a set of psychological challenges that are rarely talked about. As an NRI (Non-Resident Indian), you might be navigating:</p>
 <ul>
 <li><strong>Identity conflicts:</strong> Balancing your Indian identity with the culture of your host country. Feeling "too Indian" in one context and "not Indian enough" in another.</li>
 <li><strong>Homesickness and loneliness:</strong> Missing family, festivals, food, and the comfort of belonging. Time zone differences making it hard to stay connected.</li>
-<li><strong>Family pressure from afar:</strong> Expectations about marriage, career, sending money home, or returning to India — often accompanied by guilt.</li>
+<li><strong>Family pressure from afar:</strong> Expectations about marriage, career, sending money home, or returning to India - often accompanied by guilt.</li>
 <li><strong>Relationship strain:</strong> Intercultural relationships, long-distance family dynamics, or raising children between two cultures.</li>
 <li><strong>Discrimination and microaggressions:</strong> Navigating racism, othering, or feeling invisible in your adopted country.</li>
 <li><strong>Career and visa stress:</strong> The constant anxiety of visa renewals, work permits, and career uncertainty tied to immigration status.</li>
 </ul>
 
 <h2>Why a Regular Therapist Might Not Get It</h2>
-<p>Therapy is deeply personal, and cultural context shapes everything — how you express emotions, what you consider a "problem," your relationship with family, your views on independence, and what success means to you.</p>
+<p>Therapy is deeply personal, and cultural context shapes everything - how you express emotions, what you consider a "problem," your relationship with family, your views on independence, and what success means to you.</p>
 <p>A therapist unfamiliar with Indian culture might:</p>
 <ul>
 <li>Underestimate the role of family in your decision-making</li>
@@ -436,7 +436,7 @@ export const blogPosts: BlogPost[] = [
 <li>Understand the nuances of Indian family dynamics without pathologising them</li>
 <li>Acknowledge the real impact of racism, othering, and cultural displacement</li>
 <li>Respect your spiritual or religious beliefs as part of your coping toolkit</li>
-<li>Adapt therapeutic approaches to fit your worldview — not the other way around</li>
+<li>Adapt therapeutic approaches to fit your worldview - not the other way around</li>
 <li>Speak your language (literally and figuratively)</li>
 </ul>
 
@@ -445,7 +445,7 @@ export const blogPosts: BlogPost[] = [
 <p>Sessions can be scheduled across time zones. You can speak in English, Hindi, Bengali, or a comfortable mix. And you get the cultural fluency that makes therapy feel natural rather than like you're explaining your entire upbringing before getting to the actual problem.</p>
 
 <h2>You Deserve to Be Understood</h2>
-<p>If you've tried therapy abroad and felt like something was missing — or if you've never tried because you couldn't find the right fit — know that culturally sensitive options exist.</p>
+<p>If you've tried therapy abroad and felt like something was missing - or if you've never tried because you couldn't find the right fit - know that culturally sensitive options exist.</p>
 
 <p>Living abroad doesn't mean you have to navigate your mental health alone. <a href="/services/nri-therapy-abroad" style="color: inherit; text-decoration: underline;">Learn more about NRI therapy</a> or <a href="/book" style="color: inherit; text-decoration: underline;">book a session</a>.</p>
 `,
@@ -462,14 +462,14 @@ export const blogPosts: BlogPost[] = [
     body: `
 <h2>Sadness Is Normal. Depression Is Different.</h2>
 <p>Sadness is a natural human emotion. It comes in response to loss, disappointment, rejection, or difficult life events. It hurts, but it passes. You might cry, feel low for a day or two, and then gradually start feeling like yourself again.</p>
-<p>Depression is something else entirely. It's not just "feeling sad." It's a persistent condition that affects how you think, feel, and function — often for weeks, months, or even years.</p>
+<p>Depression is something else entirely. It's not just "feeling sad." It's a persistent condition that affects how you think, feel, and function - often for weeks, months, or even years.</p>
 
 <h2>How to Tell the Difference</h2>
 
 <h3>Sadness</h3>
 <ul>
 <li>Has a clear trigger (breakup, loss, failure, conflict)</li>
-<li>Comes and goes — you can still enjoy some things</li>
+<li>Comes and goes - you can still enjoy some things</li>
 <li>Doesn't usually affect your ability to work, eat, or sleep for long</li>
 <li>Gradually lifts on its own, especially with support and time</li>
 <li>You can still see a future and feel hopeful</li>
@@ -477,20 +477,20 @@ export const blogPosts: BlogPost[] = [
 
 <h3>Depression</h3>
 <ul>
-<li>May or may not have a clear trigger — sometimes it just descends</li>
+<li>May or may not have a clear trigger - sometimes it just descends</li>
 <li>Persistent low mood for most of the day, nearly every day, for at least two weeks</li>
 <li>Loss of interest or pleasure in things you used to enjoy (anhedonia)</li>
 <li>Significant changes in appetite, sleep, or energy levels</li>
 <li>Difficulty concentrating, making decisions, or remembering things</li>
 <li>Feelings of worthlessness, excessive guilt, or self-blame</li>
-<li>Social withdrawal — pulling away from friends, family, and activities</li>
-<li>Physical symptoms — unexplained aches, heaviness, or fatigue</li>
+<li>Social withdrawal - pulling away from friends, family, and activities</li>
+<li>Physical symptoms - unexplained aches, heaviness, or fatigue</li>
 <li>In severe cases, thoughts of death or suicide</li>
 </ul>
 
 <h2>The Grey Area</h2>
-<p>Depression doesn't always look like the textbook description. Some people with depression still go to work, maintain relationships, and appear "fine" on the outside. This is sometimes called <strong>high-functioning depression</strong> or <strong>persistent depressive disorder (dysthymia)</strong> — and it's just as valid and deserving of support.</p>
-<p>Other times, depression manifests as irritability, anger, or restlessness rather than sadness — especially in men and adolescents.</p>
+<p>Depression doesn't always look like the textbook description. Some people with depression still go to work, maintain relationships, and appear "fine" on the outside. This is sometimes called <strong>high-functioning depression</strong> or <strong>persistent depressive disorder (dysthymia)</strong> - and it's just as valid and deserving of support.</p>
+<p>Other times, depression manifests as irritability, anger, or restlessness rather than sadness - especially in men and adolescents.</p>
 
 <h2>What Causes Depression?</h2>
 <p>Depression is not a personal failure or a choice. It's a complex condition influenced by:</p>
@@ -500,12 +500,12 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Environment:</strong> Chronic stress, isolation, financial hardship, relationship problems</li>
 <li><strong>Culture:</strong> Stigma, lack of support systems, gender expectations</li>
 </ul>
-<p>Most often, it's a combination of these factors — not a single cause.</p>
+<p>Most often, it's a combination of these factors - not a single cause.</p>
 
 <h2>What to Do If You Think You're Depressed</h2>
 <ol>
 <li><strong>Acknowledge it:</strong> Naming what you're experiencing is the first step. You're not weak. You're not broken. You're dealing with something real.</li>
-<li><strong>Talk to someone you trust:</strong> A friend, family member, or mentor. You don't have to explain everything — just let someone in.</li>
+<li><strong>Talk to someone you trust:</strong> A friend, family member, or mentor. You don't have to explain everything - just let someone in.</li>
 <li><strong>Seek professional help:</strong> Therapy is one of the most effective treatments for depression. Approaches like CBT, behavioural activation, and psychodynamic therapy have strong evidence behind them.</li>
 <li><strong>Be patient with yourself:</strong> Recovery isn't linear. There will be good days and hard days. That's normal.</li>
 </ol>
@@ -519,14 +519,14 @@ export const blogPosts: BlogPost[] = [
     slug: "setting-boundaries-without-guilt",
     title: "Setting Boundaries Without Guilt",
     description:
-      "Boundaries protect your well-being, but they can feel uncomfortable — especially in close-knit families. Here's how to set them with confidence and compassion.",
+      "Boundaries protect your well-being, but they can feel uncomfortable - especially in close-knit families. Here's how to set them with confidence and compassion.",
     category: "Self-Care",
     datePublished: "2025-04-10",
     readingTime: "6 min read",
     published: true,
     body: `
 <h2>What Are Boundaries, Really?</h2>
-<p>Boundaries are the limits you set to protect your physical, emotional, and mental well-being. They define what you're comfortable with and how you expect to be treated. Boundaries aren't walls — they're guidelines that help you maintain healthy relationships while staying true to yourself.</p>
+<p>Boundaries are the limits you set to protect your physical, emotional, and mental well-being. They define what you're comfortable with and how you expect to be treated. Boundaries aren't walls - they're guidelines that help you maintain healthy relationships while staying true to yourself.</p>
 <p>Examples of boundaries include:</p>
 <ul>
 <li>Saying no to plans when you're exhausted</li>
@@ -536,17 +536,17 @@ export const blogPosts: BlogPost[] = [
 <li>Limiting how much emotional labour you take on for others</li>
 </ul>
 
-<h2>Why Boundaries Feel So Hard — Especially in Indian Culture</h2>
+<h2>Why Boundaries Feel So Hard - Especially in Indian Culture</h2>
 <p>In collectivist cultures, boundaries can feel like betrayal. When family and community are central to your identity, saying "no" can trigger guilt, conflict, or fear of rejection.</p>
 <p>Common thoughts that make boundary-setting difficult:</p>
 <ul>
 <li><em>"If I say no, they'll think I don't care."</em></li>
 <li><em>"I don't want to create drama."</em></li>
-<li><em>"They've done so much for me — I owe them."</em></li>
+<li><em>"They've done so much for me - I owe them."</em></li>
 <li><em>"What if they get angry or stop talking to me?"</em></li>
 <li><em>"Good daughters/sons/partners don't set boundaries."</em></li>
 </ul>
-<p>These thoughts are understandable — but they keep you trapped in patterns that drain your energy and compromise your mental health.</p>
+<p>These thoughts are understandable - but they keep you trapped in patterns that drain your energy and compromise your mental health.</p>
 
 <h2>How to Set Boundaries with Compassion</h2>
 
@@ -561,11 +561,11 @@ export const blogPosts: BlogPost[] = [
 <li><em>"I can help with this, but I can't take it on this week."</em></li>
 </ul>
 
-<h3>3. Expect Pushback — and Hold Firm</h3>
-<p>People who are used to you having no boundaries will resist when you start setting them. That doesn't mean your boundary is wrong. It means the dynamic is shifting — and that's okay. Stay calm, repeat your boundary if needed, and don't engage in arguments about your right to have one.</p>
+<h3>3. Expect Pushback - and Hold Firm</h3>
+<p>People who are used to you having no boundaries will resist when you start setting them. That doesn't mean your boundary is wrong. It means the dynamic is shifting - and that's okay. Stay calm, repeat your boundary if needed, and don't engage in arguments about your right to have one.</p>
 
 <h3>4. Start Small</h3>
-<p>If boundary-setting is new to you, don't start with the hardest relationship. Practice with lower-stakes situations first — a colleague, an acquaintance, a casual commitment. Build your confidence gradually.</p>
+<p>If boundary-setting is new to you, don't start with the hardest relationship. Practice with lower-stakes situations first - a colleague, an acquaintance, a casual commitment. Build your confidence gradually.</p>
 
 <h3>5. Let Go of the Guilt</h3>
 <p>Guilt is a natural response when you change a pattern. But guilt doesn't mean you're doing something wrong. It means you're doing something new. Over time, as you see the positive impact boundaries have on your well-being and relationships, the guilt will fade.</p>

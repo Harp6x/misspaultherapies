@@ -83,7 +83,7 @@ export async function getSiteConfig() {
       };
     }
   } catch {
-    // Sanity not available — use static
+    // Sanity not available - use static
   }
   return staticSiteConfig;
 }
@@ -113,7 +113,7 @@ const staticAboutPage: AboutPageData = {
   bioParagraph2:
     `With an M.Phil in Clinical Psychology and registration with the Rehabilitation Council of India (RCI No: ${staticSiteConfig.rciNumber}), I bring both academic rigour and heartfelt compassion to my practice.`,
   bioParagraph3:
-    "I work with individuals, couples, adolescents, and families — offering all sessions online so that geography is never a barrier to getting help. Whether you're in India or living abroad, my goal is to create a safe, non-judgmental space where real change can happen.",
+    "I work with individuals, couples, adolescents, and families - offering all sessions online so that geography is never a barrier to getting help. Whether you're in India or living abroad, my goal is to create a safe, non-judgmental space where real change can happen.",
   credentials: [
     { icon: "Award", label: "M.Phil in Clinical Psychology" },
     { icon: "Award", label: "RCI Licensed Clinical Psychologist" },
@@ -132,7 +132,7 @@ const staticAboutPage: AboutPageData = {
       icon: "BookOpen",
       title: "Evidence-Based",
       description:
-        "I draw from proven therapeutic modalities — CBT, DBT, EFT, psychodynamic, and mindfulness — tailored to you.",
+        "I draw from proven therapeutic modalities - CBT, DBT, EFT, psychodynamic, and mindfulness - tailored to you.",
     },
     {
       icon: "Languages",
@@ -157,7 +157,7 @@ export async function getAboutPage(): Promise<AboutPageData> {
   try {
     const sanity = await getSanityAboutPage();
     if (sanity) {
-      // Merge Sanity fields with static defaults — empty Sanity fields fall back
+      // Merge Sanity fields with static defaults - empty Sanity fields fall back
       return {
         title: sanity.title || staticAboutPage.title,
         photo: sanity.photo ?? staticAboutPage.photo,
@@ -249,7 +249,7 @@ export async function getAllResources(): Promise<SanityResource[]> {
     const sanity = await getSanityResources();
     if (sanity?.length) return sanity;
   } catch {}
-  // No static fallback needed — the resources page has inline data
+  // No static fallback needed - the resources page has inline data
   return [];
 }
 
@@ -258,19 +258,19 @@ const staticTestimonials = [
   {
     quote: "Therapy with Aishani helped me understand myself in ways I never thought possible. I finally feel like I have the tools to handle life's challenges.",
     name: "Client A",
-    context: "Individual therapy — placeholder, shared with consent",
+    context: "Individual therapy - placeholder, shared with consent",
     order: 1,
   },
   {
     quote: "We were on the verge of giving up on our relationship. The sessions gave us a new way to communicate and truly hear each other.",
     name: "Client B",
-    context: "Couples therapy — placeholder, shared with consent",
+    context: "Couples therapy - placeholder, shared with consent",
     order: 2,
   },
   {
     quote: "As an NRI, finding a therapist who understood my cultural background was a game changer. I felt seen and understood from the very first session.",
     name: "Client C",
-    context: "NRI therapy — placeholder, shared with consent",
+    context: "NRI therapy - placeholder, shared with consent",
     order: 3,
   },
 ];

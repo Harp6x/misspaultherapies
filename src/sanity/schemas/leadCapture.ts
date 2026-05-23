@@ -66,7 +66,7 @@ export const leadCaptureSchema = defineType({
     prepare({ title, subtitle, date }) {
       return {
         title: title || "No email",
-        subtitle: `${subtitle || "unknown"} — ${date ? new Date(date).toLocaleDateString() : ""}`,
+        subtitle: `${subtitle || "unknown"} - ${date ? new Date(date).toLocaleDateString() : ""}`,
       };
     },
   },

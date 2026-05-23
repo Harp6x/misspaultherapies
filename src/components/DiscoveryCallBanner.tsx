@@ -14,7 +14,7 @@ export function DiscoveryCallBanner() {
             <Phone className="h-5 w-5 flex-shrink-0" />
             <p className="text-sm sm:text-base font-medium">
               <span className="font-bold">Free 15-minute discovery call</span>
-              <span className="hidden sm:inline"> — see if we&apos;re the right fit, no commitment needed</span>
+              <span className="hidden sm:inline"> - see if we&apos;re the right fit, no commitment needed</span>
             </p>
           </div>
           <a

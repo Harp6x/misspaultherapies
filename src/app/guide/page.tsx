@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = buildMetadata({
-  title: "Free Mental Health Self-Check Guide — Ms Paul Therapies",
+  title: "Free Mental Health Self-Check Guide - Ms Paul Therapies",
   description:
     "A private emotional well-being checklist and 5 evidence-based coping strategies. Created by Aishani Paul, RCI-licensed clinical psychologist.",
   path: "/guide",
@@ -82,7 +82,7 @@ const copingStrategies = [
     number: "03",
     title: "Behavioural Activation",
     description:
-      "When motivation is low, start with one small, meaningful action — a 5-minute walk, texting a friend, or making your bed. The key insight from CBT: action creates motivation, not the other way around. Start small, build up gradually.",
+      "When motivation is low, start with one small, meaningful action - a 5-minute walk, texting a friend, or making your bed. The key insight from CBT: action creates motivation, not the other way around. Start small, build up gradually.",
     when: "Use when feeling stuck, unmotivated, or depressed",
   },
   {
@@ -96,7 +96,7 @@ const copingStrategies = [
     number: "05",
     title: "The STOP Technique",
     description:
-      "S — Stop what you're doing. T — Take a breath (slow, deep). O — Observe your thoughts and feelings without judgement. P — Proceed with awareness. This mindfulness-based technique creates a gap between trigger and reaction.",
+      "S - Stop what you're doing. T - Take a breath (slow, deep). O - Observe your thoughts and feelings without judgement. P - Proceed with awareness. This mindfulness-based technique creates a gap between trigger and reaction.",
     when: "Use when feeling reactive, angry, or emotionally flooded",
   },
 ];
@@ -118,7 +118,7 @@ export default function GuidePage() {
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A private, evidence-based checklist to help you understand your emotional
-            well-being — plus 5 coping strategies you can start using today.
+            well-being - plus 5 coping strategies you can start using today.
           </p>
           <p className="mt-3 text-sm text-muted-foreground">
             Created by <strong className="text-brown">{siteConfig.author}</strong>, M.Phil Clinical Psychology, RCI Licensed
@@ -189,8 +189,8 @@ export default function GuidePage() {
                 <div className="h-3 w-3 rounded-full bg-green-500" />
               </div>
               <div>
-                <strong className="text-brown">0–5 statements</strong>
-                <span className="text-muted-foreground"> — You seem to be managing well. Keep nurturing your mental health with healthy habits.</span>
+                <strong className="text-brown">0-5 statements</strong>
+                <span className="text-muted-foreground"> - You seem to be managing well. Keep nurturing your mental health with healthy habits.</span>
               </div>
             </div>
             <div className="flex gap-3">
@@ -198,8 +198,8 @@ export default function GuidePage() {
                 <div className="h-3 w-3 rounded-full bg-amber-500" />
               </div>
               <div>
-                <strong className="text-brown">6–12 statements</strong>
-                <span className="text-muted-foreground"> — You may be experiencing moderate stress or emotional challenges. The coping strategies below can help, and speaking to a therapist could provide deeper support.</span>
+                <strong className="text-brown">6-12 statements</strong>
+                <span className="text-muted-foreground"> - You may be experiencing moderate stress or emotional challenges. The coping strategies below can help, and speaking to a therapist could provide deeper support.</span>
               </div>
             </div>
             <div className="flex gap-3">
@@ -207,8 +207,8 @@ export default function GuidePage() {
                 <div className="h-3 w-3 rounded-full bg-red-500" />
               </div>
               <div>
-                <strong className="text-brown">13–20 statements</strong>
-                <span className="text-muted-foreground"> — Your emotional well-being may need attention. Please consider reaching out to a mental health professional. You don&apos;t have to go through this alone.</span>
+                <strong className="text-brown">13-20 statements</strong>
+                <span className="text-muted-foreground"> - Your emotional well-being may need attention. Please consider reaching out to a mental health professional. You don&apos;t have to go through this alone.</span>
               </div>
             </div>
           </div>

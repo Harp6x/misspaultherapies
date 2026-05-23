@@ -59,7 +59,7 @@ export default async function LocationPage({
   };
 
   const features = [
-    { icon: Video, label: "100% Online — No Travel Required" },
+    { icon: Video, label: "100% Online - No Travel Required" },
     { icon: Shield, label: "RCI Licensed Clinical Psychologist" },
     { icon: Globe, label: "English, Hindi & Bengali" },
     { icon: MapPin, label: `Serving ${loc.city}${loc.region ? `, ${loc.region}` : ""}` },

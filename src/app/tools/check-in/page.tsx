@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmotionalCheckIn } from "@/components/tools/EmotionalCheckIn";
 
 export const metadata = buildMetadata({
-  title: "Emotional Check-In — How Are You Really Feeling?",
+  title: "Emotional Check-In - How Are You Really Feeling?",
   description:
     "A free, guided emotional check-in tool by a clinical psychologist. Explore your mood, body sensations, thought patterns, and needs in 2 minutes. No login required.",
   path: "/tools/check-in",
