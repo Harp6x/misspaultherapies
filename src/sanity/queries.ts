@@ -23,6 +23,7 @@ export const aboutPageQuery = groq`
     approachIntro,
     values[]{ icon, title, description },
     languagesText, connectHeading, connectText,
+    "resumeUrl": resume.asset->url,
     socialLinks[]{ platform, url, icon }
   }
 `;

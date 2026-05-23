@@ -102,6 +102,7 @@ export interface AboutPageData {
   languagesText: string;
   connectHeading: string;
   connectText: string;
+  resumeUrl?: string;
   socialLinks: { platform: string; url: string; icon: string }[];
 }
 
@@ -169,6 +170,7 @@ export async function getAboutPage(): Promise<AboutPageData> {
         languagesText: sanity.languagesText || staticAboutPage.languagesText,
         connectHeading: sanity.connectHeading || staticAboutPage.connectHeading,
         connectText: sanity.connectText || staticAboutPage.connectText,
+        resumeUrl: sanity.resumeUrl ?? undefined,
         socialLinks: sanity.socialLinks?.length ? sanity.socialLinks : staticAboutPage.socialLinks,
       };
     }

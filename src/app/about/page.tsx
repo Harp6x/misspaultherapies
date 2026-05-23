@@ -60,6 +60,28 @@ export default async function AboutPage() {
               </div>
             ))}
           </div>
+
+          {/* Resume */}
+          {about.resumeUrl && (
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={about.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-brown px-5 py-2.5 text-sm font-medium text-white hover:bg-brown/90 transition-colors"
+              >
+                <Icon name="FileText" className="h-4 w-4" />
+                View Resume
+              </a>
+              <a
+                href={`${about.resumeUrl}?dl=Aishani_Paul_Resume.pdf`}
+                className="inline-flex items-center gap-2 rounded-full border border-brown px-5 py-2.5 text-sm font-medium text-brown hover:bg-brown/5 transition-colors"
+              >
+                <Icon name="Download" className="h-4 w-4" />
+                Download Resume
+              </a>
+            </div>
+          )}
         </div>
 
         {/* My Approach */}

@@ -79,6 +79,7 @@ export interface SanityAboutPage {
   languagesText: string;
   connectHeading: string;
   connectText: string;
+  resumeUrl?: string;
   socialLinks: { platform: string; url: string; icon: string }[];
 }
 

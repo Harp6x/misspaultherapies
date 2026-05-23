@@ -92,6 +92,13 @@ export const aboutPageSchema = defineType({
       type: "string",
     }),
     defineField({
+      name: "resume",
+      title: "Resume / CV (PDF)",
+      type: "file",
+      options: { accept: ".pdf" },
+      description: "Upload a PDF resume. Visitors can view or download it from the About page.",
+    }),
+    defineField({
       name: "socialLinks",
       title: "Social Links",
       type: "array",
