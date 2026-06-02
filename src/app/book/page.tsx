@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Phone,
   FileText,
@@ -6,14 +7,15 @@ import {
   CreditCard,
   Heart,
   AlertTriangle,
-  ArrowRight,
   CalendarCheck,
   MessageCircle,
+  IndianRupee,
+  QrCode,
 } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GoogleFormEmbed } from "@/components/GoogleFormEmbed";
+import { getSiteConfig } from "@/lib/data";
 
 export const metadata = buildMetadata({
   title: "Book a Session",
@@ -25,32 +27,43 @@ export const metadata = buildMetadata({
 const steps = [
   {
     icon: Phone,
-    title: "1. Free Discovery Call",
+    title: "1. Free Discovery Call (optional)",
     description:
       "Book a free 15-minute call so we can discuss your needs and see if we're a good fit.",
   },
   {
+    icon: CreditCard,
+    title: "2. Pay for Your Session",
+    description:
+      "Payment confirms your booking. Pay securely via UPI or Razorpay before your session.",
+  },
+  {
     icon: FileText,
-    title: "2. Intake Form",
+    title: "3. Intake Form",
     description:
       "Complete a brief intake form with background information to help me prepare for our first session.",
   },
   {
     icon: Clock,
-    title: "3. First Session",
+    title: "4. First Session",
     description:
-      "Your first session (50 minutes) is an assessment where we explore your concerns and create a plan together.",
+      "Your 50-minute session takes place online via Google Meet, where we explore your concerns together.",
   },
 ];
 
-export default function BookPage() {
-  const discoveryUrl = siteConfig.discoveryCallUrl;
+export default async function BookPage() {
+  const config = await getSiteConfig();
+
+  const discoveryUrl = config.discoveryCallUrl;
   const hasDiscovery = discoveryUrl && !discoveryUrl.startsWith("[");
 
-  const sessionUrl = siteConfig.sessionBookingUrl;
+  const sessionUrl = config.sessionBookingUrl;
   const hasSession = sessionUrl && !sessionUrl.startsWith("[");
 
-  const intakeWaUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+  const hasRazorpay = Boolean(config.razorpayUrl);
+  const hasQr = Boolean(config.upiQrCodeUrl);
+
+  const intakeWaUrl = `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(
     "Hi, I've just submitted my intake form for Ms Paul Therapies and would like to book a session."
   )}`;
 
@@ -71,7 +84,7 @@ export default function BookPage() {
         <h2 className="font-serif text-2xl font-semibold text-brown">
           How to Get Started
         </h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-3">
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s) => (
             <div
               key={s.title}
@@ -113,13 +126,100 @@ export default function BookPage() {
           <p className="mt-4 text-sm text-muted-foreground">
             Discovery call link coming soon. In the meantime, reach out at{" "}
             <a
-              href={`mailto:${siteConfig.email}`}
+              href={`mailto:${config.email}`}
               className="text-sage underline hover:text-sage-dark"
             >
-              {siteConfig.email}
+              {config.email}
             </a>
           </p>
         )}
+      </section>
+
+      {/* Payment - pay first to confirm the booking */}
+      <section className="mt-12 rounded-2xl border-2 border-sage/40 bg-sage/5 p-8">
+        <div className="flex items-center gap-2">
+          <IndianRupee className="h-6 w-6 text-sage-dark" />
+          <h2 className="font-serif text-2xl font-semibold text-brown">
+            Pay to confirm your session
+          </h2>
+        </div>
+        <p className="mt-2 text-muted-foreground">
+          Payment confirms your booking. Please pay before completing the intake
+          form and booking your slot below. Your fee depends on the service -
+          see the full list further down this page.
+        </p>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {/* Pay online + UPI details */}
+          <div className="rounded-xl border border-border bg-white p-6">
+            <h3 className="font-serif text-lg font-semibold text-brown">
+              Pay online
+            </h3>
+            {hasRazorpay ? (
+              <a
+                href={config.razorpayUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sage px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
+              >
+                <CreditCard className="h-4 w-4" />
+                Pay securely via Razorpay
+              </a>
+            ) : (
+              <p className="mt-3 text-sm text-muted-foreground">
+                Card / net-banking payments are coming soon. For now, please pay
+                via UPI using the details here.
+              </p>
+            )}
+            <div className="mt-5 space-y-2 text-sm text-brown-light">
+              <p>
+                <strong>UPI ID:</strong>{" "}
+                <code className="bg-cream px-2 py-0.5 rounded text-sage-dark border border-border">
+                  {config.upiId}
+                </code>
+              </p>
+              {config.upiNumber ? (
+                <p>
+                  <strong>UPI number:</strong>{" "}
+                  <code className="bg-cream px-2 py-0.5 rounded text-sage-dark border border-border">
+                    {config.upiNumber}
+                  </code>
+                </p>
+              ) : null}
+            </div>
+          </div>
+
+          {/* Scan to pay - QR */}
+          <div className="rounded-xl border border-border bg-white p-6">
+            <div className="flex items-center gap-2">
+              <QrCode className="h-5 w-5 text-sage" />
+              <h3 className="font-serif text-lg font-semibold text-brown">
+                Scan to pay (UPI)
+              </h3>
+            </div>
+            {hasQr ? (
+              <div className="mt-4 flex justify-center">
+                <Image
+                  src={config.upiQrCodeUrl}
+                  alt="UPI QR code for Ms Paul Therapies"
+                  width={220}
+                  height={220}
+                  className="rounded-lg border border-border"
+                />
+              </div>
+            ) : (
+              <p className="mt-4 text-sm text-muted-foreground">
+                QR code coming soon - please use the UPI ID or number to pay.
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-xl border border-sage/30 bg-white p-5 text-sm text-brown-light">
+          <strong className="text-brown">After paying:</strong> complete the
+          intake form below, then book your slot on Cal.com or message me on
+          WhatsApp with your payment screenshot so I can confirm your session.
+        </div>
       </section>
 
       {/* Intake Form */}
@@ -128,7 +228,8 @@ export default function BookPage() {
           Intake Form
         </h2>
         <p className="mt-2 text-muted-foreground mb-6">
-          Please fill out this brief form before your first session.
+          After payment, please complete this brief form before your first
+          session.
         </p>
         <GoogleFormEmbed />
       </section>
@@ -214,7 +315,7 @@ export default function BookPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {Object.entries(siteConfig.fees).map(([key, value]) => (
+              {Object.entries(config.fees).map(([key, value]) => (
                 <tr key={key}>
                   <td className="px-6 py-3 text-brown-light capitalize">
                     {key.replace(/([A-Z])/g, " $1").trim()}
@@ -231,7 +332,7 @@ export default function BookPage() {
           <div>
             <p className="font-semibold text-brown">Package Deal</p>
             <p className="text-sm text-brown-light">
-              {siteConfig.fees.package} - a great option if you&apos;re
+              {config.fees.package} - a great option if you&apos;re
               committing to regular sessions.
             </p>
           </div>
@@ -243,24 +344,16 @@ export default function BookPage() {
           <div>
             <p className="font-semibold text-brown">Sliding Scale</p>
             <p className="text-sm text-brown-light">
-              {siteConfig.slidingScale}
+              {config.slidingScale}
             </p>
           </div>
         </div>
 
-        {/* Payment info */}
-        <div className="mt-4 rounded-2xl border border-border bg-cream p-5">
-          <h3 className="font-semibold text-brown mb-2">Payment</h3>
-          <p className="text-sm text-brown-light">
-            Payment is due at the time of the session via UPI.
-          </p>
-          <p className="mt-2 text-sm text-brown-light">
-            <strong>UPI ID:</strong>{" "}
-            <code className="bg-white px-2 py-0.5 rounded text-sage-dark border border-border">
-              {siteConfig.upiId}
-            </code>
-          </p>
-        </div>
+        {/* Payment note - full options are in the payment section above */}
+        <p className="mt-4 text-sm text-muted-foreground">
+          Payment is required to confirm your session - see the payment options
+          near the top of this page.
+        </p>
       </section>
 
       {/* Cancellation Policy */}
@@ -269,7 +362,7 @@ export default function BookPage() {
           Cancellation Policy
         </h2>
         <p className="mt-3 text-brown-light leading-relaxed">
-          {siteConfig.cancellationPolicy}
+          {config.cancellationPolicy}
         </p>
       </section>
 

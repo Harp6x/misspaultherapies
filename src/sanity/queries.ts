@@ -7,7 +7,8 @@ export const siteConfigQuery = groq`
     email, phone, whatsappNumber, whatsappMessage,
     rciNumber, qualifications, languages,
     instagram, youtube, linkedin,
-    googleFormUrl, upiId,
+    googleFormUrl, upiId, upiNumber, razorpayUrl,
+    "upiQrCodeUrl": upiQrCode.asset->url,
     feeIndividual, feeCouples, feeFamily, feeAssessment, feePackage,
     slidingScale, sessionDuration, cancellationPolicy
   }

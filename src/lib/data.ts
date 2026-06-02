@@ -70,6 +70,9 @@ export async function getSiteConfig() {
         },
         googleFormUrl: cfg.googleFormUrl ?? staticSiteConfig.googleFormUrl,
         upiId: cfg.upiId ?? staticSiteConfig.upiId,
+        upiNumber: cfg.upiNumber ?? staticSiteConfig.upiNumber,
+        razorpayUrl: cfg.razorpayUrl ?? staticSiteConfig.razorpayUrl,
+        upiQrCodeUrl: cfg.upiQrCodeUrl ?? staticSiteConfig.upiQrCodeUrl,
         fees: {
           individual: cfg.feeIndividual ?? staticSiteConfig.fees.individual,
           couples: cfg.feeCouples ?? staticSiteConfig.fees.couples,

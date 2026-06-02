@@ -103,6 +103,27 @@ export const siteConfigSchema = defineType({
       name: "upiId",
       title: "UPI ID",
       type: "string",
+      description: "e.g. yourname@oksbi",
+    }),
+    defineField({
+      name: "upiNumber",
+      title: "UPI Phone Number",
+      type: "string",
+      description: "Phone number linked to your UPI, shown for payments.",
+    }),
+    defineField({
+      name: "razorpayUrl",
+      title: "Razorpay Payment Link",
+      type: "url",
+      description:
+        "Paste your Razorpay payment page/link. Leave empty to hide the Razorpay option until ready.",
+    }),
+    defineField({
+      name: "upiQrCode",
+      title: "UPI QR Code Image",
+      type: "image",
+      options: { hotspot: true },
+      description: "Upload your UPI QR code so clients can scan and pay.",
     }),
 
     // Fees

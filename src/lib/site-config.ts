@@ -36,8 +36,11 @@ export const siteConfig = {
   // Used for booking a full session after the intake form.
   sessionBookingUrl: "https://cal.com/mspaultherapies/sessionbooking",
 
-  // Payment
+  // Payment (these can be overridden / managed in Sanity Studio → Site Configuration)
   upiId: "paulaishani@oksbi",
+  upiNumber: "8961511045",
+  razorpayUrl: "", // paste Razorpay link in Sanity; empty hides the option
+  upiQrCodeUrl: "", // upload QR in Sanity; empty hides the QR
 
   // Fees
   fees: {

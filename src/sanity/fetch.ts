@@ -51,6 +51,9 @@ export interface SanitySiteConfig {
   linkedin: string;
   googleFormUrl: string;
   upiId: string;
+  upiNumber?: string;
+  razorpayUrl?: string;
+  upiQrCodeUrl?: string;
   feeIndividual: string;
   feeCouples: string;
   feeFamily: string;
