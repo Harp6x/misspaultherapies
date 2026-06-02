@@ -6,6 +6,12 @@ export function DiscoveryCallBanner() {
     "Hi, I'd like to schedule a free 15-minute discovery call with Ms Paul Therapies."
   )}`;
 
+  // Send "Schedule Now" straight to the Cal.com discovery call; fall back to
+  // WhatsApp if the booking link is not configured.
+  const hasDiscovery =
+    siteConfig.discoveryCallUrl && !siteConfig.discoveryCallUrl.startsWith("[");
+  const scheduleUrl = hasDiscovery ? siteConfig.discoveryCallUrl : waUrl;
+
   return (
     <section className="bg-gradient-to-r from-sage to-sage-dark py-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -18,7 +24,7 @@ export function DiscoveryCallBanner() {
             </p>
           </div>
           <a
-            href={waUrl}
+            href={scheduleUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-sage-dark hover:bg-cream transition-colors flex-shrink-0"

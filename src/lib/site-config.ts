@@ -33,6 +33,9 @@ export const siteConfig = {
   // Booking
   googleFormUrl: "https://forms.gle/7jRaX8H9ftoG34726",
   discoveryCallUrl: "https://cal.com/mspaultherapies/discovery-call",
+  // Used for booking a full session after the intake form. Point this at a
+  // dedicated Cal.com session event once created; falls back to the discovery call.
+  sessionBookingUrl: "https://cal.com/mspaultherapies/discovery-call",
 
   // Payment
   upiId: "paulaishani@oksbi",

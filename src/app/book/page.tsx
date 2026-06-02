@@ -7,6 +7,8 @@ import {
   Heart,
   AlertTriangle,
   ArrowRight,
+  CalendarCheck,
+  MessageCircle,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo";
@@ -44,6 +46,13 @@ const steps = [
 export default function BookPage() {
   const discoveryUrl = siteConfig.discoveryCallUrl;
   const hasDiscovery = discoveryUrl && !discoveryUrl.startsWith("[");
+
+  const sessionUrl = siteConfig.sessionBookingUrl;
+  const hasSession = sessionUrl && !sessionUrl.startsWith("[");
+
+  const intakeWaUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+    "Hi, I've just submitted my intake form for Ms Paul Therapies and would like to book a session."
+  )}`;
 
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
@@ -122,6 +131,69 @@ export default function BookPage() {
           Please fill out this brief form before your first session.
         </p>
         <GoogleFormEmbed />
+      </section>
+
+      {/* After intake: what happens next */}
+      <section className="mt-8 rounded-2xl border border-sage/30 bg-sage/5 p-8">
+        <h2 className="font-serif text-2xl font-semibold text-brown">
+          Submitted your intake form? Here&apos;s what happens next.
+        </h2>
+        <p className="mt-2 text-muted-foreground">
+          Choose whichever feels right for you:
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {/* Option 1: book now */}
+          <div className="rounded-xl border border-border bg-white p-6 flex flex-col">
+            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-sage/10 text-sage">
+              <CalendarCheck className="h-5 w-5" />
+            </div>
+            <h3 className="font-serif text-lg font-semibold text-brown">
+              Book your session now
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+              Pick a time that suits you and we&apos;ll confirm your session
+              straight away.
+            </p>
+            {hasSession ? (
+              <a
+                href={sessionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
+              >
+                <CalendarCheck className="h-4 w-4" />
+                Book on Cal.com
+              </a>
+            ) : (
+              <p className="mt-4 text-sm text-muted-foreground">
+                Booking link coming soon - I&apos;ll be in touch after your form.
+              </p>
+            )}
+          </div>
+
+          {/* Option 2: wait to be contacted */}
+          <div className="rounded-xl border border-border bg-white p-6 flex flex-col">
+            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-terracotta/10 text-terracotta">
+              <MessageCircle className="h-5 w-5" />
+            </div>
+            <h3 className="font-serif text-lg font-semibold text-brown">
+              Prefer to wait?
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+              No problem. Once I receive your intake form, I&apos;ll personally
+              reach out over email or WhatsApp to find a time together.
+            </p>
+            <a
+              href={intakeWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-sage px-5 py-2.5 text-sm font-semibold text-sage-dark hover:bg-sage/10 transition-colors"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Message me instead
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Fees */}
