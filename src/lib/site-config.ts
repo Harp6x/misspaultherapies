@@ -32,7 +32,7 @@ export const siteConfig = {
 
   // Booking
   googleFormUrl: "https://forms.gle/7jRaX8H9ftoG34726",
-  discoveryCallUrl: "[TO ADD]",
+  discoveryCallUrl: "https://cal.com/mspaultherapies/discovery-call",
 
   // Payment
   upiId: "paulaishani@oksbi",
