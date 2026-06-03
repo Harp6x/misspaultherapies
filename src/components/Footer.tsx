@@ -14,6 +14,7 @@ const footerLinks = {
     { href: "/about", label: "About" },
     { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Blog" },
+    { href: "/products", label: "Products" },
     { href: "/resources", label: "Resources" },
     { href: "/book", label: "Book a Session" },
   ],

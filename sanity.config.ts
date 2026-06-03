@@ -50,6 +50,7 @@ export default defineConfig({
             S.divider(),
             S.documentTypeListItem("galleryItem").title("Gallery / Media"),
             S.documentTypeListItem("workshop").title("Workshops"),
+            S.documentTypeListItem("product").title("Products"),
             S.divider(),
             S.documentTypeListItem("leadCapture").title("Lead Captures"),
           ]),

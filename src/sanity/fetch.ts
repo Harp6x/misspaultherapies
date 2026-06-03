@@ -17,6 +17,9 @@ import {
   featuredGalleryItemsQuery,
   allWorkshopsQuery,
   workshopBySlugQuery,
+  allProductsQuery,
+  productBySlugQuery,
+  allProductSlugsQuery,
 } from "./queries";
 
 // Revalidation: re-fetch from Sanity API every 60 seconds
@@ -247,6 +250,49 @@ export async function getAllWorkshops(): Promise<SanityWorkshop[]> {
   return sanityFetch<SanityWorkshop[]>(allWorkshopsQuery);
 }
 
+
+// ── Products ──
+export interface SanityProduct {
+  _id: string;
+  title: string;
+  slug: string;
+  shortDescription?: string;
+  productType:
+    | "course"
+    | "mini-course"
+    | "bundle"
+    | "ebook"
+    | "toolkit"
+    | "quiz"
+    | "corporate";
+  priceType: "free" | "paid" | "bundle" | "coming-soon";
+  price?: string;
+  originalPrice?: string;
+  priceUSD?: string;
+  topics?: string[];
+  audience?: string[];
+  format?: string;
+  highlights?: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  body?: any[];
+  actionUrl?: string;
+  ctaLabel?: string;
+  featured?: boolean;
+  order?: number;
+  coverImage?: { asset: { _id: string; url: string }; alt?: string };
+}
+
+export async function getAllProducts(): Promise<SanityProduct[]> {
+  return sanityFetch<SanityProduct[]>(allProductsQuery);
+}
+
+export async function getProductBySlug(slug: string): Promise<SanityProduct | null> {
+  return sanityFetch<SanityProduct | null>(productBySlugQuery, { slug });
+}
+
+export async function getAllProductSlugs(): Promise<{ slug: string }[]> {
+  return sanityFetch<{ slug: string }[]>(allProductSlugsQuery);
+}
 export async function getWorkshopBySlug(slug: string): Promise<SanityWorkshop | null> {
   return sanityFetch<SanityWorkshop | null>(workshopBySlugQuery, { slug });
 }

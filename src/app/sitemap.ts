@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 import { services } from "@/content/services";
 import { locations } from "@/content/locations";
 import { getAllBlogPosts } from "@/lib/data";
+import { getAllProductSlugs } from "@/sanity/fetch";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
@@ -46,5 +47,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...blogPages, ...locationPages];
+  // Products from Sanity (CMS-managed)
+  let productPages: MetadataRoute.Sitemap = [];
+  try {
+    const productSlugs = await getAllProductSlugs();
+    productPages = productSlugs.map((p) => ({
+      url: `${base}/products/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }));
+  } catch {
+    // Sanity unavailable at build - skip product pages
+  }
+
+  return [
+    ...staticPages,
+    ...servicePages,
+    ...blogPages,
+    ...locationPages,
+    ...productPages,
+  ];
 }

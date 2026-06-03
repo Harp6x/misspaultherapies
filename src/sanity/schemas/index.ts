@@ -9,6 +9,7 @@ import { aboutPageSchema } from "./aboutPage";
 import { galleryItemSchema } from "./galleryItem";
 import { workshopSchema } from "./workshop";
 import { leadCaptureSchema } from "./leadCapture";
+import { productSchema } from "./product";
 
 export const schemaTypes = [
   siteConfigSchema,
@@ -22,4 +23,5 @@ export const schemaTypes = [
   galleryItemSchema,
   workshopSchema,
   leadCaptureSchema,
+  productSchema,
 ];

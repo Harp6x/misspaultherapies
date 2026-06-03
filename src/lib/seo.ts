@@ -217,6 +217,41 @@ export function serviceJsonLd(service: {
   };
 }
 
+export function productJsonLd(product: {
+  title: string;
+  description?: string;
+  slug: string;
+  price?: string;
+  priceType?: string;
+  image?: string;
+}) {
+  const numericPrice = product.price
+    ? product.price.replace(/[^0-9.]/g, "")
+    : undefined;
+  const isFree = product.priceType === "free";
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    description: product.description,
+    url: `${siteConfig.url}/products/${product.slug}`,
+    image: product.image ?? `${siteConfig.url}/opengraph-image`,
+    brand: { "@type": "Brand", name: siteConfig.name },
+    ...((numericPrice || isFree) && {
+      offers: {
+        "@type": "Offer",
+        price: isFree ? "0" : numericPrice,
+        priceCurrency: "INR",
+        availability:
+          product.priceType === "coming-soon"
+            ? "https://schema.org/PreOrder"
+            : "https://schema.org/InStock",
+        url: `${siteConfig.url}/products/${product.slug}`,
+      },
+    }),
+  };
+}
+
 export function faqPageJsonLd(
   faqs: { question: string; answer: string }[]
 ) {

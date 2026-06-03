@@ -150,3 +150,30 @@ export const workshopBySlugQuery = groq`
     coverImage{ asset->{ _id, url }, alt }
   }
 `;
+
+// ── Products ──
+export const allProductsQuery = groq`
+  *[_type == "product" && published == true] | order(order asc, title asc){
+    _id, title, "slug": slug.current,
+    shortDescription, productType, priceType,
+    price, originalPrice, priceUSD,
+    topics, audience, format, highlights,
+    actionUrl, ctaLabel, featured, order,
+    coverImage{ asset->{ _id, url }, alt }
+  }
+`;
+
+export const productBySlugQuery = groq`
+  *[_type == "product" && slug.current == $slug][0]{
+    _id, title, "slug": slug.current,
+    shortDescription, productType, priceType,
+    price, originalPrice, priceUSD,
+    topics, audience, format, highlights, body,
+    actionUrl, ctaLabel, featured,
+    coverImage{ asset->{ _id, url }, alt }
+  }
+`;
+
+export const allProductSlugsQuery = groq`
+  *[_type == "product" && published == true]{ "slug": slug.current }
+`;
