@@ -2,7 +2,7 @@
   "framework": "nextjs",
   "redirects": [
     {
-      "source": "https://mspaultherapies.com/:path*",
+      "source": "/:path*",
       "has": [
         { "type": "host", "value": "mspaultherapies.com" }
       ],
@@ -10,7 +10,7 @@
       "permanent": true
     },
     {
-      "source": "https://www.mspaultherapies.com/:path*",
+      "source": "/:path*",
       "has": [
         { "type": "host", "value": "www.mspaultherapies.com" }
       ],
