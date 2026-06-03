@@ -3,6 +3,7 @@ import { getAllBlogPosts, blogCategories } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
+import { NewsletterSection } from "@/components/NewsletterSection";
 
 export const revalidate = 60;
 
@@ -66,6 +67,9 @@ export default async function BlogPage() {
             </Link>
           ))}
         </div>
+
+        {/* Newsletter signup */}
+        <NewsletterSection className="mt-16" />
       </div>
 
       <CTASection

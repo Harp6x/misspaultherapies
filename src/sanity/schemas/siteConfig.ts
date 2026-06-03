@@ -169,6 +169,40 @@ export const siteConfigSchema = defineType({
       type: "text",
       rows: 3,
     }),
+
+    // Newsletter (Kit / ConvertKit)
+    defineField({
+      name: "kitFormType",
+      title: "Newsletter Form Type (Kit)",
+      type: "string",
+      description:
+        "Inline = shows in-page on blog/resources. Modal / Slide-in / Sticky bar = loads once site-wide and pops up automatically (set the trigger inside Kit). Off = hidden everywhere.",
+      options: {
+        list: [
+          { title: "Inline (in-page form)", value: "inline" },
+          { title: "Modal (popup)", value: "modal" },
+          { title: "Slide-in", value: "slide-in" },
+          { title: "Sticky bar", value: "sticky-bar" },
+          { title: "Off (disabled)", value: "off" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "inline",
+    }),
+    defineField({
+      name: "kitUid",
+      title: "Kit Form UID (data-uid)",
+      type: "string",
+      description:
+        "The data-uid value from your Kit embed snippet, e.g. 1d5b37459d.",
+    }),
+    defineField({
+      name: "kitScriptUrl",
+      title: "Kit Embed Script URL (src)",
+      type: "url",
+      description:
+        "The full src URL from your Kit embed snippet, e.g. https://ms-paul-therapies.kit.com/1d5b37459d/index.js. Paste a new one anytime you change or recreate the form in Kit.",
+    }),
   ],
   preview: {
     prepare() {

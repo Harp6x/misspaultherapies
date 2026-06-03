@@ -83,6 +83,11 @@ export async function getSiteConfig() {
         slidingScale: cfg.slidingScale ?? staticSiteConfig.slidingScale,
         sessionDuration: cfg.sessionDuration ?? staticSiteConfig.sessionDuration,
         cancellationPolicy: cfg.cancellationPolicy ?? staticSiteConfig.cancellationPolicy,
+        newsletter: {
+          formType: cfg.kitFormType ?? staticSiteConfig.newsletter.formType,
+          uid: cfg.kitUid ?? staticSiteConfig.newsletter.uid,
+          scriptUrl: cfg.kitScriptUrl ?? staticSiteConfig.newsletter.scriptUrl,
+        },
       };
     }
   } catch {

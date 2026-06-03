@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { CTASection } from "@/components/CTASection";
 import { BlogPostCTA } from "@/components/BlogPostCTA";
+import { NewsletterSection } from "@/components/NewsletterSection";
 import { PortableTextBody } from "@/components/PortableTextBody";
 
 export const revalidate = 60;
@@ -119,6 +120,9 @@ export default async function BlogPostPage({
 
         {/* Inline CTA after reading */}
         <BlogPostCTA />
+
+        {/* Newsletter signup */}
+        <NewsletterSection className="mt-12" />
       </article>
 
       <CTASection />

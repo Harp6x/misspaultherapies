@@ -9,6 +9,7 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
+import { NewsletterSection } from "@/components/NewsletterSection";
 
 export const metadata = buildMetadata({
   title: "Resources - Guides, Checklists & Crisis Links",
@@ -201,6 +202,9 @@ export default function ResourcesPage() {
             </details>
           ))}
         </div>
+
+        {/* Newsletter signup */}
+        <NewsletterSection className="mt-12" />
 
         {/* Crisis link */}
         <div className="mt-12 rounded-2xl border border-terracotta/30 bg-terracotta/5 p-6 text-center">

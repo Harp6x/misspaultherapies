@@ -10,7 +10,8 @@ export const siteConfigQuery = groq`
     googleFormUrl, upiId, upiNumber, razorpayUrl,
     "upiQrCodeUrl": upiQrCode.asset->url,
     feeIndividual, feeCouples, feeFamily, feeAssessment, feePackage,
-    slidingScale, sessionDuration, cancellationPolicy
+    slidingScale, sessionDuration, cancellationPolicy,
+    kitFormType, kitUid, kitScriptUrl
   }
 `;
 

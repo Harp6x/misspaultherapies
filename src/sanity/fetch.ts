@@ -65,6 +65,9 @@ export interface SanitySiteConfig {
   slidingScale: string;
   sessionDuration: string;
   cancellationPolicy: string;
+  kitFormType?: "inline" | "modal" | "slide-in" | "sticky-bar" | "off";
+  kitUid?: string;
+  kitScriptUrl?: string;
 }
 
 export async function getSiteConfig(): Promise<SanitySiteConfig | null> {

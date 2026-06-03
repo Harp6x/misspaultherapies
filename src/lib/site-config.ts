@@ -56,6 +56,20 @@ export const siteConfig = {
   cancellationPolicy:
     "Cancellations must be made at least 24 hours in advance. No-show fees are non-refundable if cancelled less than 24 hours before the session.",
 
+  // Newsletter (Kit / ConvertKit) — overridable in Sanity → Site Configuration
+  // formType: "inline" renders in-page; "modal" | "slide-in" | "sticky-bar"
+  // load once globally and auto-trigger; "off" disables it everywhere.
+  newsletter: {
+    formType: "inline" as
+      | "inline"
+      | "modal"
+      | "slide-in"
+      | "sticky-bar"
+      | "off",
+    uid: "1d5b37459d",
+    scriptUrl: "https://ms-paul-therapies.kit.com/1d5b37459d/index.js",
+  },
+
   // Analytics placeholders
   gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",

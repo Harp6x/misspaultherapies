@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
+import { getSiteConfig } from "@/lib/data";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DiscoveryCallBanner } from "@/components/DiscoveryCallBanner";
 import { StickyBookBar } from "@/components/StickyBookBar";
+import { GlobalKitEmbed } from "@/components/GlobalKitEmbed";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -98,11 +100,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const config = await getSiteConfig();
+  const { formType, uid, scriptUrl } = config.newsletter;
+  const showGlobalKit =
+    formType === "modal" ||
+    formType === "slide-in" ||
+    formType === "sticky-bar";
+
   return (
     <html
       lang="en"
@@ -115,6 +124,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <StickyBookBar />
+        {showGlobalKit && <GlobalKitEmbed uid={uid} src={scriptUrl} />}
         <Analytics />
         <SpeedInsights />
       </body>
