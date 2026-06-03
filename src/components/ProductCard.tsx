@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Package } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { SanityProduct } from "@/sanity/fetch";
 import {
   PRODUCT_TYPE_LABELS,
   TOPIC_LABELS,
   getProductCta,
+  getProductImage,
 } from "@/lib/products";
 
 const priceBadge: Record<string, string> = {
@@ -19,24 +20,19 @@ export function ProductCard({ product }: { product: SanityProduct }) {
   const cta = getProductCta(product);
   const href = `/products/${product.slug}`;
   const isFree = product.priceType === "free";
+  const image = getProductImage(product);
 
   return (
     <div className="flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       {/* Cover */}
       <Link href={href} className="block relative aspect-[16/9] bg-sage/5">
-        {product.coverImage?.asset?.url ? (
-          <Image
-            src={product.coverImage.asset.url}
-            alt={product.coverImage.alt ?? product.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-sage/40">
-            <Package className="h-10 w-10" />
-          </div>
-        )}
+        <Image
+          src={image.url}
+          alt={image.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover"
+        />
         <span
           className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-semibold ${
             priceBadge[product.priceType] ?? priceBadge.paid

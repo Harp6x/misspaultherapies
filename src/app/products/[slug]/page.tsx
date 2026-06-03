@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Package } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { getAllProductSlugs, getProductBySlug } from "@/sanity/fetch";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
@@ -9,6 +9,7 @@ import {
   TOPIC_LABELS,
   AUDIENCE_LABELS,
   getProductCta,
+  getProductImage,
 } from "@/lib/products";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
@@ -36,7 +37,7 @@ export async function generateMetadata({
       product.shortDescription ??
       `${product.title} - a digital mental health product by Aishani Paul.`,
     path: `/products/${product.slug}`,
-    ogImage: product.coverImage?.asset?.url,
+    ogImage: getProductImage(product).url,
   });
 }
 
@@ -51,6 +52,7 @@ export default async function ProductDetailPage({
 
   const cta = getProductCta(product);
   const isFree = product.priceType === "free";
+  const image = getProductImage(product);
 
   return (
     <>
@@ -61,7 +63,7 @@ export default async function ProductDetailPage({
           slug: product.slug,
           price: product.price,
           priceType: product.priceType,
-          image: product.coverImage?.asset?.url,
+          image: image.url,
         })}
       />
       <SEOJsonLd
@@ -83,20 +85,14 @@ export default async function ProductDetailPage({
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Cover */}
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-sage/5">
-            {product.coverImage?.asset?.url ? (
-              <Image
-                src={product.coverImage.asset.url}
-                alt={product.coverImage.alt ?? product.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-sage/40">
-                <Package className="h-16 w-16" />
-              </div>
-            )}
+            <Image
+              src={image.url}
+              alt={image.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Info */}
