@@ -50,10 +50,10 @@ export function BurnoutQuiz() {
     const scores = calculateScores(answers);
     const tier = getTier(scores);
     const info = tierInfo[tier];
-    const text = `I just took a burnout assessment. Result: ${info.label}.\n\nCheck yours → mspaultherapies.com/tools/burnout-quiz`;
+    const text = `I just took a burnout assessment. Result: ${info.label}.\n\nCheck yours → mspaultherapies.in/tools/burnout-quiz`;
     try {
       if (navigator.share) {
-        await navigator.share({ title: "Burnout Assessment", text, url: "https://mspaultherapies.com/tools/burnout-quiz" });
+        await navigator.share({ title: "Burnout Assessment", text, url: "https://mspaultherapies.in/tools/burnout-quiz" });
       } else {
         await navigator.clipboard.writeText(text);
       }

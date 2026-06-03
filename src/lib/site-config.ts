@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Compassionate Therapy for Meaningful Change",
   description:
     "Professional psychotherapy and counselling services by Aishani Paul. Offering individual, couples, adolescent, and family therapy - online across India and for NRIs abroad.",
-  url: "https://mspaultherapies.com",
+  url: "https://mspaultherapies.in",
   author: "Aishani Paul",
   handle: "mspaultherapies",
 

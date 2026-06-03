@@ -53,7 +53,7 @@ export function RelationshipReflect() {
 
   async function handleShare() {
     if (!attachResult) return;
-    const text = `My relationship pattern: ${attachResult.label}. "${attachResult.headline}"\n\nTake the assessment → mspaultherapies.com/tools/relationship-reflect`;
+    const text = `My relationship pattern: ${attachResult.label}. "${attachResult.headline}"\n\nTake the assessment → mspaultherapies.in/tools/relationship-reflect`;
     try {
       if (navigator.share) {
         await navigator.share({ title: "Relationship Reflection", text });

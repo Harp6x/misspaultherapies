@@ -51,10 +51,10 @@ export function EmotionalCheckIn() {
   const moodData = moodOptions.find((m) => m.value === mood);
 
   async function handleShare() {
-    const text = `I just checked in with my emotions. ${reflection.headline}\n\nTry it yourself → mspaultherapies.com/tools/check-in`;
+    const text = `I just checked in with my emotions. ${reflection.headline}\n\nTry it yourself → mspaultherapies.in/tools/check-in`;
     try {
       if (navigator.share) {
-        await navigator.share({ title: "Emotional Check-In", text, url: "https://mspaultherapies.com/tools/check-in" });
+        await navigator.share({ title: "Emotional Check-In", text, url: "https://mspaultherapies.in/tools/check-in" });
       } else {
         await navigator.clipboard.writeText(text);
       }

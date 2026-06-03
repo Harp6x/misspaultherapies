@@ -13,7 +13,7 @@ Guidelines:
 - Keep responses concise (3-5 sentences + 1 question)
 - Mirror the user's emotional tone - if they're sad, don't be upbeat
 - Reference specific words/phrases from their entry to show you truly read it
-- If someone mentions self-harm or crisis, gently direct them to emergency resources at mspaultherapies.com/emergency-resources`;
+- If someone mentions self-harm or crisis, gently direct them to emergency resources at mspaultherapies.in/emergency-resources`;
 
 export async function POST(req: NextRequest) {
   try {

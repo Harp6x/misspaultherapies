@@ -43,11 +43,11 @@ A complete digital presence for **Ms Paul Therapies** — a clinical psychology 
 - Rank for mental health therapy searches in India
 
 ### URLs
-- **Website:** https://mspaultherapies.com
+- **Website:** https://mspaultherapies.in
 - **Instagram:** @mspaultherapies
 - **Email:** mspaultherapies@gmail.com
-- **Booking:** https://mspaultherapies.com/book
-- **CMS:** https://mspaultherapies.com/studio
+- **Booking:** https://mspaultherapies.in/book
+- **CMS:** https://mspaultherapies.in/studio
 - **Repository:** https://github.com/Harp6x/misspaultherapies
 
 ---
@@ -65,7 +65,7 @@ A complete digital presence for **Ms Paul Therapies** — a clinical psychology 
 | Email | Kit (ConvertKit) | Email list + automation |
 | Hosting | Vercel | Auto-deploy from GitHub |
 | Repo | GitHub (Harp6x/misspaultherapies) | Version control |
-| Domain | mspaultherapies.com | Custom domain on Vercel |
+| Domain | mspaultherapies.in | Custom domain on Vercel |
 
 ### Key Dependencies
 - `next` — App Router with Server Components
@@ -138,7 +138,7 @@ GOOGLE_SITE_VERIFICATION — Google Search Console verification
 ## 4. CMS (Sanity Studio)
 
 ### Access
-- URL: `https://mspaultherapies.com/studio`
+- URL: `https://mspaultherapies.in/studio`
 - Login: Sanity account credentials
 
 ### Content Types (Schemas)
@@ -413,7 +413,7 @@ NURTURE (Email Sequences)
 ▼
 CONVERSION (Bottom of Funnel)
 │
-├── Free 15-min discovery call (mspaultherapies.com/book)
+├── Free 15-min discovery call (mspaultherapies.in/book)
 ├── WhatsApp message
 ├── Direct email
 │
@@ -444,7 +444,7 @@ RETENTION / REFERRAL
 | Blog posts (bottom) | CTA banner | /book |
 | Footer | Social links | Instagram, YouTube, LinkedIn |
 | Floating button | WhatsApp | WhatsApp chat |
-| All content files | Header + Footer CTAs | mspaultherapies.com/book + @mspaultherapies |
+| All content files | Header + Footer CTAs | mspaultherapies.in/book + @mspaultherapies |
 
 ---
 
@@ -453,7 +453,7 @@ RETENTION / REFERRAL
 ### Hosting: Vercel
 - **Auto-deploy:** Push to `main` branch → automatic deployment
 - **Preview deployments:** Every PR gets a preview URL
-- **Domain:** mspaultherapies.com (custom domain configured)
+- **Domain:** mspaultherapies.in (custom domain configured)
 - **SSL:** Automatic via Vercel
 
 ### Git Workflow
@@ -466,7 +466,7 @@ git push origin main
     ↓
 Vercel auto-deploys (< 60 seconds)
     ↓
-Live at mspaultherapies.com
+Live at mspaultherapies.in
 ```
 
 ### Monitoring
@@ -543,7 +543,7 @@ miss-paul-therapies/
 - **Practice Name:** Ms Paul Therapies
 - **Therapist:** Aishani Paul, M.Phil Clinical Psychology, RCI Licensed
 - **Instagram:** @mspaultherapies
-- **Website:** mspaultherapies.com
+- **Website:** mspaultherapies.in
 - **Email:** mspaultherapies@gmail.com
 
 ### Voice & Tone
@@ -622,10 +622,10 @@ miss-paul-therapies/
 |---------|-----|---------|
 | GitHub | github.com/Harp6x/misspaultherapies | Harp6x |
 | Vercel | vercel.com | Linked to GitHub |
-| Sanity Studio | mspaultherapies.com/studio | Sanity account |
+| Sanity Studio | mspaultherapies.in/studio | Sanity account |
 | Kit (ConvertKit) | app.kit.com | mspaultherapies@gmail.com |
 | Google Search Console | search.google.com/search-console | Google account |
-| Domain | mspaultherapies.com | Domain registrar |
+| Domain | mspaultherapies.in | Domain registrar |
 | Instagram | @mspaultherapies | Instagram account |
 
 ### API Keys (stored in Vercel env vars — NEVER in code)

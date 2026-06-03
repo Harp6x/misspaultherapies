@@ -55,7 +55,7 @@ export function GuidedReflection() {
 
   async function handleShare() {
     if (!selectedTheme || !result) return;
-    const text = `My ${selectedTheme.label.toLowerCase()} assessment: "${result.headline}"\n\nTake it → mspaultherapies.com/tools/reflect`;
+    const text = `My ${selectedTheme.label.toLowerCase()} assessment: "${result.headline}"\n\nTake it → mspaultherapies.in/tools/reflect`;
     try {
       if (navigator.share) {
         await navigator.share({ title: `${selectedTheme.label} Reflection`, text });
