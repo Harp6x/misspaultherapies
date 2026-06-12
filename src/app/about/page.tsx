@@ -2,7 +2,7 @@ import Image from "next/image";
 import * as LucideIcons from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { getAboutPage } from "@/lib/data";
-import { buildMetadata, personJsonLd } from "@/lib/seo";
+import { buildMetadata, personJsonLd, profilePageJsonLd, speakableJsonLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { CTASection } from "@/components/CTASection";
@@ -35,6 +35,8 @@ export default async function AboutPage() {
   return (
     <>
       <SEOJsonLd data={personJsonLd()} />
+      <SEOJsonLd data={profilePageJsonLd()} />
+      <SEOJsonLd data={speakableJsonLd(["h1", ".about-bio", ".about-credentials"])} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Breadcrumbs items={[{ name: "About", href: "/about" }]} />

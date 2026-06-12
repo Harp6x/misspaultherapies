@@ -121,6 +121,20 @@ export function getProductImage(product: SanityProduct): ProductImage {
   return { url: GENERIC_IMAGE, alt: product.title };
 }
 
+/**
+ * Parse an Indian Rupee price string into paise (integer).
+ * Returns null for ranges ("From ₹…"), unrecognised formats, or amounts < 100 paise.
+ * Examples: "₹499" → 49900 | "₹1,999" → 199900
+ */
+export function parsePriceInPaise(price: string): number | null {
+  if (!price || /from/i.test(price)) return null;
+  const clean = price.replace(/[₹,\s]/g, "");
+  const n = parseFloat(clean);
+  if (isNaN(n) || n <= 0) return null;
+  const paise = Math.round(n * 100);
+  return paise >= 100 ? paise : null;
+}
+
 export interface ProductCta {
   label: string;
   href: string;

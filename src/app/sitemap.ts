@@ -10,11 +10,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
-    { url: `${base}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 1.0 },
     { url: `${base}/services`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/book`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/gallery`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 },
     { url: `${base}/workshops`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 },
     { url: `${base}/guide`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
@@ -22,6 +22,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/emergency-resources`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
     { url: `${base}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms-consent-cancellation`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
+    // LLM discovery files
+    { url: `${base}/llms.txt`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/llms-full.txt`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({

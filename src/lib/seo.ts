@@ -105,12 +105,103 @@ export function personJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteConfig.url}/about#person`,
     name: siteConfig.author,
+    givenName: "Aishani",
+    familyName: "Paul",
     jobTitle: "Clinical Psychologist & Psychotherapist",
+    description:
+      "RCI-licensed clinical psychologist (License A118537) with M.Phil in Clinical Psychology. Offers evidence-based online therapy for individuals, couples, adolescents, and families across India and for NRIs globally.",
     url: siteConfig.url,
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
+    image: `${siteConfig.url}/opengraph-image`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Delhi",
+      addressCountry: "IN",
+    },
+    knowsLanguage: siteConfig.languages.map((l) => ({
+      "@type": "Language",
+      name: l,
+    })),
+    knowsAbout: [
+      "Cognitive Behavioural Therapy (CBT)",
+      "Dialectical Behaviour Therapy (DBT)",
+      "Acceptance and Commitment Therapy (ACT)",
+      "Emotion-Focused Therapy (EFT)",
+      "Attachment-based Therapy",
+      "Mindfulness-based Interventions",
+      "Anxiety Disorders",
+      "Depression Treatment",
+      "Trauma Therapy and PTSD",
+      "Couples Therapy",
+      "Adolescent Therapy",
+      "Family Therapy",
+      "Grief Counselling",
+      "Burnout and Stress Management",
+      "NRI Mental Health",
+      "Indian Family Dynamics",
+      "Self-Esteem and Self-Worth",
+      "Emotional Regulation",
+      "Boundary Setting",
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      name: "RCI Clinical Psychologist License",
+      credentialCategory: "license",
+      identifier: siteConfig.rciNumber,
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Rehabilitation Council of India",
+        url: "https://www.rehabcouncil.nic.in",
+      },
+    },
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "M.Phil Clinical Psychology",
+      description: "Master of Philosophy in Clinical Psychology",
+    },
+    worksFor: {
+      "@type": "MedicalBusiness",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
     sameAs: Object.values(siteConfig.socials).filter(
       (v) => !v.startsWith("[")
     ),
+  };
+}
+
+export function speakableJsonLd(cssSelectors: string[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors,
+    },
+  };
+}
+
+export function profilePageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${siteConfig.url}/about`,
+    url: `${siteConfig.url}/about`,
+    name: `About ${siteConfig.author} | ${siteConfig.name}`,
+    description:
+      "Official profile page of Aishani Paul, RCI-licensed clinical psychologist and founder of Ms Paul Therapies.",
+    mainEntity: personJsonLd(),
+    about: personJsonLd(),
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+        { "@type": "ListItem", position: 2, name: "About", item: `${siteConfig.url}/about` },
+      ],
+    },
   };
 }
 

@@ -10,7 +10,9 @@ import {
   AUDIENCE_LABELS,
   getProductCta,
   getProductImage,
+  parsePriceInPaise,
 } from "@/lib/products";
+import { RazorpayButton } from "@/components/RazorpayButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { PortableTextBody } from "@/components/PortableTextBody";
@@ -53,6 +55,13 @@ export default async function ProductDetailPage({
   const cta = getProductCta(product);
   const isFree = product.priceType === "free";
   const image = getProductImage(product);
+  const amountPaise =
+    !product.actionUrl &&
+    (product.priceType === "paid" || product.priceType === "bundle") &&
+    product.productType !== "corporate" &&
+    product.price
+      ? parsePriceInPaise(product.price)
+      : null;
 
   return (
     <>
@@ -130,19 +139,28 @@ export default async function ProductDetailPage({
             </div>
 
             {/* CTA */}
-            <a
-              href={cta.href}
-              target={cta.external ? "_blank" : undefined}
-              rel={cta.external ? "noopener noreferrer" : undefined}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
-            >
-              {cta.label}
-              {cta.external ? (
-                <ArrowUpRight className="h-4 w-4" />
-              ) : (
-                <ArrowRight className="h-4 w-4" />
-              )}
-            </a>
+            {amountPaise !== null ? (
+              <RazorpayButton
+                productTitle={product.title}
+                priceDisplay={product.price!}
+                amountPaise={amountPaise}
+                productSlug={product.slug}
+              />
+            ) : (
+              <a
+                href={cta.href}
+                target={cta.external ? "_blank" : undefined}
+                rel={cta.external ? "noopener noreferrer" : undefined}
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
+              >
+                {cta.label}
+                {cta.external ? (
+                  <ArrowUpRight className="h-4 w-4" />
+                ) : (
+                  <ArrowRight className="h-4 w-4" />
+                )}
+              </a>
+            )}
 
             {/* Tags */}
             {(product.topics?.length || product.audience?.length) && (

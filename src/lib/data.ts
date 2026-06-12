@@ -293,10 +293,11 @@ export async function getTestimonials(): Promise<SanityTestimonial[]> {
 
 // ── Locations ──
 export async function getAllLocations(): Promise<Location[]> {
+  let sanityLocations: Location[] = [];
   try {
     const sanity = await getSanityLocations();
     if (sanity?.length) {
-      return sanity.map((l) => ({
+      sanityLocations = sanity.map((l) => ({
         slug: l.slug,
         city: l.name,
         title: l.title,
@@ -307,7 +308,10 @@ export async function getAllLocations(): Promise<Location[]> {
       }));
     }
   } catch {}
-  return staticLocations;
+  // Merge: Sanity entries take priority; static fills slugs not in Sanity
+  const sanitySlugs = new Set(sanityLocations.map((l) => l.slug));
+  const staticOnly = staticLocations.filter((l) => !sanitySlugs.has(l.slug));
+  return [...sanityLocations, ...staticOnly];
 }
 
 export async function getLocationBySlug(slug: string): Promise<Location | null> {
@@ -329,9 +333,6 @@ export async function getLocationBySlug(slug: string): Promise<Location | null> 
 }
 
 export async function getLocationSlugs(): Promise<string[]> {
-  try {
-    const sanity = await getSanityLocationSlugs();
-    if (sanity?.length) return sanity.map((s) => s.slug);
-  } catch {}
-  return staticLocations.map((l) => l.slug);
+  const all = await getAllLocations();
+  return all.map((l) => l.slug);
 }
