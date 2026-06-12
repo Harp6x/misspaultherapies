@@ -1,13 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, ShoppingCart } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { SanityProduct } from "@/sanity/fetch";
 import {
   PRODUCT_TYPE_LABELS,
   TOPIC_LABELS,
   getProductCta,
   getProductImage,
-  parsePriceInPaise,
 } from "@/lib/products";
 
 const priceBadge: Record<string, string> = {
@@ -22,14 +21,6 @@ export function ProductCard({ product }: { product: SanityProduct }) {
   const href = `/products/${product.slug}`;
   const isFree = product.priceType === "free";
   const image = getProductImage(product);
-  const amountPaise =
-    !product.actionUrl &&
-    (product.priceType === "paid" || product.priceType === "bundle") &&
-    product.productType !== "corporate" &&
-    product.price
-      ? parsePriceInPaise(product.price)
-      : null;
-
   return (
     <div className="flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       {/* Cover */}
@@ -99,29 +90,19 @@ export function ProductCard({ product }: { product: SanityProduct }) {
 
         {/* CTA */}
         <div className="mt-auto pt-4 flex items-center justify-between gap-3">
-          {amountPaise !== null ? (
-            <Link
-              href={href}
-              className="inline-flex items-center gap-1.5 rounded-full bg-sage px-4 py-2 text-sm font-semibold text-white hover:bg-sage-dark transition-colors"
-            >
-              <ShoppingCart className="h-3.5 w-3.5" />
-              Buy Now
-            </Link>
-          ) : (
-            <a
-              href={cta.href}
-              target={cta.external ? "_blank" : undefined}
-              rel={cta.external ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-1.5 rounded-full bg-sage px-4 py-2 text-sm font-semibold text-white hover:bg-sage-dark transition-colors"
-            >
-              {cta.label}
-              {cta.external ? (
-                <ArrowUpRight className="h-4 w-4" />
-              ) : (
-                <ArrowRight className="h-4 w-4" />
-              )}
-            </a>
-          )}
+          <a
+            href={cta.href}
+            target={cta.external ? "_blank" : undefined}
+            rel={cta.external ? "noopener noreferrer" : undefined}
+            className="inline-flex items-center gap-1.5 rounded-full bg-sage px-4 py-2 text-sm font-semibold text-white hover:bg-sage-dark transition-colors"
+          >
+            {cta.label}
+            {cta.external ? (
+              <ArrowUpRight className="h-4 w-4" />
+            ) : (
+              <ArrowRight className="h-4 w-4" />
+            )}
+          </a>
           <Link
             href={href}
             className="text-sm font-medium text-sage hover:text-sage-dark transition-colors"
