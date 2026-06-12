@@ -10,7 +10,6 @@ import { StickyBookBar } from "@/components/StickyBookBar";
 import { GlobalKitEmbed } from "@/components/GlobalKitEmbed";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -116,11 +115,9 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <DiscoveryCallBanner />
           <Header />
           <main className="flex-1 pb-16 md:pb-0">{children}</main>
@@ -130,7 +127,6 @@ export default async function RootLayout({
           {showGlobalKit && <GlobalKitEmbed uid={uid} src={scriptUrl} />}
           <Analytics />
           <SpeedInsights />
-        </ThemeProvider>
       </body>
     </html>
   );

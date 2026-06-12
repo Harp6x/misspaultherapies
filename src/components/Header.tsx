@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
-import { DarkModeToggle } from "@/components/DarkModeToggle";
 
 type NavLink = { label: string; href: string };
 type NavGroup = { label: string; children: NavLink[] };
@@ -174,7 +173,6 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <DarkModeToggle />
             <Link
               href="/book"
               className="inline-flex items-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
@@ -254,7 +252,6 @@ export function Header() {
               );
             })}
             <div className="mt-2 flex items-center gap-3">
-              <DarkModeToggle />
               <Link
                 href="/book"
                 onClick={() => setMobileOpen(false)}
