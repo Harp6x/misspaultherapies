@@ -29,9 +29,47 @@
   --color-border: #D4C4B0;
   --color-ring: #87A878;
 
+  /* Surface — white cards in light mode, dark warm surface in dark mode */
+  --color-surface: #ffffff;
+
   /* Fonts */
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-inter);
+}
+
+/* ── Dark mode ── */
+.dark {
+  color-scheme: dark;
+
+  /* Brand overrides */
+  --color-cream: #1C1410;
+  --color-cream-dark: #261B14;
+  --color-sage: #9BBD8B;
+  --color-sage-light: #B0D0A2;
+  --color-sage-dark: #7AAB6A;
+  --color-brown: #F0E6D8;
+  --color-brown-light: #D4BAA0;
+  --color-beige: #2A1D17;
+  --color-beige-dark: #3A2820;
+
+  /* Semantic overrides */
+  --color-background: #1C1410;
+  --color-foreground: #F0E6D8;
+  --color-muted: #2A1D17;
+  --color-muted-foreground: #B89880;
+  --color-accent: #261B14;
+  --color-accent-foreground: #F0E6D8;
+  --color-border: #3A2820;
+  --color-ring: #9BBD8B;
+
+  /* Surface — card backgrounds */
+  --color-surface: #231A14;
+}
+
+/* Map hardcoded bg-white to the surface token in dark mode */
+.dark [class*="bg-white"] {
+  background-color: var(--color-surface) !important;
+  color: var(--color-foreground);
 }
 
 html {
