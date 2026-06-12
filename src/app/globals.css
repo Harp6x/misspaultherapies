@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   /* Brand palette */
   --color-cream: #FDF8F0;
   --color-cream-dark: #F5EDE0;
