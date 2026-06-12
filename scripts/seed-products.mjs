@@ -81,7 +81,6 @@ const courses = [
     short:
       "Anxiety doesn't have to run your life. This self-paced course breaks down the science of anxiety in plain language, then gives you a hands-on toolkit of evidence-based techniques — from CBT thought records to somatic grounding exercises — that you can use the moment anxiety spikes. Built for busy Indians who need real skills, not just theory. By the end, you'll have a personalised coping plan you can actually use, again and again.",
     body: paras(
-      "Anxiety doesn't have to run your life. This self-paced course breaks down the science of anxiety in plain language, then gives you a hands-on toolkit of evidence-based techniques — from CBT thought records to somatic grounding exercises — that you can use the moment anxiety spikes.",
       "Each of the 12 bite-sized lessons is built for real life: short enough to finish on a lunch break, practical enough to apply the same evening. No jargon, no fluff — just the skills that actually work, explained by an RCI-licensed clinical psychologist.",
       "By the end of this course, you'll know exactly what's driving your anxiety, have a set of grounding and breathing tools you can use anywhere, and leave with a personalised coping plan you can reach for whenever you need it."
     ),
@@ -103,7 +102,6 @@ const courses = [
     short:
       "You don't need a silent retreat or hour-long sit-downs to benefit from mindfulness. This course strips away the spiritual fluff and gives you short, practical techniques designed for Indian life — commutes, family dinners, high-stress workdays, and everything in between. Each lesson takes under 10 minutes and every practice is immediately usable. No prior experience needed, no special equipment required.",
     body: paras(
-      "You don't need a silent retreat or hour-long sit-downs to benefit from mindfulness. This course strips away the spiritual fluff and gives you short, practical techniques designed for Indian life — commutes, family dinners, high-stress workdays, and everything in between.",
       "Each of the 12 lessons is under 10 minutes. You'll learn to use mindfulness during a traffic jam, before a difficult conversation, after a stressful meeting, and even in the middle of a family argument. These aren't abstract practices — they're moment-to-moment tools.",
       "By the end, mindfulness will feel like a natural part of your day, not an obligation. Ideal for beginners and for anyone who has 'tried meditation but it didn't work'."
     ),
@@ -125,7 +123,6 @@ const courses = [
     short:
       "Burnout isn't just tiredness — it's your nervous system sending an SOS. This course helps you identify where you are on the burnout spectrum, understand the psychological drivers behind it, and build a recovery plan that sticks. You'll learn boundary-setting for the Indian workplace, sustainable energy management strategies, and how to rebuild without quitting everything. Designed for working professionals, students, and caregivers.",
     body: paras(
-      "Burnout isn't just tiredness — it's your nervous system sending an SOS. This course helps you identify where you are on the burnout spectrum, understand what's driving it, and build a recovery plan that actually sticks.",
       "You'll learn boundary-setting techniques specific to the Indian workplace — including how to manage the pressure of being 'always available', navigating unsympathetic managers, and the cultural pressure to sacrifice rest for productivity.",
       "The course includes a burnout self-assessment tool, evidence-based recovery strategies, and a step-by-step plan to rebuild your energy sustainably — without quitting your job or going off-grid. Suitable for working professionals, students under pressure, and caregivers."
     ),
@@ -147,7 +144,6 @@ const courses = [
     short:
       "Setting limits in Indian families is complicated — love, duty, guilt, and expectation are all tangled together. This course was built specifically for the Indian context: enmeshed families, in-law dynamics, societal pressure, and the deep conditioning that makes 'no' feel like betrayal. You'll learn to recognise where your limits are being crossed, communicate them clearly and compassionately, and hold them without destroying relationships. Real scripts and role-play examples included.",
     body: paras(
-      "Setting limits in Indian families is complicated — love, duty, guilt, and expectation are all tangled together. Saying 'no' can feel like a rejection of everything you've been taught about family, loyalty, and respect.",
       "This course was built specifically for the Indian context. It covers enmeshed family dynamics, in-law relationships, societal pressure to conform, and the deep conditioning that makes self-advocacy feel like betrayal. You'll learn how to recognise where your limits are being crossed, name what you're feeling without shame, and communicate boundaries in a way that is clear, compassionate, and culturally sensitive.",
       "Includes scripts for real conversations — with parents, partners, in-laws, colleagues — and practical role-play examples from Indian family settings. You'll leave knowing how to hold your limits without cutting people off."
     ),
@@ -169,7 +165,6 @@ const courses = [
     short:
       "When emotions feel overwhelming, it's not a character flaw — it's a skill gap. This course teaches the DBT-informed framework for understanding why intense emotions happen, how to name and track them accurately, and how to use proven distress tolerance techniques in the heat of the moment. Whether you're dealing with anger, grief, anxiety spikes, or emotional shutdown, you'll leave with practical tools that work under real pressure.",
     body: paras(
-      "When emotions feel overwhelming, it's not a character flaw — it's a skill gap. Emotional regulation is something everyone can learn, and this course teaches you how.",
       "Drawing on Dialectical Behaviour Therapy (DBT), you'll learn a clear framework for understanding where intense emotions come from, how to name them accurately (which itself reduces their intensity), and how to use distress tolerance skills to ride out a crisis without making things worse.",
       "Practical, evidence-based, and immediately usable — this course is suitable for adults, teens, and anyone who has ever felt hijacked by their own emotions. Particularly helpful for anger, grief, anxiety spikes, and emotional shutdown."
     ),
@@ -191,7 +186,6 @@ const courses = [
     short:
       "Your earliest relationships shaped how you connect with everyone — partners, friends, family, even colleagues. This in-depth course walks you through all four attachment styles, helps you identify your own patterns, and gives you a clear roadmap toward earned security. With guided exercises and real relationship examples rooted in Indian culture, you'll understand not just why you do what you do in relationships — but how to begin changing it.",
     body: paras(
-      "Your earliest relationships shaped how you connect with everyone — partners, friends, family, even colleagues. Attachment theory explains why you cling or withdraw, why certain people trigger you, and why relationships feel so hard sometimes even when they shouldn't.",
       "This course walks you through all four attachment styles (secure, anxious, avoidant, and disorganised), helps you identify your own pattern with clarity, and then gives you a concrete roadmap toward earned security — the ability to feel safe and connected in relationships regardless of your early experiences.",
       "Each lesson includes guided reflection exercises and real examples drawn from Indian relationship contexts — joint families, arranged marriages, parent-child dynamics, and workplace relationships. Suitable for individuals and couples exploring their patterns together."
     ),
@@ -214,7 +208,6 @@ const courses = [
     short:
       "Low self-worth often has deep roots — comparison, conditional love, academic pressure, or years of being told you weren't enough. This course takes a compassion-based approach to rebuilding your sense of self from the inside out. You'll work through the inner critic's origins, challenge self-defeating beliefs with CBT tools, and build a relationship with yourself that isn't contingent on achievement or approval. Particularly relevant for those navigating Indian family expectations and constant social comparison.",
     body: paras(
-      "Low self-worth often has deep roots — comparison culture, conditional love, academic pressure, or years of being told you weren't quite enough. It shows up as people-pleasing, perfectionism, difficulty saying no, and a persistent sense that you're behind everyone else.",
       "This course takes a compassion-based approach to rebuilding your sense of self from the inside out. You'll explore where your inner critic came from, learn to challenge self-defeating beliefs using CBT tools, and develop self-compassion practices that are grounded in research — not toxic positivity.",
       "Particularly relevant for those navigating Indian family expectations, academic or career comparison, or the aftermath of emotionally difficult relationships. This course doesn't ask you to fake confidence — it helps you build the real thing."
     ),
@@ -236,7 +229,6 @@ const courses = [
     short:
       "Indian families are close-knit by design — but that closeness can sometimes tip into enmeshment, role confusion, and unspoken rules nobody questions. This course unpacks the psychological patterns unique to Indian households: joint family dynamics, intergenerational trauma, parental expectations, gender roles, and the difference between healthy closeness and harmful dependency. You'll learn to identify these patterns and begin building healthier dynamics — without cutting off or causing chaos.",
     body: paras(
-      "Indian families are close-knit by design — but that closeness can sometimes tip into enmeshment, role confusion, and unspoken rules that nobody questions. You may love your family deeply and still find that the dynamic is costing you your mental health.",
       "This course unpacks the psychological patterns unique to Indian households: joint family structures, intergenerational trauma, the weight of parental sacrifice, gender role expectations, and the way childhood roles follow us into adulthood. It explores the difference between healthy closeness and harmful dependency — and how to tell them apart in your own family.",
       "Designed for adults navigating difficult family systems, parents who want to break generational cycles, and anyone who has ever felt consumed by family obligation. You'll leave with clarity, language, and practical tools to begin shifting these dynamics with care."
     ),
@@ -258,7 +250,6 @@ const courses = [
     short:
       "Toxic relationships rarely announce themselves — they creep in slowly through gaslighting, control, emotional unavailability, or chronic criticism. This course helps you identify the specific patterns at play, understand why you stayed, and begin the psychological work of detaching, healing, and rebuilding self-trust. Whether the relationship was romantic, familial, or a friendship, the tools here apply. Includes sections on narcissistic dynamics, trauma bonding, and rebuilding after emotional abuse.",
     body: paras(
-      "Toxic relationships rarely announce themselves — they creep in slowly through gaslighting, constant criticism, emotional unavailability, or subtle control. By the time you realise what's happening, you may already feel confused, isolated, or dependent.",
       "This course helps you identify the specific patterns at play in your relationship (or past relationships), understand the psychological mechanisms that keep people stuck — including trauma bonding and self-blame — and begin the real work of detaching, grieving, and rebuilding.",
       "Whether the relationship was romantic, familial, or a close friendship, the tools in this course apply. Sections cover narcissistic dynamics, emotional abuse recovery, rebuilding self-trust after betrayal, and moving forward without bitterness. Suitable for those currently in difficult relationships and those healing from past ones."
     ),
@@ -281,7 +272,6 @@ const courses = [
     short:
       "CBT and DBT are two of the most evidence-backed therapies in the world — this course distils the most practical skills from both into one comprehensive toolkit. You'll learn to identify and reframe distorted thinking patterns, regulate overwhelming emotions, tolerate distress without making things worse, and build a personalised mental health maintenance routine. Ideal for anyone who wants clinical-grade tools in a self-paced, accessible format.",
     body: paras(
-      "CBT (Cognitive Behavioural Therapy) and DBT (Dialectical Behaviour Therapy) are two of the most rigorously researched therapeutic approaches in modern psychology. This course distils the most practical, immediately usable skills from both into one comprehensive self-paced toolkit.",
       "You'll learn how to identify cognitive distortions and use thought records to challenge them (CBT), how to regulate overwhelming emotions and tolerate distress without making things worse (DBT), and how to build interpersonal effectiveness skills that improve your relationships and communication.",
       "By the end, you'll have a full clinical toolkit — not a watered-down self-help version — that you can use for anxiety, low mood, overwhelm, or as a mental health maintenance system. Ideal for people who want to understand the 'why' behind the skills, not just the 'what'."
     ),
@@ -308,7 +298,6 @@ const bundles = [
     short:
       "The ideal starting point if you're new to working on your mental health. Combines the Anxiety Toolkit (12 lessons of evidence-based coping skills) with Mindfulness for Real Life (practical mindfulness for busy Indians). Two complementary courses that work brilliantly together — tackle your anxiety while building the daily mindfulness habits that keep it in check. Save 30% versus buying separately.",
     body: paras(
-      "The ideal starting point if you're new to working on your mental health. This bundle pairs two beginner-friendly courses that complement each other perfectly.",
       "The Anxiety Toolkit (₹499) gives you 12 lessons of CBT-based coping skills for when anxiety hits. Mindfulness for Real Life (₹499) teaches you the daily habits that prevent anxiety from building in the first place. Together, they cover both crisis response and long-term prevention.",
       "Save 30% versus buying separately. Lifetime access to both courses."
     ),
@@ -324,7 +313,6 @@ const bundles = [
     short:
       "Low self-worth and poor boundaries tend to go hand in hand — this bundle addresses both. Boundaries for Indians gives you the tools to protect your limits in family and social settings, while Self-Worth Rebuilding helps you understand and heal the deeper sense of not-enoughness that makes it hard to hold those limits in the first place. A powerful combination for anyone who gives too much and asks for too little. Save 22%.",
     body: paras(
-      "Low self-worth and poor boundaries tend to go hand in hand. When you don't feel like you deserve to have your needs met, you don't enforce limits. When you don't enforce limits, your self-worth erodes further. This bundle breaks that cycle.",
       "Boundaries for Indians (₹799) gives you culturally-sensitive tools to set and communicate limits with family, in-laws, and society. Self-Worth Rebuilding (₹1,499) helps you heal the deeper belief that you're not enough — so that holding those limits feels possible, not terrifying.",
       "A powerful combination for anyone who gives too much, says yes when they mean no, and struggles to put themselves first. Save 22% versus buying separately."
     ),
@@ -340,7 +328,6 @@ const bundles = [
     short:
       "Two of the most transformative courses in the library, bundled together. Attachment Styles helps you understand the relational patterns you bring to every connection, while Healing Toxic Relationships guides you through identifying harmful dynamics and recovering from them. Together, they give you both the insight into why your relationships look the way they do — and the tools to change them. Save 29%.",
     body: paras(
-      "Two of the most transformative courses in the library, designed to be taken together.",
       "Attachment Styles (₹1,999) helps you understand the relational blueprint you carry from your earliest experiences — why you get anxious when a partner is distant, why you pull away when someone gets close, and how to move toward secure connection. Healing Toxic Relationships (₹1,499) helps you identify harmful patterns in your current or past relationships and do the real work of healing.",
       "Together, these courses give you both the self-understanding and the practical tools to build the kind of relationships you actually want. Suitable for individuals and couples. Save 29%."
     ),
@@ -356,7 +343,6 @@ const bundles = [
     short:
       "If you've ever felt hijacked by your own emotions — or completely numb and disconnected from them — this bundle is for you. Emotional Regulation teaches you the DBT framework for understanding and managing intense feelings, while the CBT+DBT Toolkit gives you a broader clinical toolkit for anxiety, low mood, and overwhelm. Together, they form a comprehensive emotional intelligence curriculum grounded in evidence-based therapy. Save 27%.",
     body: paras(
-      "If you've ever felt completely hijacked by your emotions — or conversely, numb and disconnected from them — this bundle addresses both sides of the spectrum.",
       "Emotional Regulation (₹999) teaches you the foundational DBT framework: how to understand where intense feelings come from, name them accurately, and use distress tolerance skills to ride out a crisis. The CBT+DBT Toolkit (₹1,999) builds on this with a comprehensive set of clinical skills for anxiety, low mood, and long-term emotional maintenance.",
       "Together, they form a complete emotional intelligence curriculum rooted in evidence-based therapy. This is the bundle to buy if emotional management is your primary goal. Save 27%."
     ),
@@ -372,7 +358,6 @@ const bundles = [
     short:
       "Both courses in this bundle are built specifically for the Indian experience — no adapting Western frameworks to our context. Boundaries for Indians tackles limit-setting within family and social structures, while Indian Family Dynamics digs into enmeshment, intergenerational patterns, and joint family roles. If your mental health challenges have a distinctly Indian flavour, this bundle speaks your language. Save 29%.",
     body: paras(
-      "Both courses in this bundle are built from the ground up for the Indian experience — no adapting Western therapy frameworks to a context they weren't designed for.",
       "Boundaries for Indians (₹799) gives you culturally-grounded tools for setting limits with family, in-laws, and society — with scripts for real conversations. Indian Family Dynamics (₹1,999) unpacks the psychological patterns unique to Indian households: enmeshment, intergenerational trauma, joint family roles, and parental expectations.",
       "If your mental health challenges have a distinctly Indian flavour, this bundle speaks your language. Save 29% versus buying separately."
     ),
@@ -389,7 +374,6 @@ const bundles = [
     short:
       "Everything in the Ms Paul Therapies digital library in one bundle. All 10 self-paced courses covering anxiety, burnout, mindfulness, boundaries, emotional regulation, attachment, self-worth, Indian family dynamics, toxic relationships, and CBT+DBT skills. Built by an RCI-licensed clinical psychologist, rooted in Indian lived experience. Whether you're starting your mental health journey or going deeper, this is the most comprehensive self-help resource available. Lifetime access. Save 41%.",
     body: paras(
-      "Everything in the Ms Paul Therapies digital library in a single bundle — all 10 self-paced courses, lifetime access, and a saving of 41% versus buying individually.",
       "The Complete Toolkit covers: Anxiety Toolkit · Mindfulness for Real Life · Burnout to Balance · Boundaries for Indians · Emotional Regulation · Attachment Styles · Self-Worth Rebuilding · Indian Family Dynamics · Healing Toxic Relationships · CBT+DBT Toolkit.",
       "Each course is built by Aishani Paul, an RCI-licensed clinical psychologist (License A118537), and rooted in the Indian lived experience. Whether you're beginning your mental health journey or going deep on a specific area, this is the most comprehensive self-help resource available at this price point. No subscription, no expiry — yours for life."
     ),
@@ -558,7 +542,6 @@ const corporate = [
     short:
       "Interactive, evidence-based mental health workshops for corporate teams — covering stress, burnout, boundaries, emotional resilience, and psychological safety at work. Delivered by an RCI-licensed clinical psychologist with corporate experience. Sessions are tailored to your organisation's specific needs and culture, not off-the-shelf content. Available as one-off workshops, half-day trainings, or quarterly retainer programmes. Enquire for a custom proposal.",
     body: paras(
-      "Interactive, evidence-based mental health workshops for corporate teams — covering stress, burnout, boundary-setting, emotional resilience, and psychological safety in the workplace.",
       "Each workshop is designed and delivered by Aishani Paul, an RCI-licensed clinical psychologist with experience working with corporate clients across India. Sessions are tailored to your organisation's specific culture, industry, and needs — not generic content that could apply to any company.",
       "Available formats: 90-minute focused sessions, half-day trainings, and quarterly retainer programmes for ongoing culture change. All sessions include handouts, follow-up resources, and a post-session summary for managers. Suitable for teams of 10–50 people. Enquire for a custom proposal and pricing."
     ),
