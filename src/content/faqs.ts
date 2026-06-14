@@ -1,8 +1,6 @@
-export interface FAQ {
-  question: string;
-  answer: string;
-  category: "general" | "sessions" | "fees" | "confidentiality" | "getting-started";
-}
+import type { FAQ } from "@/types";
+
+export type { FAQ } from "@/types";
 
 export const faqs: FAQ[] = [
   // Getting started

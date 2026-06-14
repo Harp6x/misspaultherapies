@@ -1,13 +1,6 @@
-export interface BlogPost {
-  slug: string;
-  title: string;
-  description: string;
-  category: string;
-  datePublished: string;
-  readingTime: string;
-  published: boolean;
-  body?: string;
-}
+import type { BlogPost } from "@/types";
+
+export type { BlogPost } from "@/types";
 
 export const blogCategories = [
   "Mental Health",

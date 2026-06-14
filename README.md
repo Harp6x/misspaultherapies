@@ -1,116 +1,74 @@
-# Miss Paul Therapies
+# Ms Paul Therapies
 
-Professional therapy website for Miss Paul — a licensed clinical psychologist offering online psychotherapy and counselling across India and abroad.
+Professional therapy website for **Aishani Paul** — RCI-licensed clinical psychologist offering online therapy across India and for NRIs abroad.
 
-## Stack
+**Live:** [mspaultherapies.in](https://mspaultherapies.in)
 
-- **Next.js 16** (App Router, TypeScript, static generation)
-- **Tailwind CSS v4** (custom cream/sage/terracotta palette)
-- **Lucide React** (icons)
-- **Google Fonts** — Playfair Display (headings) + Inter (body)
+## Tech Stack
 
-## Getting Started
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 16.2.6 (App Router), TypeScript, React 19 |
+| CMS | Sanity v5.25.1 (embedded at `/studio`) |
+| Styling | Tailwind CSS v4 (sage/cream/terracotta palette) |
+| Icons | Lucide React |
+| Fonts | Inter (body) + Playfair Display (headings) |
+| Hosting | Vercel (auto-deploy from GitHub) |
+
+## Setup
 
 ```bash
 npm install
-npm run dev
+cp .env.example .env.local   # Add Sanity project ID
+npm run dev                   # → http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+### Environment Variables
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=k0r3y2my
+NEXT_PUBLIC_SANITY_DATASET=production
+```
+
+## Scripts
+
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Dev server |
+| `npm run build` | Production build |
+| `npm run typecheck` | TypeScript check (`tsc --noEmit`) |
+| `npm run lint` | ESLint |
+| `npm run format` | Prettier |
+| `npm test` | Vitest |
 
 ## Project Structure
 
 ```
 src/
-├── app/                    # App Router pages
-│   ├── about/
-│   ├── blog/[slug]/
-│   ├── book/
-│   ├── emergency-resources/
-│   ├── faq/
-│   ├── locations/[slug]/   # 6 SEO location pages
-│   ├── privacy-policy/
-│   ├── resources/
-│   ├── services/[slug]/    # 6 service detail pages
-│   ├── terms-consent-cancellation/
-│   ├── layout.tsx          # Root layout (Header, Footer, WhatsApp)
-│   ├── page.tsx            # Homepage
-│   ├── sitemap.ts          # Dynamic sitemap
-│   ├── robots.ts
-│   └── not-found.tsx
-├── components/             # Shared UI components
-│   ├── Header.tsx
-│   ├── Footer.tsx
-│   ├── WhatsAppButton.tsx
-│   ├── CTASection.tsx
-│   ├── ServiceCard.tsx
-│   ├── FAQAccordion.tsx
-│   ├── TestimonialCard.tsx
-│   ├── GoogleFormEmbed.tsx
-│   ├── Breadcrumbs.tsx
-│   └── SEOJsonLd.tsx
-├── content/                # CMS-ready data files
-│   ├── services.ts
-│   ├── faqs.ts
-│   ├── blog.ts
-│   └── locations.ts
-└── lib/
-    ├── site-config.ts      # Central config (name, email, fees, etc.)
-    ├── seo.ts              # Metadata & JSON-LD helpers
-    └── utils.ts            # cn() utility
+├── app/          # 26 pages (App Router)
+├── components/   # 24 components
+├── content/      # Static fallback data (blog, services, FAQs, locations)
+├── lib/          # Data layer, SEO, site config, utilities
+├── sanity/       # Client, queries, fetch functions, 12 schemas
+└── types/        # Centralized TypeScript interfaces
 ```
 
-## How to Update Content
+## Documentation
 
-All editable content lives in two places:
+| File | Purpose |
+|---|---|
+| `AGENTS.md` | Full AI agent context |
+| `CLAUDE.md` | Claude-specific quick context |
+| `MASTER-RCA.md` | Complete technical + marketing documentation |
+| `docs/ARCHITECTURE.md` | System architecture and data flow |
+| `docs/HANDBOOK.md` | Maintenance guide (common tasks) |
+| `docs/HOW-IT-WORKS.md` | Founder-friendly site explainer |
+| `docs/lessons/` | Hard-learned rules about what NOT to do |
 
-1. **`src/lib/site-config.ts`** — Contact details, credentials, fees, social links, WhatsApp number, Google Form URL. Replace `[TO ADD]` placeholders before launch.
+## Key Architecture
 
-2. **`src/content/`** — Services, FAQs, blog posts, location pages. Edit these files to add/modify content without touching page components.
+**Dual-source data:** Pages fetch from Sanity first; if unavailable, fall back to static `content/*.ts` files. The unified layer lives in `src/lib/data.ts`.
 
-## Pre-Launch Checklist
+**SEO:** 10+ JSON-LD builders, dynamic sitemap, AI crawler allow-list (15+ bots), `/llms.txt` for LLM discovery.
 
-- [ ] Replace `[TO ADD]` values in `site-config.ts` (phone, RCI number, WhatsApp, socials, form URLs)
-- [ ] Add professional photos to `public/` and replace placeholder divs
-- [ ] Add real OG image at `public/og-image.jpg` (1200x630)
-- [ ] Add favicon at `src/app/favicon.ico`
-- [ ] Review and customise privacy policy and terms (get legal review)
-- [ ] Replace placeholder testimonials with real ones (with consent)
-- [ ] Write and publish blog articles (set `published: true` in `blog.ts`)
-- [ ] Set `NEXT_PUBLIC_GA_ID` and/or `NEXT_PUBLIC_META_PIXEL_ID` env vars for analytics
-- [ ] Update `url` in `site-config.ts` to production domain
-- [ ] Run `npm run build` to verify all pages generate successfully
-- [ ] Test on mobile, tablet, and desktop
-
-## Deployment
-
-Static export is compatible with Vercel, Netlify, Cloudflare Pages, or any static host:
-
-```bash
-npm run build     # generates .next/ with static pages
-npm start         # local production server
-```
-
-Deploy to Vercel:
-
-```bash
-npx vercel
-```
-
-## Routes (37 pages)
-
-| Route | Description |
-|-------|-------------|
-| `/` | Homepage |
-| `/about` | About & credentials |
-| `/services` | Services overview |
-| `/services/[slug]` | 6 service detail pages |
-| `/book` | Booking flow, fees, cancellation |
-| `/faq` | 22 FAQs with accordion + JSON-LD |
-| `/blog` | Blog index with category chips |
-| `/blog/[slug]` | 10 blog post stubs |
-| `/resources` | Guides & checklists |
-| `/emergency-resources` | Crisis helplines |
-| `/locations/[slug]` | 6 SEO location pages |
-| `/privacy-policy` | Privacy policy |
-| `/terms-consent-cancellation` | Terms & consent |
+**ISR:** All pages revalidate every 60 seconds.

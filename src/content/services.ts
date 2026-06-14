@@ -1,14 +1,6 @@
-export interface Service {
-  slug: string;
-  title: string;
-  shortTitle: string;
-  description: string;
-  icon: string; // Lucide icon name
-  highlights: string[];
-  idealFor: string[];
-  approach: string;
-  fee: string;
-}
+import type { Service } from "@/types";
+
+export type { Service } from "@/types";
 
 export const services: Service[] = [
   {

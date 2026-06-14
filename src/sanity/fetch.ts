@@ -21,6 +21,34 @@ import {
   productBySlugQuery,
   allProductSlugsQuery,
 } from "./queries";
+import type {
+  SanitySiteConfig,
+  SanityAboutPage,
+  SanityService,
+  SanityBlogPost,
+  SanityFAQ,
+  SanityResource,
+  SanityTestimonial,
+  SanityLocation,
+  SanityGalleryItem,
+  SanityWorkshop,
+  SanityProduct,
+} from "@/types";
+
+// Re-export types for backward compatibility
+export type {
+  SanitySiteConfig,
+  SanityAboutPage,
+  SanityService,
+  SanityBlogPost,
+  SanityFAQ,
+  SanityResource,
+  SanityTestimonial,
+  SanityLocation,
+  SanityGalleryItem,
+  SanityWorkshop,
+  SanityProduct,
+} from "@/types";
 
 // Revalidation: re-fetch from Sanity API every 60 seconds
 const REVALIDATE = 60;
@@ -36,80 +64,16 @@ async function sanityFetch<T = any>(
 }
 
 // ── Site Config ──
-export interface SanitySiteConfig {
-  name: string;
-  tagline: string;
-  description: string;
-  author: string;
-  handle: string;
-  email: string;
-  phone: string;
-  whatsappNumber: string;
-  whatsappMessage: string;
-  rciNumber: string;
-  qualifications: string[];
-  languages: string[];
-  instagram: string;
-  youtube: string;
-  linkedin: string;
-  googleFormUrl: string;
-  upiId: string;
-  upiNumber?: string;
-  razorpayUrl?: string;
-  upiQrCodeUrl?: string;
-  feeIndividual: string;
-  feeCouples: string;
-  feeFamily: string;
-  feeAssessment: string;
-  feePackage: string;
-  slidingScale: string;
-  sessionDuration: string;
-  cancellationPolicy: string;
-  kitFormType?: "inline" | "modal" | "slide-in" | "sticky-bar" | "off";
-  kitUid?: string;
-  kitScriptUrl?: string;
-}
-
 export async function getSiteConfig(): Promise<SanitySiteConfig | null> {
   return sanityFetch<SanitySiteConfig | null>(siteConfigQuery);
 }
 
 // ── About Page ──
-export interface SanityAboutPage {
-  title: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  photo?: any;
-  bioParagraph1: string;
-  bioParagraph2: string;
-  bioParagraph3: string;
-  credentials: { icon: string; label: string }[];
-  approachIntro: string;
-  values: { icon: string; title: string; description: string }[];
-  languagesText: string;
-  connectHeading: string;
-  connectText: string;
-  resumeUrl?: string;
-  socialLinks: { platform: string; url: string; icon: string }[];
-}
-
 export async function getAboutPage(): Promise<SanityAboutPage | null> {
   return sanityFetch<SanityAboutPage | null>(aboutPageQuery);
 }
 
 // ── Services ──
-export interface SanityService {
-  title: string;
-  slug: string;
-  shortTitle: string;
-  description: string;
-  icon: string;
-  highlights: string[];
-  idealFor: string[];
-  approach: string;
-  fee: string;
-  order: number;
-}
-
 export async function getAllServices(): Promise<SanityService[]> {
   return sanityFetch<SanityService[]>(allServicesQuery);
 }
@@ -121,20 +85,6 @@ export async function getServiceBySlug(
 }
 
 // ── Blog Posts ──
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface SanityBlogPost {
-  title: string;
-  slug: string;
-  description: string;
-  category: string;
-  datePublished: string;
-  readingTime: string;
-  published: boolean;
-  // Portable Text blocks
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  body: any;
-}
-
 export async function getAllBlogPosts(): Promise<SanityBlogPost[]> {
   return sanityFetch<SanityBlogPost[]>(allBlogPostsQuery);
 }
@@ -150,55 +100,21 @@ export async function getAllBlogSlugs(): Promise<{ slug: string }[]> {
 }
 
 // ── FAQs ──
-export interface SanityFAQ {
-  question: string;
-  answer: string;
-  category: string;
-  order: number;
-}
-
 export async function getAllFaqs(): Promise<SanityFAQ[]> {
   return sanityFetch<SanityFAQ[]>(allFaqsQuery);
 }
 
 // ── Resources ──
-export interface SanityResource {
-  title: string;
-  tag: string;
-  icon: string;
-  // Portable Text blocks
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: any;
-  order: number;
-}
-
 export async function getAllResources(): Promise<SanityResource[]> {
   return sanityFetch<SanityResource[]>(allResourcesQuery);
 }
 
 // ── Testimonials ──
-export interface SanityTestimonial {
-  quote: string;
-  name: string;
-  context: string;
-  order: number;
-}
-
 export async function getApprovedTestimonials(): Promise<SanityTestimonial[]> {
   return sanityFetch<SanityTestimonial[]>(approvedTestimonialsQuery);
 }
 
 // ── Locations ──
-export interface SanityLocation {
-  name: string;
-  slug: string;
-  title: string;
-  description: string;
-  metaDescription: string;
-  features: string[];
-  services: string[];
-}
-
 export async function getAllLocations(): Promise<SanityLocation[]> {
   return sanityFetch<SanityLocation[]>(allLocationsQuery);
 }
@@ -214,17 +130,6 @@ export async function getAllLocationSlugs(): Promise<{ slug: string }[]> {
 }
 
 // ── Gallery ──
-export interface SanityGalleryItem {
-  _id: string;
-  title: string;
-  type: "instagram-reel" | "instagram-post" | "youtube-video" | "image";
-  url?: string;
-  image?: { asset: { _id: string; url: string }; alt?: string };
-  description?: string;
-  featured: boolean;
-  order: number;
-}
-
 export async function getAllGalleryItems(): Promise<SanityGalleryItem[]> {
   return sanityFetch<SanityGalleryItem[]>(allGalleryItemsQuery);
 }
@@ -234,57 +139,12 @@ export async function getFeaturedGalleryItems(): Promise<SanityGalleryItem[]> {
 }
 
 // ── Workshops ──
-export interface SanityWorkshop {
-  title: string;
-  slug: string;
-  description: string;
-  date?: string;
-  duration?: string;
-  fee?: string;
-  registrationUrl?: string;
-  status: "upcoming" | "open" | "sold-out" | "completed";
-  coverImage?: { asset: { _id: string; url: string }; alt?: string };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  body?: any[];
-  order?: number;
-}
-
 export async function getAllWorkshops(): Promise<SanityWorkshop[]> {
   return sanityFetch<SanityWorkshop[]>(allWorkshopsQuery);
 }
 
 
 // ── Products ──
-export interface SanityProduct {
-  _id: string;
-  title: string;
-  slug: string;
-  shortDescription?: string;
-  productType:
-    | "course"
-    | "mini-course"
-    | "bundle"
-    | "ebook"
-    | "toolkit"
-    | "quiz"
-    | "corporate";
-  priceType: "free" | "paid" | "bundle" | "coming-soon";
-  price?: string;
-  originalPrice?: string;
-  priceUSD?: string;
-  topics?: string[];
-  audience?: string[];
-  format?: string;
-  highlights?: string[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  body?: any[];
-  actionUrl?: string;
-  ctaLabel?: string;
-  featured?: boolean;
-  order?: number;
-  coverImage?: { asset: { _id: string; url: string }; alt?: string };
-}
-
 export async function getAllProducts(): Promise<SanityProduct[]> {
   return sanityFetch<SanityProduct[]>(allProductsQuery);
 }

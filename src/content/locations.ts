@@ -1,15 +1,7 @@
 import { ALL_CITIES, type CityEntry } from "./city-data";
+import type { Location } from "@/types";
 
-export interface Location {
-  slug: string;
-  city: string;
-  region?: string;
-  title: string;
-  description: string;
-  metaDescription: string;
-  keywords: string[];
-  content: string;
-}
+export type { Location } from "@/types";
 
 function generateLocation(d: CityEntry): Location {
   if (d.isNRI && d.country) {

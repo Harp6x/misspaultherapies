@@ -27,18 +27,19 @@ import type {
   SanityResource,
   SanityTestimonial,
   SanityLocation,
-} from "@/sanity/fetch";
+  Service,
+  BlogPost,
+  FAQ,
+  Location,
+  AboutPageData,
+} from "@/types";
 
 // Static fallbacks
 import { siteConfig as staticSiteConfig } from "@/lib/site-config";
 import { services as staticServices } from "@/content/services";
-import type { Service } from "@/content/services";
 import { blogPosts as staticBlogPosts, blogCategories } from "@/content/blog";
-import type { BlogPost } from "@/content/blog";
 import { faqs as staticFaqs, faqCategories } from "@/content/faqs";
-import type { FAQ } from "@/content/faqs";
 import { locations as staticLocations } from "@/content/locations";
-import type { Location } from "@/content/locations";
 
 // Re-export categories (these don't live in Sanity)
 export { blogCategories, faqCategories };
@@ -97,22 +98,7 @@ export async function getSiteConfig() {
 }
 
 // ── About Page ──
-export interface AboutPageData {
-  title: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  photo?: any;
-  bioParagraph1: string;
-  bioParagraph2: string;
-  bioParagraph3: string;
-  credentials: { icon: string; label: string }[];
-  approachIntro: string;
-  values: { icon: string; title: string; description: string }[];
-  languagesText: string;
-  connectHeading: string;
-  connectText: string;
-  resumeUrl?: string;
-  socialLinks: { platform: string; url: string; icon: string }[];
-}
+export type { AboutPageData } from "@/types";
 
 const staticAboutPage: AboutPageData = {
   title: "About Aishani Paul",
