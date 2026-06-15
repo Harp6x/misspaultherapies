@@ -14,7 +14,8 @@ export const siteConfigQuery = groq`
     kitFormType, kitUid, kitScriptUrl,
     enableBlogPage, enableProductsPage, enableWorkshopsPage,
     enableGalleryPage, enableResourcesPage,
-    seo
+    seo,
+    team[]{ name, role, bio, "photoUrl": photo.asset->url, socialLinks[]{ label, url } }
   }
 `;
 

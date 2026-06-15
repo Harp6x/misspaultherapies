@@ -38,6 +38,32 @@ export const siteConfigSchema = defineType({
     defineField({ name: "author", title: "Author Name", type: "string", group: "general" }),
     defineField({ name: "handle", title: "Internet Handle (e.g. mspaultherapies)", type: "string", group: "general" }),
     defineField({ name: "seo", title: "Default SEO", type: "seo", group: "general" }),
+    defineField({
+      name: "team",
+      title: "Team",
+      type: "array",
+      group: "general",
+      description: "Team members / founders displayed on the site",
+      of: [{
+        type: "object",
+        fields: [
+          defineField({ name: "name", title: "Name", type: "string", validation: (r) => r.required() }),
+          defineField({ name: "role", title: "Role", type: "string", validation: (r) => r.required() }),
+          defineField({ name: "bio", title: "Bio", type: "text", rows: 3 }),
+          defineField({ name: "photo", title: "Photo", type: "image", options: { hotspot: true } }),
+          defineField({
+            name: "socialLinks",
+            title: "Social Links",
+            type: "array",
+            of: [{ type: "object", fields: [
+              defineField({ name: "label", title: "Label", type: "string" }),
+              defineField({ name: "url", title: "URL", type: "url" }),
+            ]}],
+          }),
+        ],
+        preview: { select: { title: "name", subtitle: "role", media: "photo" } },
+      }],
+    }),
 
     // ── Contact & Booking ──
     defineField({ name: "email", title: "Email", type: "string", group: "contact" }),
