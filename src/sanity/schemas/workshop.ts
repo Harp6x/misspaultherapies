@@ -54,42 +54,8 @@ export const workshopSchema = defineType({
       title: "Registration Link",
       type: "url",
     }),
-    defineField({
-      name: "body",
-      title: "Full Description",
-      type: "array",
-      of: [
-        {
-          type: "block",
-          styles: [
-            { title: "Normal", value: "normal" },
-            { title: "H2", value: "h2" },
-            { title: "H3", value: "h3" },
-          ],
-        },
-        {
-          type: "image",
-          options: { hotspot: true },
-          fields: [
-            { name: "alt", type: "string", title: "Alt text" },
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: "status",
-      title: "Status",
-      type: "string",
-      options: {
-        list: [
-          { title: "Upcoming", value: "upcoming" },
-          { title: "Registration Open", value: "open" },
-          { title: "Sold Out", value: "sold-out" },
-          { title: "Completed", value: "completed" },
-        ],
-      },
-      initialValue: "upcoming",
-    }),
+    defineField({ name: "body", title: "Full Description", type: "portableText" }),
+    defineField({ name: "status", title: "Status", type: "string", description: "Statuses are managed in Site Configuration → Dropdown Options", initialValue: "upcoming" }),
     defineField({
       name: "published",
       title: "Published?",
@@ -101,6 +67,7 @@ export const workshopSchema = defineType({
       title: "Display Order",
       type: "number",
     }),
+    defineField({ name: "seo", title: "SEO", type: "seo" }),
   ],
   orderings: [
     {
@@ -110,14 +77,10 @@ export const workshopSchema = defineType({
     },
   ],
   preview: {
-    select: {
-      title: "title",
-      subtitle: "status",
-      media: "coverImage",
-    },
-    prepare({ title, subtitle }) {
+    select: { title: "title", subtitle: "status", media: "coverImage", published: "published" },
+    prepare({ title, subtitle, published }) {
       return {
-        title,
+        title: `${published === false ? "[Draft] " : ""}${title}`,
         subtitle: subtitle ? `[${subtitle}]` : "",
       };
     },

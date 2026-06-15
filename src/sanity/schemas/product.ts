@@ -1,43 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { TagIcon } from "@sanity/icons";
 
-const productTypes = [
-  { title: "Course", value: "course" },
-  { title: "Mini-Course / Challenge", value: "mini-course" },
-  { title: "Bundle", value: "bundle" },
-  { title: "eBook", value: "ebook" },
-  { title: "Toolkit / Worksheet (PDF)", value: "toolkit" },
-  { title: "Quiz / Assessment", value: "quiz" },
-  { title: "Corporate", value: "corporate" },
-];
-
-const topics = [
-  { title: "Anxiety", value: "anxiety" },
-  { title: "Depression", value: "depression" },
-  { title: "Stress & Burnout", value: "stress-burnout" },
-  { title: "Relationships", value: "relationships" },
-  { title: "Self-Esteem & Self-Worth", value: "self-worth" },
-  { title: "Boundaries", value: "boundaries" },
-  { title: "Emotional Regulation", value: "emotional-regulation" },
-  { title: "Mindfulness", value: "mindfulness" },
-  { title: "Attachment", value: "attachment" },
-  { title: "Trauma", value: "trauma" },
-  { title: "Parenting & Family", value: "parenting-family" },
-  { title: "Sleep", value: "sleep" },
-  { title: "Self-Care", value: "self-care" },
-  { title: "General Wellness", value: "general-wellness" },
-];
-
-const audiences = [
-  { title: "Individuals", value: "individuals" },
-  { title: "Couples", value: "couples" },
-  { title: "Families", value: "families" },
-  { title: "Teens / Adolescents", value: "teens" },
-  { title: "Parents", value: "parents" },
-  { title: "Corporate / Workplace", value: "corporate" },
-  { title: "NRIs", value: "nris" },
-];
-
 export const productSchema = defineType({
   name: "product",
   title: "Product",
@@ -92,56 +55,10 @@ export const productSchema = defineType({
       of: [{ type: "string" }],
       group: "main",
     }),
-    defineField({
-      name: "body",
-      title: "Full Description (detail page)",
-      type: "array",
-      group: "main",
-      of: [
-        {
-          type: "block",
-          styles: [
-            { title: "Normal", value: "normal" },
-            { title: "H2", value: "h2" },
-            { title: "H3", value: "h3" },
-          ],
-          marks: {
-            annotations: [
-              {
-                name: "link",
-                type: "object",
-                title: "Link",
-                fields: [{ name: "href", type: "url", title: "URL" }],
-              },
-            ],
-          },
-        },
-      ],
-    }),
-    defineField({
-      name: "productType",
-      title: "Product Type",
-      type: "string",
-      group: "filters",
-      options: { list: productTypes, layout: "radio" },
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "topics",
-      title: "Topics / Issues",
-      type: "array",
-      group: "filters",
-      of: [{ type: "string" }],
-      options: { list: topics },
-    }),
-    defineField({
-      name: "audience",
-      title: "For Whom",
-      type: "array",
-      group: "filters",
-      of: [{ type: "string" }],
-      options: { list: audiences },
-    }),
+    defineField({ name: "body", title: "Full Description (detail page)", type: "portableText", group: "main" }),
+    defineField({ name: "productType", title: "Product Type", type: "string", group: "filters", description: "Product types are managed in Site Configuration → Dropdown Options", validation: (r) => r.required() }),
+    defineField({ name: "topics", title: "Topics / Issues", type: "array", group: "filters", of: [{ type: "string" }], description: "Topics are managed in Site Configuration → Dropdown Options", options: { layout: "tags" } }),
+    defineField({ name: "audience", title: "For Whom", type: "array", group: "filters", of: [{ type: "string" }], description: "Audiences are managed in Site Configuration → Dropdown Options", options: { layout: "tags" } }),
     defineField({
       name: "priceType",
       title: "Price Type",
@@ -213,6 +130,7 @@ export const productSchema = defineType({
       type: "number",
       group: "main",
     }),
+    defineField({ name: "seo", title: "SEO", type: "seo", group: "main" }),
   ],
   orderings: [
     {
@@ -222,9 +140,9 @@ export const productSchema = defineType({
     },
   ],
   preview: {
-    select: { title: "title", subtitle: "productType", media: "coverImage" },
-    prepare({ title, subtitle, media }) {
-      return { title, subtitle: subtitle ? `[${subtitle}]` : "", media };
+    select: { title: "title", subtitle: "productType", media: "coverImage", published: "published" },
+    prepare({ title, subtitle, media, published }) {
+      return { title: `${published === false ? "[Draft] " : ""}${title}`, subtitle: subtitle ? `[${subtitle}]` : "", media };
     },
   },
 });

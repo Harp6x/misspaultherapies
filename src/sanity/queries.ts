@@ -11,7 +11,10 @@ export const siteConfigQuery = groq`
     "upiQrCodeUrl": upiQrCode.asset->url,
     feeIndividual, feeCouples, feeFamily, feeAssessment, feePackage,
     slidingScale, sessionDuration, cancellationPolicy,
-    kitFormType, kitUid, kitScriptUrl
+    kitFormType, kitUid, kitScriptUrl,
+    enableBlogPage, enableProductsPage, enableWorkshopsPage,
+    enableGalleryPage, enableResourcesPage,
+    seo
   }
 `;
 
@@ -32,7 +35,7 @@ export const aboutPageQuery = groq`
 
 // ── Services ──
 export const allServicesQuery = groq`
-  *[_type == "service"] | order(order asc){
+  *[_type == "service" && published != false] | order(order asc){
     title,
     "slug": slug.current,
     shortTitle, description, icon,
@@ -76,7 +79,7 @@ export const allBlogSlugsQuery = groq`
 
 // ── FAQs ──
 export const allFaqsQuery = groq`
-  *[_type == "faq"] | order(category asc, order asc){
+  *[_type == "faq" && published != false] | order(category asc, order asc){
     question, answer, category, order
   }
 `;
@@ -91,7 +94,17 @@ export const allResourcesQuery = groq`
 // ── Testimonials ──
 export const approvedTestimonialsQuery = groq`
   *[_type == "testimonial" && approved == true] | order(order asc){
-    quote, name, context, order
+    quote, name, context, order, rating, anonymous, featured,
+    photo{ asset->{ _id, url }, alt },
+    relatedService->{ title, "slug": slug.current }
+  }
+`;
+
+export const featuredTestimonialsQuery = groq`
+  *[_type == "testimonial" && approved == true && featured == true] | order(order asc){
+    quote, name, context, rating, anonymous,
+    photo{ asset->{ _id, url }, alt },
+    relatedService->{ title, "slug": slug.current }
   }
 `;
 

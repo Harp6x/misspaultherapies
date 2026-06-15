@@ -7,6 +7,7 @@ export const serviceSchema = defineType({
   type: "document",
   icon: ComponentIcon,
   fields: [
+    defineField({ name: "published", title: "Published", type: "boolean", initialValue: true, description: "Toggle to show/hide this service" }),
     defineField({
       name: "title",
       title: "Title",
@@ -64,6 +65,7 @@ export const serviceSchema = defineType({
       title: "Display Order",
       type: "number",
     }),
+    defineField({ name: "seo", title: "SEO", type: "seo" }),
   ],
   orderings: [
     {
@@ -73,6 +75,9 @@ export const serviceSchema = defineType({
     },
   ],
   preview: {
-    select: { title: "title", subtitle: "fee" },
+    select: { title: "title", subtitle: "fee", published: "published" },
+    prepare({ title, subtitle, published }) {
+      return { title: `${published === false ? "[Draft] " : ""}${title}`, subtitle };
+    },
   },
 });

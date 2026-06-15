@@ -6,127 +6,24 @@ export const blogPostSchema = defineType({
   title: "Blog Post",
   type: "document",
   icon: DocumentTextIcon,
+  groups: [
+    { name: "content", title: "Content", default: true },
+    { name: "embeds", title: "Embeds" },
+    { name: "meta", title: "Meta & SEO" },
+  ],
   fields: [
-    defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: { source: "title", maxLength: 96 },
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "description",
-      title: "Short Description (for cards/SEO)",
-      type: "text",
-      rows: 3,
-    }),
-    defineField({
-      name: "category",
-      title: "Category",
-      type: "string",
-      options: {
-        list: [
-          { title: "Mental Health", value: "Mental Health" },
-          { title: "Relationships", value: "Relationships" },
-          { title: "Therapy Basics", value: "Therapy Basics" },
-          { title: "Self-Care", value: "Self-Care" },
-          { title: "Cultural Perspectives", value: "Cultural Perspectives" },
-        ],
-      },
-    }),
-    defineField({
-      name: "coverImage",
-      title: "Cover Image",
-      type: "image",
-      options: { hotspot: true },
-      fields: [
-        { name: "alt", type: "string", title: "Alt text" },
-      ],
-    }),
-    defineField({
-      name: "youtubeUrl",
-      title: "YouTube Video URL (optional)",
-      type: "url",
-      description: "Paste a YouTube video URL to embed in the post.",
-    }),
-    defineField({
-      name: "instagramUrl",
-      title: "Instagram Post/Reel URL (optional)",
-      type: "url",
-      description: "Paste an Instagram post or reel URL to embed in the post.",
-    }),
-    defineField({
-      name: "body",
-      title: "Body",
-      type: "array",
-      of: [
-        {
-          type: "block",
-          styles: [
-            { title: "Normal", value: "normal" },
-            { title: "H2", value: "h2" },
-            { title: "H3", value: "h3" },
-            { title: "Quote", value: "blockquote" },
-          ],
-          marks: {
-            decorators: [
-              { title: "Bold", value: "strong" },
-              { title: "Italic", value: "em" },
-              { title: "Underline", value: "underline" },
-            ],
-            annotations: [
-              {
-                name: "link",
-                type: "object",
-                title: "Link",
-                fields: [
-                  {
-                    name: "href",
-                    type: "url",
-                    title: "URL",
-                    validation: (r) =>
-                      r.uri({ allowRelative: true, scheme: ["http", "https", "mailto"] }),
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        {
-          type: "image",
-          options: { hotspot: true },
-          fields: [
-            {
-              name: "alt",
-              type: "string",
-              title: "Alt text",
-            },
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: "publishedAt",
-      title: "Published Date",
-      type: "date",
-    }),
-    defineField({
-      name: "readingTime",
-      title: "Reading Time (e.g. 5 min read)",
-      type: "string",
-    }),
-    defineField({
-      name: "published",
-      title: "Published?",
-      type: "boolean",
-      initialValue: false,
-    }),
+    defineField({ name: "title", title: "Title", type: "string", group: "content", validation: (r) => r.required() }),
+    defineField({ name: "slug", title: "Slug", type: "slug", group: "content", options: { source: "title", maxLength: 96 }, validation: (r) => r.required() }),
+    defineField({ name: "published", title: "Published?", type: "boolean", group: "content", initialValue: false }),
+    defineField({ name: "description", title: "Short Description (for cards/SEO)", type: "text", rows: 3, group: "content" }),
+    defineField({ name: "category", title: "Category", type: "string", group: "content", description: "Categories are managed in Site Configuration → Dropdown Options" }),
+    defineField({ name: "coverImage", title: "Cover Image", type: "image", group: "content", options: { hotspot: true }, fields: [{ name: "alt", type: "string", title: "Alt text" }] }),
+    defineField({ name: "body", title: "Body", type: "portableText", group: "content" }),
+    defineField({ name: "youtubeUrl", title: "YouTube Video URL (optional)", type: "url", group: "embeds", description: "Paste a YouTube video URL to embed in the post." }),
+    defineField({ name: "instagramUrl", title: "Instagram Post/Reel URL (optional)", type: "url", group: "embeds", description: "Paste an Instagram post or reel URL to embed in the post." }),
+    defineField({ name: "publishedAt", title: "Published Date", type: "date", group: "meta" }),
+    defineField({ name: "readingTime", title: "Reading Time (e.g. 5 min read)", type: "string", group: "meta" }),
+    defineField({ name: "seo", title: "SEO", type: "seo", group: "meta" }),
   ],
   orderings: [
     {

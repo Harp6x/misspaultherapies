@@ -7,6 +7,7 @@ export const faqSchema = defineType({
   type: "document",
   icon: HelpCircleIcon,
   fields: [
+    defineField({ name: "published", title: "Published", type: "boolean", initialValue: true, description: "Toggle to show/hide this FAQ" }),
     defineField({
       name: "question",
       title: "Question",
@@ -24,15 +25,7 @@ export const faqSchema = defineType({
       name: "category",
       title: "Category",
       type: "string",
-      options: {
-        list: [
-          { title: "Getting Started", value: "getting-started" },
-          { title: "General", value: "general" },
-          { title: "Sessions", value: "sessions" },
-          { title: "Fees & Payment", value: "fees" },
-          { title: "Confidentiality", value: "confidentiality" },
-        ],
-      },
+      description: "Categories are managed in Site Configuration → Dropdown Options",
       validation: (r) => r.required(),
     }),
     defineField({
@@ -52,6 +45,9 @@ export const faqSchema = defineType({
     },
   ],
   preview: {
-    select: { title: "question", subtitle: "category" },
+    select: { title: "question", subtitle: "category", published: "published" },
+    prepare({ title, subtitle, published }) {
+      return { title: `${published === false ? "[Hidden] " : ""}${title}`, subtitle };
+    },
   },
 });

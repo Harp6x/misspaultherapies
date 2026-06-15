@@ -11,15 +11,24 @@ import { workshopSchema } from "./workshop";
 import { leadCaptureSchema } from "./leadCapture";
 import { productSchema } from "./product";
 
+// Reusable object types
+import { seo } from "./objects/seo";
+import { portableText } from "./objects/portable-text";
+
 export const schemaTypes = [
+  // Objects
+  seo,
+  portableText,
+  // Singletons
   siteConfigSchema,
+  aboutPageSchema,
+  // Documents
   serviceSchema,
   blogPostSchema,
   faqSchema,
   resourceSchema,
   testimonialSchema,
   locationSchema,
-  aboutPageSchema,
   galleryItemSchema,
   workshopSchema,
   leadCaptureSchema,
