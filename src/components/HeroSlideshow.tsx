@@ -74,14 +74,14 @@ export function HeroSlideshow({ slides }: Props) {
           </>
         )}
         {/* Warm gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brown/30 via-brown/20 to-brown/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brown/50 via-brown/40 to-brown/60" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 w-full px-4 py-16 sm:px-8 sm:py-20 md:px-12">
         <div className="mx-auto max-w-7xl flex flex-col items-center lg:items-start">
           {/* Frosted glass text panel */}
-          <div className="w-full max-w-2xl rounded-2xl bg-cream/20 backdrop-blur-md border border-cream/30 p-6 sm:p-10 shadow-lg">
+          <div className="w-full max-w-2xl rounded-2xl bg-brown/40 backdrop-blur-md border border-cream/30 p-6 sm:p-10 shadow-lg">
             <p className="text-xs font-sans uppercase tracking-[0.4em] text-cream/70 mb-4">
               Ms Paul Therapies
             </p>
