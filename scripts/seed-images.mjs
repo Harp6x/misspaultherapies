@@ -156,7 +156,9 @@ async function main() {
 
   // ── 2. Patch siteConfig ────────────────────────────────────────────────────
   console.log("── Patching siteConfig ────────────────────────────────────────");
-  const siteConfigId = await client.fetch(`*[_type == "siteConfig"][0]._id`);
+  const siteConfigId = await client.fetch(
+    `*[_type == "siteConfig" && !(_id in path("drafts.**"))][0]._id`
+  );
   if (!siteConfigId) {
     console.error("  ✗ No siteConfig document found. Run seed-sanity.mjs first.");
   } else if (heroSlides.length === 0) {
@@ -169,7 +171,7 @@ async function main() {
   // ── 3. Service images ──────────────────────────────────────────────────────
   console.log("── Service Card Images ────────────────────────────────────────");
   const services = await client.fetch(
-    `*[_type == "service" && published != false]{ _id, title }`
+    `*[_type == "service" && published != false && !(_id in path("drafts.**"))]{ _id, title }`
   );
   console.log(`  Found ${services?.length ?? 0} services in Sanity.\n`);
 
