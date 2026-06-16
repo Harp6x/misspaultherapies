@@ -3,6 +3,12 @@
  * Mirrors the shapes returned by GROQ queries in sanity/queries.ts.
  */
 
+// ── Hero Slide ──
+export interface SanityHeroSlide {
+  imageUrl: string;
+  alt: string;
+}
+
 // ── Site Config (singleton) ──
 export interface SanitySiteConfig {
   name: string;
@@ -36,6 +42,8 @@ export interface SanitySiteConfig {
   kitFormType?: "inline" | "modal" | "slide-in" | "sticky-bar" | "off";
   kitUid?: string;
   kitScriptUrl?: string;
+  heroSlides?: SanityHeroSlide[];
+  howItWorksBgUrl?: string;
 }
 
 // ── About Page (singleton) ──
@@ -63,6 +71,8 @@ export interface SanityService {
   shortTitle: string;
   description: string;
   icon: string;
+  imageUrl?: string;
+  imageAlt?: string;
   highlights: string[];
   idealFor: string[];
   approach: string;

@@ -1,27 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
-  Shield,
-  Video,
-  Globe,
   Heart,
   Brain,
   Lightbulb,
   MessageCircle,
-  CalendarCheck,
-  Sparkles,
-  BookOpen,
 } from "lucide-react";
 import { SocialIcon } from "@/components/SocialIcon";
 import { siteConfig } from "@/lib/site-config";
 import { getAllServices, getAllBlogPosts, getTestimonials } from "@/lib/data";
-import { getFeaturedGalleryItems } from "@/sanity/fetch";
+import { getFeaturedGalleryItems, getSiteConfig, getAboutPage } from "@/sanity/fetch";
+import { urlFor } from "@/sanity/image";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { MediaEmbed } from "@/components/MediaEmbed";
 import { CTASection } from "@/components/CTASection";
 import { TrustBar } from "@/components/TrustBar";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { buildMetadata, organizationJsonLd, websiteJsonLd, localBusinessJsonLd } from "@/lib/seo";
 
 export const revalidate = 60;
@@ -32,12 +29,6 @@ export const metadata = buildMetadata({
     "Book online therapy with Aishani Paul, RCI-licensed clinical psychologist. Individual, couples, adolescent & family therapy across India and for NRIs abroad. Free 15-min discovery call.",
   path: "",
 });
-
-const trustBadges = [
-  { icon: Shield, label: "RCI Licensed" },
-  { icon: Video, label: "100% Online" },
-  { icon: Globe, label: "India & Abroad" },
-];
 
 const painPoints = [
   {
@@ -88,12 +79,22 @@ const howItWorks = [
 ];
 
 export default async function Home() {
-  const [services, blogPosts, testimonials, featuredMedia] = await Promise.all([
-    getAllServices(),
-    getAllBlogPosts(),
-    getTestimonials(),
-    getFeaturedGalleryItems().catch(() => []),
-  ]);
+  const [services, blogPosts, testimonials, featuredMedia, sanityConfig, aboutPage] =
+    await Promise.all([
+      getAllServices(),
+      getAllBlogPosts(),
+      getTestimonials(),
+      getFeaturedGalleryItems().catch(() => []),
+      getSiteConfig().catch(() => null),
+      getAboutPage().catch(() => null),
+    ]);
+
+  const heroSlides = (sanityConfig?.heroSlides ?? []).filter((s) => s.imageUrl);
+  const howItWorksBgUrl = sanityConfig?.howItWorksBgUrl ?? null;
+  const therapistPhotoUrl = aboutPage?.photo
+    ? urlFor(aboutPage.photo).width(600).height(750).fit("crop").url()
+    : null;
+
   return (
     <>
       <SEOJsonLd data={organizationJsonLd()} />
@@ -101,48 +102,40 @@ export default async function Home() {
       <SEOJsonLd data={localBusinessJsonLd()} />
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-cream to-cream-dark">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brown">
-              Compassionate Therapy for{" "}
-              <span className="text-sage">Meaningful Change</span>
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl text-brown-light leading-relaxed">
-              Professional online psychotherapy and counselling - for
-              individuals, couples, adolescents, and families across India and
-              abroad.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/book"
-                className="inline-flex items-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
-              >
-                Book a Session
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-sage/30 px-6 py-3 text-sm font-semibold text-sage-dark hover:bg-sage/5 transition-colors"
-              >
-                Learn About My Approach
-              </Link>
-            </div>
-            {/* Trust badges */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-              {trustBadges.map((badge) => (
-                <div
-                  key={badge.label}
-                  className="flex items-center gap-2 text-sm text-muted-foreground"
+      {heroSlides.length > 0 ? (
+        <HeroSlideshow slides={heroSlides} />
+      ) : (
+        <section className="relative overflow-hidden bg-gradient-to-b from-cream to-cream-dark">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
+            <div className="mx-auto max-w-3xl text-center">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brown">
+                Compassionate Therapy for{" "}
+                <span className="text-sage">Meaningful Change</span>
+              </h1>
+              <p className="mt-6 text-lg sm:text-xl text-brown-light leading-relaxed">
+                Professional online psychotherapy and counselling — for
+                individuals, couples, adolescents, and families across India and
+                abroad.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="/book"
+                  className="inline-flex items-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
                 >
-                  <badge.icon className="h-4 w-4 text-sage" />
-                  {badge.label}
-                </div>
-              ))}
+                  Book a Session
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-sage/30 px-6 py-3 text-sm font-semibold text-sage-dark hover:bg-sage/5 transition-colors"
+                >
+                  Learn About My Approach
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── Trust Bar ── */}
       <TrustBar />
@@ -179,32 +172,62 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── About Preview ── */}
+      {/* ── Meet the Therapist ── */}
       <section className="py-16 sm:py-20 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brown text-center">
-              Hi, I&apos;m Aishani Paul
-            </h2>
-            <p className="mt-4 text-brown-light leading-relaxed text-center">
-              I&apos;m a{" "}
-              {siteConfig.qualifications.join(", ").toLowerCase()} with a
-              passion for helping people navigate life&apos;s challenges with
-              greater clarity and compassion.
-            </p>
-            <p className="mt-3 text-brown-light leading-relaxed text-center">
-              I believe therapy should be a warm, non-judgmental space where
-              you feel truly heard. My integrative approach combines
-              evidence-based techniques with cultural sensitivity - because
-              your background and experiences matter.
-            </p>
-            <div className="mt-6 text-center">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-sage-dark transition-colors"
-              >
-                Read more about me <ArrowRight className="h-4 w-4" />
-              </Link>
+          <div className="grid gap-10 lg:grid-cols-5 lg:items-center">
+            {/* Photo */}
+            {therapistPhotoUrl && (
+              <div className="lg:col-span-2 flex justify-center lg:justify-start">
+                <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl shadow-lg">
+                  <Image
+                    src={therapistPhotoUrl}
+                    alt="Aishani Paul, Clinical Psychologist"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 80vw, 40vw"
+                  />
+                </div>
+              </div>
+            )}
+            {/* Text */}
+            <div className={therapistPhotoUrl ? "lg:col-span-3" : "lg:col-span-5 max-w-3xl mx-auto text-center"}>
+              <p className="text-sm font-sans uppercase tracking-[0.3em] text-sage mb-3">
+                About Your Therapist
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brown">
+                Hi, I&apos;m Aishani Paul
+              </h2>
+              <p className="mt-4 text-brown-light leading-relaxed">
+                {aboutPage?.bioParagraph1 ||
+                  `I\'m a ${siteConfig.qualifications.join(", ").toLowerCase()} with a passion for helping people navigate life\'s challenges with greater clarity and compassion.`}
+              </p>
+              {aboutPage?.bioParagraph2 && (
+                <p className="mt-3 text-brown-light leading-relaxed">
+                  {aboutPage.bioParagraph2}
+                </p>
+              )}
+              {/* Credentials */}
+              {aboutPage?.credentials && aboutPage.credentials.length > 0 && (
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {aboutPage.credentials.slice(0, 4).map((c: { icon: string; label: string }) => (
+                    <span
+                      key={c.label}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-sage/10 px-3 py-1.5 text-xs font-medium text-sage-dark"
+                    >
+                      {c.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <div className="mt-6">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-sage-dark transition-colors"
+                >
+                  Read more about me <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -238,14 +261,29 @@ export default async function Home() {
       </section>
 
       {/* ── How Therapy Works ── */}
-      <section className="py-16 sm:py-20 bg-cream">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 sm:py-20 overflow-hidden">
+        {howItWorksBgUrl ? (
+          <>
+            <Image
+              src={howItWorksBgUrl}
+              alt=""
+              fill
+              aria-hidden
+              className="object-cover opacity-15"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-cream/80" />
+          </>
+        ) : (
+          <div className="absolute inset-0 bg-cream" />
+        )}
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brown">
               How It Works
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Getting started is simple - and you&apos;re in control every step
+              Getting started is simple — and you&apos;re in control every step
               of the way.
             </p>
           </div>

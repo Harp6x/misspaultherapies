@@ -25,6 +25,31 @@ export const siteConfigSchema = defineType({
     { name: "options", title: "Dropdown Options" },
   ],
   fields: [
+    // ── Hero Slideshow ──
+    defineField({
+      name: "heroSlides",
+      title: "Hero Slideshow Photos",
+      type: "array",
+      group: "general",
+      description: "Upload 4–6 photos for the homepage hero slideshow. Therapy room, Aishani's photo, calming nature, etc.",
+      of: [{
+        type: "object",
+        fields: [
+          defineField({ name: "image", title: "Photo", type: "image", options: { hotspot: true }, validation: (r) => r.required() }),
+          defineField({ name: "alt", title: "Alt text (for accessibility)", type: "string", validation: (r) => r.required() }),
+        ],
+        preview: { select: { title: "alt", media: "image" } },
+      }],
+    }),
+    defineField({
+      name: "howItWorksBg",
+      title: "How It Works — Background Image (optional)",
+      type: "image",
+      group: "general",
+      options: { hotspot: true },
+      description: "Soft background image for the How It Works section. Use a calm nature/plant photo.",
+    }),
+
     // ── General ──
     defineField({
       name: "name",

@@ -33,6 +33,14 @@ export const serviceSchema = defineType({
       rows: 3,
     }),
     defineField({
+      name: "image",
+      title: "Card Image (optional)",
+      type: "image",
+      options: { hotspot: true },
+      fields: [{ name: "alt", type: "string", title: "Alt text" }],
+      description: "Optional photo shown at the top of the service card on the homepage.",
+    }),
+    defineField({
       name: "icon",
       title: "Lucide Icon Name (e.g. User, Heart, Globe)",
       type: "string",

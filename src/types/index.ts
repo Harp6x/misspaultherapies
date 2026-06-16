@@ -5,6 +5,7 @@
 
 // Sanity document types (CMS-fetched shapes)
 export type {
+  SanityHeroSlide,
   SanitySiteConfig,
   SanityAboutPage,
   SanityService,

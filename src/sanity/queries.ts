@@ -15,7 +15,9 @@ export const siteConfigQuery = groq`
     enableBlogPage, enableProductsPage, enableWorkshopsPage,
     enableGalleryPage, enableResourcesPage,
     seo,
-    team[]{ name, role, bio, "photoUrl": photo.asset->url, socialLinks[]{ label, url } }
+    team[]{ name, role, bio, "photoUrl": photo.asset->url, socialLinks[]{ label, url } },
+    heroSlides[]{ "imageUrl": image.asset->url, "alt": image.alt },
+    "howItWorksBgUrl": howItWorksBg.asset->url
   }
 `;
 
@@ -37,6 +39,8 @@ export const aboutPageQuery = groq`
 // ── Services ──
 export const allServicesQuery = groq`
   *[_type == "service" && published != false] | order(order asc){
+    "imageUrl": image.asset->url,
+    "imageAlt": image.alt,
     title,
     "slug": slug.current,
     shortTitle, description, icon,
