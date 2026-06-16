@@ -88,9 +88,9 @@ export function HeroSlideshow({ slides }: Props) {
 
       {/* Content — vertically centered */}
       <div className="relative z-10 w-full px-4 py-16 sm:px-8 sm:py-20 md:px-12">
-        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center lg:items-end gap-5">
+        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-8">
           {/* Frosted glass text panel — bottom-left */}
-          <div className="w-full max-w-2xl rounded-2xl bg-brown/40 backdrop-blur-md border border-cream/20 p-6 sm:p-10 shadow-2xl">
+          <div className="w-full max-w-2xl rounded-2xl bg-brown/60 backdrop-blur-xl border border-cream/15 p-6 sm:p-10 shadow-2xl">
             <p className="text-xs font-sans uppercase tracking-[0.4em] text-cream/60 mb-4">
               Ms Paul Therapies
             </p>
@@ -132,8 +132,8 @@ export function HeroSlideshow({ slides }: Props) {
 
           {/* Services sidebar — desktop only, bottom-right */}
           <div className="hidden lg:flex flex-col w-64 xl:w-72 flex-shrink-0">
-            <div className="rounded-2xl bg-brown/40 backdrop-blur-md border border-cream/20 p-5 shadow-2xl">
-              <p className="text-[10px] font-sans uppercase tracking-[0.3em] text-cream/50 mb-3">
+            <div className="rounded-2xl bg-brown/60 backdrop-blur-xl border border-cream/15 p-5 shadow-2xl">
+              <p className="text-[10px] font-sans uppercase tracking-[0.3em] text-cream/70 mb-3">
                 Services
               </p>
               <nav className="flex flex-col gap-0.5">
@@ -141,7 +141,7 @@ export function HeroSlideshow({ slides }: Props) {
                   <Link
                     key={s.href}
                     href={s.href}
-                    className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-cream/80 hover:bg-cream/10 transition-colors"
+                    className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-cream/90 hover:bg-cream/10 transition-colors"
                   >
                     <s.icon className="h-4 w-4 text-sage-light flex-shrink-0" />
                     {s.label}
@@ -150,7 +150,7 @@ export function HeroSlideshow({ slides }: Props) {
               </nav>
               <Link
                 href="/services"
-                className="mt-3 flex items-center justify-center gap-1.5 text-xs font-medium text-cream/60 hover:text-cream/90 transition-colors"
+                className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-cream/70 hover:text-cream/95 transition-colors"
               >
                 View all services
                 <ArrowRight className="h-3 w-3" />
