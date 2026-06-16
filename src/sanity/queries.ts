@@ -16,7 +16,7 @@ export const siteConfigQuery = groq`
     enableGalleryPage, enableResourcesPage,
     seo,
     team[]{ name, role, bio, "photoUrl": photo.asset->url, socialLinks[]{ label, url } },
-    heroSlides[]{ "imageUrl": image.asset->url, "alt": image.alt },
+    heroSlides[]{ "imageUrl": image.asset->url, alt },
     "howItWorksBgUrl": howItWorksBg.asset->url
   }
 `;
