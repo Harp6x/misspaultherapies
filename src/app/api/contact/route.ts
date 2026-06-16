@@ -12,7 +12,15 @@ const SUBJECT_OPTIONS = [
 
 export async function POST(req: NextRequest) {
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is not set in environment variables");
+      return NextResponse.json(
+        { error: "Email service is not configured. Please contact the site owner." },
+        { status: 500 }
+      );
+    }
+    const resend = new Resend(apiKey);
     const body = await req.json();
     const { name, email, phone, subject, message } = body as {
       name?: string;

@@ -47,9 +47,8 @@ function filterNav(items: NavItem[], vis: PageVisibility): NavItem[] {
 
 const allNavItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
   { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
   {
     label: "Resources",
@@ -67,6 +66,7 @@ const allNavItems: NavItem[] = [
       { label: "Workshops", href: "/workshops" },
     ],
   },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header({ pageVisibility }: { pageVisibility?: PageVisibility }) {
