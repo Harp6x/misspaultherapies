@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { getAllProductSlugs, getProductBySlug } from "@/sanity/fetch";
+import { getSiteConfig } from "@/lib/data";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   PRODUCT_TYPE_LABELS,
@@ -46,6 +47,9 @@ export default async function ProductDetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const config = await getSiteConfig();
+  if (!config.pageVisibility.products) notFound();
+
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) notFound();

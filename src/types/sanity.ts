@@ -42,6 +42,11 @@ export interface SanitySiteConfig {
   kitFormType?: "inline" | "modal" | "slide-in" | "sticky-bar" | "off";
   kitUid?: string;
   kitScriptUrl?: string;
+  enableBlogPage?: boolean;
+  enableProductsPage?: boolean;
+  enableWorkshopsPage?: boolean;
+  enableGalleryPage?: boolean;
+  enableResourcesPage?: boolean;
   heroSlides?: SanityHeroSlide[];
   howItWorksBgUrl?: string;
 }

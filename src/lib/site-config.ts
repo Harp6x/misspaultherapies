@@ -70,6 +70,15 @@ export const siteConfig = {
     scriptUrl: "https://ms-paul-therapies.kit.com/1d5b37459d/index.js",
   },
 
+  // Page visibility (overridden by Sanity toggles)
+  pageVisibility: {
+    blog: true,
+    products: true,
+    workshops: true,
+    gallery: true,
+    resources: true,
+  },
+
   // Analytics placeholders
   gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",

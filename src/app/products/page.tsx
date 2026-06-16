@@ -1,4 +1,6 @@
+import { notFound } from "next/navigation";
 import { getAllProducts } from "@/sanity/fetch";
+import { getSiteConfig } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
@@ -14,6 +16,9 @@ export const metadata = buildMetadata({
 export const revalidate = 60;
 
 export default async function ProductsPage() {
+  const config = await getSiteConfig();
+  if (!config.pageVisibility.products) notFound();
+
   const products = await getAllProducts();
 
   return (

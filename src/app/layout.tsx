@@ -119,9 +119,9 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col">
           <DiscoveryCallBanner />
-          <Header />
+          <Header pageVisibility={config.pageVisibility} />
           <main className="flex-1 pb-16 md:pb-0">{children}</main>
-          <Footer />
+          <Footer pageVisibility={config.pageVisibility} />
           <WhatsAppButton />
           <StickyBookBar />
           {showGlobalKit && <GlobalKitEmbed uid={uid} src={scriptUrl} />}

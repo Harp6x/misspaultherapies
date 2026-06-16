@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   FileText,
   CheckSquare,
@@ -7,6 +8,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import { getSiteConfig } from "@/lib/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { NewsletterSection } from "@/components/NewsletterSection";
@@ -154,7 +156,9 @@ const resources = [
   },
 ];
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const config = await getSiteConfig();
+  if (!config.pageVisibility.resources) notFound();
   return (
     <>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">

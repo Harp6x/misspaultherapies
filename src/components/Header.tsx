@@ -10,13 +10,45 @@ type NavLink = { label: string; href: string };
 type NavGroup = { label: string; children: NavLink[] };
 type NavItem = NavLink | NavGroup;
 
+export interface PageVisibility {
+  blog: boolean;
+  products: boolean;
+  workshops: boolean;
+  gallery: boolean;
+  resources: boolean;
+}
+
 function isGroup(item: NavItem): item is NavGroup {
   return "children" in item;
 }
 
-const navItems: NavItem[] = [
+const HIDDEN_HREF_MAP: Record<string, keyof PageVisibility> = {
+  "/products": "products",
+  "/blog": "blog",
+  "/resources": "resources",
+  "/gallery": "gallery",
+  "/workshops": "workshops",
+};
+
+function filterNav(items: NavItem[], vis: PageVisibility): NavItem[] {
+  return items
+    .map((item) => {
+      if (isGroup(item)) {
+        const children = item.children.filter(
+          (c) => !(c.href in HIDDEN_HREF_MAP) || vis[HIDDEN_HREF_MAP[c.href]]
+        );
+        return children.length > 0 ? { ...item, children } : null;
+      }
+      if (item.href in HIDDEN_HREF_MAP && !vis[HIDDEN_HREF_MAP[item.href]]) return null;
+      return item;
+    })
+    .filter(Boolean) as NavItem[];
+}
+
+const allNavItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products" },
   {
@@ -37,7 +69,9 @@ const navItems: NavItem[] = [
   },
 ];
 
-export function Header() {
+export function Header({ pageVisibility }: { pageVisibility?: PageVisibility }) {
+  const vis: PageVisibility = pageVisibility ?? { blog: true, products: true, workshops: true, gallery: true, resources: true };
+  const navItems = filterNav(allNavItems, vis);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileGroupOpen, setMobileGroupOpen] = useState<string | null>(null);

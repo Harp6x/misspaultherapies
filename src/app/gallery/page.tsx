@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { getAllGalleryItems } from "@/sanity/fetch";
+import { getSiteConfig } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
@@ -15,6 +17,9 @@ export const metadata = buildMetadata({
 export const revalidate = 60;
 
 export default async function GalleryPage() {
+  const config = await getSiteConfig();
+  if (!config.pageVisibility.gallery) notFound();
+
   const items = await getAllGalleryItems();
 
   return (

@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import * as LucideIcons from "lucide-react";
+import { Mail, MessageCircle, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { getAboutPage } from "@/lib/data";
 import { buildMetadata, personJsonLd, profilePageJsonLd, speakableJsonLd } from "@/lib/seo";
@@ -147,6 +149,42 @@ export default async function AboutPage() {
           <p className="mt-4 text-muted-foreground">
             {about.languagesText.replace("{languages}", siteConfig.languages.join(", "))}
           </p>
+        </section>
+
+        {/* Get in Touch */}
+        <section className="mt-20">
+          <h2 className="font-serif text-3xl font-bold text-brown text-center">
+            Get in Touch
+          </h2>
+          <p className="mt-4 mx-auto max-w-2xl text-center text-muted-foreground leading-relaxed">
+            Have a question or ready to start your journey? Reach out directly or
+            fill in the contact form — I typically respond within 24–48 hours.
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="inline-flex items-center gap-2 rounded-full bg-sage/10 px-5 py-2.5 text-sm font-medium text-sage-dark hover:bg-sage/20 transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              Email Me
+            </a>
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-sage/10 px-5 py-2.5 text-sm font-medium text-sage-dark hover:bg-sage/20 transition-colors"
+            >
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-semibold text-white hover:bg-sage-dark transition-colors"
+            >
+              Contact Form
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </section>
 
         {/* Connect */}

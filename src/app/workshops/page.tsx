@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { Calendar, Clock, IndianRupee, ArrowRight } from "lucide-react";
 import { getAllWorkshops } from "@/sanity/fetch";
+import { getSiteConfig } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
@@ -23,6 +25,9 @@ const statusColors: Record<string, string> = {
 };
 
 export default async function WorkshopsPage() {
+  const config = await getSiteConfig();
+  if (!config.pageVisibility.workshops) notFound();
+
   const workshops = await getAllWorkshops();
 
   return (

@@ -1,6 +1,15 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { SocialIcon } from "@/components/SocialIcon";
+import type { PageVisibility } from "@/components/Header";
+
+const HIDDEN_HREF_MAP: Record<string, keyof PageVisibility> = {
+  "/products": "products",
+  "/blog": "blog",
+  "/resources": "resources",
+  "/gallery": "gallery",
+  "/workshops": "workshops",
+};
 
 const footerLinks = {
   services: [
@@ -12,6 +21,7 @@ const footerLinks = {
   ],
   company: [
     { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
     { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Blog" },
     { href: "/products", label: "Products" },
@@ -25,8 +35,12 @@ const footerLinks = {
   ],
 };
 
-export function Footer() {
+export function Footer({ pageVisibility }: { pageVisibility?: PageVisibility }) {
+  const vis: PageVisibility = pageVisibility ?? { blog: true, products: true, workshops: true, gallery: true, resources: true };
   const year = new Date().getFullYear();
+  const visibleCompanyLinks = footerLinks.company.filter(
+    (link) => !(link.href in HIDDEN_HREF_MAP) || vis[HIDDEN_HREF_MAP[link.href]]
+  );
 
   return (
     <footer className="bg-brown text-cream" role="contentinfo">
@@ -115,7 +129,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-cream mb-3">Explore</h3>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
+              {visibleCompanyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

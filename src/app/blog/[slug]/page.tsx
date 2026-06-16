@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
-import { getBlogSlugs, getBlogPostBySlug } from "@/lib/data";
+import { getBlogSlugs, getBlogPostBySlug, getSiteConfig } from "@/lib/data";
 import { blogPostingJsonLd, buildArticleMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
@@ -40,6 +40,9 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const config = await getSiteConfig();
+  if (!config.pageVisibility.blog) notFound();
+
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
   if (!post) notFound();

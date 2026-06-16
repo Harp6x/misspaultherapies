@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getAllBlogPosts, blogCategories } from "@/lib/data";
+import { notFound } from "next/navigation";
+import { getAllBlogPosts, blogCategories, getSiteConfig } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
@@ -15,6 +16,9 @@ export const metadata = buildMetadata({
 });
 
 export default async function BlogPage() {
+  const config = await getSiteConfig();
+  if (!config.pageVisibility.blog) notFound();
+
   const blogPosts = await getAllBlogPosts();
   return (
     <>

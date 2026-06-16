@@ -89,6 +89,13 @@ export async function getSiteConfig() {
           uid: cfg.kitUid ?? staticSiteConfig.newsletter.uid,
           scriptUrl: cfg.kitScriptUrl ?? staticSiteConfig.newsletter.scriptUrl,
         },
+        pageVisibility: {
+          blog: cfg.enableBlogPage ?? true,
+          products: cfg.enableProductsPage ?? true,
+          workshops: cfg.enableWorkshopsPage ?? true,
+          gallery: cfg.enableGalleryPage ?? true,
+          resources: cfg.enableResourcesPage ?? true,
+        },
       };
     }
   } catch {
