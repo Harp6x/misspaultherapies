@@ -210,9 +210,101 @@ export const INDIAN_CITIES: CityEntry[] = [
   { slug: "nizamabad", city: "Nizamabad", state: "Telangana" },
   { slug: "khammam", city: "Khammam", state: "Telangana" },
 
-  // Other states
+  // Other states / UTs
   { slug: "puducherry", city: "Puducherry", state: "Puducherry" },
   { slug: "port-blair", city: "Port Blair", state: "Andaman & Nicobar Islands" },
+
+  // ── Additional Indian cities (Tier 2/3 expansion) ──
+
+  // More Uttar Pradesh
+  { slug: "firozabad", city: "Firozabad", state: "Uttar Pradesh" },
+  { slug: "jhansi", city: "Jhansi", state: "Uttar Pradesh" },
+  { slug: "etawah", city: "Etawah", state: "Uttar Pradesh" },
+  { slug: "sultanpur", city: "Sultanpur", state: "Uttar Pradesh" },
+  { slug: "ayodhya", city: "Ayodhya", state: "Uttar Pradesh" },
+
+  // More Rajasthan
+  { slug: "sikar", city: "Sikar", state: "Rajasthan" },
+  { slug: "pali", city: "Pali", state: "Rajasthan" },
+  { slug: "chittorgarh", city: "Chittorgarh", state: "Rajasthan" },
+
+  // More Madhya Pradesh
+  { slug: "satna", city: "Satna", state: "Madhya Pradesh" },
+  { slug: "dewas", city: "Dewas", state: "Madhya Pradesh" },
+  { slug: "murwara", city: "Murwara", state: "Madhya Pradesh" },
+  { slug: "chhindwara", city: "Chhindwara", state: "Madhya Pradesh" },
+
+  // More Chhattisgarh
+  { slug: "korba", city: "Korba", state: "Chhattisgarh" },
+  { slug: "rajnandgaon", city: "Rajnandgaon", state: "Chhattisgarh" },
+
+  // More Jharkhand
+  { slug: "hazaribagh", city: "Hazaribagh", state: "Jharkhand" },
+  { slug: "deoghar", city: "Deoghar", state: "Jharkhand" },
+  { slug: "giridih", city: "Giridih", state: "Jharkhand" },
+
+  // More Bihar
+  { slug: "purnia", city: "Purnia", state: "Bihar" },
+  { slug: "darbhanga", city: "Darbhanga", state: "Bihar" },
+  { slug: "arrah", city: "Arrah", state: "Bihar" },
+  { slug: "begusarai", city: "Begusarai", state: "Bihar" },
+
+  // More West Bengal
+  { slug: "kharagpur", city: "Kharagpur", state: "West Bengal" },
+  { slug: "haldia", city: "Haldia", state: "West Bengal" },
+  { slug: "baharampur", city: "Baharampur", state: "West Bengal" },
+  { slug: "kalyani", city: "Kalyani", state: "West Bengal" },
+
+  // More Uttarakhand
+  { slug: "nainital", city: "Nainital", state: "Uttarakhand" },
+  { slug: "rudrapur", city: "Rudrapur", state: "Uttarakhand" },
+  { slug: "kashipur", city: "Kashipur", state: "Uttarakhand" },
+
+  // More Himachal Pradesh
+  { slug: "mandi", city: "Mandi", state: "Himachal Pradesh" },
+  { slug: "kullu", city: "Kullu", state: "Himachal Pradesh" },
+  { slug: "hamirpur-hp", city: "Hamirpur", state: "Himachal Pradesh" },
+
+  // More Gujarat
+  { slug: "junagadh", city: "Junagadh", state: "Gujarat" },
+  { slug: "navsari", city: "Navsari", state: "Gujarat" },
+  { slug: "mehsana", city: "Mehsana", state: "Gujarat" },
+  { slug: "bharuch", city: "Bharuch", state: "Gujarat" },
+
+  // More Maharashtra
+  { slug: "sangli", city: "Sangli", state: "Maharashtra" },
+  { slug: "latur", city: "Latur", state: "Maharashtra" },
+  { slug: "ahmednagar", city: "Ahmednagar", state: "Maharashtra" },
+  { slug: "chandrapur", city: "Chandrapur", state: "Maharashtra" },
+  { slug: "parbhani", city: "Parbhani", state: "Maharashtra" },
+
+  // More Karnataka
+  { slug: "raichur", city: "Raichur", state: "Karnataka" },
+  { slug: "bidar", city: "Bidar", state: "Karnataka" },
+  { slug: "hassan", city: "Hassan", state: "Karnataka" },
+  { slug: "mandya", city: "Mandya", state: "Karnataka" },
+
+  // More Tamil Nadu
+  { slug: "cuddalore", city: "Cuddalore", state: "Tamil Nadu" },
+  { slug: "nagercoil", city: "Nagercoil", state: "Tamil Nadu" },
+  { slug: "hosur", city: "Hosur", state: "Tamil Nadu" },
+  { slug: "kumbakonam", city: "Kumbakonam", state: "Tamil Nadu" },
+
+  // More Andhra Pradesh
+  { slug: "anantapur", city: "Anantapur", state: "Andhra Pradesh" },
+  { slug: "ongole", city: "Ongole", state: "Andhra Pradesh" },
+  { slug: "eluru", city: "Eluru", state: "Andhra Pradesh" },
+
+  // More Telangana
+  { slug: "mahbubnagar", city: "Mahbubnagar", state: "Telangana" },
+  { slug: "adilabad", city: "Adilabad", state: "Telangana" },
+  { slug: "siddipet", city: "Siddipet", state: "Telangana" },
+
+  // More Northeast
+  { slug: "tezpur", city: "Tezpur", state: "Assam" },
+  { slug: "nagaon", city: "Nagaon", state: "Assam" },
+  { slug: "tinsukia", city: "Tinsukia", state: "Assam" },
+  { slug: "tura", city: "Tura", state: "Meghalaya" },
 ];
 
 // NRI / Diaspora cities
@@ -265,6 +357,78 @@ export const NRI_CITIES: CityEntry[] = [
   { slug: "doha-qatar", city: "Doha", state: "Qatar", isNRI: true, country: "Qatar" },
   { slug: "riyadh-saudi-arabia", city: "Riyadh", state: "Riyadh", isNRI: true, country: "Saudi Arabia" },
   { slug: "new-zealand", city: "Auckland", state: "Auckland", isNRI: true, country: "New Zealand" },
+
+  // ── Additional NRI cities ──
+
+  // More United States
+  { slug: "austin-usa", city: "Austin", state: "Texas", isNRI: true, country: "United States" },
+  { slug: "denver-usa", city: "Denver", state: "Colorado", isNRI: true, country: "United States" },
+  { slug: "phoenix-usa", city: "Phoenix", state: "Arizona", isNRI: true, country: "United States" },
+  { slug: "san-diego-usa", city: "San Diego", state: "California", isNRI: true, country: "United States" },
+  { slug: "miami-usa", city: "Miami", state: "Florida", isNRI: true, country: "United States" },
+  { slug: "san-jose-usa", city: "San Jose", state: "California", isNRI: true, country: "United States" },
+  { slug: "detroit-usa", city: "Detroit", state: "Michigan", isNRI: true, country: "United States" },
+  { slug: "philadelphia-usa", city: "Philadelphia", state: "Pennsylvania", isNRI: true, country: "United States" },
+  { slug: "charlotte-usa", city: "Charlotte", state: "North Carolina", isNRI: true, country: "United States" },
+  { slug: "columbus-usa", city: "Columbus", state: "Ohio", isNRI: true, country: "United States" },
+  { slug: "raleigh-usa", city: "Raleigh", state: "North Carolina", isNRI: true, country: "United States" },
+  { slug: "nashville-usa", city: "Nashville", state: "Tennessee", isNRI: true, country: "United States" },
+  { slug: "minneapolis-usa", city: "Minneapolis", state: "Minnesota", isNRI: true, country: "United States" },
+  { slug: "portland-usa", city: "Portland", state: "Oregon", isNRI: true, country: "United States" },
+  { slug: "pittsburgh-usa", city: "Pittsburgh", state: "Pennsylvania", isNRI: true, country: "United States" },
+
+  // More Canada
+  { slug: "edmonton-canada", city: "Edmonton", state: "Alberta", isNRI: true, country: "Canada" },
+  { slug: "mississauga-canada", city: "Mississauga", state: "Ontario", isNRI: true, country: "Canada" },
+  { slug: "surrey-canada", city: "Surrey", state: "British Columbia", isNRI: true, country: "Canada" },
+  { slug: "winnipeg-canada", city: "Winnipeg", state: "Manitoba", isNRI: true, country: "Canada" },
+  { slug: "montreal-canada", city: "Montreal", state: "Quebec", isNRI: true, country: "Canada" },
+  { slug: "halifax-canada", city: "Halifax", state: "Nova Scotia", isNRI: true, country: "Canada" },
+  { slug: "markham-canada", city: "Markham", state: "Ontario", isNRI: true, country: "Canada" },
+
+  // More United Kingdom
+  { slug: "leeds-uk", city: "Leeds", state: "England", isNRI: true, country: "United Kingdom" },
+  { slug: "edinburgh-uk", city: "Edinburgh", state: "Scotland", isNRI: true, country: "United Kingdom" },
+  { slug: "bristol-uk", city: "Bristol", state: "England", isNRI: true, country: "United Kingdom" },
+  { slug: "southall-uk", city: "Southall", state: "England", isNRI: true, country: "United Kingdom" },
+  { slug: "coventry-uk", city: "Coventry", state: "England", isNRI: true, country: "United Kingdom" },
+  { slug: "cardiff-uk", city: "Cardiff", state: "Wales", isNRI: true, country: "United Kingdom" },
+  { slug: "nottingham-uk", city: "Nottingham", state: "England", isNRI: true, country: "United Kingdom" },
+  { slug: "reading-uk", city: "Reading", state: "England", isNRI: true, country: "United Kingdom" },
+
+  // More Australia
+  { slug: "gold-coast-australia", city: "Gold Coast", state: "Queensland", isNRI: true, country: "Australia" },
+  { slug: "canberra-australia", city: "Canberra", state: "ACT", isNRI: true, country: "Australia" },
+  { slug: "hobart-australia", city: "Hobart", state: "Tasmania", isNRI: true, country: "Australia" },
+
+  // Europe
+  { slug: "berlin-germany", city: "Berlin", state: "Berlin", isNRI: true, country: "Germany" },
+  { slug: "amsterdam-netherlands", city: "Amsterdam", state: "North Holland", isNRI: true, country: "Netherlands" },
+  { slug: "dublin-ireland", city: "Dublin", state: "Leinster", isNRI: true, country: "Ireland" },
+  { slug: "paris-france", city: "Paris", state: "Île-de-France", isNRI: true, country: "France" },
+  { slug: "zurich-switzerland", city: "Zurich", state: "Zurich", isNRI: true, country: "Switzerland" },
+  { slug: "stockholm-sweden", city: "Stockholm", state: "Stockholm", isNRI: true, country: "Sweden" },
+  { slug: "frankfurt-germany", city: "Frankfurt", state: "Hesse", isNRI: true, country: "Germany" },
+
+  // Africa
+  { slug: "nairobi-kenya", city: "Nairobi", state: "Nairobi", isNRI: true, country: "Kenya" },
+  { slug: "johannesburg-south-africa", city: "Johannesburg", state: "Gauteng", isNRI: true, country: "South Africa" },
+  { slug: "durban-south-africa", city: "Durban", state: "KwaZulu-Natal", isNRI: true, country: "South Africa" },
+
+  // More Asia
+  { slug: "bangkok-thailand", city: "Bangkok", state: "Bangkok", isNRI: true, country: "Thailand" },
+  { slug: "hong-kong", city: "Hong Kong", state: "Hong Kong", isNRI: true, country: "Hong Kong" },
+  { slug: "tokyo-japan", city: "Tokyo", state: "Tokyo", isNRI: true, country: "Japan" },
+  { slug: "jakarta-indonesia", city: "Jakarta", state: "Jakarta", isNRI: true, country: "Indonesia" },
+  { slug: "manila-philippines", city: "Manila", state: "Metro Manila", isNRI: true, country: "Philippines" },
+
+  // More New Zealand
+  { slug: "wellington-nz", city: "Wellington", state: "Wellington", isNRI: true, country: "New Zealand" },
+  { slug: "christchurch-nz", city: "Christchurch", state: "Canterbury", isNRI: true, country: "New Zealand" },
+
+  // More Saudi Arabia / GCC
+  { slug: "jeddah-saudi-arabia", city: "Jeddah", state: "Makkah", isNRI: true, country: "Saudi Arabia" },
+  { slug: "dammam-saudi-arabia", city: "Dammam", state: "Eastern Province", isNRI: true, country: "Saudi Arabia" },
 ];
 
 export const ALL_CITIES: CityEntry[] = [...INDIAN_CITIES, ...NRI_CITIES];
