@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { getAllProducts } from "@/sanity/fetch";
 import { getSiteConfig } from "@/lib/data";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
+import { SEOJsonLd } from "@/components/SEOJsonLd";
+import { siteConfig } from "@/lib/site-config";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { ProductFilters } from "@/components/ProductFilters";
@@ -21,8 +23,24 @@ export default async function ProductsPage() {
 
   const products = await getAllProducts();
 
+  const productsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Mental Health Products & Resources",
+    description: "Digital mental health products by Ms Paul Therapies.",
+    numberOfItems: products.length,
+    itemListElement: products.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${siteConfig.url}/products/${p.slug}`,
+      name: p.title,
+    })),
+  };
+
   return (
     <>
+      <SEOJsonLd data={productsJsonLd} />
+      <SEOJsonLd data={breadcrumbJsonLd([{ name: "Home", href: "/" }, { name: "Products", href: "/products" }])} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Breadcrumbs items={[{ name: "Products", href: "/products" }]} />
 

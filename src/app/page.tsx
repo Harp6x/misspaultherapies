@@ -24,7 +24,7 @@ import { buildMetadata, organizationJsonLd, websiteJsonLd, localBusinessJsonLd }
 export const revalidate = 60;
 
 export const metadata = buildMetadata({
-  title: "Online Therapy & Counselling in India - Ms Paul Therapies",
+  title: "Online Therapy & Counselling in India",
   description:
     "Book online therapy with Aishani Paul, RCI-licensed clinical psychologist. Individual, couples, adolescent & family therapy across India and for NRIs abroad. Free 15-min discovery call.",
   path: "",

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllBlogPosts, blogCategories, getSiteConfig } from "@/lib/data";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, blogListJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { NewsletterSection } from "@/components/NewsletterSection";
@@ -22,6 +23,8 @@ export default async function BlogPage() {
   const blogPosts = await getAllBlogPosts();
   return (
     <>
+      <SEOJsonLd data={blogListJsonLd(blogPosts)} />
+      <SEOJsonLd data={breadcrumbJsonLd([{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }])} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
 

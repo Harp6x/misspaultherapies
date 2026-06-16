@@ -2,7 +2,8 @@ import { getAllServices } from "@/lib/data";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, servicesListJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { SEOJsonLd } from "@/components/SEOJsonLd";
 
 export const revalidate = 60;
 
@@ -18,6 +19,8 @@ export default async function ServicesPage() {
 
   return (
     <>
+      <SEOJsonLd data={servicesListJsonLd(services)} />
+      <SEOJsonLd data={breadcrumbJsonLd([{ name: "Home", href: "/" }, { name: "Services", href: "/services" }])} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Breadcrumbs items={[{ name: "Services", href: "/services" }]} />
 

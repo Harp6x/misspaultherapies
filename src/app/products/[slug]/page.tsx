@@ -33,12 +33,14 @@ export async function generateMetadata({
   const product = await getProductBySlug(slug);
   if (!product) return {};
   return buildMetadata({
-    title: product.title,
+    title: product.seo?.metaTitle || product.title,
     description:
+      product.seo?.metaDescription ??
       product.shortDescription ??
       `${product.title} - a digital mental health product by Aishani Paul.`,
     path: `/products/${product.slug}`,
-    ogImage: getProductImage(product).url,
+    ogImage: product.seo?.ogImage?.asset?.url ?? getProductImage(product).url,
+    noIndex: product.seo?.noIndex,
   });
 }
 

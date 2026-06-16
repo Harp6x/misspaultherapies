@@ -194,4 +194,10 @@ export interface SanityProduct {
   featured?: boolean;
   order?: number;
   coverImage?: { asset: { _id: string; url: string }; alt?: string };
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    ogImage?: { asset?: { _id: string; url: string } };
+    noIndex?: boolean;
+  } | null;
 }

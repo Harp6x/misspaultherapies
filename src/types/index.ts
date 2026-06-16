@@ -21,6 +21,7 @@ export type {
 
 // Static content types (fallback shapes)
 export type {
+  SanitySEO,
   Service,
   BlogPost,
   FAQ,

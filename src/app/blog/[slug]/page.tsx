@@ -27,11 +27,12 @@ export async function generateMetadata({
   if (!post) return {};
 
   return buildArticleMetadata({
-    title: post.title,
-    description: post.description,
+    title: post.seo?.metaTitle || post.title,
+    description: post.seo?.metaDescription || post.description,
     slug: post.slug,
     datePublished: post.datePublished,
     category: post.category,
+    image: post.seo?.ogImage?.asset?.url,
   });
 }
 

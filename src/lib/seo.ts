@@ -72,7 +72,7 @@ export function buildArticleMetadata({
   const ogImage = image ?? siteConfig.ogImage;
 
   return {
-    title: `${title} | ${siteConfig.name}`,
+    title,
     description,
     alternates: { canonical: url },
     openGraph: {
@@ -413,6 +413,74 @@ export function blogPostingJsonLd(post: {
       "@type": "Blog",
       name: `${siteConfig.name} Blog`,
       url: `${siteConfig.url}/blog`,
+    },
+  };
+}
+
+export function servicesListJsonLd(
+  services: { title: string; slug: string; description: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Online Therapy Services",
+    description:
+      "Therapy services offered by Ms Paul Therapies — individual, couples, adolescent, family therapy and psychological assessments.",
+    numberOfItems: services.length,
+    itemListElement: services.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${siteConfig.url}/services/${s.slug}`,
+      name: s.title,
+      description: s.description,
+    })),
+  };
+}
+
+export function blogListJsonLd(
+  posts: { title: string; slug: string; datePublished: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${siteConfig.name} Blog`,
+    url: `${siteConfig.url}/blog`,
+    description:
+      "Expert articles on anxiety, depression, relationships, self-care, and therapy in India.",
+    mainEntity: {
+      "@type": "Blog",
+      name: `${siteConfig.name} Blog`,
+      blogPost: posts.slice(0, 10).map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        url: `${siteConfig.url}/blog/${p.slug}`,
+        datePublished: p.datePublished,
+        author: { "@type": "Person", name: siteConfig.author },
+      })),
+    },
+  };
+}
+
+export function contactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Ms Paul Therapies",
+    url: `${siteConfig.url}/contact`,
+    description:
+      "Reach out to Aishani Paul for therapy inquiries, session booking, or questions about online therapy in India.",
+    mainEntity: {
+      "@type": "MedicalBusiness",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      email: siteConfig.email,
+      telephone: siteConfig.phone.startsWith("[") ? undefined : siteConfig.phone,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: siteConfig.email,
+        availableLanguage: siteConfig.languages,
+      },
     },
   };
 }

@@ -3,6 +3,13 @@
  */
 
 // ── Services ──
+export interface SanitySEO {
+  metaTitle?: string;
+  metaDescription?: string;
+  ogImage?: { asset?: { _id: string; url: string } };
+  noIndex?: boolean;
+}
+
 export interface Service {
   slug: string;
   title: string;
@@ -13,6 +20,7 @@ export interface Service {
   idealFor: string[];
   approach: string;
   fee: string;
+  seo?: SanitySEO | null;
 }
 
 // ── Blog Posts ──
@@ -25,6 +33,7 @@ export interface BlogPost {
   readingTime: string;
   published: boolean;
   body?: string;
+  seo?: SanitySEO | null;
 }
 
 // ── FAQs ──

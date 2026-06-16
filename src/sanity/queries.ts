@@ -53,7 +53,8 @@ export const serviceBySlugQuery = groq`
     title,
     "slug": slug.current,
     shortTitle, description, icon,
-    highlights, idealFor, approach, fee
+    highlights, idealFor, approach, fee,
+    seo
   }
 `;
 
@@ -74,7 +75,8 @@ export const blogPostBySlugQuery = groq`
     "slug": slug.current,
     description, category,
     "datePublished": publishedAt,
-    readingTime, published, body
+    readingTime, published, body,
+    seo
   }
 `;
 
@@ -166,7 +168,8 @@ export const workshopBySlugQuery = groq`
     title, "slug": slug.current,
     description, body, date, duration, fee,
     registrationUrl, status,
-    coverImage{ asset->{ _id, url }, alt }
+    coverImage{ asset->{ _id, url }, alt },
+    seo
   }
 `;
 
@@ -189,7 +192,8 @@ export const productBySlugQuery = groq`
     price, originalPrice, priceUSD,
     topics, audience, format, highlights, body,
     actionUrl, ctaLabel, featured,
-    coverImage{ asset->{ _id, url }, alt }
+    coverImage{ asset->{ _id, url }, alt },
+    seo
   }
 `;
 

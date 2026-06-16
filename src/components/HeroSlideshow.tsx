@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useCallback, useRef } from "react";
-import { ArrowRight, ChevronDown, Phone, Shield, Video, Globe } from "lucide-react";
+import { ArrowRight, ChevronDown, Phone, Shield, Video, Globe, User, Heart, GraduationCap, Users, ClipboardCheck } from "lucide-react";
 
 const SLIDE_DURATION = 8000;
 
@@ -20,6 +20,15 @@ const trustBadges = [
   { icon: Shield, label: "RCI Licensed" },
   { icon: Video, label: "100% Online" },
   { icon: Globe, label: "India & Abroad" },
+];
+
+const heroServices = [
+  { icon: User, label: "Individual Therapy", href: "/services/individual-therapy" },
+  { icon: Heart, label: "Couples Therapy", href: "/services/couples-therapy" },
+  { icon: GraduationCap, label: "Adolescent Therapy", href: "/services/adolescent-therapy" },
+  { icon: Users, label: "Family Therapy", href: "/services/family-therapy" },
+  { icon: ClipboardCheck, label: "Assessments", href: "/services/psychological-assessments" },
+  { icon: Globe, label: "NRI / Abroad", href: "/services/nri-abroad" },
 ];
 
 export function HeroSlideshow({ slides }: Props) {
@@ -79,7 +88,7 @@ export function HeroSlideshow({ slides }: Props) {
 
       {/* Content */}
       <div className="relative z-10 w-full px-4 py-16 sm:px-8 sm:py-20 md:px-12">
-        <div className="mx-auto max-w-7xl flex flex-col items-center lg:items-start">
+        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center lg:items-start gap-6">
           {/* Frosted glass text panel */}
           <div className="w-full max-w-2xl rounded-2xl bg-brown/40 backdrop-blur-md border border-cream/30 p-6 sm:p-10 shadow-lg">
             <p className="text-xs font-sans uppercase tracking-[0.4em] text-cream/70 mb-4">
@@ -118,6 +127,34 @@ export function HeroSlideshow({ slides }: Props) {
                   {badge.label}
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Services sidebar — desktop only */}
+          <div className="hidden lg:flex flex-col gap-2 w-64 xl:w-72 flex-shrink-0">
+            <div className="rounded-2xl bg-brown/40 backdrop-blur-md border border-cream/30 p-5 shadow-lg">
+              <p className="text-[10px] font-sans uppercase tracking-[0.3em] text-cream/60 mb-3">
+                Services
+              </p>
+              <nav className="flex flex-col gap-1">
+                {heroServices.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-cream/80 hover:bg-cream/10 transition-colors"
+                  >
+                    <s.icon className="h-4 w-4 text-sage-light flex-shrink-0" />
+                    {s.label}
+                  </Link>
+                ))}
+              </nav>
+              <Link
+                href="/services"
+                className="mt-3 flex items-center justify-center gap-1.5 rounded-full border border-cream/30 px-4 py-2 text-xs font-semibold text-cream/80 hover:bg-cream/10 transition-colors"
+              >
+                View All Services
+                <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           </div>
         </div>

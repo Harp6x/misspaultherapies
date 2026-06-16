@@ -1,6 +1,7 @@
 import { Mail, Phone, MessageCircle, Clock } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, contactPageJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { ContactForm } from "@/components/ContactForm";
@@ -46,6 +47,8 @@ const contactCards = [
 export default function ContactPage() {
   return (
     <>
+      <SEOJsonLd data={contactPageJsonLd()} />
+      <SEOJsonLd data={breadcrumbJsonLd([{ name: "Home", href: "/" }, { name: "Contact", href: "/contact" }])} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} />
 

@@ -25,9 +25,11 @@ export async function generateMetadata({
   const service = await getServiceBySlug(slug);
   if (!service) return {};
   return buildMetadata({
-    title: `${service.title} - Online ${service.title} in India`,
-    description: service.description,
+    title: service.seo?.metaTitle || `${service.title} - Online ${service.title} in India`,
+    description: service.seo?.metaDescription || service.description,
     path: `/services/${service.slug}`,
+    ogImage: service.seo?.ogImage?.asset?.url,
+    noIndex: service.seo?.noIndex,
   });
 }
 
