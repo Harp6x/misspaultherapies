@@ -56,7 +56,7 @@ export function HeroSlideshow({ slides }: Props) {
   }, [advance, slides.length]);
 
   return (
-    <section className="relative flex min-h-svh items-end overflow-hidden">
+    <section className="relative flex min-h-[75svh] lg:min-h-[80svh] items-center overflow-hidden">
       {/* Background images — CSS crossfade */}
       <div className="absolute inset-0">
         {slides.length > 0 && (
@@ -86,9 +86,9 @@ export function HeroSlideshow({ slides }: Props) {
         <div className="absolute inset-0 bg-gradient-to-b from-brown/30 via-brown/20 to-brown/70" />
       </div>
 
-      {/* Content — anchored to the lower third like Before Maps */}
-      <div className="relative z-10 w-full px-4 pb-24 pt-24 sm:px-8 sm:pb-28 md:px-12 lg:pb-32">
-        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-end gap-5">
+      {/* Content — vertically centered */}
+      <div className="relative z-10 w-full px-4 py-16 sm:px-8 sm:py-20 md:px-12">
+        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center lg:items-end gap-5">
           {/* Frosted glass text panel — bottom-left */}
           <div className="w-full max-w-2xl rounded-2xl bg-brown/40 backdrop-blur-md border border-cream/20 p-6 sm:p-10 shadow-2xl">
             <p className="text-xs font-sans uppercase tracking-[0.4em] text-cream/60 mb-4">
