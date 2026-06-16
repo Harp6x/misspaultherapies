@@ -86,8 +86,8 @@ export function HeroSlideshow({ slides }: Props) {
         <div className="absolute inset-0 bg-gradient-to-b from-brown/30 via-brown/20 to-brown/70" />
       </div>
 
-      {/* Content — anchored to the bottom like Before Maps */}
-      <div className="relative z-10 w-full px-4 pb-14 pt-32 sm:px-8 sm:pb-16 md:px-12 lg:pb-20">
+      {/* Content — anchored to the lower third like Before Maps */}
+      <div className="relative z-10 w-full px-4 pb-24 pt-24 sm:px-8 sm:pb-28 md:px-12 lg:pb-32">
         <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-end gap-5">
           {/* Frosted glass text panel — bottom-left */}
           <div className="w-full max-w-2xl rounded-2xl bg-brown/40 backdrop-blur-md border border-cream/20 p-6 sm:p-10 shadow-2xl">
