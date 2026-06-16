@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = buildMetadata({
-  title: "Free Mental Health Self-Check Guide - Ms Paul Therapies",
+  title: "Free Mental Health Self-Check Guide",
   description:
     "A private emotional well-being checklist and 5 evidence-based coping strategies. Created by Aishani Paul, RCI-licensed clinical psychologist.",
   path: "/guide",

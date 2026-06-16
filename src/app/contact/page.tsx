@@ -6,7 +6,7 @@ import { CTASection } from "@/components/CTASection";
 import { ContactForm } from "@/components/ContactForm";
 
 export const metadata = buildMetadata({
-  title: "Contact Us - Get in Touch with Ms Paul Therapies",
+  title: "Contact Us - Get in Touch",
   description:
     "Reach out to Aishani Paul for therapy inquiries, session booking, collaborations, or general questions. Online therapy across India and for NRIs abroad.",
   path: "/contact",

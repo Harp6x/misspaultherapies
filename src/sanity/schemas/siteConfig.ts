@@ -8,7 +8,7 @@ const tagArray = (name: string, title: string, description: string) =>
     description,
     type: "array",
     group: "options",
-    of: [{ type: "object", fields: [defineField({ name: "value", type: "string", title: "Value", validation: (r) => r.required() })], preview: { select: { title: "value" } } }],
+    of: [{ type: "string" }],
   });
 
 export const siteConfigSchema = defineType({

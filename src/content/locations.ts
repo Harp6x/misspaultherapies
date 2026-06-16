@@ -9,7 +9,7 @@ function generateLocation(d: CityEntry): Location {
       slug: d.slug,
       city: d.city,
       region: d.country,
-      title: `Online Therapy for Indians in ${d.city}, ${d.country} | Ms Paul Therapies`,
+      title: `Online Therapy for Indians in ${d.city}, ${d.country}`,
       description: `Online therapy for Indians and NRIs in ${d.city}, ${d.country}`,
       metaDescription: `Indian therapist for NRIs in ${d.city}, ${d.country}. Aishani Paul — RCI-licensed clinical psychologist — offers culturally sensitive online therapy for Indians abroad. Individual, couples, and family therapy.`,
       keywords: [
@@ -28,7 +28,7 @@ function generateLocation(d: CityEntry): Location {
     slug: d.slug,
     city: d.city,
     region: d.state,
-    title: `Online Therapy in ${d.city} | Ms Paul Therapies`,
+    title: `Online Therapy in ${d.city}`,
     description: `Online psychotherapy and counselling for ${d.city} residents by Aishani Paul`,
     metaDescription: `Online therapy in ${d.city}, ${d.state} by Aishani Paul — RCI-licensed clinical psychologist. Individual, couples, adolescent, and family therapy via secure video sessions. No commute needed.`,
     keywords: [

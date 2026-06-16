@@ -25,7 +25,7 @@ export async function generateMetadata({
   const service = await getServiceBySlug(slug);
   if (!service) return {};
   return buildMetadata({
-    title: `${service.title} - Online ${service.title} in India | Ms Paul Therapies`,
+    title: `${service.title} - Online ${service.title} in India`,
     description: service.description,
     path: `/services/${service.slug}`,
   });

@@ -7,7 +7,7 @@ import { CTASection } from "@/components/CTASection";
 import { ProductFilters } from "@/components/ProductFilters";
 
 export const metadata = buildMetadata({
-  title: "Products - Courses, Toolkits & Free Resources | Ms Paul Therapies",
+  title: "Products - Courses, Toolkits & Free Resources",
   description:
     "Browse digital mental health products by Aishani Paul - self-paced courses, mini-courses, ebooks, toolkits, and free resources for anxiety, relationships, self-worth and more.",
   path: "/products",

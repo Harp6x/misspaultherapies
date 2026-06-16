@@ -29,13 +29,9 @@ export function GoogleFormEmbed() {
         Open Intake Form
         <ExternalLink className="h-4 w-4" />
       </a>
-      <iframe
-        src={url}
-        title="Intake Form"
-        className="w-full rounded-2xl border border-border"
-        style={{ height: 800 }}
-        loading="lazy"
-      />
+      <p className="text-sm text-muted-foreground">
+        The intake form will open in a new tab. It takes about 2–3 minutes to complete.
+      </p>
     </div>
   );
 }

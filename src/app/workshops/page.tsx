@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 
 export const metadata = buildMetadata({
-  title: "Mental Health Workshops & Group Sessions - Ms Paul Therapies India",
+  title: "Mental Health Workshops & Group Sessions India",
   description:
     "Join upcoming mental health workshops and group therapy sessions by Aishani Paul - learn coping skills, explore wellness topics, and connect with others. Online across India.",
   path: "/workshops",

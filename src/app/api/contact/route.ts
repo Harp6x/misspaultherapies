@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
             </tr>
             <tr>
               <td style="padding: 8px 12px; font-weight: 600; color: #5C4033; border-bottom: 1px solid #eee;">Email</td>
-              <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><a href="mailto:${email.trim()}">${email.trim()}</a></td>
+              <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">${email.trim()}</td>
             </tr>
             ${phone?.trim() ? `<tr>
               <td style="padding: 8px 12px; font-weight: 600; color: #5C4033; border-bottom: 1px solid #eee;">Phone</td>

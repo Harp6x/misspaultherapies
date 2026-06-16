@@ -30,8 +30,7 @@ export default async function BlogPage() {
             Blog & Resources
           </h1>
           <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Insights on mental health, relationships, and well-being. New
-            articles coming soon.
+            Insights on mental health, relationships, and well-being.
           </p>
         </div>
 
