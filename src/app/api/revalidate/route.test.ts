@@ -75,4 +75,12 @@ describe("Sanity revalidation webhook", () => {
     expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("aboutPage", "max");
     expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/about");
   });
+
+  it("invalidates the shared layout for site configuration publishes", async () => {
+    const response = await POST(webhookRequest({ _type: "siteConfig" }));
+
+    expect(response.status).toBe(200);
+    expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("siteConfig", "max");
+    expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/", "layout");
+  });
 });

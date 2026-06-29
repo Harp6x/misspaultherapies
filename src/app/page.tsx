@@ -90,6 +90,11 @@ export default async function Home() {
     ]);
 
   const heroSlides = (sanityConfig?.heroSlides ?? []).filter((s) => s.imageUrl);
+  const branding = {
+    name: sanityConfig?.name ?? siteConfig.name,
+    tagline: sanityConfig?.tagline ?? siteConfig.tagline,
+    description: sanityConfig?.description ?? siteConfig.description,
+  };
   const howItWorksBgUrl = sanityConfig?.howItWorksBgUrl ?? null;
   const therapistPhotoUrl = aboutPage?.photo
     ? urlFor(aboutPage.photo).width(600).height(750).fit("crop").url()
@@ -103,19 +108,16 @@ export default async function Home() {
 
       {/* ── Hero ── */}
       {heroSlides.length > 0 ? (
-        <HeroSlideshow slides={heroSlides} />
+        <HeroSlideshow slides={heroSlides} branding={branding} />
       ) : (
         <section className="relative overflow-hidden bg-gradient-to-b from-cream to-cream-dark">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brown">
-                Compassionate Therapy for{" "}
-                <span className="text-sage">Meaningful Change</span>
+                {branding.tagline}
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-brown-light leading-relaxed">
-                Professional online psychotherapy and counselling — for
-                individuals, couples, adolescents, and families across India and
-                abroad.
+                {branding.description}
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link

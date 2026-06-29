@@ -78,7 +78,11 @@ export async function POST(request: NextRequest) {
   }
 
   for (const path of paths) {
-    revalidatePath(path);
+    if (documentType === "siteConfig" && path === "/") {
+      revalidatePath(path, "layout");
+    } else {
+      revalidatePath(path);
+    }
   }
 
   const slug = body.slug?.current;

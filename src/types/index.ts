@@ -28,3 +28,12 @@ export type {
   Location,
   AboutPageData,
 } from "./content";
+
+// Resolved public Site Configuration shapes used by components
+export type {
+  SiteBranding,
+  PageVisibility,
+  HeaderProps,
+  FooterProps,
+  HeroSlideshowProps,
+} from "./site-config";

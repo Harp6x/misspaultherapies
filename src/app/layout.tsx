@@ -107,6 +107,11 @@ export default async function RootLayout({
 }>) {
   const config = await getSiteConfig();
   const { formType, uid, scriptUrl } = config.newsletter;
+  const branding = {
+    name: config.name,
+    tagline: config.tagline,
+    description: config.description,
+  };
   const showGlobalKit =
     formType === "modal" ||
     formType === "slide-in" ||
@@ -119,9 +124,9 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col">
           <DiscoveryCallBanner />
-          <Header pageVisibility={config.pageVisibility} />
+          <Header branding={branding} pageVisibility={config.pageVisibility} />
           <main className="flex-1 pb-16 md:pb-0">{children}</main>
-          <Footer pageVisibility={config.pageVisibility} />
+          <Footer branding={branding} pageVisibility={config.pageVisibility} />
           <WhatsAppButton />
           <StickyBookBar />
           {showGlobalKit && <GlobalKitEmbed uid={uid} src={scriptUrl} />}

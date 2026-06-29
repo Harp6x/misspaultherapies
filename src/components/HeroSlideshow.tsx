@@ -4,17 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { ArrowRight, ChevronDown, Phone, Shield, Video, Globe, User, Heart, GraduationCap, Users, ClipboardCheck } from "lucide-react";
+import type { HeroSlideshowProps } from "@/types";
 
 const SLIDE_DURATION = 8000;
-
-interface HeroSlide {
-  imageUrl: string;
-  alt: string;
-}
-
-interface Props {
-  slides: HeroSlide[];
-}
 
 const trustBadges = [
   { icon: Shield, label: "RCI Licensed" },
@@ -31,11 +23,21 @@ const heroServices = [
   { icon: Globe, label: "NRI / Abroad", href: "/services/nri-abroad" },
 ];
 
-export function HeroSlideshow({ slides }: Props) {
+export function HeroSlideshow({ slides, branding }: HeroSlideshowProps) {
   const [current, setCurrent] = useState(0);
   const [next, setNext] = useState(Math.min(1, slides.length - 1));
   const [transitioning, setTransitioning] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const taglineDivider = " for ";
+  const taglineDividerIndex = branding.tagline.lastIndexOf(taglineDivider);
+  const taglineLead =
+    taglineDividerIndex >= 0
+      ? branding.tagline.slice(0, taglineDividerIndex + taglineDivider.length)
+      : branding.tagline;
+  const taglineEmphasis =
+    taglineDividerIndex >= 0
+      ? branding.tagline.slice(taglineDividerIndex + taglineDivider.length)
+      : "";
 
   const advance = useCallback(() => {
     if (slides.length < 2) return;
@@ -92,14 +94,16 @@ export function HeroSlideshow({ slides }: Props) {
           {/* Frosted glass text panel — bottom-left */}
           <div className="w-full max-w-2xl rounded-2xl bg-brown/60 backdrop-blur-xl border border-cream/15 p-6 sm:p-10 shadow-2xl">
             <p className="text-xs font-sans uppercase tracking-[0.4em] text-cream/60 mb-4">
-              Ms Paul Therapies
+              {branding.name}
             </p>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-white leading-[1.1]">
-              Compassionate Therapy for{" "}
-              <em className="not-italic text-sage-light">Meaningful Change</em>
+              {taglineLead}
+              {taglineEmphasis && (
+                <em className="not-italic text-sage-light">{taglineEmphasis}</em>
+              )}
             </h1>
             <p className="mt-5 text-base sm:text-lg text-cream/70 leading-relaxed max-w-xl">
-              Professional online psychotherapy for individuals, couples, adolescents and families — across India and for NRIs abroad.
+              {branding.description}
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">

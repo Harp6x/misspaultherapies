@@ -5,18 +5,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import type { HeaderProps, PageVisibility } from "@/types";
 
 type NavLink = { label: string; href: string };
 type NavGroup = { label: string; children: NavLink[] };
 type NavItem = NavLink | NavGroup;
-
-export interface PageVisibility {
-  blog: boolean;
-  products: boolean;
-  workshops: boolean;
-  gallery: boolean;
-  resources: boolean;
-}
 
 function isGroup(item: NavItem): item is NavGroup {
   return "children" in item;
@@ -69,8 +62,9 @@ const allNavItems: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export function Header({ pageVisibility }: { pageVisibility?: PageVisibility }) {
+export function Header({ branding, pageVisibility }: HeaderProps) {
   const vis: PageVisibility = pageVisibility ?? { blog: true, products: true, workshops: true, gallery: true, resources: true };
+  const siteName = branding?.name ?? siteConfig.name;
   const navItems = filterNav(allNavItems, vis);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -120,7 +114,7 @@ export function Header({ pageVisibility }: { pageVisibility?: PageVisibility }) 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <span className="font-serif text-xl font-bold text-brown group-hover:text-sage-dark transition-colors">
-              {siteConfig.name}
+              {siteName}
             </span>
           </Link>
 

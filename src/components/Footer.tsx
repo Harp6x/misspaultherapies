@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { SocialIcon } from "@/components/SocialIcon";
-import type { PageVisibility } from "@/components/Header";
+import type { FooterProps, PageVisibility } from "@/types";
 
 const HIDDEN_HREF_MAP: Record<string, keyof PageVisibility> = {
   "/products": "products",
@@ -35,8 +35,10 @@ const footerLinks = {
   ],
 };
 
-export function Footer({ pageVisibility }: { pageVisibility?: PageVisibility }) {
+export function Footer({ branding, pageVisibility }: FooterProps) {
   const vis: PageVisibility = pageVisibility ?? { blog: true, products: true, workshops: true, gallery: true, resources: true };
+  const siteName = branding?.name ?? siteConfig.name;
+  const tagline = branding?.tagline ?? siteConfig.tagline;
   const year = new Date().getFullYear();
   const visibleCompanyLinks = footerLinks.company.filter(
     (link) => !(link.href in HIDDEN_HREF_MAP) || vis[HIDDEN_HREF_MAP[link.href]]
@@ -49,10 +51,10 @@ export function Footer({ pageVisibility }: { pageVisibility?: PageVisibility }) 
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="font-serif text-lg font-bold text-cream">
-              {siteConfig.name}
+              {siteName}
             </Link>
             <p className="text-sm text-beige leading-relaxed">
-              {siteConfig.tagline}
+              {tagline}
             </p>
             <div className="text-xs text-beige-dark space-y-1">
               {siteConfig.qualifications.map((q) => (
@@ -179,7 +181,7 @@ export function Footer({ pageVisibility }: { pageVisibility?: PageVisibility }) 
         {/* Copyright */}
         <div className="mt-6 text-center">
           <p className="text-xs text-beige-dark">
-            &copy; {year} {siteConfig.name}. All rights reserved.
+            &copy; {year} {siteName}. All rights reserved.
           </p>
         </div>
       </div>
