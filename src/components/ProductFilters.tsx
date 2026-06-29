@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import type { SanityProduct } from "@/sanity/fetch";
+import type { ResolvedSiteConfig } from "@/types";
 import { ProductCard } from "@/components/ProductCard";
 import {
   PRODUCT_TYPE_LABELS,
@@ -27,28 +28,36 @@ function presentValues(products: SanityProduct[], key: "topics" | "audience") {
   return set;
 }
 
-export function ProductFilters({ products }: { products: SanityProduct[] }) {
+export function ProductFilters({
+  products,
+  config,
+}: {
+  products: SanityProduct[];
+  config: ResolvedSiteConfig;
+}) {
   const [f, setF] = useState<Filters>(EMPTY);
 
   const types = useMemo(
-    () => Array.from(new Set(products.map((p) => p.productType))),
-    [products]
+    () =>
+      Array.from(new Set([...config.options.productTypes, ...products.map((p) => p.productType)])),
+    [products, config.options.productTypes]
   );
-  const prices = useMemo(
-    () => Array.from(new Set(products.map((p) => p.priceType))),
-    [products]
+  const prices = useMemo(() => Array.from(new Set(products.map((p) => p.priceType))), [products]);
+  const topics = useMemo(
+    () => new Set([...config.options.productTopics, ...presentValues(products, "topics")]),
+    [products, config.options.productTopics]
   );
-  const topics = useMemo(() => presentValues(products, "topics"), [products]);
-  const audiences = useMemo(() => presentValues(products, "audience"), [products]);
+  const audiences = useMemo(
+    () => new Set([...config.options.productAudiences, ...presentValues(products, "audience")]),
+    [products, config.options.productAudiences]
+  );
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
       if (f.type && p.productType !== f.type) return false;
       if (f.price && p.priceType !== f.price) return false;
-      if (f.topics.length && !f.topics.every((t) => p.topics?.includes(t)))
-        return false;
-      if (f.audience.length && !f.audience.every((a) => p.audience?.includes(a)))
-        return false;
+      if (f.topics.length && !f.topics.every((t) => p.topics?.includes(t))) return false;
+      if (f.audience.length && !f.audience.every((a) => p.audience?.includes(a))) return false;
       if (f.q) {
         const hay = `${p.title} ${p.shortDescription ?? ""}`.toLowerCase();
         if (!hay.includes(f.q.toLowerCase())) return false;
@@ -63,8 +72,7 @@ export function ProductFilters({ products }: { products: SanityProduct[] }) {
       [key]: s[key].includes(v) ? s[key].filter((x) => x !== v) : [...s[key], v],
     }));
 
-  const active =
-    f.type || f.price || f.topics.length || f.audience.length || f.q;
+  const active = f.type || f.price || f.topics.length || f.audience.length || f.q;
 
   const Pill = ({
     on,
@@ -78,10 +86,10 @@ export function ProductFilters({ products }: { products: SanityProduct[] }) {
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-3 py-1.5 text-sm font-medium border transition-colors ${
+      className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
         on
-          ? "bg-sage text-white border-sage"
-          : "bg-white text-brown-light border-border hover:border-sage"
+          ? "bg-sage border-sage text-white"
+          : "text-brown-light border-border hover:border-sage bg-white"
       }`}
     >
       {children}
@@ -93,13 +101,13 @@ export function ProductFilters({ products }: { products: SanityProduct[] }) {
       {/* Filter sidebar */}
       <aside className="space-y-6">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
           <input
             type="search"
             value={f.q}
             onChange={(e) => setF((s) => ({ ...s, q: e.target.value }))}
             placeholder="Search products"
-            className="w-full rounded-full border border-border bg-white py-2 pl-9 pr-3 text-sm focus:border-sage focus:outline-none"
+            className="border-border focus:border-sage w-full rounded-full border bg-white py-2 pr-3 pl-9 text-sm focus:outline-none"
           />
         </div>
 
@@ -137,11 +145,7 @@ export function ProductFilters({ products }: { products: SanityProduct[] }) {
 
         <FilterGroup title="For Whom">
           {Array.from(audiences).map((a) => (
-            <Pill
-              key={a}
-              on={f.audience.includes(a)}
-              onClick={() => toggle("audience", a)}
-            >
+            <Pill key={a} on={f.audience.includes(a)} onClick={() => toggle("audience", a)}>
               {AUDIENCE_LABELS[a] ?? a}
             </Pill>
           ))}
@@ -151,14 +155,14 @@ export function ProductFilters({ products }: { products: SanityProduct[] }) {
       {/* Results */}
       <div>
         <div className="flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             {filtered.length} {filtered.length === 1 ? "product" : "products"}
           </p>
           {active && (
             <button
               type="button"
               onClick={() => setF(EMPTY)}
-              className="inline-flex items-center gap-1 text-sm font-medium text-terracotta hover:text-terracotta-dark"
+              className="text-terracotta hover:text-terracotta-dark inline-flex items-center gap-1 text-sm font-medium"
             >
               <X className="h-4 w-4" /> Clear filters
             </button>
@@ -166,13 +170,13 @@ export function ProductFilters({ products }: { products: SanityProduct[] }) {
         </div>
 
         {filtered.length === 0 ? (
-          <p className="mt-12 text-center text-muted-foreground">
+          <p className="text-muted-foreground mt-12 text-center">
             No products match these filters. Try clearing some.
           </p>
         ) : (
           <div className="mt-5 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {filtered.map((p) => (
-              <ProductCard key={p._id} product={p} />
+              <ProductCard key={p._id} product={p} whatsappNumber={config.whatsappNumber} />
             ))}
           </div>
         )}
@@ -181,16 +185,10 @@ export function ProductFilters({ products }: { products: SanityProduct[] }) {
   );
 }
 
-function FilterGroup({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-serif text-sm font-semibold text-brown mb-2">{title}</h3>
+      <h3 className="text-brown mb-2 font-serif text-sm font-semibold">{title}</h3>
       <div className="flex flex-wrap gap-2">{children}</div>
     </div>
   );

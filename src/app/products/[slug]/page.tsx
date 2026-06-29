@@ -24,11 +24,7 @@ export async function generateStaticParams() {
   return slugs.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) return {};
@@ -39,16 +35,12 @@ export async function generateMetadata({
       product.shortDescription ??
       `${product.title} - a digital mental health product by Aishani Paul.`,
     path: `/products/${product.slug}`,
-    ogImage: product.seo?.ogImage?.asset?.url ?? getProductImage(product).url,
+    ogImage: product.seo?.ogImageUrl ?? getProductImage(product).url,
     noIndex: product.seo?.noIndex,
   });
 }
 
-export default async function ProductDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const config = await getSiteConfig();
   if (!config.pageVisibility.products) notFound();
 
@@ -56,7 +48,7 @@ export default async function ProductDetailPage({
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const cta = getProductCta(product);
+  const cta = getProductCta(product, config.whatsappNumber);
   const isFree = product.priceType === "free";
   const image = getProductImage(product);
   return (
@@ -79,7 +71,7 @@ export default async function ProductDetailPage({
         ])}
       />
 
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
             { name: "Products", href: "/products" },
@@ -89,7 +81,7 @@ export default async function ProductDetailPage({
 
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Cover */}
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-sage/5">
+          <div className="border-border bg-sage/5 relative aspect-[4/3] overflow-hidden rounded-2xl border">
             <Image
               src={image.url}
               alt={image.alt}
@@ -102,35 +94,31 @@ export default async function ProductDetailPage({
 
           {/* Info */}
           <div>
-            <span className="text-xs font-medium uppercase tracking-wide text-sage">
+            <span className="text-sage text-xs font-medium tracking-wide uppercase">
               {PRODUCT_TYPE_LABELS[product.productType] ?? product.productType}
             </span>
-            <h1 className="mt-1 font-serif text-3xl sm:text-4xl font-bold text-brown">
+            <h1 className="text-brown mt-1 font-serif text-3xl font-bold sm:text-4xl">
               {product.title}
             </h1>
             {product.format && (
-              <p className="mt-2 text-sm text-muted-foreground">{product.format}</p>
+              <p className="text-muted-foreground mt-2 text-sm">{product.format}</p>
             )}
             {product.shortDescription && (
-              <p className="mt-4 text-brown-light leading-relaxed">
-                {product.shortDescription}
-              </p>
+              <p className="text-brown-light mt-4 leading-relaxed">{product.shortDescription}</p>
             )}
 
             {/* Price */}
             <div className="mt-6 flex items-baseline gap-3">
-              <span className="font-serif text-3xl font-bold text-brown">
-                {isFree ? "Free" : product.price ?? "Enquire"}
+              <span className="text-brown font-serif text-3xl font-bold">
+                {isFree ? "Free" : (product.price ?? "Enquire")}
               </span>
               {product.originalPrice && (
-                <span className="text-lg text-muted-foreground line-through">
+                <span className="text-muted-foreground text-lg line-through">
                   {product.originalPrice}
                 </span>
               )}
               {product.priceUSD && !isFree && (
-                <span className="text-sm text-muted-foreground">
-                  ({product.priceUSD})
-                </span>
+                <span className="text-muted-foreground text-sm">({product.priceUSD})</span>
               )}
             </div>
 
@@ -139,7 +127,7 @@ export default async function ProductDetailPage({
               href={cta.href}
               target={cta.external ? "_blank" : undefined}
               rel={cta.external ? "noopener noreferrer" : undefined}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
+              className="bg-sage hover:bg-sage-dark mt-6 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors"
             >
               {cta.label}
               {cta.external ? (
@@ -154,11 +142,11 @@ export default async function ProductDetailPage({
               <div className="mt-6 space-y-3">
                 {product.topics && product.topics.length > 0 && (
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-semibold text-brown">Topics:</span>
+                    <span className="text-brown text-xs font-semibold">Topics:</span>
                     {product.topics.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full bg-cream px-2.5 py-0.5 text-xs text-brown-light border border-border"
+                        className="bg-cream text-brown-light border-border rounded-full border px-2.5 py-0.5 text-xs"
                       >
                         {TOPIC_LABELS[t] ?? t}
                       </span>
@@ -167,11 +155,11 @@ export default async function ProductDetailPage({
                 )}
                 {product.audience && product.audience.length > 0 && (
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-semibold text-brown">For:</span>
+                    <span className="text-brown text-xs font-semibold">For:</span>
                     {product.audience.map((a) => (
                       <span
                         key={a}
-                        className="rounded-full bg-cream px-2.5 py-0.5 text-xs text-brown-light border border-border"
+                        className="bg-cream text-brown-light border-border rounded-full border px-2.5 py-0.5 text-xs"
                       >
                         {AUDIENCE_LABELS[a] ?? a}
                       </span>
@@ -185,17 +173,12 @@ export default async function ProductDetailPage({
 
         {/* What you get */}
         {product.highlights && product.highlights.length > 0 && (
-          <section className="mt-12 rounded-2xl border border-border bg-cream p-6">
-            <h2 className="font-serif text-xl font-semibold text-brown mb-4">
-              What You Get
-            </h2>
+          <section className="border-border bg-cream mt-12 rounded-2xl border p-6">
+            <h2 className="text-brown mb-4 font-serif text-xl font-semibold">What You Get</h2>
             <ul className="grid gap-2 sm:grid-cols-2">
               {product.highlights.map((h) => (
-                <li
-                  key={h}
-                  className="flex items-start gap-2 text-sm text-brown-light"
-                >
-                  <Check className="h-4 w-4 mt-0.5 shrink-0 text-sage" />
+                <li key={h} className="text-brown-light flex items-start gap-2 text-sm">
+                  <Check className="text-sage mt-0.5 h-4 w-4 shrink-0" />
                   {h}
                 </li>
               ))}
@@ -213,7 +196,7 @@ export default async function ProductDetailPage({
         <div className="mt-12">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-sage-dark transition-colors"
+            className="text-sage hover:text-sage-dark inline-flex items-center gap-2 text-sm font-semibold transition-colors"
           >
             <ArrowLeft className="h-4 w-4" /> All Products
           </Link>

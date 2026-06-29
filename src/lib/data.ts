@@ -14,24 +14,19 @@ import {
   getAllFaqs as getSanityFaqs,
   getAllResources as getSanityResources,
   getApprovedTestimonials as getSanityTestimonials,
+  getFeaturedTestimonials as getSanityFeaturedTestimonials,
   getAllLocations as getSanityLocations,
   getLocationBySlug as getSanityLocationBySlug,
-  getAllLocationSlugs as getSanityLocationSlugs,
 } from "@/sanity/fetch";
 import type {
-  SanityAboutPage,
-  SanitySiteConfig,
-  SanityService,
-  SanityBlogPost,
-  SanityFAQ,
   SanityResource,
   SanityTestimonial,
-  SanityLocation,
   Service,
   BlogPost,
   FAQ,
   Location,
   AboutPageData,
+  ResolvedSiteConfig,
 } from "@/types";
 
 // Static fallbacks
@@ -45,18 +40,48 @@ import { locations as staticLocations } from "@/content/locations";
 export { blogCategories, faqCategories };
 
 // ── Site Config ──
-export async function getSiteConfig() {
+function staticResolvedConfig(): ResolvedSiteConfig {
+  return {
+    ...staticSiteConfig,
+    qualifications: [...staticSiteConfig.qualifications],
+    languages: [...staticSiteConfig.languages],
+    fees: { ...staticSiteConfig.fees },
+    socials: { ...staticSiteConfig.socials },
+    newsletter: { ...staticSiteConfig.newsletter },
+    pageVisibility: { ...staticSiteConfig.pageVisibility },
+    discoveryCallUrl: staticSiteConfig.discoveryCallUrl,
+    sessionBookingUrl: staticSiteConfig.sessionBookingUrl,
+    workingHours: "Mon – Sat, 10 AM – 7 PM IST",
+    upiQrCodeUrl: staticSiteConfig.upiQrCodeUrl,
+    razorpayUrl: staticSiteConfig.razorpayUrl,
+    seo: {},
+    team: [],
+    options: {
+      blogCategories: [],
+      faqCategories: [],
+      productTypes: [],
+      productTopics: [],
+      productAudiences: [],
+      workshopStatuses: [],
+    },
+    heroSlides: [],
+  };
+}
+
+export async function getSiteConfig(): Promise<ResolvedSiteConfig> {
+  const fallback = staticResolvedConfig();
   try {
     const cfg = await getSanitySiteConfig();
     if (cfg?.name) {
       // Map Sanity shape → siteConfig shape used by pages
       return {
-        ...staticSiteConfig,
+        ...fallback,
         name: cfg.name,
         tagline: cfg.tagline ?? staticSiteConfig.tagline,
         description: cfg.description ?? staticSiteConfig.description,
         author: cfg.author ?? staticSiteConfig.author,
         handle: cfg.handle ?? staticSiteConfig.handle,
+        twitterHandle: cfg.twitterHandle ?? staticSiteConfig.twitterHandle,
         email: cfg.email ?? staticSiteConfig.email,
         phone: cfg.phone ?? staticSiteConfig.phone,
         whatsappNumber: cfg.whatsappNumber ?? staticSiteConfig.whatsappNumber,
@@ -70,6 +95,9 @@ export async function getSiteConfig() {
           linkedin: cfg.linkedin ?? staticSiteConfig.socials.linkedin,
         },
         googleFormUrl: cfg.googleFormUrl ?? staticSiteConfig.googleFormUrl,
+        discoveryCallUrl: cfg.discoveryCallUrl ?? staticSiteConfig.discoveryCallUrl,
+        sessionBookingUrl: cfg.sessionBookingUrl ?? staticSiteConfig.sessionBookingUrl,
+        workingHours: cfg.workingHours ?? fallback.workingHours,
         upiId: cfg.upiId ?? staticSiteConfig.upiId,
         upiNumber: cfg.upiNumber ?? staticSiteConfig.upiNumber,
         razorpayUrl: cfg.razorpayUrl ?? staticSiteConfig.razorpayUrl,
@@ -96,12 +124,24 @@ export async function getSiteConfig() {
           gallery: cfg.enableGalleryPage ?? true,
           resources: cfg.enableResourcesPage ?? true,
         },
+        seo: cfg.seo ?? {},
+        team: cfg.team ?? [],
+        options: {
+          blogCategories: cfg.blogCategories ?? [],
+          faqCategories: cfg.faqCategories ?? [],
+          productTypes: cfg.productTypes ?? [],
+          productTopics: cfg.productTopics ?? [],
+          productAudiences: cfg.productAudiences ?? [],
+          workshopStatuses: cfg.workshopStatuses ?? [],
+        },
+        heroSlides: cfg.heroSlides ?? [],
+        howItWorksBgUrl: cfg.howItWorksBgUrl,
       };
     }
   } catch {
     // Sanity not available - use static
   }
-  return staticSiteConfig;
+  return fallback;
 }
 
 // ── About Page ──
@@ -111,8 +151,7 @@ const staticAboutPage: AboutPageData = {
   title: "About Aishani Paul",
   bioParagraph1:
     "I'm a licensed clinical psychologist with a deep commitment to making quality mental healthcare accessible, inclusive, and culturally attuned.",
-  bioParagraph2:
-    `With an M.Phil in Clinical Psychology and registration with the Rehabilitation Council of India (RCI No: ${staticSiteConfig.rciNumber}), I bring both academic rigour and heartfelt compassion to my practice.`,
+  bioParagraph2: `With an M.Phil in Clinical Psychology and registration with the Rehabilitation Council of India (RCI No: ${staticSiteConfig.rciNumber}), I bring both academic rigour and heartfelt compassion to my practice.`,
   bioParagraph3:
     "I work with individuals, couples, adolescents, and families - offering all sessions online so that geography is never a barrier to getting help. Whether you're in India or living abroad, my goal is to create a safe, non-judgmental space where real change can happen.",
   credentials: [
@@ -183,7 +222,7 @@ export async function getAboutPage(): Promise<AboutPageData> {
 export async function getAllServices(): Promise<Service[]> {
   try {
     const sanity = await getSanityServices();
-    if (sanity?.length) return sanity;
+    return sanity;
   } catch {}
   return staticServices;
 }
@@ -191,7 +230,7 @@ export async function getAllServices(): Promise<Service[]> {
 export async function getServiceBySlug(slug: string): Promise<Service | null> {
   try {
     const s = await getSanityServiceBySlug(slug);
-    if (s) return s;
+    return s;
   } catch {}
   return staticServices.find((s) => s.slug === slug) ?? null;
 }
@@ -199,7 +238,7 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
 export async function getServiceSlugs(): Promise<string[]> {
   try {
     const sanity = await getSanityServices();
-    if (sanity?.length) return sanity.map((s) => s.slug);
+    return sanity.map((s) => s.slug);
   } catch {}
   return staticServices.map((s) => s.slug);
 }
@@ -208,21 +247,21 @@ export async function getServiceSlugs(): Promise<string[]> {
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
   try {
     const sanity = await getSanityBlogPosts();
-    if (sanity?.length) {
-      return sanity.map((p) => ({
-        ...p,
-        // Portable Text body kept as-is for PortableTextBody component
-        body: p.body,
-      }));
-    }
+    return sanity.map((p) => ({
+      ...p,
+      // Portable Text body kept as-is for PortableTextBody component
+      body: p.body,
+    }));
   } catch {}
   return staticBlogPosts.filter((p) => p.published);
 }
 
-export async function getBlogPostBySlug(slug: string): Promise<(BlogPost & { sanityBody?: unknown }) | null> {
+export async function getBlogPostBySlug(
+  slug: string
+): Promise<(BlogPost & { sanityBody?: unknown }) | null> {
   try {
     const p = await getSanityBlogPostBySlug(slug);
-    if (p) return { ...p, sanityBody: p.body };
+    return p ? { ...p, sanityBody: p.body } : null;
   } catch {}
   return staticBlogPosts.find((p) => p.slug === slug) ?? null;
 }
@@ -230,7 +269,7 @@ export async function getBlogPostBySlug(slug: string): Promise<(BlogPost & { san
 export async function getBlogSlugs(): Promise<string[]> {
   try {
     const sanity = await getSanityBlogSlugs();
-    if (sanity?.length) return sanity.map((s) => s.slug);
+    return sanity.map((s) => s.slug);
   } catch {}
   return staticBlogPosts.filter((p) => p.published).map((p) => p.slug);
 }
@@ -239,7 +278,7 @@ export async function getBlogSlugs(): Promise<string[]> {
 export async function getAllFaqs(): Promise<FAQ[]> {
   try {
     const sanity = await getSanityFaqs();
-    if (sanity?.length) return sanity as unknown as FAQ[];
+    return sanity as unknown as FAQ[];
   } catch {}
   return staticFaqs;
 }
@@ -248,7 +287,7 @@ export async function getAllFaqs(): Promise<FAQ[]> {
 export async function getAllResources(): Promise<SanityResource[]> {
   try {
     const sanity = await getSanityResources();
-    if (sanity?.length) return sanity;
+    return sanity;
   } catch {}
   // No static fallback needed - the resources page has inline data
   return [];
@@ -257,19 +296,22 @@ export async function getAllResources(): Promise<SanityResource[]> {
 // ── Testimonials ──
 const staticTestimonials = [
   {
-    quote: "Therapy with Aishani helped me understand myself in ways I never thought possible. I finally feel like I have the tools to handle life's challenges.",
+    quote:
+      "Therapy with Aishani helped me understand myself in ways I never thought possible. I finally feel like I have the tools to handle life's challenges.",
     name: "Client A",
     context: "Individual therapy - placeholder, shared with consent",
     order: 1,
   },
   {
-    quote: "We were on the verge of giving up on our relationship. The sessions gave us a new way to communicate and truly hear each other.",
+    quote:
+      "We were on the verge of giving up on our relationship. The sessions gave us a new way to communicate and truly hear each other.",
     name: "Client B",
     context: "Couples therapy - placeholder, shared with consent",
     order: 2,
   },
   {
-    quote: "As an NRI, finding a therapist who understood my cultural background was a game changer. I felt seen and understood from the very first session.",
+    quote:
+      "As an NRI, finding a therapist who understood my cultural background was a game changer. I felt seen and understood from the very first session.",
     name: "Client C",
     context: "NRI therapy - placeholder, shared with consent",
     order: 3,
@@ -278,8 +320,10 @@ const staticTestimonials = [
 
 export async function getTestimonials(): Promise<SanityTestimonial[]> {
   try {
+    const featured = await getSanityFeaturedTestimonials();
+    if (featured?.length) return featured;
     const sanity = await getSanityTestimonials();
-    if (sanity?.length) return sanity;
+    return sanity;
   } catch {}
   return staticTestimonials;
 }
@@ -289,38 +333,38 @@ export async function getAllLocations(): Promise<Location[]> {
   let sanityLocations: Location[] = [];
   try {
     const sanity = await getSanityLocations();
-    if (sanity?.length) {
-      sanityLocations = sanity.map((l) => ({
-        slug: l.slug,
-        city: l.name,
-        title: l.title,
-        description: l.description,
-        metaDescription: l.metaDescription,
-        keywords: [],
-        content: l.description,
-      }));
-    }
+    sanityLocations = sanity.map((l) => ({
+      slug: l.slug,
+      city: l.name,
+      title: l.title,
+      description: l.description,
+      metaDescription: l.metaDescription,
+      keywords: [],
+      content: l.description,
+      features: l.features,
+      services: l.services,
+    }));
+    return sanityLocations;
   } catch {}
-  // Merge: Sanity entries take priority; static fills slugs not in Sanity
-  const sanitySlugs = new Set(sanityLocations.map((l) => l.slug));
-  const staticOnly = staticLocations.filter((l) => !sanitySlugs.has(l.slug));
-  return [...sanityLocations, ...staticOnly];
+  return staticLocations;
 }
 
 export async function getLocationBySlug(slug: string): Promise<Location | null> {
   try {
     const l = await getSanityLocationBySlug(slug);
-    if (l) {
-      return {
-        slug: l.slug,
-        city: l.name,
-        title: l.title,
-        description: l.description,
-        metaDescription: l.metaDescription,
-        keywords: [],
-        content: l.description,
-      };
-    }
+    return l
+      ? {
+          slug: l.slug,
+          city: l.name,
+          title: l.title,
+          description: l.description,
+          metaDescription: l.metaDescription,
+          keywords: [],
+          content: l.description,
+          features: l.features,
+          services: l.services,
+        }
+      : null;
   } catch {}
   return staticLocations.find((l) => l.slug === slug) ?? null;
 }

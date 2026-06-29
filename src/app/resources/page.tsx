@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  FileText,
-  CheckSquare,
-  BookOpen,
-  AlertTriangle,
-  ChevronDown,
-} from "lucide-react";
+import { FileText, CheckSquare, BookOpen, AlertTriangle, ChevronDown } from "lucide-react";
+import * as LucideIcons from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
-import { getSiteConfig } from "@/lib/data";
+import { getAllResources, getSiteConfig } from "@/lib/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { NewsletterSection } from "@/components/NewsletterSection";
+import { PortableTextBody } from "@/components/PortableTextBody";
 
 export const metadata = buildMetadata({
   title: "Resources - Guides, Checklists & Crisis Links",
@@ -157,52 +153,57 @@ const resources = [
 ];
 
 export default async function ResourcesPage() {
-  const config = await getSiteConfig();
+  const [config, sanityResources] = await Promise.all([getSiteConfig(), getAllResources()]);
   if (!config.pageVisibility.resources) notFound();
+  const displayResources = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+    ? sanityResources.map((resource) => ({
+        ...resource,
+        Icon:
+          (LucideIcons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[
+            resource.icon
+          ] ?? FileText,
+        portable: true as const,
+      }))
+    : resources.map((resource) => ({ ...resource, Icon: resource.icon, portable: false as const }));
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ name: "Resources", href: "/resources" }]} />
 
         <div className="text-center">
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brown">
-            Resources
-          </h1>
-          <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Free guides, checklists, and recommended reading to support your
-            mental health journey.
+          <h1 className="text-brown font-serif text-4xl font-bold sm:text-5xl">Resources</h1>
+          <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg leading-relaxed">
+            Free guides, checklists, and recommended reading to support your mental health journey.
           </p>
         </div>
 
         <div className="mt-12 space-y-8">
-          {resources.map((r) => (
+          {displayResources.map((r) => (
             <details
               key={r.title}
-              className="group rounded-2xl border border-border bg-white shadow-sm"
+              className="group border-border rounded-2xl border bg-white shadow-sm"
             >
-              <summary className="flex cursor-pointer items-center gap-4 px-6 py-5 list-none [&::-webkit-details-marker]:hidden">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sage/10 text-sage">
-                  <r.icon className="h-5 w-5" />
+              <summary className="flex cursor-pointer list-none items-center gap-4 px-6 py-5 [&::-webkit-details-marker]:hidden">
+                <div className="bg-sage/10 text-sage flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
+                  <r.Icon className="h-5 w-5" />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <span className="inline-block rounded-full bg-terracotta/10 px-2 py-0.5 text-xs font-medium text-terracotta mb-1">
+                <div className="min-w-0 flex-1">
+                  <span className="bg-terracotta/10 text-terracotta mb-1 inline-block rounded-full px-2 py-0.5 text-xs font-medium">
                     {r.tag}
                   </span>
-                  <h2 className="font-serif text-base font-semibold text-brown group-hover:text-sage-dark transition-colors">
+                  <h2 className="text-brown group-hover:text-sage-dark font-serif text-base font-semibold transition-colors">
                     {r.title}
                   </h2>
                 </div>
-                <ChevronDown className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+                <ChevronDown className="text-muted-foreground h-5 w-5 shrink-0 transition-transform group-open:rotate-180" />
               </summary>
-              <div
-                className="px-6 pb-6 text-sm text-brown-light leading-relaxed
-                  [&_h3]:font-serif [&_h3]:text-base [&_h3]:font-semibold [&_h3]:text-brown [&_h3]:mt-5 [&_h3]:mb-2
-                  [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_ul]:mb-3
-                  [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1 [&_ol]:mb-3
-                  [&_li]:text-sm [&_strong]:text-brown [&_em]:text-muted-foreground
-                  [&_a]:text-sage [&_a]:underline [&_a]:hover:text-sage-dark"
-                dangerouslySetInnerHTML={{ __html: r.content }}
-              />
+              <div className="text-brown-light [&_h3]:text-brown [&_strong]:text-brown [&_em]:text-muted-foreground [&_a]:text-sage [&_a]:hover:text-sage-dark px-6 pb-6 text-sm leading-relaxed [&_a]:underline [&_h3]:mt-5 [&_h3]:mb-2 [&_h3]:font-serif [&_h3]:text-base [&_h3]:font-semibold [&_li]:text-sm [&_ol]:mb-3 [&_ol]:list-decimal [&_ol]:space-y-1 [&_ol]:pl-5 [&_p]:mb-3 [&_ul]:mb-3 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5">
+                {r.portable ? (
+                  <PortableTextBody value={r.content} />
+                ) : (
+                  <div dangerouslySetInnerHTML={{ __html: r.content }} />
+                )}
+              </div>
             </details>
           ))}
         </div>
@@ -211,16 +212,14 @@ export default async function ResourcesPage() {
         <NewsletterSection className="mt-12" />
 
         {/* Crisis link */}
-        <div className="mt-12 rounded-2xl border border-terracotta/30 bg-terracotta/5 p-6 text-center">
-          <AlertTriangle className="mx-auto h-6 w-6 text-terracotta mb-3" />
-          <h2 className="font-serif text-xl font-semibold text-brown">
-            In Crisis?
-          </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
+        <div className="border-terracotta/30 bg-terracotta/5 mt-12 rounded-2xl border p-6 text-center">
+          <AlertTriangle className="text-terracotta mx-auto mb-3 h-6 w-6" />
+          <h2 className="text-brown font-serif text-xl font-semibold">In Crisis?</h2>
+          <p className="text-muted-foreground mt-2 text-sm">
             If you or someone you know needs immediate help, please visit our{" "}
             <Link
               href="/emergency-resources"
-              className="text-terracotta underline hover:text-terracotta-dark font-medium"
+              className="text-terracotta hover:text-terracotta-dark font-medium underline"
             >
               Emergency Resources
             </Link>{" "}

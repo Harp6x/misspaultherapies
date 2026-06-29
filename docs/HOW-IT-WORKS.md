@@ -22,7 +22,7 @@ You edit content in Sanity Studio
     → Next.js refreshes only the affected cached pages
 ```
 
-If Sanity is ever down or empty, the website **falls back to built-in content** — your blog posts, services, and FAQ all have backup copies baked into the code. The site never shows blank pages.
+If Sanity is temporarily unreachable, the website can use built-in backup content. An intentionally empty Sanity collection stays empty, so deleting or unpublishing the final item does not bring old hardcoded content back.
 
 ---
 
@@ -30,30 +30,31 @@ If Sanity is ever down or empty, the website **falls back to built-in content** 
 
 Everything below is managed through **Sanity Studio** at `mspaultherapies.in/studio`:
 
-| What | Where in Studio | What It Controls |
-|---|---|---|
-| **Site Config** | Site Config (singleton) | Practice name, contact info, fees, WhatsApp number, payment info, newsletter |
-| **About Page** | About Page (singleton) | Your bio, photo, credentials, therapeutic approach, values |
-| **Services** | Service (list) | Each therapy type — title, description, who it's for, fee |
-| **Blog Posts** | Blog Post (list) | Articles with rich text, categories, publish date |
-| **FAQs** | FAQ (list) | Questions and answers, organized by category |
-| **Testimonials** | Testimonial (list) | Client quotes (toggle `approved` to show/hide) |
-| **Products** | Product (list) | Digital products — courses, eBooks, toolkits |
-| **Workshops** | Workshop (list) | Events with date, fee, registration link, status |
-| **Gallery** | Gallery Item (list) | Instagram reels, YouTube videos, images |
-| **Resources** | Resource (list) | Free therapy resources |
-| **Locations** | Location (list) | City-specific SEO landing pages |
+| What             | Where in Studio         | What It Controls                                                             |
+| ---------------- | ----------------------- | ---------------------------------------------------------------------------- |
+| **Site Config**  | Site Config (singleton) | Practice name, contact info, fees, WhatsApp number, payment info, newsletter |
+| **About Page**   | About Page (singleton)  | Your bio, photo, credentials, therapeutic approach, values                   |
+| **Services**     | Service (list)          | Each therapy type — title, description, who it's for, fee                    |
+| **Blog Posts**   | Blog Post (list)        | Articles with rich text, categories, publish date                            |
+| **FAQs**         | FAQ (list)              | Questions and answers, organized by category                                 |
+| **Testimonials** | Testimonial (list)      | Client quotes (toggle `approved` to show/hide)                               |
+| **Products**     | Product (list)          | Digital products — courses, eBooks, toolkits                                 |
+| **Workshops**    | Workshop (list)         | Events with date, fee, registration link, status                             |
+| **Gallery**      | Gallery Item (list)     | Instagram reels, YouTube videos, images                                      |
+| **Resources**    | Resource (list)         | Free therapy resources                                                       |
+| **Locations**    | Location (list)         | City-specific SEO landing pages                                              |
 
 ### Quick Guide: Publishing
 
 1. Open the document in Studio
 2. Edit the fields you want to change
 3. Click **Publish** (top right)
-4. The publish webhook refreshes the affected cache → your change appears on the next request
+4. The publish webhook immediately expires the affected data and pages → your change appears on the next request (normally within seconds)
 
 ### Visibility Toggles
 
 Some content has an on/off switch:
+
 - **Blog Posts:** Set `published` to true/false
 - **Testimonials:** Set `approved` to true/false
 - **Workshops:** Set `published` to true/false, plus `status` (upcoming, open, sold-out, completed)
@@ -65,16 +66,16 @@ Some content has an on/off switch:
 
 These parts live in the code, NOT in Sanity:
 
-| What | Where in Code | Notes |
-|---|---|---|
-| Homepage pain points | `src/app/page.tsx` | "Overwhelmed by anxiety", "Struggling in relationships", etc. |
-| Homepage "How it Works" | `src/app/page.tsx` | 3-step process (Book → Begin → Grow) |
-| Trust badges | `src/app/page.tsx` | "RCI Licensed", "100% Online", "India & Abroad" |
-| Emergency resources | `src/app/emergency-resources/page.tsx` | Crisis helpline numbers |
-| Self-help tools | `src/app/tools/*/page.tsx` | Burnout quiz, journal, reflection exercises |
-| Privacy policy | `src/app/privacy-policy/page.tsx` | Legal text |
-| Terms & consent | `src/app/terms-consent-cancellation/page.tsx` | Legal text |
-| First session guide | `src/app/guide/page.tsx` | "What to Expect" guide |
+| What                    | Where in Code                                 | Notes                                                         |
+| ----------------------- | --------------------------------------------- | ------------------------------------------------------------- |
+| Homepage pain points    | `src/app/page.tsx`                            | "Overwhelmed by anxiety", "Struggling in relationships", etc. |
+| Homepage "How it Works" | `src/app/page.tsx`                            | 3-step process (Book → Begin → Grow)                          |
+| Trust badges            | `src/app/page.tsx`                            | "RCI Licensed", "100% Online", "India & Abroad"               |
+| Emergency resources     | `src/app/emergency-resources/page.tsx`        | Crisis helpline numbers                                       |
+| Self-help tools         | `src/app/tools/*/page.tsx`                    | Burnout quiz, journal, reflection exercises                   |
+| Privacy policy          | `src/app/privacy-policy/page.tsx`             | Legal text                                                    |
+| Terms & consent         | `src/app/terms-consent-cancellation/page.tsx` | Legal text                                                    |
+| First session guide     | `src/app/guide/page.tsx`                      | "What to Expect" guide                                        |
 
 To change these, either ask your developer or edit the `.tsx` files directly.
 
@@ -83,24 +84,28 @@ To change these, either ask your developer or edit the `.tsx` files directly.
 ## How External Services Connect
 
 ### Booking (Cal.com)
-- **Discovery Call:** `cal.com/mspaultherapies/discovery-call`
-- **Session Booking:** `cal.com/mspaultherapies/sessionbooking`
-- These are linked from buttons across the site. To change the link, update `site-config.ts` or the Sanity Site Config.
+
+- Discovery-call and session-booking links are managed in **Sanity Studio → Site Configuration → Contact & Booking**.
+- The values in `site-config.ts` are emergency development fallbacks, not the production editing source.
 
 ### Intake Form (Google Forms)
+
 - Embedded on the `/book` page
 - Link: `forms.gle/7jRaX8H9ftoG34726`
 
 ### Newsletter (Kit / ConvertKit)
+
 - Configured in Site Config (Sanity or `site-config.ts`)
 - Modes: `inline` (form on page), `modal` (popup), `slide-in`, `sticky-bar`, `off`
 - Current UID: `1d5b37459d`
 
 ### WhatsApp
+
 - Floating green button on every page
 - Number: `+91 91233 11295` (configurable in Site Config)
 
 ### Payment
+
 - UPI ID: `paulaishani@oksbi`
 - Razorpay: optional (set URL in Sanity to enable)
 
@@ -125,7 +130,9 @@ Your site is heavily optimized for search engines:
 ## How to Add New Things
 
 ### A new page to the website
+
 This requires code changes. Your developer will:
+
 1. Create a new folder in `src/app/{page-name}/`
 2. Add a `page.tsx` file with content
 3. Add SEO metadata
@@ -133,14 +140,17 @@ This requires code changes. Your developer will:
 5. Push to GitHub → Vercel deploys automatically
 
 ### A new service type
+
 1. Go to Sanity Studio → **+ Create** → **Service**
 2. Fill in all fields (title, slug, description, icon, fee, etc.)
 3. Publish → it appears on `/services` and gets its own detail page at `/services/{slug}`
 
 ### A new blog category
+
 Categories are text fields on blog posts — just type a new category name when creating a post. The filter on `/blog` will automatically include it.
 
 ### A new city landing page
+
 1. Go to Sanity Studio → **+ Create** → **Location**
 2. Set the city name, slug, title, and SEO description
 3. Publish → creates a new page at `/locations/{slug}`
@@ -149,13 +159,13 @@ Categories are text fields on blog posts — just type a new category name when 
 
 ## Glossary
 
-| Term | Meaning |
-|---|---|
-| **ISR** | Incremental Static Regeneration — this site uses on-demand invalidation with no timer |
-| **CMS** | Content Management System (Sanity Studio) |
-| **Slug** | The URL-friendly version of a title (e.g., "anxiety-therapy" for "Anxiety Therapy") |
-| **JSON-LD** | Structured data that helps Google understand your content |
-| **GROQ** | Sanity's query language (like a search filter for your content) |
-| **Portable Text** | Sanity's rich text format (supports bold, links, headers, etc.) |
-| **Singleton** | A document type that only has one instance (e.g., Site Config, About Page) |
-| **Fallback** | Backup content used when Sanity is unavailable |
+| Term              | Meaning                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------- |
+| **ISR**           | Incremental Static Regeneration — this site uses on-demand invalidation with no timer |
+| **CMS**           | Content Management System (Sanity Studio)                                             |
+| **Slug**          | The URL-friendly version of a title (e.g., "anxiety-therapy" for "Anxiety Therapy")   |
+| **JSON-LD**       | Structured data that helps Google understand your content                             |
+| **GROQ**          | Sanity's query language (like a search filter for your content)                       |
+| **Portable Text** | Sanity's rich text format (supports bold, links, headers, etc.)                       |
+| **Singleton**     | A document type that only has one instance (e.g., Site Config, About Page)            |
+| **Fallback**      | Backup content used when Sanity is unavailable                                        |

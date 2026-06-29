@@ -16,6 +16,7 @@ export interface SanitySiteConfig {
   description: string;
   author: string;
   handle: string;
+  twitterHandle?: string;
   email: string;
   phone: string;
   whatsappNumber: string;
@@ -27,6 +28,9 @@ export interface SanitySiteConfig {
   youtube: string;
   linkedin: string;
   googleFormUrl: string;
+  discoveryCallUrl?: string;
+  sessionBookingUrl?: string;
+  workingHours?: string;
   upiId: string;
   upiNumber?: string;
   razorpayUrl?: string;
@@ -49,6 +53,25 @@ export interface SanitySiteConfig {
   enableResourcesPage?: boolean;
   heroSlides?: SanityHeroSlide[];
   howItWorksBgUrl?: string;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    ogImageUrl?: string;
+    noIndex?: boolean;
+  };
+  team?: {
+    name: string;
+    role: string;
+    bio?: string;
+    photoUrl?: string;
+    socialLinks?: { label: string; url: string }[];
+  }[];
+  blogCategories?: string[];
+  faqCategories?: string[];
+  productTypes?: string[];
+  productTopics?: string[];
+  productAudiences?: string[];
+  workshopStatuses?: string[];
 }
 
 // ── About Page (singleton) ──
@@ -83,6 +106,12 @@ export interface SanityService {
   approach: string;
   fee: string;
   order: number;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    ogImageUrl?: string;
+    noIndex?: boolean;
+  } | null;
 }
 
 // ── Blog Posts ──
@@ -97,6 +126,15 @@ export interface SanityBlogPost {
   // Portable Text blocks
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body: any;
+  coverImage?: { asset: { _id: string; url: string }; alt?: string };
+  youtubeUrl?: string;
+  instagramUrl?: string;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    ogImageUrl?: string;
+    noIndex?: boolean;
+  } | null;
 }
 
 // ── FAQs ──
@@ -124,6 +162,11 @@ export interface SanityTestimonial {
   name: string;
   context: string;
   order: number;
+  rating?: number;
+  anonymous?: boolean;
+  featured?: boolean;
+  photo?: { asset: { _id: string; url: string }; alt?: string };
+  relatedService?: { title: string; slug: string };
 }
 
 // ── Locations ──
@@ -163,6 +206,12 @@ export interface SanityWorkshop {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: any[];
   order?: number;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    ogImageUrl?: string;
+    noIndex?: boolean;
+  } | null;
 }
 
 // ── Products ──
@@ -171,14 +220,7 @@ export interface SanityProduct {
   title: string;
   slug: string;
   shortDescription?: string;
-  productType:
-    | "course"
-    | "mini-course"
-    | "bundle"
-    | "ebook"
-    | "toolkit"
-    | "quiz"
-    | "corporate";
+  productType: "course" | "mini-course" | "bundle" | "ebook" | "toolkit" | "quiz" | "corporate";
   priceType: "free" | "paid" | "bundle" | "coming-soon";
   price?: string;
   originalPrice?: string;
@@ -197,7 +239,7 @@ export interface SanityProduct {
   seo?: {
     metaTitle?: string;
     metaDescription?: string;
-    ogImage?: { asset?: { _id: string; url: string } };
+    ogImageUrl?: string;
     noIndex?: boolean;
   } | null;
 }

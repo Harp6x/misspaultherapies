@@ -16,8 +16,8 @@ const DOCUMENT_TYPE_TO_TAGS: Record<string, string[]> = {
 };
 
 const DOCUMENT_TYPE_TO_PATHS: Record<string, string[]> = {
-  siteConfig: ["/"],
-  aboutPage: ["/about"],
+  siteConfig: ["/", "/sitemap.xml", "/opengraph-image", "/llms.txt", "/llms-full.txt"],
+  aboutPage: ["/", "/about"],
   service: ["/", "/services", "/sitemap.xml"],
   blogPost: ["/", "/blog", "/sitemap.xml"],
   faq: ["/faq"],
@@ -25,7 +25,7 @@ const DOCUMENT_TYPE_TO_PATHS: Record<string, string[]> = {
   testimonial: ["/"],
   location: ["/sitemap.xml"],
   galleryItem: ["/", "/gallery"],
-  workshop: ["/workshops"],
+  workshop: ["/workshops", "/sitemap.xml"],
   product: ["/products", "/sitemap.xml"],
 };
 
@@ -33,6 +33,7 @@ const DOCUMENT_TYPE_TO_SLUG_PATH: Record<string, string> = {
   service: "/services",
   blogPost: "/blog",
   location: "/locations",
+  workshop: "/workshops",
   product: "/products",
 };
 
@@ -74,7 +75,7 @@ export async function POST(request: NextRequest) {
   }
 
   for (const tag of tags) {
-    revalidateTag(tag, "max");
+    revalidateTag(tag, { expire: 0 });
   }
 
   for (const path of paths) {

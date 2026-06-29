@@ -2,7 +2,7 @@ import { CheckCircle, AlertTriangle, Heart, Brain, Sun, Shield, ArrowRight } fro
 import { PrintButton } from "@/components/PrintButton";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site-config";
+import { getSiteConfig } from "@/lib/data";
 
 export const metadata = buildMetadata({
   title: "Free Mental Health Self-Check Guide",
@@ -75,7 +75,7 @@ const copingStrategies = [
     number: "02",
     title: "Structured Worry Time",
     description:
-      "Set aside 15 minutes each day as your \"worry window.\" Write down your worries during this time. Outside this window, gently remind yourself: \"I'll think about this during my worry time.\" Research shows this reduces overall anxiety by containing it.",
+      'Set aside 15 minutes each day as your "worry window." Write down your worries during this time. Outside this window, gently remind yourself: "I\'ll think about this during my worry time." Research shows this reduces overall anxiety by containing it.',
     when: "Use when worries keep intruding throughout the day",
   },
   {
@@ -89,7 +89,7 @@ const copingStrategies = [
     number: "04",
     title: "Self-Compassion Break",
     description:
-      "Place your hand on your heart and say: \"This is a moment of suffering. Suffering is part of life. May I be kind to myself.\" Dr. Kristin Neff's research shows self-compassion activates the same neural pathways as receiving comfort from a friend.",
+      'Place your hand on your heart and say: "This is a moment of suffering. Suffering is part of life. May I be kind to myself." Dr. Kristin Neff\'s research shows self-compassion activates the same neural pathways as receiving comfort from a friend.',
     when: "Use when self-criticism becomes harsh or relentless",
   },
   {
@@ -101,75 +101,84 @@ const copingStrategies = [
   },
 ];
 
-export default function GuidePage() {
+export default async function GuidePage() {
+  const siteConfig = await getSiteConfig();
   return (
     <div className="bg-cream min-h-screen">
       {/* Header */}
-      <div className="bg-gradient-to-b from-sage/10 to-cream py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-sage/20 text-sage mb-6">
+      <div className="from-sage/10 to-cream bg-gradient-to-b py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="bg-sage/20 text-sage mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl">
             <Heart className="h-8 w-8" />
           </div>
-          <p className="text-sm font-medium text-sage uppercase tracking-wider mb-3">
+          <p className="text-sage mb-3 text-sm font-medium tracking-wider uppercase">
             Free Resource by {siteConfig.name}
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brown leading-tight">
+          <h1 className="text-brown font-serif text-3xl leading-tight font-bold sm:text-4xl lg:text-5xl">
             Mental Health Self-Check Guide
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            A private, evidence-based checklist to help you understand your emotional
-            well-being - plus 5 coping strategies you can start using today.
+          <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg leading-relaxed">
+            A private, evidence-based checklist to help you understand your emotional well-being -
+            plus 5 coping strategies you can start using today.
           </p>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Created by <strong className="text-brown">{siteConfig.author}</strong>, M.Phil Clinical Psychology, RCI Licensed
+          <p className="text-muted-foreground mt-3 text-sm">
+            Created by <strong className="text-brown">{siteConfig.author}</strong>, M.Phil Clinical
+            Psychology, RCI Licensed
           </p>
           <PrintButton />
         </div>
       </div>
 
       {/* Important Note */}
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 -mt-2">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 flex gap-3">
-          <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+      <div className="mx-auto -mt-2 max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+          <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600" />
           <div className="text-sm text-amber-800">
-            <strong>Important:</strong> This is a self-awareness tool, not a clinical diagnosis.
-            If you identify with many of these statements, it may be helpful to speak with a
-            mental health professional. If you are in crisis, please visit our{" "}
-            <Link href="/emergency-resources" className="underline font-medium">
+            <strong>Important:</strong> This is a self-awareness tool, not a clinical diagnosis. If
+            you identify with many of these statements, it may be helpful to speak with a mental
+            health professional. If you are in crisis, please visit our{" "}
+            <Link href="/emergency-resources" className="font-medium underline">
               emergency resources page
-            </Link>.
+            </Link>
+            .
           </div>
         </div>
       </div>
 
       {/* Part 1: Self-Check */}
-      <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brown text-center">
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="text-brown text-center font-serif text-2xl font-bold sm:text-3xl">
           Part 1: Emotional Well-Being Self-Check
         </h2>
-        <p className="mt-3 text-center text-muted-foreground max-w-xl mx-auto">
-          Read each statement and honestly reflect on whether it applies to you
-          over the <strong className="text-brown">past two weeks</strong>. There are no right or wrong answers.
+        <p className="text-muted-foreground mx-auto mt-3 max-w-xl text-center">
+          Read each statement and honestly reflect on whether it applies to you over the{" "}
+          <strong className="text-brown">past two weeks</strong>. There are no right or wrong
+          answers.
         </p>
 
         <div className="mt-10 space-y-8">
           {selfCheckQuestions.map((section) => {
             const Icon = section.icon;
             return (
-              <div key={section.category} className="rounded-2xl border border-border bg-white p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${section.color}`}>
+              <div
+                key={section.category}
+                className="border-border rounded-2xl border bg-white p-6 sm:p-8"
+              >
+                <div className="mb-5 flex items-center gap-3">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl ${section.color}`}
+                  >
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-serif text-lg font-semibold text-brown">
+                  <h3 className="text-brown font-serif text-lg font-semibold">
                     {section.category}
                   </h3>
                 </div>
                 <div className="space-y-4">
                   {section.questions.map((q, i) => (
-                    <div key={i} className="flex items-start gap-3 group">
-                      <div className="mt-0.5 flex-shrink-0 h-5 w-5 rounded border-2 border-border group-hover:border-sage transition-colors print:border-gray-400" />
-                      <p className="text-sm text-brown-light leading-relaxed">{q}</p>
+                    <div key={i} className="group flex items-start gap-3">
+                      <div className="border-border group-hover:border-sage mt-0.5 h-5 w-5 flex-shrink-0 rounded border-2 transition-colors print:border-gray-400" />
+                      <p className="text-brown-light text-sm leading-relaxed">{q}</p>
                     </div>
                   ))}
                 </div>
@@ -179,36 +188,49 @@ export default function GuidePage() {
         </div>
 
         {/* Scoring Guide */}
-        <div className="mt-10 rounded-2xl border border-border bg-white p-6 sm:p-8">
-          <h3 className="font-serif text-lg font-semibold text-brown mb-4">
+        <div className="border-border mt-10 rounded-2xl border bg-white p-6 sm:p-8">
+          <h3 className="text-brown mb-4 font-serif text-lg font-semibold">
             Understanding Your Results
           </h3>
           <div className="space-y-4 text-sm">
             <div className="flex gap-3">
-              <div className="flex-shrink-0 mt-1">
+              <div className="mt-1 flex-shrink-0">
                 <div className="h-3 w-3 rounded-full bg-green-500" />
               </div>
               <div>
                 <strong className="text-brown">0-5 statements</strong>
-                <span className="text-muted-foreground"> - You seem to be managing well. Keep nurturing your mental health with healthy habits.</span>
+                <span className="text-muted-foreground">
+                  {" "}
+                  - You seem to be managing well. Keep nurturing your mental health with healthy
+                  habits.
+                </span>
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="flex-shrink-0 mt-1">
+              <div className="mt-1 flex-shrink-0">
                 <div className="h-3 w-3 rounded-full bg-amber-500" />
               </div>
               <div>
                 <strong className="text-brown">6-12 statements</strong>
-                <span className="text-muted-foreground"> - You may be experiencing moderate stress or emotional challenges. The coping strategies below can help, and speaking to a therapist could provide deeper support.</span>
+                <span className="text-muted-foreground">
+                  {" "}
+                  - You may be experiencing moderate stress or emotional challenges. The coping
+                  strategies below can help, and speaking to a therapist could provide deeper
+                  support.
+                </span>
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="flex-shrink-0 mt-1">
+              <div className="mt-1 flex-shrink-0">
                 <div className="h-3 w-3 rounded-full bg-red-500" />
               </div>
               <div>
                 <strong className="text-brown">13-20 statements</strong>
-                <span className="text-muted-foreground"> - Your emotional well-being may need attention. Please consider reaching out to a mental health professional. You don&apos;t have to go through this alone.</span>
+                <span className="text-muted-foreground">
+                  {" "}
+                  - Your emotional well-being may need attention. Please consider reaching out to a
+                  mental health professional. You don&apos;t have to go through this alone.
+                </span>
               </div>
             </div>
           </div>
@@ -218,32 +240,32 @@ export default function GuidePage() {
       {/* Part 2: Coping Strategies */}
       <section className="bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brown text-center">
+          <h2 className="text-brown text-center font-serif text-2xl font-bold sm:text-3xl">
             Part 2: 5 Evidence-Based Coping Strategies
           </h2>
-          <p className="mt-3 text-center text-muted-foreground max-w-xl mx-auto">
-            These techniques come from Cognitive Behavioural Therapy (CBT), Mindfulness-Based
-            Stress Reduction (MBSR), and self-compassion research. Start with the one that resonates most.
+          <p className="text-muted-foreground mx-auto mt-3 max-w-xl text-center">
+            These techniques come from Cognitive Behavioural Therapy (CBT), Mindfulness-Based Stress
+            Reduction (MBSR), and self-compassion research. Start with the one that resonates most.
           </p>
 
           <div className="mt-10 space-y-6">
             {copingStrategies.map((strategy) => (
               <div
                 key={strategy.number}
-                className="rounded-2xl border border-border bg-cream p-6 sm:p-8"
+                className="border-border bg-cream rounded-2xl border p-6 sm:p-8"
               >
                 <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 font-mono text-2xl font-bold text-sage/40">
+                  <span className="text-sage/40 flex-shrink-0 font-mono text-2xl font-bold">
                     {strategy.number}
                   </span>
                   <div>
-                    <h3 className="font-serif text-lg font-semibold text-brown">
+                    <h3 className="text-brown font-serif text-lg font-semibold">
                       {strategy.title}
                     </h3>
-                    <p className="mt-2 text-sm text-brown-light leading-relaxed">
+                    <p className="text-brown-light mt-2 text-sm leading-relaxed">
                       {strategy.description}
                     </p>
-                    <p className="mt-3 text-xs font-medium text-sage-dark bg-sage/10 rounded-full px-3 py-1 inline-block">
+                    <p className="text-sage-dark bg-sage/10 mt-3 inline-block rounded-full px-3 py-1 text-xs font-medium">
                       {strategy.when}
                     </p>
                   </div>
@@ -255,29 +277,28 @@ export default function GuidePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 sm:py-16 bg-cream print:hidden">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="rounded-3xl bg-gradient-to-br from-sage/10 to-sage/5 border border-sage/20 p-8 sm:p-12">
-            <CheckCircle className="h-10 w-10 text-sage mx-auto mb-4" />
-            <h2 className="font-serif text-2xl font-bold text-brown">
+      <section className="bg-cream py-12 sm:py-16 print:hidden">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="from-sage/10 to-sage/5 border-sage/20 rounded-3xl border bg-gradient-to-br p-8 sm:p-12">
+            <CheckCircle className="text-sage mx-auto mb-4 h-10 w-10" />
+            <h2 className="text-brown font-serif text-2xl font-bold">
               Ready to Take the Next Step?
             </h2>
-            <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-              If this guide helped you recognise areas you&apos;d like to work on,
-              a free 15-minute discovery call can help you understand how therapy
-              could support your journey.
+            <p className="text-muted-foreground mx-auto mt-3 max-w-lg">
+              If this guide helped you recognise areas you&apos;d like to work on, a free 15-minute
+              discovery call can help you understand how therapy could support your journey.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/book"
-                className="inline-flex items-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white hover:bg-sage-dark transition-colors"
+                className="bg-sage hover:bg-sage-dark inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors"
               >
                 Book a Free Discovery Call
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 rounded-full border border-sage/30 bg-white px-6 py-3 text-sm font-medium text-sage-dark hover:bg-sage/5 transition-colors"
+                className="border-sage/30 text-sage-dark hover:bg-sage/5 inline-flex items-center gap-2 rounded-full border bg-white px-6 py-3 text-sm font-medium transition-colors"
               >
                 Read Our Blog
               </Link>
@@ -287,8 +308,8 @@ export default function GuidePage() {
       </section>
 
       {/* Footer note */}
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-12 text-center print:hidden">
-        <p className="text-xs text-muted-foreground">
+      <div className="mx-auto max-w-3xl px-4 pb-12 text-center sm:px-6 lg:px-8 print:hidden">
+        <p className="text-muted-foreground text-xs">
           This guide is for informational purposes only and does not constitute medical advice.
           Always consult a qualified mental health professional for personalised guidance.
           <br />

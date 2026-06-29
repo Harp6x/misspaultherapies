@@ -7,6 +7,7 @@ export interface SanitySEO {
   metaTitle?: string;
   metaDescription?: string;
   ogImage?: { asset?: { _id: string; url: string } };
+  ogImageUrl?: string;
   noIndex?: boolean;
 }
 
@@ -34,13 +35,16 @@ export interface BlogPost {
   published: boolean;
   body?: string;
   seo?: SanitySEO | null;
+  coverImage?: { asset: { _id: string; url: string }; alt?: string };
+  youtubeUrl?: string;
+  instagramUrl?: string;
 }
 
 // ── FAQs ──
 export interface FAQ {
   question: string;
   answer: string;
-  category: "general" | "sessions" | "fees" | "confidentiality" | "getting-started";
+  category: string;
 }
 
 // ── Locations ──
@@ -53,6 +57,8 @@ export interface Location {
   metaDescription: string;
   keywords: string[];
   content: string;
+  features?: string[];
+  services?: string[];
 }
 
 // ── About Page (unified shape used by pages) ──

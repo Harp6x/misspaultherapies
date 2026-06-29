@@ -3,21 +3,24 @@ import { groq } from "next-sanity";
 // ── Site Config (singleton) ──
 export const siteConfigQuery = groq`
   *[_type == "siteConfig"][0]{
-    name, tagline, description, author, handle,
+    name, tagline, description, author, handle, twitterHandle,
     email, phone, whatsappNumber, whatsappMessage,
     rciNumber, qualifications, languages,
     instagram, youtube, linkedin,
-    googleFormUrl, upiId, upiNumber, razorpayUrl,
+    googleFormUrl, discoveryCallUrl, sessionBookingUrl, workingHours,
+    upiId, upiNumber, razorpayUrl,
     "upiQrCodeUrl": upiQrCode.asset->url,
     feeIndividual, feeCouples, feeFamily, feeAssessment, feePackage,
     slidingScale, sessionDuration, cancellationPolicy,
     kitFormType, kitUid, kitScriptUrl,
     enableBlogPage, enableProductsPage, enableWorkshopsPage,
     enableGalleryPage, enableResourcesPage,
-    seo,
+    seo{ metaTitle, metaDescription, noIndex, "ogImageUrl": ogImage.asset->url },
     team[]{ name, role, bio, "photoUrl": photo.asset->url, socialLinks[]{ label, url } },
     heroSlides[]{ "imageUrl": image.asset->url, alt },
-    "howItWorksBgUrl": howItWorksBg.asset->url
+    "howItWorksBgUrl": howItWorksBg.asset->url,
+    blogCategories, faqCategories, productTypes, productTopics,
+    productAudiences, workshopStatuses
   }
 `;
 
@@ -49,12 +52,12 @@ export const allServicesQuery = groq`
 `;
 
 export const serviceBySlugQuery = groq`
-  *[_type == "service" && slug.current == $slug][0]{
+  *[_type == "service" && published != false && slug.current == $slug][0]{
     title,
     "slug": slug.current,
     shortTitle, description, icon,
     highlights, idealFor, approach, fee,
-    seo
+    seo{ metaTitle, metaDescription, noIndex, "ogImageUrl": ogImage.asset->url }
   }
 `;
 
@@ -65,18 +68,20 @@ export const allBlogPostsQuery = groq`
     "slug": slug.current,
     description, category,
     "datePublished": publishedAt,
-    readingTime, published, body
+    readingTime, published, body,
+    coverImage{ asset->{ _id, url }, alt }, youtubeUrl, instagramUrl
   }
 `;
 
 export const blogPostBySlugQuery = groq`
-  *[_type == "blogPost" && slug.current == $slug][0]{
+  *[_type == "blogPost" && published == true && slug.current == $slug][0]{
     title,
     "slug": slug.current,
     description, category,
     "datePublished": publishedAt,
     readingTime, published, body,
-    seo
+    coverImage{ asset->{ _id, url }, alt }, youtubeUrl, instagramUrl,
+    seo{ metaTitle, metaDescription, noIndex, "ogImageUrl": ogImage.asset->url }
   }
 `;
 
@@ -164,18 +169,18 @@ export const allWorkshopsQuery = groq`
 `;
 
 export const workshopBySlugQuery = groq`
-  *[_type == "workshop" && slug.current == $slug][0]{
+  *[_type == "workshop" && published == true && slug.current == $slug][0]{
     title, "slug": slug.current,
     description, body, date, duration, fee,
     registrationUrl, status,
     coverImage{ asset->{ _id, url }, alt },
-    seo
+    seo{ metaTitle, metaDescription, noIndex, "ogImageUrl": ogImage.asset->url }
   }
 `;
 
 // ── Products ──
 export const allProductsQuery = groq`
-  *[_type == "product" && published == true] | order(order asc, title asc){
+  *[_type == "product" && published == true] | order(featured desc, order asc, title asc){
     _id, title, "slug": slug.current,
     shortDescription, productType, priceType,
     price, originalPrice, priceUSD,
@@ -186,14 +191,14 @@ export const allProductsQuery = groq`
 `;
 
 export const productBySlugQuery = groq`
-  *[_type == "product" && slug.current == $slug][0]{
+  *[_type == "product" && published == true && slug.current == $slug][0]{
     _id, title, "slug": slug.current,
     shortDescription, productType, priceType,
     price, originalPrice, priceUSD,
     topics, audience, format, highlights, body,
     actionUrl, ctaLabel, featured,
     coverImage{ asset->{ _id, url }, alt },
-    seo
+    seo{ metaTitle, metaDescription, noIndex, "ogImageUrl": ogImage.asset->url }
   }
 `;
 

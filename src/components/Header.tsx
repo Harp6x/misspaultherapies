@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
 import type { HeaderProps, PageVisibility } from "@/types";
 
 type NavLink = { label: string; href: string };
@@ -62,9 +61,15 @@ const allNavItems: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export function Header({ branding, pageVisibility }: HeaderProps) {
-  const vis: PageVisibility = pageVisibility ?? { blog: true, products: true, workshops: true, gallery: true, resources: true };
-  const siteName = branding?.name ?? siteConfig.name;
+export function Header({ config, pageVisibility }: HeaderProps) {
+  const vis: PageVisibility = pageVisibility ?? {
+    blog: true,
+    products: true,
+    workshops: true,
+    gallery: true,
+    resources: true,
+  };
+  const siteName = config.name;
   const navItems = filterNav(allNavItems, vis);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -108,29 +113,25 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-border">
+    <header className="bg-cream/95 border-border sticky top-0 z-50 border-b backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-serif text-xl font-bold text-brown group-hover:text-sage-dark transition-colors">
+          <Link href="/" className="group flex items-center gap-2">
+            <span className="text-brown group-hover:text-sage-dark font-serif text-xl font-bold transition-colors">
               {siteName}
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav
-            ref={navRef}
-            className="hidden md:flex items-center gap-1"
-            aria-label="Main"
-          >
+          <nav ref={navRef} className="hidden items-center gap-1 md:flex" aria-label="Main">
             {navItems.map((item) => {
               if (!isGroup(item)) {
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="px-3 py-2 text-sm font-medium text-brown-light hover:text-sage-dark rounded-md transition-colors"
+                    className="text-brown-light hover:text-sage-dark rounded-md px-3 py-2 text-sm font-medium transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -153,27 +154,21 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
                     type="button"
                     aria-haspopup="true"
                     aria-expanded={open}
-                    onClick={() =>
-                      setOpenMenu(open ? null : item.label)
-                    }
-                    className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                      active || open
-                        ? "text-sage-dark"
-                        : "text-brown-light hover:text-sage-dark"
+                    onClick={() => setOpenMenu(open ? null : item.label)}
+                    className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                      active || open ? "text-sage-dark" : "text-brown-light hover:text-sage-dark"
                     }`}
                   >
                     {item.label}
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform ${
-                        open ? "rotate-180" : ""
-                      }`}
+                      className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
                     />
                   </button>
                   {open && (
                     <div
                       role="menu"
                       aria-label={item.label}
-                      className="absolute left-0 top-full mt-1 min-w-[12rem] rounded-lg border border-border bg-cream py-1 shadow-lg"
+                      className="border-border bg-cream absolute top-full left-0 mt-1 min-w-[12rem] rounded-lg border py-1 shadow-lg"
                       onMouseEnter={clearCloseTimer}
                       onMouseLeave={scheduleClose}
                     >
@@ -183,7 +178,7 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
                           href={child.href}
                           role="menuitem"
                           onClick={() => setOpenMenu(null)}
-                          className={`block px-4 py-2 text-sm transition-colors hover:bg-accent ${
+                          className={`hover:bg-accent block px-4 py-2 text-sm transition-colors ${
                             pathname === child.href
                               ? "text-sage-dark font-medium"
                               : "text-brown-light hover:text-sage-dark"
@@ -200,10 +195,10 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden items-center gap-3 md:flex">
             <Link
               href="/book"
-              className="inline-flex items-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
+              className="bg-sage hover:bg-sage-dark inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors"
             >
               <Phone className="h-4 w-4" />
               Book a Session
@@ -213,7 +208,7 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
           {/* Mobile toggle */}
           <button
             type="button"
-            className="md:hidden p-2 text-brown hover:text-sage-dark rounded-md"
+            className="text-brown hover:text-sage-dark rounded-md p-2 md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -225,10 +220,7 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <nav
-          className="md:hidden border-t border-border bg-cream px-4 pb-4"
-          aria-label="Mobile"
-        >
+        <nav className="border-border bg-cream border-t px-4 pb-4 md:hidden" aria-label="Mobile">
           <div className="flex flex-col gap-1 pt-2">
             {navItems.map((item) => {
               if (!isGroup(item)) {
@@ -237,7 +229,7 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 text-sm font-medium text-brown-light hover:bg-accent rounded-md transition-colors"
+                    className="text-brown-light hover:bg-accent rounded-md px-3 py-2.5 text-sm font-medium transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -250,26 +242,22 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
                   <button
                     type="button"
                     aria-expanded={open}
-                    onClick={() =>
-                      setMobileGroupOpen(open ? null : item.label)
-                    }
-                    className="flex w-full items-center justify-between px-3 py-2.5 text-sm font-medium text-brown-light hover:bg-accent rounded-md transition-colors"
+                    onClick={() => setMobileGroupOpen(open ? null : item.label)}
+                    className="text-brown-light hover:bg-accent flex w-full items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium transition-colors"
                   >
                     {item.label}
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform ${
-                        open ? "rotate-180" : ""
-                      }`}
+                      className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
                     />
                   </button>
                   {open && (
-                    <div className="ml-3 flex flex-col gap-1 border-l border-border pl-3">
+                    <div className="border-border ml-3 flex flex-col gap-1 border-l pl-3">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
                           onClick={() => setMobileOpen(false)}
-                          className="px-3 py-2 text-sm font-medium text-brown-light hover:bg-accent rounded-md transition-colors"
+                          className="text-brown-light hover:bg-accent rounded-md px-3 py-2 text-sm font-medium transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -283,7 +271,7 @@ export function Header({ branding, pageVisibility }: HeaderProps) {
               <Link
                 href="/book"
                 onClick={() => setMobileOpen(false)}
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
+                className="bg-sage hover:bg-sage-dark inline-flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors"
               >
                 <Phone className="h-4 w-4" />
                 Book a Session

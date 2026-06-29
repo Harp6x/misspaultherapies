@@ -20,14 +20,7 @@ export type {
 } from "./sanity";
 
 // Static content types (fallback shapes)
-export type {
-  SanitySEO,
-  Service,
-  BlogPost,
-  FAQ,
-  Location,
-  AboutPageData,
-} from "./content";
+export type { SanitySEO, Service, BlogPost, FAQ, Location, AboutPageData } from "./content";
 
 // Resolved public Site Configuration shapes used by components
 export type {
@@ -36,4 +29,9 @@ export type {
   HeaderProps,
   FooterProps,
   HeroSlideshowProps,
+  SiteSeoConfig,
+  SiteTeamMember,
+  SiteConfigOptions,
+  ResolvedSiteConfig,
+  SiteConfigComponentProps,
 } from "./site-config";

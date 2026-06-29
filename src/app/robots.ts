@@ -1,27 +1,28 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site-config";
+import { getSiteConfig } from "@/lib/data";
 
 const AI_CRAWLERS = [
-  "GPTBot",           // OpenAI / ChatGPT
-  "OAI-SearchBot",    // OpenAI search
-  "ChatGPT-User",     // ChatGPT browsing
-  "anthropic-ai",     // Anthropic
-  "ClaudeBot",        // Claude
-  "Claude-Web",       // Claude web
-  "PerplexityBot",    // Perplexity
-  "Applebot",         // Apple Intelligence / Siri
+  "GPTBot", // OpenAI / ChatGPT
+  "OAI-SearchBot", // OpenAI search
+  "ChatGPT-User", // ChatGPT browsing
+  "anthropic-ai", // Anthropic
+  "ClaudeBot", // Claude
+  "Claude-Web", // Claude web
+  "PerplexityBot", // Perplexity
+  "Applebot", // Apple Intelligence / Siri
   "Meta-ExternalAgent", // Meta AI
   "Meta-ExternalFetcher",
-  "Bytespider",       // ByteDance / TikTok AI
-  "cohere-ai",        // Cohere
-  "AI2Bot",           // Allen Institute for AI
-  "DuckAssistBot",    // DuckDuckGo AI
-  "YouBot",           // You.com
-  "iaskspider",       // iAsk.ai
-  "Diffbot",          // Diffbot
+  "Bytespider", // ByteDance / TikTok AI
+  "cohere-ai", // Cohere
+  "AI2Bot", // Allen Institute for AI
+  "DuckAssistBot", // DuckDuckGo AI
+  "YouBot", // You.com
+  "iaskspider", // iAsk.ai
+  "Diffbot", // Diffbot
 ];
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const siteConfig = await getSiteConfig();
   return {
     rules: [
       {

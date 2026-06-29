@@ -10,6 +10,7 @@ import {
   allFaqsQuery,
   allResourcesQuery,
   approvedTestimonialsQuery,
+  featuredTestimonialsQuery,
   allLocationsQuery,
   locationBySlugQuery,
   allLocationSlugsQuery,
@@ -106,6 +107,10 @@ export async function getAllResources(): Promise<SanityResource[]> {
 // ── Testimonials ──
 export async function getApprovedTestimonials(): Promise<SanityTestimonial[]> {
   return sanityFetch<SanityTestimonial[]>(approvedTestimonialsQuery, {}, ["testimonial"]);
+}
+
+export async function getFeaturedTestimonials(): Promise<SanityTestimonial[]> {
+  return sanityFetch<SanityTestimonial[]>(featuredTestimonialsQuery, {}, ["testimonial"]);
 }
 
 // ── Locations ──

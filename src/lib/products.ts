@@ -1,5 +1,4 @@
 import type { SanityProduct } from "@/sanity/fetch";
-import { siteConfig } from "@/lib/site-config";
 
 export const PRODUCT_TYPE_LABELS: Record<string, string> = {
   course: "Course",
@@ -148,7 +147,7 @@ export interface ProductCta {
  *  - no actionUrl                 → "Enquire on WhatsApp"
  * A ctaLabel on the product always overrides the computed label.
  */
-export function getProductCta(product: SanityProduct): ProductCta {
+export function getProductCta(product: SanityProduct, whatsappNumber = ""): ProductCta {
   const { actionUrl, priceType, productType, ctaLabel, title } = product;
 
   if (actionUrl) {
@@ -169,7 +168,7 @@ export function getProductCta(product: SanityProduct): ProductCta {
   const message = encodeURIComponent(
     `Hi Aishani, I'm interested in "${title}". Could you share how to get it?`
   );
-  const number = siteConfig.whatsappNumber?.replace(/[^0-9]/g, "") ?? "";
+  const number = whatsappNumber.replace(/[^0-9]/g, "");
   return {
     label: ctaLabel ?? (priceType === "coming-soon" ? "Notify me" : "Enquire on WhatsApp"),
     href: `https://wa.me/${number}?text=${message}`,

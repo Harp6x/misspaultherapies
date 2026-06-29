@@ -1,5 +1,21 @@
 import type { Metadata } from "next";
 import { siteConfig } from "./site-config";
+import type { ResolvedSiteConfig } from "@/types";
+
+type SeoSiteConfig = Pick<
+  ResolvedSiteConfig,
+  | "url"
+  | "name"
+  | "author"
+  | "email"
+  | "phone"
+  | "ogImage"
+  | "twitterHandle"
+  | "languages"
+  | "rciNumber"
+  | "socials"
+  | "description"
+>;
 
 /* ------------------------------------------------------------------ */
 /*  Metadata helper                                                    */
@@ -101,27 +117,28 @@ export function buildArticleMetadata({
 /*  JSON-LD builders                                                    */
 /* ------------------------------------------------------------------ */
 
-export function personJsonLd() {
+export function personJsonLd(siteConfigOverride?: SeoSiteConfig) {
+  const config = siteConfigOverride ?? siteConfig;
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": `${siteConfig.url}/about#person`,
-    name: siteConfig.author,
+    "@id": `${config.url}/about#person`,
+    name: config.author,
     givenName: "Aishani",
     familyName: "Paul",
     jobTitle: "Clinical Psychologist & Psychotherapist",
     description:
       "RCI-licensed clinical psychologist (License A118537) with M.Phil in Clinical Psychology. Offers evidence-based online therapy for individuals, couples, adolescents, and families across India and for NRIs globally.",
-    url: siteConfig.url,
-    email: siteConfig.email,
-    telephone: siteConfig.phone,
-    image: `${siteConfig.url}/opengraph-image`,
+    url: config.url,
+    email: config.email,
+    telephone: config.phone,
+    image: `${config.url}/opengraph-image`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Delhi",
       addressCountry: "IN",
     },
-    knowsLanguage: siteConfig.languages.map((l) => ({
+    knowsLanguage: config.languages.map((l) => ({
       "@type": "Language",
       name: l,
     })),
@@ -150,7 +167,7 @@ export function personJsonLd() {
       "@type": "EducationalOccupationalCredential",
       name: "RCI Clinical Psychologist License",
       credentialCategory: "license",
-      identifier: siteConfig.rciNumber,
+      identifier: config.rciNumber,
       recognizedBy: {
         "@type": "Organization",
         name: "Rehabilitation Council of India",
@@ -164,12 +181,10 @@ export function personJsonLd() {
     },
     worksFor: {
       "@type": "MedicalBusiness",
-      name: siteConfig.name,
-      url: siteConfig.url,
+      name: config.name,
+      url: config.url,
     },
-    sameAs: Object.values(siteConfig.socials).filter(
-      (v) => !v.startsWith("[")
-    ),
+    sameAs: Object.values(config.socials).filter((v) => !v.startsWith("[")),
   };
 }
 
@@ -184,36 +199,36 @@ export function speakableJsonLd(cssSelectors: string[]) {
   };
 }
 
-export function profilePageJsonLd() {
+export function profilePageJsonLd(config: SeoSiteConfig = siteConfig) {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "@id": `${siteConfig.url}/about`,
-    url: `${siteConfig.url}/about`,
-    name: `About ${siteConfig.author} | ${siteConfig.name}`,
+    "@id": `${config.url}/about`,
+    url: `${config.url}/about`,
+    name: `About ${config.author} | ${config.name}`,
     description:
       "Official profile page of Aishani Paul, RCI-licensed clinical psychologist and founder of Ms Paul Therapies.",
-    mainEntity: personJsonLd(),
-    about: personJsonLd(),
+    mainEntity: personJsonLd(config),
+    about: personJsonLd(config),
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-        { "@type": "ListItem", position: 2, name: "About", item: `${siteConfig.url}/about` },
+        { "@type": "ListItem", position: 1, name: "Home", item: config.url },
+        { "@type": "ListItem", position: 2, name: "About", item: `${config.url}/about` },
       ],
     },
   };
 }
 
-export function organizationJsonLd() {
+export function organizationJsonLd(config: SeoSiteConfig = siteConfig) {
   return {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
-    email: siteConfig.email,
-    telephone: siteConfig.phone.startsWith("[") ? undefined : siteConfig.phone,
+    name: config.name,
+    url: config.url,
+    description: config.description,
+    email: config.email,
+    telephone: config.phone.startsWith("[") ? undefined : config.phone,
     medicalSpecialty: "Psychiatric",
     priceRange: "₹₹",
     areaServed: [
@@ -223,40 +238,71 @@ export function organizationJsonLd() {
       { "@type": "Country", name: "Canada" },
       { "@type": "Country", name: "Australia" },
     ],
-    availableLanguage: siteConfig.languages.map((l) => ({
+    availableLanguage: config.languages.map((l) => ({
       "@type": "Language",
       name: l,
     })),
-    sameAs: Object.values(siteConfig.socials).filter((v) => !v.startsWith("[")),
-    founder: personJsonLd(),
+    sameAs: Object.values(config.socials).filter((v) => !v.startsWith("[")),
+    founder: personJsonLd(config),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Therapy Services",
       itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Individual Therapy", description: "One-on-one online therapy for anxiety, depression, grief, trauma, and life transitions" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Couples Therapy", description: "Online couples counselling for communication, trust, and intimacy issues" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Adolescent Therapy", description: "Online therapy for teenagers dealing with academic pressure, identity, and emotional challenges" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Family Therapy", description: "Online family counselling for conflict resolution and improved communication" } },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Individual Therapy",
+            description:
+              "One-on-one online therapy for anxiety, depression, grief, trauma, and life transitions",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Couples Therapy",
+            description: "Online couples counselling for communication, trust, and intimacy issues",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Adolescent Therapy",
+            description:
+              "Online therapy for teenagers dealing with academic pressure, identity, and emotional challenges",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Family Therapy",
+            description:
+              "Online family counselling for conflict resolution and improved communication",
+          },
+        },
       ],
     },
   };
 }
 
-export function websiteJsonLd() {
+export function websiteJsonLd(config: SeoSiteConfig = siteConfig) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
+    name: config.name,
+    url: config.url,
+    description: config.description,
     publisher: {
       "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
+      name: config.name,
+      url: config.url,
     },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${siteConfig.url}/blog?q={search_term_string}`,
+      target: `${config.url}/blog?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
     inLanguage: ["en-IN", "en"],
@@ -316,9 +362,7 @@ export function productJsonLd(product: {
   priceType?: string;
   image?: string;
 }) {
-  const numericPrice = product.price
-    ? product.price.replace(/[^0-9.]/g, "")
-    : undefined;
+  const numericPrice = product.price ? product.price.replace(/[^0-9.]/g, "") : undefined;
   const isFree = product.priceType === "free";
   return {
     "@context": "https://schema.org",
@@ -343,9 +387,7 @@ export function productJsonLd(product: {
   };
 }
 
-export function faqPageJsonLd(
-  faqs: { question: string; answer: string }[]
-) {
+export function faqPageJsonLd(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -357,9 +399,7 @@ export function faqPageJsonLd(
   };
 }
 
-export function breadcrumbJsonLd(
-  items: { name: string; href: string }[]
-) {
+export function breadcrumbJsonLd(items: { name: string; href: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -437,9 +477,7 @@ export function servicesListJsonLd(
   };
 }
 
-export function blogListJsonLd(
-  posts: { title: string; slug: string; datePublished: string }[]
-) {
+export function blogListJsonLd(posts: { title: string; slug: string; datePublished: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -485,18 +523,18 @@ export function contactPageJsonLd() {
   };
 }
 
-export function localBusinessJsonLd() {
+export function localBusinessJsonLd(config: SeoSiteConfig = siteConfig) {
   return {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "@id": `${siteConfig.url}/#organization`,
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
-    email: siteConfig.email,
-    telephone: siteConfig.phone.startsWith("[") ? undefined : siteConfig.phone,
-    image: `${siteConfig.url}/opengraph-image`,
-    logo: `${siteConfig.url}/icon.svg`,
+    "@id": `${config.url}/#organization`,
+    name: config.name,
+    url: config.url,
+    description: config.description,
+    email: config.email,
+    telephone: config.phone.startsWith("[") ? undefined : config.phone,
+    image: `${config.url}/opengraph-image`,
+    logo: `${config.url}/icon.svg`,
     medicalSpecialty: "Psychiatric",
     priceRange: "₹₹",
     currenciesAccepted: "INR",
@@ -510,14 +548,12 @@ export function localBusinessJsonLd() {
       { "@type": "Country", name: "United Arab Emirates" },
       { "@type": "Country", name: "Singapore" },
     ],
-    availableLanguage: siteConfig.languages.map((l) => ({
+    availableLanguage: config.languages.map((l) => ({
       "@type": "Language",
       name: l,
     })),
-    sameAs: Object.values(siteConfig.socials).filter(
-      (v) => !v.startsWith("[")
-    ),
-    founder: personJsonLd(),
+    sameAs: Object.values(config.socials).filter((v) => !v.startsWith("[")),
+    founder: personJsonLd(config),
     knowsAbout: [
       "Cognitive Behavioural Therapy",
       "Dialectical Behaviour Therapy",

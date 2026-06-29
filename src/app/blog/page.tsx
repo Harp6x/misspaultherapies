@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllBlogPosts, blogCategories, getSiteConfig } from "@/lib/data";
 import { buildMetadata, blogListJsonLd, breadcrumbJsonLd } from "@/lib/seo";
@@ -21,28 +22,37 @@ export default async function BlogPage() {
   if (!config.pageVisibility.blog) notFound();
 
   const blogPosts = await getAllBlogPosts();
+  const categories = Array.from(
+    new Set([
+      ...(config.options.blogCategories.length ? config.options.blogCategories : blogCategories),
+      ...blogPosts.map((post) => post.category),
+    ])
+  );
   return (
     <>
       <SEOJsonLd data={blogListJsonLd(blogPosts)} />
-      <SEOJsonLd data={breadcrumbJsonLd([{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }])} />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <SEOJsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", href: "/" },
+          { name: "Blog", href: "/blog" },
+        ])}
+      />
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
 
         <div className="text-center">
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brown">
-            Blog & Resources
-          </h1>
-          <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
+          <h1 className="text-brown font-serif text-4xl font-bold sm:text-5xl">Blog & Resources</h1>
+          <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg leading-relaxed">
             Insights on mental health, relationships, and well-being.
           </p>
         </div>
 
         {/* Category chips */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-          {blogCategories.map((cat) => (
+          {categories.map((cat) => (
             <span
               key={cat}
-              className="inline-block rounded-full bg-sage/10 px-4 py-1.5 text-sm font-medium text-sage-dark"
+              className="bg-sage/10 text-sage-dark inline-block rounded-full px-4 py-1.5 text-sm font-medium"
             >
               {cat}
             </span>
@@ -55,20 +65,33 @@ export default async function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group rounded-2xl border border-border bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+              className="group border-border overflow-hidden rounded-2xl border bg-white shadow-sm transition-shadow hover:shadow-md"
             >
-              <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage">
-                {post.category}
-              </span>
-              <h2 className="mt-3 font-serif text-lg font-semibold text-brown group-hover:text-sage-dark transition-colors">
-                {post.title}
-              </h2>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                {post.description}
-              </p>
-              <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-                <span>{post.readingTime}</span>
-                <span className="text-sage font-medium">Read article &rarr;</span>
+              {post.coverImage?.asset?.url && (
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src={post.coverImage.asset.url}
+                    alt={post.coverImage.alt ?? post.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <span className="bg-sage/10 text-sage inline-block rounded-full px-3 py-1 text-xs font-medium">
+                  {post.category}
+                </span>
+                <h2 className="text-brown group-hover:text-sage-dark mt-3 font-serif text-lg font-semibold transition-colors">
+                  {post.title}
+                </h2>
+                <p className="text-muted-foreground mt-2 line-clamp-3 text-sm leading-relaxed">
+                  {post.description}
+                </p>
+                <div className="text-muted-foreground mt-4 flex items-center justify-between text-xs">
+                  <span>{post.readingTime}</span>
+                  <span className="text-sage font-medium">Read article &rarr;</span>
+                </div>
               </div>
             </Link>
           ))}

@@ -29,17 +29,29 @@ export default async function WorkshopsPage() {
   if (!config.pageVisibility.workshops) notFound();
 
   const workshops = await getAllWorkshops();
+  const statusOrder = config.options.workshopStatuses.map((status) =>
+    status.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+  );
+  const orderedWorkshops = [...workshops].sort((a, b) => {
+    const aIndex = statusOrder.indexOf(a.status);
+    const bIndex = statusOrder.indexOf(b.status);
+    return (
+      (aIndex < 0 ? Number.MAX_SAFE_INTEGER : aIndex) -
+      (bIndex < 0 ? Number.MAX_SAFE_INTEGER : bIndex)
+    );
+  });
 
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ name: "Workshops", href: "/workshops" }]} />
 
-        <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brown text-center">
+        <h1 className="text-brown text-center font-serif text-4xl font-bold sm:text-5xl">
           Workshops &amp; Events
         </h1>
-        <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
-          Group sessions and workshops on mental health, coping skills, and personal growth. Join live or watch the recording.
+        <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-center">
+          Group sessions and workshops on mental health, coping skills, and personal growth. Join
+          live or watch the recording.
         </p>
 
         {workshops.length === 0 ? (
@@ -50,10 +62,10 @@ export default async function WorkshopsPage() {
           </div>
         ) : (
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {workshops.map((w) => (
+            {orderedWorkshops.map((w) => (
               <div
                 key={w.slug}
-                className="rounded-2xl border border-border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                className="border-border flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-shadow hover:shadow-md"
               >
                 {w.coverImage?.asset?.url && (
                   <Image
@@ -61,25 +73,21 @@ export default async function WorkshopsPage() {
                     alt={w.coverImage.alt ?? w.title}
                     width={600}
                     height={300}
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 )}
-                <div className="p-6 flex flex-col flex-1">
+                <div className="flex flex-1 flex-col p-6">
                   <span
                     className={`self-start rounded-full px-3 py-1 text-xs font-medium ${statusColors[w.status] ?? "bg-gray-100 text-gray-500"}`}
                   >
                     {w.status.replace("-", " ")}
                   </span>
-                  <h3 className="mt-3 font-serif text-lg font-semibold text-brown">
-                    {w.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
-                    {w.description}
-                  </p>
-                  <div className="mt-4 space-y-1 text-sm text-brown-light">
+                  <h3 className="text-brown mt-3 font-serif text-lg font-semibold">{w.title}</h3>
+                  <p className="text-muted-foreground mt-2 line-clamp-3 text-sm">{w.description}</p>
+                  <div className="text-brown-light mt-4 space-y-1 text-sm">
                     {w.date && (
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-sage" />
+                        <Calendar className="text-sage h-4 w-4" />
                         {new Date(w.date).toLocaleDateString("en-IN", {
                           day: "numeric",
                           month: "long",
@@ -89,34 +97,33 @@ export default async function WorkshopsPage() {
                     )}
                     {w.duration && (
                       <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-sage" />
+                        <Clock className="text-sage h-4 w-4" />
                         {w.duration}
                       </div>
                     )}
                     {w.fee && (
                       <div className="flex items-center gap-2">
-                        <IndianRupee className="h-4 w-4 text-sage" />
+                        <IndianRupee className="text-sage h-4 w-4" />
                         {w.fee}
                       </div>
                     )}
                   </div>
-                  <div className="mt-auto pt-4">
-                    {w.registrationUrl && w.status !== "completed" && w.status !== "sold-out" ? (
+                  <div className="mt-auto flex flex-wrap items-center gap-4 pt-4">
+                    <Link
+                      href={`/workshops/${w.slug}`}
+                      className="text-sage hover:text-sage-dark inline-flex items-center gap-2 text-sm font-semibold transition-colors"
+                    >
+                      View Details <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    {w.registrationUrl && w.status !== "completed" && w.status !== "sold-out" && (
                       <a
                         href={w.registrationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-semibold text-white hover:bg-sage-dark transition-colors"
+                        className="bg-sage hover:bg-sage-dark inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-colors"
                       >
                         Register Now <ArrowRight className="h-4 w-4" />
                       </a>
-                    ) : (
-                      <Link
-                        href={`/workshops/${w.slug}`}
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-sage-dark transition-colors"
-                      >
-                        View Details <ArrowRight className="h-4 w-4" />
-                      </Link>
                     )}
                   </div>
                 </div>

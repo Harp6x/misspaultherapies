@@ -62,7 +62,7 @@ describe("Sanity revalidation webhook", () => {
     );
 
     expect(response.status).toBe(200);
-    expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("service", "max");
+    expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("service", { expire: 0 });
     expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/services");
     expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/sitemap.xml");
     expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/services/individual-therapy");
@@ -72,7 +72,8 @@ describe("Sanity revalidation webhook", () => {
     const response = await POST(webhookRequest({ _type: "aboutPage" }));
 
     expect(response.status).toBe(200);
-    expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("aboutPage", "max");
+    expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("aboutPage", { expire: 0 });
+    expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/");
     expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/about");
   });
 
@@ -80,7 +81,9 @@ describe("Sanity revalidation webhook", () => {
     const response = await POST(webhookRequest({ _type: "siteConfig" }));
 
     expect(response.status).toBe(200);
-    expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("siteConfig", "max");
+    expect(cacheMocks.revalidateTag).toHaveBeenCalledWith("siteConfig", { expire: 0 });
     expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/", "layout");
+    expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/sitemap.xml");
+    expect(cacheMocks.revalidatePath).toHaveBeenCalledWith("/opengraph-image");
   });
 });
