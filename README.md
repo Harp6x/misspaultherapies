@@ -28,6 +28,7 @@ npm run dev                   # → http://localhost:3000
 ```env
 NEXT_PUBLIC_SANITY_PROJECT_ID=k0r3y2my
 NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_REVALIDATE_SECRET=your-long-random-secret
 ```
 
 ## Scripts
@@ -63,6 +64,7 @@ src/
 | `docs/ARCHITECTURE.md` | System architecture and data flow |
 | `docs/HANDBOOK.md` | Maintenance guide (common tasks) |
 | `docs/HOW-IT-WORKS.md` | Founder-friendly site explainer |
+| `docs/SANITY-REVALIDATION.md` | Sanity webhook and cache setup |
 | `docs/lessons/` | Hard-learned rules about what NOT to do |
 
 ## Key Architecture
@@ -71,4 +73,4 @@ src/
 
 **SEO:** 10+ JSON-LD builders, dynamic sitemap, AI crawler allow-list (15+ bots), `/llms.txt` for LLM discovery.
 
-**ISR:** All pages revalidate every 60 seconds.
+**Caching:** Pages stay cached until a Sanity publish webhook invalidates affected content or Vercel creates a new deployment. There are no timed ISR refreshes.

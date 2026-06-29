@@ -13,6 +13,7 @@ npm run dev                  # → http://localhost:3000
 ```env
 NEXT_PUBLIC_SANITY_PROJECT_ID=k0r3y2my
 NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_REVALIDATE_SECRET=...
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=...
 NEXT_PUBLIC_GA_ID=...
 NEXT_PUBLIC_META_PIXEL_ID=...
@@ -47,5 +48,5 @@ Push to `main` branch → Vercel auto-deploys to mspaultherapies.in.
 - **Data imports:** Always use `@/lib/data` (unified layer), NOT `@/sanity/fetch` directly
 - **No dark mode:** Fixed warm cream/sage/terracotta palette
 - **No write client:** Sanity is read-only from code. Use Studio UI for content changes.
-- **ISR:** `revalidate: 60` on all pages
+- **Caching:** No timed ISR. Sanity publishes call `/api/revalidate`; deployments rebuild the site.
 - **Static fallback:** `src/content/*.ts` files provide fallback content when Sanity is empty

@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+export const revalidate = false;
+
 const content = `# Ms Paul Therapies — Full Reference
 
 This document is an extended machine-readable reference for AI systems, search engines, and language models. Last updated: 2025.
@@ -196,7 +199,6 @@ export function GET() {
   return new NextResponse(content, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
     },
   });
 }

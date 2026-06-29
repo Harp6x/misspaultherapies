@@ -7,7 +7,7 @@
 2. Click **+ Create** → **Blog Post**
 3. Fill: title, slug, description, category, body (rich text), readingTime
 4. Set `published: true` and `publishedAt` date
-5. Publish → live within 60 seconds (ISR)
+5. Publish → the Sanity webhook refreshes the affected page cache
 
 ### Add a New Service
 1. Studio → **+ Create** → **Service**
@@ -36,7 +36,7 @@
 ### Update Contact Info / Fees
 1. Studio → **Site Config** (singleton)
 2. Edit fields: email, phone, fees, WhatsApp number, etc.
-3. Publish → all pages update within 60 seconds
+3. Publish → the Sanity webhook refreshes pages that use Site Config
 
 ### Update About Page
 1. Studio → **About Page** (singleton)
@@ -84,11 +84,12 @@ npm run typecheck && npm run lint && npm test && npm run build
 - **Hosting:** Vercel (auto-deploy from GitHub `main` branch)
 - **Domain:** mspaultherapies.in (with .com redirect)
 - **CMS:** Sanity Studio embedded at `/studio`
-- **ISR:** All pages revalidate every 60 seconds
+- **Caching:** No timed ISR. Sanity publishes trigger selective on-demand revalidation.
 
 ### Environment Variables (Vercel Dashboard)
 - `NEXT_PUBLIC_SANITY_PROJECT_ID` — `k0r3y2my`
 - `NEXT_PUBLIC_SANITY_DATASET` — `production`
+- `SANITY_REVALIDATE_SECRET` — shared secret used by the Sanity publish webhook
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` — Google Search Console
 - `NEXT_PUBLIC_GA_ID` — Google Analytics
 - `NEXT_PUBLIC_META_PIXEL_ID` — Meta Pixel
@@ -98,7 +99,8 @@ npm run typecheck && npm run lint && npm test && npm run build
 ## Troubleshooting
 
 ### Content not updating
-- ISR cache is 60 seconds — wait and hard refresh
+- Check the Sanity webhook attempt log and confirm it returned `200`
+- Confirm `SANITY_REVALIDATE_SECRET` matches the webhook header or URL secret
 - Check Sanity Studio → is the document **Published** (not just Draft)?
 - Check visibility toggles: `published`, `approved`, `status`
 
@@ -110,7 +112,7 @@ npm run typecheck && npm run lint && npm test && npm run build
 ### Product page 404
 - Verify `published: true` in Sanity
 - Verify slug is set
-- Wait for ISR revalidation (60s)
+- Check the Sanity webhook attempt log, then refresh the product page
 
 ### Build fails
 1. Run `npm run typecheck` — fix type errors first

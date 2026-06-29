@@ -17,7 +17,7 @@ import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { PortableTextBody } from "@/components/PortableTextBody";
 import { CTASection } from "@/components/CTASection";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export async function generateStaticParams() {
   const slugs = await getAllProductSlugs();

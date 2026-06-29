@@ -15,7 +15,7 @@ export const metadata = buildMetadata({
   path: "/workshops",
 });
 
-export const revalidate = 60;
+export const revalidate = false;
 
 const statusColors: Record<string, string> = {
   upcoming: "bg-blue-100 text-blue-700",

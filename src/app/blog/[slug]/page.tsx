@@ -10,7 +10,7 @@ import { BlogPostCTA } from "@/components/BlogPostCTA";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { PortableTextBody } from "@/components/PortableTextBody";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export async function generateStaticParams() {
   const slugs = await getBlogSlugs();

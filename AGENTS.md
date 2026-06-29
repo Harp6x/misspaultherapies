@@ -279,7 +279,7 @@ NEXT_PUBLIC_META_PIXEL_ID=...
 
 ## Quick Rules
 
-- ISR: `revalidate: 60` on most pages
+- Caching: no timed ISR. Public pages update only through the Sanity publish webhook or a new Vercel deployment. Never add numeric `revalidate` timers.
 - Import data from `@/lib/data` (unified layer), NOT from `@/sanity/fetch` directly
 - Static fallback content lives in `src/content/*.ts`
 - Site config lives in `src/lib/site-config.ts` (overridable via Sanity `siteConfig` singleton)

@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export const metadata = buildMetadata({
   title: "Mental Health Blog - Therapy Tips, Anxiety, Depression & Relationships | India",

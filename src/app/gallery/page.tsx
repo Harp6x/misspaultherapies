@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
   path: "/gallery",
 });
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export default async function GalleryPage() {
   const config = await getSiteConfig();

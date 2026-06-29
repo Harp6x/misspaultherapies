@@ -15,7 +15,7 @@ export const metadata = buildMetadata({
   path: "/products",
 });
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export default async function ProductsPage() {
   const config = await getSiteConfig();

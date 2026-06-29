@@ -18,8 +18,8 @@ Your website (`mspaultherapies.in`) is built with these pieces:
 ```
 You edit content in Sanity Studio
     → Sanity stores it in the cloud
-    → Next.js fetches it every 60 seconds
-    → Vercel serves the updated page to visitors
+    → Sanity calls the publish webhook
+    → Next.js refreshes only the affected cached pages
 ```
 
 If Sanity is ever down or empty, the website **falls back to built-in content** — your blog posts, services, and FAQ all have backup copies baked into the code. The site never shows blank pages.
@@ -49,7 +49,7 @@ Everything below is managed through **Sanity Studio** at `mspaultherapies.in/stu
 1. Open the document in Studio
 2. Edit the fields you want to change
 3. Click **Publish** (top right)
-4. Wait ~60 seconds → your change is live on the website
+4. The publish webhook refreshes the affected cache → your change appears on the next request
 
 ### Visibility Toggles
 
@@ -151,7 +151,7 @@ Categories are text fields on blog posts — just type a new category name when 
 
 | Term | Meaning |
 |---|---|
-| **ISR** | Incremental Static Regeneration — pages are cached and rebuilt every 60 seconds |
+| **ISR** | Incremental Static Regeneration — this site uses on-demand invalidation with no timer |
 | **CMS** | Content Management System (Sanity Studio) |
 | **Slug** | The URL-friendly version of a title (e.g., "anxiety-therapy" for "Anxiety Therapy") |
 | **JSON-LD** | Structured data that helps Google understand your content |

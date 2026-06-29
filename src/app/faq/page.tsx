@@ -5,7 +5,7 @@ import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { CTASection } from "@/components/CTASection";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export const metadata = buildMetadata({
   title: "Therapy FAQ - Sessions, Fees, Confidentiality & How to Get Started",

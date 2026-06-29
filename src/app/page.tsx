@@ -21,7 +21,7 @@ import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { buildMetadata, organizationJsonLd, websiteJsonLd, localBusinessJsonLd } from "@/lib/seo";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export const metadata = buildMetadata({
   title: "Online Therapy & Counselling in India",

@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export async function generateStaticParams() {
   const locations = await getAllLocations();

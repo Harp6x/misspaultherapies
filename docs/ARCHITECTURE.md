@@ -7,7 +7,7 @@
 │   Sanity CMS    │────▶│   Next.js App    │────▶│    Vercel      │
 │  (k0r3y2my)     │     │  (App Router)    │     │  (Production)  │
 │                 │     │                  │     │                │
-│ 12 doc types    │     │ ISR: 60s cache   │     │ Auto-deploy    │
+│ 12 doc types    │     │ Event cache      │     │ Auto-deploy    │
 │ GROQ queries    │     │ Dual-source data │     │ from GitHub    │
 │ Studio at       │     │ 26 pages         │     │                │
 │ /studio         │     │ 24 components    │     │ CDN + Edge     │
@@ -131,18 +131,18 @@ Homepage (app/page.tsx)
 
 | Page | Strategy | Revalidation |
 |---|---|---|
-| Homepage | ISR | 60s |
-| About | ISR | 60s |
-| Services listing | ISR | 60s |
-| Service detail | ISR + `generateStaticParams` | 60s |
-| Blog listing | ISR | 60s |
-| Blog detail | ISR + `generateStaticParams` | 60s |
-| Products listing | ISR | 60s |
-| Product detail | ISR + `generateStaticParams` | 60s |
-| Location pages | ISR + `generateStaticParams` | 60s |
-| FAQ | ISR | 60s |
-| Gallery | ISR | 60s |
-| Workshops | ISR | 60s |
+| Homepage | Static cache | Sanity webhook / deploy only |
+| About | Static cache | Sanity webhook / deploy only |
+| Services listing | Static cache | Sanity webhook / deploy only |
+| Service detail | SSG + on-demand cache | Sanity webhook / deploy only |
+| Blog listing | Static cache | Sanity webhook / deploy only |
+| Blog detail | SSG + on-demand cache | Sanity webhook / deploy only |
+| Products listing | Static cache | Sanity webhook / deploy only |
+| Product detail | SSG + on-demand cache | Sanity webhook / deploy only |
+| Location pages | SSG + on-demand cache | Sanity webhook / deploy only |
+| FAQ | Static cache | Sanity webhook / deploy only |
+| Gallery | Static cache | Sanity webhook / deploy only |
+| Workshops | Static cache | Sanity webhook / deploy only |
 | Tools/* | Static (client-only) | N/A |
 | Book | Static | N/A |
 | Legal pages | Static | N/A |

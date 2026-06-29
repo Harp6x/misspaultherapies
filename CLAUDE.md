@@ -8,7 +8,7 @@
 
 ## Quick Rules
 - Font: Inter (sans) + Playfair Display (serif headings)
-- ISR: `revalidate: 60` on all pages
+- Caching: no timed ISR. Public pages update only through the Sanity publish webhook or a new Vercel deployment.
 - Data: import from `@/lib/data` (unified layer), NOT from `@/sanity/fetch` directly
 - No dark mode — fixed warm cream/sage/terracotta palette
 - No write client — Sanity is read-only. Forms go through Google Forms + Cal.com

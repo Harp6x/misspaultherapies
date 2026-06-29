@@ -28,7 +28,7 @@
 # Data Fetching
 - CMS-first with static fallbacks: every fetchX() tries Sanity first then falls back to src/data/ files. Confidence: 0.97
 - GROQ queries return typed interfaces and dereference assets inline with image.asset->url. Confidence: 0.95
-- Use ISR with export const revalidate = 60 on data-driven pages. Confidence: 0.95
+- Cache data-driven pages indefinitely and revalidate only through the Sanity publish webhook or a new deployment; never add numeric `revalidate` timers. Confidence: 1.00
 - Fetch singleton documents with *[_type == "profile"][0] pattern in GROQ. Confidence: 0.95
 - Use order field plus | order(order asc) in GROQ for ordered collections. Confidence: 0.93
 

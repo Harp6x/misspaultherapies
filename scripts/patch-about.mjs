@@ -91,4 +91,4 @@ const result = await client
 
 console.log(`\n✅ Patched aboutPage (${result._id}) — text fields populated, photo preserved.`);
 console.log("→ Open Sanity Studio to verify: https://mspaultherapies.vercel.app/studio");
-console.log("→ The website will reflect changes within 60 seconds.\n");
+console.log("→ The Sanity webhook will refresh affected pages after publishing.\n");

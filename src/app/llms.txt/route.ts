@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+export const revalidate = false;
+
 const content = `# Ms Paul Therapies
 
 > Online therapy and counselling by Aishani Paul, RCI-licensed clinical psychologist (License A118537), M.Phil Clinical Psychology. Based in Delhi. Serving all of India and NRIs globally.
@@ -76,7 +79,6 @@ export function GET() {
   return new NextResponse(content, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
     },
   });
 }

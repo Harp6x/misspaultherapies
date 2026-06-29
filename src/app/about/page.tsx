@@ -11,7 +11,7 @@ import { CTASection } from "@/components/CTASection";
 import { SocialIcon } from "@/components/SocialIcon";
 import { urlFor } from "@/sanity/image";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export const metadata = buildMetadata({
   title: "About Aishani Paul, Licensed Clinical Psychologist | Online Therapy India",

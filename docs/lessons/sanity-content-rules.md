@@ -6,7 +6,7 @@ Distinguish between **content gaps** (empty/missing Sanity data) and **code bugs
 ## Key Facts
 - Sanity client is **read-only** — the app cannot write to Sanity
 - Content changes happen in Sanity Studio at `/studio`
-- ISR revalidation is 60 seconds — new content appears within a minute
+- Publishing calls the Sanity revalidation webhook; affected pages refresh on their next request
 
 ## Common Mistakes
 - Seeing an empty section and assuming it's a code bug → check Sanity first

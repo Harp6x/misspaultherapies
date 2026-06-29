@@ -1,12 +1,17 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
-import { services } from "@/content/services";
-import { locations } from "@/content/locations";
-import { getAllBlogPosts } from "@/lib/data";
+import { getAllBlogPosts, getAllLocations, getAllServices } from "@/lib/data";
 import { getAllProductSlugs } from "@/sanity/fetch";
+
+export const revalidate = false;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
+  const [services, blogPosts, locations] = await Promise.all([
+    getAllServices(),
+    getAllBlogPosts(),
+    getAllLocations(),
+  ]);
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
@@ -43,8 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Fetch blog posts dynamically from Sanity (includes CMS-added posts)
-  const blogPosts = await getAllBlogPosts();
+  // Blog posts include CMS-added posts and static fallback content.
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((p) => ({
     url: `${base}/blog/${p.slug}`,
     lastModified: new Date(p.datePublished),

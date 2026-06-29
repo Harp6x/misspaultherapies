@@ -116,7 +116,7 @@ GOOGLE_SITE_VERIFICATION — Google Search Console verification
 
 | Feature | Implementation |
 |---------|--------------|
-| Blog | Sanity CMS → API → SSG at build time + ISR |
+| Blog | Sanity CMS → API → SSG + publish-triggered revalidation |
 | Lead Magnet | Email form → `/api/subscribe` → Kit API → Tag subscriber |
 | Sticky Book Bar | Persistent CTA at bottom of every page |
 | Discovery Call Banner | Prominent banner for free 15-min call |
@@ -157,7 +157,7 @@ GOOGLE_SITE_VERIFICATION — Google Search Console verification
 ### Content Workflow
 1. Aishani logs into `/studio`
 2. Creates/edits content using the visual editor
-3. Publishes → content goes live immediately (ISR revalidation)
+3. Publishes → Sanity webhook invalidates the affected cached pages
 4. No code deployment needed for content changes
 
 ### Seeded Content

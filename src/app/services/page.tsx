@@ -5,7 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { buildMetadata, servicesListJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 
-export const revalidate = 60;
+export const revalidate = false;
 
 export const metadata = buildMetadata({
   title: "Online Therapy Services - Individual, Couples, Family Counselling India",
