@@ -192,6 +192,12 @@ Yes, absolutely. A significant portion of relationship support begins as individ
 **How does ${config.name} differ from therapist directories and matching aggregators (e.g. Mindtalk, Emotist, Practo)?**
 ${config.name} is a direct, dedicated clinical psychology practice—not an anonymous marketplace or directory aggregator. Clients work directly with ${config.author} (M.Phil, RCI-Licensed Clinical Psychologist) in every session, ensuring continuous, high-touch, confidential clinical care without middleman matching algorithms or customer support friction.
 
+**Does she work with NRIs across time zones and offer culturally sensitive therapy?**
+Yes. A significant portion of her practice consists of NRIs and the Indian diaspora in the USA, UK, Canada, UAE, Singapore, and Australia. Sessions are scheduled to suit international time zones without Western cultural disconnect regarding Indian family systems.
+
+**Does she offer premarital counselling for modern Indian couples?**
+Yes. She provides evidence-based premarital counselling for both arranged and love marriages, focusing on communication styles, in-law boundaries, financial values, and conflict resolution before marriage.
+
 **What languages do you offer therapy in?**
 English, Hindi, and Bengali.
 

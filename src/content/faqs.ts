@@ -28,6 +28,12 @@ export const faqs: FAQ[] = [
       "If you're experiencing emotional distress, relationship difficulties, or simply want to understand yourself better, therapy can help. The free discovery call is a great way to explore whether therapy is the right step for you.",
     category: "getting-started",
   },
+  {
+    question: "How do I know if my problem is 'serious enough' for therapy?",
+    answer:
+      "You don't need to be in a crisis to seek therapy. If something is taking up persistent mental space, affecting your sleep, productivity, relationships, or peace of mind, it is worthy of attention. Therapy is as much about proactive self-understanding and emotional resilience as it is about navigating difficult life events.",
+    category: "getting-started",
+  },
 
   // General
   {
@@ -72,6 +78,24 @@ export const faqs: FAQ[] = [
       "A psychologist provides therapy (talk-based treatment) and psychological assessments. A psychiatrist is a medical doctor who can prescribe medication. Both work with mental health, but their approaches differ. I am a clinical psychologist.",
     category: "general",
   },
+  {
+    question: "How does online therapy work for NRIs living across international time zones?",
+    answer:
+      "A significant portion of my practice consists of NRIs and Indian expats living in the US, UK, Canada, UAE, Singapore, and Australia. Sessions are scheduled to seamlessly accommodate your local time zone (including early mornings, evenings, or weekends). Payments can be made easily via international cards or direct transfer.",
+    category: "general",
+  },
+  {
+    question: "Can I speak in 'Hinglish' or code-switch during my therapy sessions?",
+    answer:
+      "Yes, absolutely. Therapy should feel completely natural and uninhibited. You are welcome to speak in English, Hindi, Bengali, or a natural mix (Hinglish). Expressing emotional nuance is far more important than formal grammar or sticking to a single language.",
+    category: "general",
+  },
+  {
+    question: "What does RCI registration mean, and why is it crucial in India?",
+    answer:
+      "In India, 'Clinical Psychologist' is a statutory, legally protected title regulated by the Rehabilitation Council of India (RCI). An RCI license (such as License A118537) confirms that a clinician has completed rigorous, hospital-based M.Phil clinical training in diagnostics, psychometrics, and evidence-based psychotherapy under supervised psychiatric conditions. It guarantees patient safety and professional ethical standards.",
+    category: "general",
+  },
 
   // Sessions
   {
@@ -102,6 +126,12 @@ export const faqs: FAQ[] = [
     question: "Can I switch between individual and couples therapy?",
     answer:
       "This depends on the clinical situation. We can discuss this during our sessions to determine the best approach for your goals.",
+    category: "sessions",
+  },
+  {
+    question: "What if I feel therapy isn't working or we're not a good fit?",
+    answer:
+      "A strong therapeutic alliance is the single biggest predictor of successful therapy. If at any point you feel we aren't clicking, or that progress has stalled, I encourage open, honest feedback so we can adjust our approach. If needed, I will also gladly assist you with a referral to another trusted mental health professional.",
     category: "sessions",
   },
 
