@@ -11,9 +11,10 @@ export const services: Service[] = [
       "One-on-one therapy to help you navigate anxiety, depression, grief, trauma, self-esteem challenges, and life transitions. A safe, non-judgmental space to explore your thoughts and feelings.",
     icon: "User",
     highlights: [
-      "Evidence-based approaches (CBT, DBT, psychodynamic)",
-      "Personalised treatment plans",
-      "Flexible scheduling - online sessions",
+      "Direct 1-on-1 care with an RCI-registered M.Phil psychologist (no random directory matching)",
+      "Evidence-based modalities (CBT, DBT, ACT, psychodynamic)",
+      "Personalised treatment plans with continuous therapeutic support",
+      "Flexible online scheduling across India and NRI time zones",
     ],
     idealFor: [
       "Anxiety & stress",
@@ -35,9 +36,11 @@ export const services: Service[] = [
       "Strengthen your relationship through improved communication, conflict resolution, and deeper emotional connection. For married couples, partners, and those considering separation.",
     icon: "Heart",
     highlights: [
-      "Emotionally Focused Therapy (EFT) informed",
-      "Communication & conflict resolution skills",
-      "Rebuilding trust & intimacy",
+      "Direct guidance by an RCI-licensed clinical psychologist (not an anonymous marketplace)",
+      "Emotionally Focused Therapy (EFT) and attachment-informed methods",
+      "Option to begin individually if your partner is hesitant or not ready",
+      "Practical communication, boundary-setting & de-escalation skills",
+      "Safe, non-judgmental space to rebuild trust and intimacy",
     ],
     idealFor: [
       "Communication breakdowns",
@@ -45,6 +48,7 @@ export const services: Service[] = [
       "Pre-marital counselling",
       "Intimacy concerns",
       "Considering separation",
+      "Individual relationship clarity (starting alone if partner isn't ready)",
     ],
     approach:
       "Drawing from Emotionally Focused Therapy and Gottman methods to help partners understand each other's emotional needs and build a more secure bond.",

@@ -31,6 +31,12 @@ export const faqs: FAQ[] = [
 
   // General
   {
+    question: "Can I start couples or relationship therapy alone if my partner won't join?",
+    answer:
+      "Yes, absolutely. You do not need your partner to attend to begin working on your relationship. Individual sessions for relationship clarity help you understand your emotional triggers, communication patterns, and boundaries. If your partner later feels comfortable joining, we can transition to joint sessions—or continue focusing on your personal emotional growth.",
+    category: "general",
+  },
+  {
     question: "What types of therapy do you offer?",
     answer:
       "I offer individual therapy, couples therapy, adolescent therapy, family therapy, and psychological assessments. All sessions are conducted online, making them accessible across India and internationally.",

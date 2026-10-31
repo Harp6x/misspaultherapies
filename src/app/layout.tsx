@@ -65,11 +65,15 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: config.url,
       languages: { "en-IN": config.url, en: config.url },
+      types: {
+        "text/plain": `${config.url}/llms.txt`,
+      },
     },
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },
         { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/logo.png", sizes: "180x180", type: "image/png" },
       ],
       apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     },

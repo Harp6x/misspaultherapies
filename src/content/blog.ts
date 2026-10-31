@@ -574,4 +574,134 @@ export const blogPosts: BlogPost[] = [
 <p>Ready to work on this? <a href="/book" style="color: inherit; text-decoration: underline;">Book a session</a> and let's explore what healthy boundaries look like in your life.</p>
 `,
   },
+  {
+    slug: "can-i-go-to-couples-therapy-alone",
+    title: "Can I Go to Couples Therapy Alone? What to Do When Your Partner Won't Come",
+    description:
+      "Feeling stuck because your partner refuses or hesitates to attend counselling? Discover why starting individual relationship clarity therapy is often the most empowering first step.",
+    category: "Relationships",
+    datePublished: "2025-03-15",
+    readingTime: "6 min read",
+    published: true,
+    body: `
+<h2>The Relationship Stalemate: When Only One Partner Wants Help</h2>
+<p>One of the most painful positions to be in is watching your relationship deteriorate while feeling entirely powerless. You might feel disconnected, exhausted by cyclical arguments, or worried about your future together. You suggest therapy, hoping for a neutral space to rebuild intimacy—only to be met with resistance:</p>
+<ul>
+<li><em>"We don't need a stranger telling us how to live."</em></li>
+<li><em>"Therapy is only for broken marriages."</em></li>
+<li><em>"You're the one with the problem, you go."</em></li>
+<li><em>"Let's just give it time and see if things get better on their own."</em></li>
+</ul>
+<p>When this happens, many people assume their hands are tied. They believe couples therapy strictly requires two willing bodies in the room on day one. But here is clinical truth: <strong>You do not need your partner's permission or attendance to begin healing your side of the relationship.</strong></p>
+
+<h2>Why Individual Relationship Clarity Therapy Works</h2>
+<p>Relationships are systemic. Think of a mobile hanging from a ceiling: if you gently move one piece, every other piece attached to the mobile has to shift in response. When you change how you react, communicate, and set boundaries, the entire relationship dynamic is forced to adapt.</p>
+<p>In individual sessions focused on relationship clarity, you work directly with a licensed clinical psychologist to address several crucial areas:</p>
+
+<h3>1. Identifying the Cyclical Loop</h3>
+<p>Most couples fight about surface topics (chores, finances, in-laws), but the underlying struggle is almost always an emotional pattern—such as the classic <em>Pursuer-Distancer</em> dynamic. One partner reaches out or demands connection, the other feels overwhelmed and shuts down, which causes the first partner to push even harder. Working alone allows you to step off this hamster wheel and see the pattern objectively.</p>
+
+<h3>2. Regulating Your Nervous System</h3>
+<p>When communication breaks down, our brains perceive relational conflict as an existential threat. We go into fight, flight, or freeze. Individual therapy teaches you somatic and cognitive tools to stay grounded, so you stop reacting from raw emotional pain and start responding with intentional clarity.</p>
+
+<h3>3. Defining Healthy Boundaries Without Aggression</h3>
+<p>Many partners oscillate between total accommodation (people-pleasing) and explosive resentment. Individual therapy helps you articulate clean, non-negotiable boundaries calmly and consistently—without guilt or cruelty.</p>
+
+<h3>4. Gaining Clarity on Your True Desires</h3>
+<p>Away from your partner's immediate reactions, you have a confidential, unbiased space to ask yourself honest questions: <em>What are my core emotional needs? Can this relationship fulfill them? Am I willing to accept what is possible here?</em></p>
+
+<h2>How to Approach Your Partner Without Pressure</h2>
+<p>If you choose to begin individual therapy for your relationship, how should you share it with your partner?</p>
+<ul>
+<li><strong>Avoid ultimatums:</strong> Forcing an unwilling partner into couples counselling often leads to defensive silence or combative sessions. Therapy is only effective when entered voluntarily.</li>
+<li><strong>Shift the focus to yourself:</strong> Instead of saying, <em>"I'm going because you won't work on our marriage,"</em> try saying: <em>"I've been feeling anxious and overwhelmed by our arguments, and I want to understand my own reactions better so I can show up healthier for us."</em></li>
+<li><strong>Leave the door open:</strong> Reassure them that the therapist is not there to blame anyone. If they ever feel curious or comfortable joining for a joint session later, the door remains wide open.</li>
+</ul>
+
+<h2>Direct Care with a Clinical Psychologist</h2>
+<p>Navigating relational distress requires nuanced, evidence-based care—not generic life coaching or anonymous matching apps. As an RCI-licensed clinical psychologist, I work with individuals across India and abroad to bring clarity, emotional steadiness, and practical communication tools into complex relationship challenges.</p>
+
+<p>You don't have to navigate this uncertainty alone. <a href="/book" style="color: inherit; text-decoration: underline;">Book a free 15-minute discovery call</a> to discuss your situation confidentially and explore whether individual relationship clarity sessions are the right next step for you.</p>
+`,
+  },
+  {
+    slug: "psychologist-vs-psychiatrist-vs-counselor-india",
+    title: "Clinical Psychologist vs Psychiatrist vs Counselor in India: Who Do You Need?",
+    description:
+      "Confused about mental health credentials in India? Understand the legal differences between Clinical Psychologists, Psychiatrists, and Counselors, and how to choose the right expert.",
+    category: "Therapy Basics",
+    datePublished: "2025-03-20",
+    readingTime: "7 min read",
+    published: true,
+    body: `
+<h2>The Mental Health Alphabet Soup in India</h2>
+<p>When you decide to seek mental health support in India, you are immediately confronted with a confusing maze of titles: <em>Psychiatrist, Clinical Psychologist, Counseling Psychologist, Psychotherapist, Mental Health Counselor, Life Coach</em>. To make matters worse, India's mental health regulation is widely misunderstood, leading many individuals to invest time and money in practitioners who lack statutory licensing.</p>
+<p>Knowing who does what is not just a matter of semantics—it directly impacts your recovery, your safety, and the effectiveness of your care. Here is the definitive clinical breakdown of who does what in India.</p>
+
+<h2>1. The Psychiatrist: Medical Doctor for Biological & Chemical Needs</h2>
+<p>A <strong>Psychiatrist</strong> is a fully qualified medical doctor who completed an MBBS degree followed by a post-graduate medical specialization (MD or DNB) in Psychiatry.</p>
+<ul>
+<li><strong>Primary focus:</strong> Neurochemical imbalances, biological factors, and medical management of mental disorders.</li>
+<li><strong>Treatment modality:</strong> Prescription medications (antidepressants, mood stabilizers, anxiolytics, anti-psychotics), medical assessments, and hospitalization when necessary.</li>
+<li><strong>Do they do talk therapy?</strong> While some psychiatrists offer psychotherapy, most in India primarily focus on medication management, dosage calibration, and psychiatric diagnosis, referring clients to clinical psychologists for structured psychotherapy.</li>
+</ul>
+
+<h2>2. The Clinical Psychologist: The Psychotherapy & Assessment Specialist</h2>
+<p>In India, the title <strong>Clinical Psychologist</strong> is legally protected by the Rehabilitation Council of India (RCI). To hold this title legally, a professional must complete an intensive, hospital-based M.Phil in Clinical Psychology from an RCI-recognized institution and obtain an official RCI Registration Number.</p>
+<ul>
+<li><strong>Primary focus:</strong> In-depth psychological evaluation, psychometric testing (IQ, personality, neuropsychological assessments), and evidence-based psychotherapy for mild, moderate, and severe mental health conditions.</li>
+<li><strong>Treatment modality:</strong> Talk therapy modalities including Cognitive Behavioural Therapy (CBT), Dialectical Behaviour Therapy (DBT), Acceptance and Commitment Therapy (ACT), Emotion-Focused Therapy (EFT), and psychodynamic interventions.</li>
+<li><strong>Can they prescribe medication?</strong> No. Clinical psychologists do not prescribe drugs. Instead, they treat the cognitive, emotional, behavioral, and relational root causes of distress. If medication is needed, an ethical clinical psychologist works in close collaboration with a trusted psychiatrist.</li>
+</ul>
+
+<h2>3. The Counselor / Counseling Psychologist: Everyday Life Transitions</h2>
+<p>Counselors typically hold a Master's degree (MA or MSc) in Psychology or Counseling. They provide supportive listening and psychoeducation for everyday developmental hurdles.</p>
+<ul>
+<li><strong>Primary focus:</strong> General life stress, academic difficulties, career transitions, mild grief, and lifestyle adjustments.</li>
+<li><strong>Limitations:</strong> Counselors in India are not legally licensed by the RCI to perform clinical psychometric assessments or treat diagnosed clinical psychiatric conditions (such as major depressive disorder, OCD, bipolar disorder, or severe panic disorders).</li>
+</ul>
+
+<h2>Summary Comparison Table</h2>
+<table style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px;">
+<thead>
+<tr style="background: #F5EDE0; text-align: left;">
+<th style="padding: 10px; border: 1px solid #D4C4B0;">Profession</th>
+<th style="padding: 10px; border: 1px solid #D4C4B0;">Degree & License</th>
+<th style="padding: 10px; border: 1px solid #D4C4B0;">Primary Tool</th>
+<th style="padding: 10px; border: 1px solid #D4C4B0;">Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 10px; border: 1px solid #D4C4B0;"><strong>Psychiatrist</strong></td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">MBBS + MD/DNB (NMC Registered)</td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">Medication management</td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">Severe clinical symptoms, psychosis, biological chemical support</td>
+</tr>
+<tr style="background: #FAF7F2;">
+<td style="padding: 10px; border: 1px solid #D4C4B0;"><strong>Clinical Psychologist</strong></td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">M.Phil Clinical Psychology (RCI Licensed)</td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">Structured Psychotherapy (CBT/DBT/ACT) & Assessments</td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">Anxiety, depression, trauma, relationship conflict, emotional regulation</td>
+</tr>
+<tr>
+<td style="padding: 10px; border: 1px solid #D4C4B0;"><strong>Counselor</strong></td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">MA/MSc in Psychology</td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">Supportive guidance & listening</td>
+<td style="padding: 10px; border: 1px solid #D4C4B0;">Everyday life stress, career clarity, general adjustment</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Verify Your Practitioner's Credentials in India</h2>
+<p>If someone claims to be a Clinical Psychologist in India, you have the statutory right to ask for their <strong>RCI License Number</strong>. You can verify this number directly on the official central register at <a href="https://www.rehabcouncil.nic.in" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">rehabcouncil.nic.in</a>. Verifying credentials protects you from unaccredited practitioners who lack supervised clinical hospital training.</p>
+
+<h2>Who Should You Consult First?</h2>
+<p>If you are experiencing anxiety, panic, depression, burnout, relationship conflict, or grief, starting with an <strong>RCI-licensed Clinical Psychologist</strong> is widely considered the gold standard. A licensed clinical psychologist will conduct a thorough diagnostic intake. If psychotherapy alone is sufficient, you begin your sessions immediately. If your symptoms suggest that medical or psychiatric stabilization is also indicated, your clinical psychologist will coordinate directly with a qualified psychiatrist for comprehensive, collaborative care.</p>
+
+<p>Ms Paul Therapies is an independent clinical psychology practice founded by <strong>Aishani Paul</strong> (M.Phil in Clinical Psychology, RCI License A118537). Every session is conducted one-on-one via secure online video calls across India and for NRIs globally.</p>
+
+<p>Have questions about what type of support is right for you? <a href="/book" style="color: inherit; text-decoration: underline;">Book a free 15-minute discovery call</a> to speak directly and map out your next step.</p>
+`,
+  },
 ];

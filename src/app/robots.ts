@@ -19,6 +19,8 @@ const AI_CRAWLERS = [
   "YouBot", // You.com
   "iaskspider", // iAsk.ai
   "Diffbot", // Diffbot
+  "Google-Extended", // Google Gemini AI training & search
+  "Amazonbot", // Amazon Alexa / Rufus AI
 ];
 
 export default async function robots(): Promise<MetadataRoute.Robots> {

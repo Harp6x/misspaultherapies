@@ -31,6 +31,7 @@ const footerLinks = {
     { href: "/privacy-policy", label: "Privacy Policy" },
     { href: "/terms-consent-cancellation", label: "Terms & Consent" },
     { href: "/emergency-resources", label: "Emergency Resources" },
+    { href: "/llms.txt", label: "AI & Machine Readable" },
   ],
 };
 
