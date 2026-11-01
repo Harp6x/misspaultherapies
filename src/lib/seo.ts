@@ -556,8 +556,6 @@ export function localBusinessJsonLd(config: SeoSiteConfig = siteConfig) {
     description: config.description,
     email: config.email,
     telephone: config.phone.startsWith("[") ? undefined : config.phone,
-    image: `${config.url}/opengraph-image`,
-    logo: `${config.url}/icon.svg`,
     medicalSpecialty: "Psychiatric",
     priceRange: "₹₹",
     currenciesAccepted: "INR",
