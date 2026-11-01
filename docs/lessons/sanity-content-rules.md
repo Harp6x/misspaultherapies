@@ -14,9 +14,8 @@ Distinguish between **content gaps** (empty/missing Sanity data) and **code bugs
 - Testimonials not showing → check if `approved: true` in Sanity
 
 ## The Dual-Source Pattern
-If Sanity has no data for a content type, the app falls back to `src/content/*.ts`. This means:
-- Blog posts fall back to 60+ static posts in `content/blog.ts`
-- Services fall back to static definitions in `content/services.ts`
-- FAQs fall back to static questions in `content/faqs.ts`
-
-The static files are the safety net — they ensure the site is never empty.
+If Sanity has no data for a content type, the app falls back to `src/content/*.ts`.
+When Sanity is seeded, `lib/data.ts` uses Sanity as the primary authority, and merges in any additional static items from `src/content/*.ts` whose slugs are not in Sanity. This ensures:
+- Blog posts in Sanity remain authoritative, while new articles added in code are immediately live.
+- FAQs in Sanity are preserved, while new question clusters added in code appear seamlessly.
+- Deletion or override in Sanity automatically takes precedence over static fallbacks.
