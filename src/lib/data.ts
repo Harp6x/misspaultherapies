@@ -230,7 +230,7 @@ export async function getAllServices(): Promise<Service[]> {
 export async function getServiceBySlug(slug: string): Promise<Service | null> {
   try {
     const s = await getSanityServiceBySlug(slug);
-    return s;
+    if (s) return s;
   } catch {}
   return staticServices.find((s) => s.slug === slug) ?? null;
 }
@@ -238,22 +238,28 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
 export async function getServiceSlugs(): Promise<string[]> {
   try {
     const sanity = await getSanityServices();
-    return sanity.map((s) => s.slug);
+    if (sanity && sanity.length > 0) return sanity.map((s) => s.slug);
   } catch {}
   return staticServices.map((s) => s.slug);
 }
 
 // ── Blog ──
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  const publishedStatic = staticBlogPosts.filter((p) => p.published);
   try {
     const sanity = await getSanityBlogPosts();
-    return sanity.map((p) => ({
-      ...p,
-      // Portable Text body kept as-is for PortableTextBody component
-      body: p.body,
-    }));
+    if (sanity && sanity.length > 0) {
+      const sanitySlugs = new Set(sanity.map((p) => p.slug));
+      const nonSanityStatic = publishedStatic.filter((p) => !sanitySlugs.has(p.slug));
+      const mappedSanity = sanity.map((p) => ({
+        ...p,
+        // Portable Text body kept as-is for PortableTextBody component
+        body: p.body,
+      }));
+      return [...mappedSanity, ...nonSanityStatic];
+    }
   } catch {}
-  return staticBlogPosts.filter((p) => p.published);
+  return publishedStatic;
 }
 
 export async function getBlogPostBySlug(
@@ -261,24 +267,36 @@ export async function getBlogPostBySlug(
 ): Promise<(BlogPost & { sanityBody?: unknown }) | null> {
   try {
     const p = await getSanityBlogPostBySlug(slug);
-    return p ? { ...p, sanityBody: p.body } : null;
+    if (p) return { ...p, sanityBody: p.body };
   } catch {}
   return staticBlogPosts.find((p) => p.slug === slug) ?? null;
 }
 
 export async function getBlogSlugs(): Promise<string[]> {
+  const publishedStaticSlugs = staticBlogPosts.filter((p) => p.published).map((p) => p.slug);
   try {
     const sanity = await getSanityBlogSlugs();
-    return sanity.map((s) => s.slug);
+    if (sanity && sanity.length > 0) {
+      const sanitySlugs = sanity.map((s) => s.slug);
+      const set = new Set(sanitySlugs);
+      const additional = publishedStaticSlugs.filter((s) => !set.has(s));
+      return [...sanitySlugs, ...additional];
+    }
   } catch {}
-  return staticBlogPosts.filter((p) => p.published).map((p) => p.slug);
+  return publishedStaticSlugs;
 }
 
 // ── FAQs ──
 export async function getAllFaqs(): Promise<FAQ[]> {
   try {
     const sanity = await getSanityFaqs();
-    return sanity as unknown as FAQ[];
+    if (sanity && sanity.length > 0) {
+      const sanityQuestions = new Set(sanity.map((f) => f.question.toLowerCase().trim()));
+      const additionalStatic = staticFaqs.filter(
+        (f) => !sanityQuestions.has(f.question.toLowerCase().trim())
+      );
+      return [...(sanity as unknown as FAQ[]), ...additionalStatic];
+    }
   } catch {}
   return staticFaqs;
 }
@@ -352,19 +370,19 @@ export async function getAllLocations(): Promise<Location[]> {
 export async function getLocationBySlug(slug: string): Promise<Location | null> {
   try {
     const l = await getSanityLocationBySlug(slug);
-    return l
-      ? {
-          slug: l.slug,
-          city: l.name,
-          title: l.title,
-          description: l.description,
-          metaDescription: l.metaDescription,
-          keywords: [],
-          content: l.description,
-          features: l.features,
-          services: l.services,
-        }
-      : null;
+    if (l) {
+      return {
+        slug: l.slug,
+        city: l.name,
+        title: l.title,
+        description: l.description,
+        metaDescription: l.metaDescription,
+        keywords: [],
+        content: l.description,
+        features: l.features,
+        services: l.services,
+      };
+    }
   } catch {}
   return staticLocations.find((l) => l.slug === slug) ?? null;
 }
