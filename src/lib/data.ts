@@ -35,6 +35,7 @@ import { services as staticServices } from "@/content/services";
 import { blogPosts as staticBlogPosts, blogCategories } from "@/content/blog";
 import { faqs as staticFaqs, faqCategories } from "@/content/faqs";
 import { getServiceFaqs as getStaticServiceFaqs } from "@/content/service-faqs";
+import { staticTestimonials } from "@/content/testimonials";
 import { locations as staticLocations } from "@/content/locations";
 
 // Re-export categories (these don't live in Sanity)
@@ -333,38 +334,31 @@ export async function getAllResources(): Promise<SanityResource[]> {
 }
 
 // ── Testimonials ──
-const staticTestimonials = [
-  {
-    quote:
-      "Therapy with Aishani helped me understand myself in ways I never thought possible. I finally feel like I have the tools to handle life's challenges.",
-    name: "Client A",
-    context: "Individual therapy - placeholder, shared with consent",
-    order: 1,
-  },
-  {
-    quote:
-      "We were on the verge of giving up on our relationship. The sessions gave us a new way to communicate and truly hear each other.",
-    name: "Client B",
-    context: "Couples therapy - placeholder, shared with consent",
-    order: 2,
-  },
-  {
-    quote:
-      "As an NRI, finding a therapist who understood my cultural background was a game changer. I felt seen and understood from the very first session.",
-    name: "Client C",
-    context: "NRI therapy - placeholder, shared with consent",
-    order: 3,
-  },
-];
-
 export async function getTestimonials(): Promise<SanityTestimonial[]> {
   try {
     const featured = await getSanityFeaturedTestimonials();
-    if (featured?.length) return featured;
+    if (featured?.length) {
+      const nonPlaceholderFeatured = featured.filter(
+        (t) => !t.context?.toLowerCase().includes("placeholder")
+      );
+      if (nonPlaceholderFeatured.length > 0) return nonPlaceholderFeatured;
+    }
     const sanity = await getSanityTestimonials();
-    return sanity;
+    if (sanity?.length) {
+      const nonPlaceholder = sanity.filter(
+        (t) => !t.context?.toLowerCase().includes("placeholder")
+      );
+      if (nonPlaceholder.length > 0) {
+        return [...nonPlaceholder, ...staticTestimonials];
+      }
+    }
   } catch {}
   return staticTestimonials;
+}
+
+export async function getTestimonialsForService(slug: string): Promise<SanityTestimonial[]> {
+  const all = await getTestimonials();
+  return all.filter((t) => t.relatedService?.slug === slug);
 }
 
 // ── Locations ──

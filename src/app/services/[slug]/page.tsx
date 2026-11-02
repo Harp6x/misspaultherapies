@@ -2,12 +2,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Check, Clock, CreditCard } from "lucide-react";
 import * as LucideIcons from "lucide-react";
-import { getAllServices, getServiceBySlug, getServiceFaqs, getSiteConfig } from "@/lib/data";
+import { getAllServices, getServiceBySlug, getServiceFaqs, getTestimonialsForService, getSiteConfig } from "@/lib/data";
 import { buildMetadata, serviceJsonLd, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { CTASection } from "@/components/CTASection";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { TestimonialCard } from "@/components/TestimonialCard";
 
 export const revalidate = false;
 
@@ -31,10 +32,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [service, config, faqs] = await Promise.all([
+  const [service, config, faqs, serviceTestimonials] = await Promise.all([
     getServiceBySlug(slug),
     getSiteConfig(),
     getServiceFaqs(slug),
+    getTestimonialsForService(slug),
   ]);
   if (!service) notFound();
 
@@ -140,6 +142,23 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
           <p className="text-muted-foreground mt-4 text-xs">{config.slidingScale}</p>
         </section>
+
+        {/* Client reviews for this service */}
+        {serviceTestimonials.length > 0 && (
+          <section className="mt-12">
+            <h2 className="text-brown mb-2 font-serif text-2xl font-bold sm:text-3xl">
+              What Clients Experience
+            </h2>
+            <p className="text-muted-foreground mb-6 text-sm">
+              Reflections shared with consent from clients who sought {service.title.toLowerCase()} support.
+            </p>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {serviceTestimonials.slice(0, 2).map((t, i) => (
+                <TestimonialCard key={i} {...t} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* FAQs */}
         {faqs.length > 0 && (

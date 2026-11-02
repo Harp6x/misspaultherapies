@@ -179,3 +179,4 @@ export const serviceFaqs: Record<string, FAQ[]> = {
 export function getServiceFaqs(slug: string): FAQ[] {
   return serviceFaqs[slug] ?? [];
 }
+
