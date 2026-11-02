@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
       from: "Ms Paul Therapies <hello@mspaultherapies.in>",
       to: "mspaultherapies@gmail.com",
       replyTo: email.trim(),
-      subject: `[Contact Form] ${chosenSubject} — ${name.trim()}`,
+      subject: `[Contact Form] ${chosenSubject} - ${name.trim()}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #5C4033;">New Contact Form Submission</h2>

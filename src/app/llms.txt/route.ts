@@ -34,17 +34,17 @@ Therapy approaches used: Cognitive Behavioural Therapy (CBT), Dialectical Behavi
 
 ## Services
 
-- **Individual Therapy** — One-on-one sessions for adults dealing with anxiety, depression, trauma, grief, and life challenges. Fee: ${config.fees.individual}.
-- **Couples & Relationship Therapy** — Sessions for couples navigating communication, trust, intimacy, and conflict. Individual relationship clarity sessions are also available if a partner is hesitant or not yet ready to join. Fee: ${config.fees.couples}.
-- **Adolescent Therapy** — Therapy for teenagers (13–19) dealing with academic pressure, identity, social anxiety, and family conflict.
-- **Family Therapy** — Sessions for families working through conflict, communication breakdowns, and generational issues.
-- **Corporate Wellness Workshops** — Interactive mental health workshops for teams on stress, burnout, and resilience.
+- **Individual Therapy**: One-on-one sessions for adults dealing with anxiety, depression, trauma, grief, and life challenges. Fee: ${config.fees.individual}.
+- **Couples & Relationship Therapy**: Sessions for couples navigating communication, trust, intimacy, and conflict. Individual relationship clarity sessions are also available if a partner is hesitant or not yet ready to join. Fee: ${config.fees.couples}.
+- **Adolescent Therapy**: Therapy for teenagers (13–19) dealing with academic pressure, identity, social anxiety, and family conflict.
+- **Family Therapy**: Sessions for families working through conflict, communication breakdowns, and generational issues.
+- **Corporate Wellness Workshops**: Interactive mental health workshops for teams on stress, burnout, and resilience.
 
 All services are delivered online via secure video call. Sessions are 45–50 minutes. Sliding scale fees available for students, homemakers, and those in financial need.
 
 ## Who She Works With
 
-- Adults (18+) across India — any city, any state
+- Adults (18+) across India (any city, any state)
 - Teenagers and adolescents (13–19)
 - Couples
 - Families

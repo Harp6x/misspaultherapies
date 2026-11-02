@@ -57,7 +57,7 @@ export const siteConfigSchema = defineType({
     }),
     defineField({
       name: "howItWorksBg",
-      title: "How It Works — Background Image (optional)",
+      title: "How It Works - Background Image (optional)",
       type: "image",
       group: "general",
       options: { hotspot: true },

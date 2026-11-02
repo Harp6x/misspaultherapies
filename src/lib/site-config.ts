@@ -56,7 +56,7 @@ export const siteConfig = {
   cancellationPolicy:
     "Cancellations must be made at least 24 hours in advance. No-show fees are non-refundable if cancelled less than 24 hours before the session.",
 
-  // Newsletter (Kit / ConvertKit) — overridable in Sanity → Site Configuration
+  // Newsletter (Kit / ConvertKit) - overridable in Sanity -> Site Configuration
   // formType: "inline" renders in-page; "modal" | "slide-in" | "sticky-bar"
   // load once globally and auto-trigger; "off" disables it everywhere.
   newsletter: {

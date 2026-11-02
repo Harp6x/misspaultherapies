@@ -38,7 +38,7 @@ export const serviceFaqs: Record<string, FAQ[]> = {
     {
       question: "Can I start relationship therapy alone if my partner is hesitant or refuses to come?",
       answer:
-        "Yes, absolutely. A significant number of relationship journeys start as individual therapy for relationship clarity. You can work with me one-on-one to untangle communication patterns, emotional triggers, and boundaries. If your partner later feels open to joining, we can transition to joint sessions—or continue focusing on your own emotional growth.",
+        "Yes, absolutely. A significant number of relationship journeys start as individual therapy for relationship clarity. You can work with me one-on-one to untangle communication patterns, emotional triggers, and boundaries. If your partner later feels open to joining, we can transition to joint sessions, or continue focusing on your own emotional growth.",
       category: "couples-therapy",
     },
     {
@@ -104,7 +104,7 @@ export const serviceFaqs: Record<string, FAQ[]> = {
     {
       question: "Can family therapy help with in-law friction and joint family boundaries?",
       answer:
-        "Yes. Navigating joint family living, in-law expectations, and parental enmeshment is one of the most frequent reasons families seek therapy in India. We help establish 'connected boundaries'—protecting marital privacy and emotional autonomy while maintaining respect and connection across generations.",
+        "Yes. Navigating joint family living, in-law expectations, and parental enmeshment is one of the most frequent reasons families seek therapy in India. We help establish 'connected boundaries', protecting marital privacy and emotional autonomy while maintaining respect and connection across generations.",
       category: "family-therapy",
     },
     {
@@ -158,7 +158,7 @@ export const serviceFaqs: Record<string, FAQ[]> = {
     {
       question: "Why choose an Indian clinical psychologist over a local therapist abroad?",
       answer:
-        "Many NRIs report hitting cultural roadblocks with Western therapists when trying to explain arranged marriage matchmaking, joint family obligations, filial guilt, or immigration loneliness. Working with an RCI-licensed clinician from India eliminates the cultural explanation tax—I already understand the collectivist context and cultural nuances of your family system.",
+        "Many NRIs report hitting cultural roadblocks with Western therapists when trying to explain arranged marriage matchmaking, joint family obligations, filial guilt, or immigration loneliness. Working with an RCI-licensed clinician from India eliminates the cultural explanation tax - I already understand the collectivist context and cultural nuances of your family system.",
       category: "nri-abroad",
     },
     {

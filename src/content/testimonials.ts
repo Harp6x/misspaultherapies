@@ -39,7 +39,7 @@ export const staticTestimonials: SanityTestimonial[] = [
   },
   {
     quote:
-      "My husband was really skeptical about couples counselling because he thought the therapist would just take my side. Aishani was so balanced and fair from day one. She helped us realize that our arguments weren't about household chores—they were about feeling unappreciated. We’re actually talking to each other again instead of giving the silent treatment.",
+      "My husband was really skeptical about couples counselling because he thought the therapist would just take my side. Aishani was so balanced and fair from day one. She helped us realize that our arguments weren't about household chores - they were about feeling unappreciated. We’re actually talking to each other again instead of giving the silent treatment.",
     name: "Client T. & P.",
     context: "Couples Therapy · Pune",
     rating: 5,
@@ -63,7 +63,7 @@ export const staticTestimonials: SanityTestimonial[] = [
   },
   {
     quote:
-      "Living in London, I tried two different local therapists, but I spent half the time trying to explain why family expectations and arranged marriage conversations in India are so complicated. With Aishani, there was zero explanation needed—she understood the cultural guilt immediately. She worked around the time difference without any fuss.",
+      "Living in London, I tried two different local therapists, but I spent half the time trying to explain why family expectations and arranged marriage conversations in India are so complicated. With Aishani, there was zero explanation needed - she understood the cultural guilt immediately. She worked around the time difference without any fuss.",
     name: "Fellow Client",
     context: "NRI Therapy · London, UK",
     rating: 5,
@@ -122,3 +122,4 @@ export const staticTestimonials: SanityTestimonial[] = [
     },
   },
 ];
+

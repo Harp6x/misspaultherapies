@@ -23,7 +23,7 @@ export function ServiceCard({ service, compact = false }: Props) {
       href={`/services/${service.slug}`}
       className="group border-border hover:border-sage/40 block overflow-hidden rounded-2xl border bg-white shadow-sm transition-all hover:shadow-md"
     >
-      {/* Card image — shown when uploaded in Sanity */}
+      {/* Card image - shown when uploaded in Sanity */}
       {imageUrl && (
         <div className="relative h-44 w-full overflow-hidden">
           <Image

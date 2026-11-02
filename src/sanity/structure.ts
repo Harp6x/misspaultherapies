@@ -25,7 +25,7 @@ function publishedDraftItem(
             .schemaType(schemaType)
             .child(
               S.documentList()
-                .title(`${title} — ${field === "approved" ? "Approved" : "Published"}`)
+                .title(`${title} - ${field === "approved" ? "Approved" : "Published"}`)
                 .schemaType(schemaType)
                 .filter(`_type == "${schemaType}" && ${field} != false`),
             ),
@@ -34,7 +34,7 @@ function publishedDraftItem(
             .schemaType(schemaType)
             .child(
               S.documentList()
-                .title(`${title} — ${field === "approved" ? "Pending" : "Drafts"}`)
+                .title(`${title} - ${field === "approved" ? "Pending" : "Drafts"}`)
                 .schemaType(schemaType)
                 .filter(`_type == "${schemaType}" && ${field} == false`),
             ),
@@ -42,7 +42,7 @@ function publishedDraftItem(
           S.listItem()
             .title("All")
             .schemaType(schemaType)
-            .child(S.documentTypeList(schemaType).title(`${title} — All`)),
+            .child(S.documentTypeList(schemaType).title(`${title} - All`)),
         ]),
     );
 }

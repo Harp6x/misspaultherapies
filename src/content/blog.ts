@@ -585,7 +585,7 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>The Relationship Stalemate: When Only One Partner Wants Help</h2>
-<p>One of the most painful positions to be in is watching your relationship deteriorate while feeling entirely powerless. You might feel disconnected, exhausted by cyclical arguments, or worried about your future together. You suggest therapy, hoping for a neutral space to rebuild intimacy—only to be met with resistance:</p>
+<p>One of the most painful positions to be in is watching your relationship deteriorate while feeling entirely powerless. You might feel disconnected, exhausted by cyclical arguments, or worried about your future together. You suggest therapy, hoping for a neutral space to rebuild intimacy, only to be met with resistance:</p>
 <ul>
 <li><em>"We don't need a stranger telling us how to live."</em></li>
 <li><em>"Therapy is only for broken marriages."</em></li>
@@ -599,13 +599,13 @@ export const blogPosts: BlogPost[] = [
 <p>In individual sessions focused on relationship clarity, you work directly with a licensed clinical psychologist to address several crucial areas:</p>
 
 <h3>1. Identifying the Cyclical Loop</h3>
-<p>Most couples fight about surface topics (chores, finances, in-laws), but the underlying struggle is almost always an emotional pattern—such as the classic <em>Pursuer-Distancer</em> dynamic. One partner reaches out or demands connection, the other feels overwhelmed and shuts down, which causes the first partner to push even harder. Working alone allows you to step off this hamster wheel and see the pattern objectively.</p>
+<p>Most couples fight about surface topics (chores, finances, in-laws), but the underlying struggle is almost always an emotional pattern, such as the classic <em>Pursuer-Distancer</em> dynamic. One partner reaches out or demands connection, the other feels overwhelmed and shuts down, which causes the first partner to push even harder. Working alone allows you to step off this hamster wheel and see the pattern objectively.</p>
 
 <h3>2. Regulating Your Nervous System</h3>
 <p>When communication breaks down, our brains perceive relational conflict as an existential threat. We go into fight, flight, or freeze. Individual therapy teaches you somatic and cognitive tools to stay grounded, so you stop reacting from raw emotional pain and start responding with intentional clarity.</p>
 
 <h3>3. Defining Healthy Boundaries Without Aggression</h3>
-<p>Many partners oscillate between total accommodation (people-pleasing) and explosive resentment. Individual therapy helps you articulate clean, non-negotiable boundaries calmly and consistently—without guilt or cruelty.</p>
+<p>Many partners oscillate between total accommodation (people-pleasing) and explosive resentment. Individual therapy helps you articulate clean, non-negotiable boundaries calmly and consistently, without guilt or cruelty.</p>
 
 <h3>4. Gaining Clarity on Your True Desires</h3>
 <p>Away from your partner's immediate reactions, you have a confidential, unbiased space to ask yourself honest questions: <em>What are my core emotional needs? Can this relationship fulfill them? Am I willing to accept what is possible here?</em></p>
@@ -619,7 +619,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Direct Care with a Clinical Psychologist</h2>
-<p>Navigating relational distress requires nuanced, evidence-based care—not generic life coaching or anonymous matching apps. As an RCI-licensed clinical psychologist, I work with individuals across India and abroad to bring clarity, emotional steadiness, and practical communication tools into complex relationship challenges.</p>
+<p>Navigating relational distress requires nuanced, evidence-based care, not generic life coaching or anonymous matching apps. As an RCI-licensed clinical psychologist, I work with individuals across India and abroad to bring clarity, emotional steadiness, and practical communication tools into complex relationship challenges.</p>
 
 <p>You don't have to navigate this uncertainty alone. <a href="/book" style="color: inherit; text-decoration: underline;">Book a free 15-minute discovery call</a> to discuss your situation confidentially and explore whether individual relationship clarity sessions are the right next step for you.</p>
 `,
@@ -636,7 +636,7 @@ export const blogPosts: BlogPost[] = [
     body: `
 <h2>The Mental Health Alphabet Soup in India</h2>
 <p>When you decide to seek mental health support in India, you are immediately confronted with a confusing maze of titles: <em>Psychiatrist, Clinical Psychologist, Counseling Psychologist, Psychotherapist, Mental Health Counselor, Life Coach</em>. To make matters worse, India's mental health regulation is widely misunderstood, leading many individuals to invest time and money in practitioners who lack statutory licensing.</p>
-<p>Knowing who does what is not just a matter of semantics—it directly impacts your recovery, your safety, and the effectiveness of your care. Here is the definitive clinical breakdown of who does what in India.</p>
+<p>Knowing who does what is not just a matter of semantics; it directly impacts your recovery, your safety, and the effectiveness of your care. Here is the definitive clinical breakdown of who does what in India.</p>
 
 <h2>1. The Psychiatrist: Medical Doctor for Biological & Chemical Needs</h2>
 <p>A <strong>Psychiatrist</strong> is a fully qualified medical doctor who completed an MBBS degree followed by a post-graduate medical specialization (MD or DNB) in Psychiatry.</p>
@@ -726,12 +726,12 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Cynicism & Depersonalization:</strong> Negative, cynical attitudes toward your job, clients, or colleagues; feeling emotionally disconnected from work that once mattered.</li>
 <li><strong>Reduced Professional Efficacy:</strong> A pervasive feeling of inadequacy, low productivity, and imposter syndrome, despite working longer hours.</li>
 </ul>
-<p><strong>The defining feature of burnout:</strong> It is largely <em>context-dependent</em>. When you are genuinely away from work—say, on a week-long vacation with your laptop closed—your energy, joy, and curiosity gradually begin to return.</p>
+<p><strong>The defining feature of burnout:</strong> It is largely <em>context-dependent</em>. When you are genuinely away from work (for example, on a week-long vacation with your laptop closed), your energy, joy, and curiosity gradually begin to return.</p>
 
 <h2>What Is Clinical Depression?</h2>
 <p>Major Depressive Disorder (MDD) is a clinical mood condition that permeates <em>every</em> area of your life, not just your career.</p>
 <ul>
-<li><strong>Anhedonia:</strong> An inability to experience pleasure in anything—including hobbies, food, music, or time with loved ones.</li>
+<li><strong>Anhedonia:</strong> An inability to experience pleasure in anything, including hobbies, food, music, or time with loved ones.</li>
 <li><strong>Pervasive Worthlessness:</strong> Intense inner guilt, shame, and feelings of being broken or a burden to others.</li>
 <li><strong>Physical Symptoms:</strong> Severe changes in sleep (insomnia or oversleeping), unexplained body aches, and significant appetite changes.</li>
 <li><strong>Hopelessness:</strong> A feeling that the future has no light, regardless of whether you are at work or on vacation.</li>
@@ -794,15 +794,15 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>The Expat Therapy Dilemma</h2>
-<p>Living abroad as a Non-Resident Indian (NRI) in the US, UK, Canada, UAE, Singapore, or Australia brings immense professional opportunities—but it also carries a unique, invisible psychological toll. You are straddling two completely different cultural worlds: the individualistic society you live and work in, and the collectivist, family-centric heritage you carry in your bones.</p>
-<p>When the pressure becomes too much—whether it's loneliness, relationship strain, career burnout, or intergenerational conflict—many NRIs turn to local therapists in their host countries. But all too often, the first few sessions hit a cultural wall:</p>
+<p>Living abroad as a Non-Resident Indian (NRI) in the US, UK, Canada, UAE, Singapore, or Australia brings immense professional opportunities, but it also carries a unique, invisible psychological toll. You are straddling two completely different cultural worlds: the individualistic society you live and work in, and the collectivist, family-centric heritage you carry in your bones.</p>
+<p>When the pressure becomes too much (whether from loneliness, relationship strain, career burnout, or intergenerational conflict), many NRIs turn to local therapists in their host countries. But all too often, the first few sessions hit a cultural wall:</p>
 <ul>
 <li>You spend half the session having to explain fundamental Indian realities: arranged marriage matchmaking, joint family hierarchy, sending remittances back home, or why you can't simply "cut off" toxic parents.</li>
 <li>The therapist gives well-meaning but culturally jarring advice: <em>"Just set a boundary and go no-contact,"</em> or <em>"Why do you care so much what your parents think of your spouse?"</em></li>
 <li>You leave the session feeling misunderstood, invalidated, or carrying even more guilt.</li>
 </ul>
 
-<h2>Why Cultural Context Isn't a "Bonus"—It's Everything</h2>
+<h2>Why Cultural Context Isn't a "Bonus": It's Everything</h2>
 <p>Psychology does not exist in a cultural vacuum. Western psychological frameworks were overwhelmingly developed in individualistic societies that prioritize personal autonomy, self-actualization, and emotional independence above all else.</p>
 <p>In contrast, South Asian culture is deeply collectivist. In an Indian family system:</p>
 <ul>
@@ -819,7 +819,7 @@ export const blogPosts: BlogPost[] = [
 <p>You never have to explain why a WhatsApp message from your mother-in-law ruined your weekend, or why saying "no" to attending a family wedding across the world feels like a betrayal. Your therapist already understands the cultural subtext.</p>
 
 <h3>2. Culturally Nuanced Boundaries</h3>
-<p>Instead of blunt "no-contact" ultimatums that would shatter your family, we work on <strong>connected boundaries</strong>—learning how to protect your mental health, marriage, and energy while remaining in loving relationship with your parents.</p>
+<p>Instead of blunt "no-contact" ultimatums that would shatter your family, we work on <strong>connected boundaries</strong>: learning how to protect your mental health, marriage, and energy while remaining in loving relationship with your parents.</p>
 
 <h3>3. Seamless Scheduling Across Time Zones</h3>
 <p>With secure online video sessions, geography is not a barrier. Sessions are scheduled flexibly to fit early mornings in London, evenings in Dubai, or weekend afternoons in California and Toronto.</p>
@@ -856,13 +856,13 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Enmeshment vs. Healthy Closeness</h2>
-<p>It is important to emphasize: <strong>Wanting a close, caring relationship with your family is not enmeshment.</strong> Closeness is founded on mutual respect, where each person is celebrated as an autonomous individual. Enmeshment, however, demands conformity and emotional fusion—love is conditional upon compliance.</p>
+<p>It is important to emphasize: <strong>Wanting a close, caring relationship with your family is not enmeshment.</strong> Closeness is founded on mutual respect, where each person is celebrated as an autonomous individual. Enmeshment, however, demands conformity and emotional fusion, where love is conditional upon compliance.</p>
 
 <h2>The Road to Differentiation: How to Separate with Love</h2>
 <p>In family systems therapy, the antidote to enmeshment is <strong>differentiation</strong>. Differentiation is the ability to maintain your own beliefs, values, and emotional steadiness while staying intimately connected to the people you love.</p>
 
 <h3>1. Tolerate the "Guilt Tax"</h3>
-<p>When you begin setting boundaries with enmeshed parents—such as saying no to daily demands, declining unsolicited advice, or protecting your marriage—your brain will sound an internal alarm of intense guilt. Recognize that this guilt is not a moral compass; it is an emotional muscle memory. You must learn to sit with discomfort rather than capitulate.</p>
+<p>When you begin setting boundaries with enmeshed parents (such as saying no to daily demands, declining unsolicited advice, or protecting your marriage), your brain will sound an internal alarm of intense guilt. Recognize that this guilt is not a moral compass; it is an emotional muscle memory. You must learn to sit with discomfort rather than capitulate.</p>
 
 <h3>2. Stop Justifying Your Adult Choices</h3>
 <p>Enmeshed individuals often over-explain their decisions in hopes of gaining parental approval: <em>"We decided not to buy the flat because of X, Y, and Z..."</em> Over-explaining invites debate. State your decisions calmly and warmly: <em>"We looked into it carefully and decided it's not the right time for us."</em></p>
@@ -887,11 +887,11 @@ export const blogPosts: BlogPost[] = [
     published: true,
     body: `
 <h2>The Wedding vs. The Marriage</h2>
-<p>In India, enormous amounts of time, energy, and financial resources are poured into planning weddings—venues, outfits, jewelry, guest lists, and ceremonies. Yet remarkably little preparation is invested in the marriage itself: the actual day-to-day partnership that begins after the wedding lights go out.</p>
+<p>In India, enormous amounts of time, energy, and financial resources are poured into planning weddings: venues, outfits, jewelry, guest lists, and ceremonies. Yet remarkably little preparation is invested in the marriage itself: the actual day-to-day partnership that begins after the wedding lights go out.</p>
 <p>Whether you met through an arranged marriage setup, a dating app, or a years-long college romance, transitioning from dating into a shared life brings profound psychological, financial, and relational challenges. <strong>Premarital counselling</strong> provides a structured, neutral space to align on core life pillars before commitments are finalized.</p>
 
 <h2>Why Modern Indian Couples Are Choosing Premarital Therapy</h2>
-<p>Historically, premarital counselling was misunderstood in India as something couples only sought if they were on the verge of breaking up. Today, modern, self-aware couples recognize it as an essential proactive investment—much like getting a comprehensive health checkup before a marathon.</p>
+<p>Historically, premarital counselling was misunderstood in India as something couples only sought if they were on the verge of breaking up. Today, modern, self-aware couples recognize it as an essential proactive investment, much like getting a comprehensive health checkup before a marathon.</p>
 <p>Couples choose premarital therapy to:</p>
 <ul>
 <li>Safely discuss uncomfortable topics they've been avoiding out of fear of rocking the boat.</li>
@@ -926,7 +926,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Begin Your Marriage with Clarity and Confidence</h2>
-<p>Building a resilient, joyful marriage is not a matter of luck—it is a skill. As a licensed clinical psychologist, I work with couples across India and abroad to help them lay a foundation of trust, clear boundaries, and deep emotional safety.</p>
+<p>Building a resilient, joyful marriage is not a matter of luck; it is a skill. As a licensed clinical psychologist, I work with couples across India and abroad to help them lay a foundation of trust, clear boundaries, and deep emotional safety.</p>
 
 <p>Take the proactive step for your future together. <a href="/book" style="color: inherit; text-decoration: underline;">Schedule a free 15-minute discovery call</a> to explore how premarital counselling can strengthen your partnership.</p>
 `,

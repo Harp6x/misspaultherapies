@@ -6,7 +6,7 @@ export interface CityEntry {
   country?: string;
 }
 
-// Indian cities — Tier 1/2/3 across all states
+// Indian cities - Tier 1/2/3 across all states
 // Existing featured slugs (kolkata, west-bengal, delhi, mumbai, bangalore, chennai, hyderabad, pune) are skipped in generator
 export const INDIAN_CITIES: CityEntry[] = [
   // Delhi NCR

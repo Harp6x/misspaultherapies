@@ -481,7 +481,7 @@ export function servicesListJsonLd(
     "@type": "ItemList",
     name: "Online Therapy Services",
     description:
-      "Therapy services offered by Ms Paul Therapies — individual, couples, adolescent, family therapy and psychological assessments.",
+      "Therapy services offered by Ms Paul Therapies: individual, couples, adolescent, family therapy and psychological assessments.",
     numberOfItems: services.length,
     itemListElement: services.map((s, i) => ({
       "@type": "ListItem",

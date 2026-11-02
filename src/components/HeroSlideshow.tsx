@@ -59,7 +59,7 @@ export function HeroSlideshow({ slides, branding }: HeroSlideshowProps) {
 
   return (
     <section className="relative flex min-h-[75svh] lg:min-h-[80svh] items-center overflow-hidden">
-      {/* Background images — CSS crossfade */}
+      {/* Background images - CSS crossfade */}
       <div className="absolute inset-0">
         {slides.length > 0 && (
           <>
@@ -84,14 +84,14 @@ export function HeroSlideshow({ slides, branding }: HeroSlideshowProps) {
             )}
           </>
         )}
-        {/* Gradient overlay — lighter top, heavier bottom for text legibility */}
+        {/* Gradient overlay - lighter top, heavier bottom for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-brown/30 via-brown/20 to-brown/70" />
       </div>
 
-      {/* Content — vertically centered */}
+      {/* Content - vertically centered */}
       <div className="relative z-10 w-full px-4 py-16 sm:px-8 sm:py-20 md:px-12">
         <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-8">
-          {/* Frosted glass text panel — bottom-left */}
+          {/* Frosted glass text panel - bottom-left */}
           <div className="w-full max-w-2xl rounded-2xl bg-brown/60 backdrop-blur-xl border border-cream/15 p-6 sm:p-10 shadow-2xl">
             <p className="text-xs font-sans uppercase tracking-[0.4em] text-cream/60 mb-4">
               {branding.name}
@@ -134,7 +134,7 @@ export function HeroSlideshow({ slides, branding }: HeroSlideshowProps) {
             </div>
           </div>
 
-          {/* Services sidebar — desktop only, bottom-right */}
+          {/* Services sidebar - desktop only, bottom-right */}
           <div className="hidden lg:flex flex-col w-64 xl:w-72 flex-shrink-0">
             <div className="rounded-2xl bg-brown/60 backdrop-blur-xl border border-cream/15 p-5 shadow-2xl">
               <p className="text-[10px] font-sans uppercase tracking-[0.3em] text-cream/70 mb-3">
@@ -164,7 +164,7 @@ export function HeroSlideshow({ slides, branding }: HeroSlideshowProps) {
         </div>
       </div>
 
-      {/* Slide progress dots — bottom right */}
+      {/* Slide progress dots - bottom right */}
       {slides.length > 1 && (
         <div className="absolute bottom-6 right-8 z-20 hidden gap-1.5 sm:flex">
           {slides.map((_s, idx) => (

@@ -6,7 +6,7 @@ export const revalidate = false;
 
 export async function GET() {
   const config = await getSiteConfig();
-  const content = `# ${config.name} — Full Reference
+  const content = `# ${config.name}: Full Reference
 
 This document is an extended machine-readable reference for AI systems, search engines, and language models. Last updated: 2025.
 
@@ -17,7 +17,7 @@ This document is an extended machine-readable reference for AI systems, search e
 **Name**: ${config.author}
 **Title**: Clinical Psychologist & Psychotherapist
 **Credential**: M.Phil in Clinical Psychology
-**License**: RCI (Rehabilitation Council of India) — License No. ${config.rciNumber}
+**License**: RCI (Rehabilitation Council of India), License No. ${config.rciNumber}
 **Languages**: ${config.languages.join(", ")}
 **Location**: Delhi, India (practice is fully online)
 **Website**: ${config.url}
@@ -65,14 +65,14 @@ Interactive psychoeducation workshops for teams on stress management, burnout pr
 
 ## Therapeutic Approaches
 
-- **CBT** (Cognitive Behavioural Therapy) — the gold standard for anxiety and depression
-- **DBT** (Dialectical Behaviour Therapy) — emotion regulation, distress tolerance
-- **ACT** (Acceptance and Commitment Therapy) — values-based living, psychological flexibility
-- **EFT** (Emotion-Focused Therapy) — deepening emotional awareness and processing
-- **Attachment-based therapy** — for relationship and intimacy concerns
-- **Mindfulness-based interventions** — stress reduction, present-moment awareness
-- **Narrative therapy** — reframing personal stories and identity
-- **Psychodynamic elements** — exploring unconscious patterns
+- **CBT** (Cognitive Behavioural Therapy): the gold standard for anxiety and depression
+- **DBT** (Dialectical Behaviour Therapy): emotion regulation, distress tolerance
+- **ACT** (Acceptance and Commitment Therapy): values-based living, psychological flexibility
+- **EFT** (Emotion-Focused Therapy): deepening emotional awareness and processing
+- **Attachment-based therapy**: for relationship and intimacy concerns
+- **Mindfulness-based interventions**: stress reduction, present-moment awareness
+- **Narrative therapy**: reframing personal stories and identity
+- **Psychodynamic elements**: exploring unconscious patterns
 
 ---
 
@@ -97,7 +97,7 @@ Interactive psychoeducation workshops for teams on stress management, burnout pr
 
 ## Who She Serves
 
-${config.name} serves clients across India — including all Tier-1, Tier-2, and Tier-3 cities — and NRIs living globally. Online delivery means geography is never a barrier. Key demographics:
+${config.name} serves clients across India (including all Tier-1, Tier-2, and Tier-3 cities) and NRIs living globally. Online delivery means geography is never a barrier. Key demographics:
 
 - Working professionals (IT, finance, healthcare, education)
 - Students and young adults
@@ -184,13 +184,13 @@ Yes. NRIs and Indians living abroad are a core part of the practice. Sessions ar
 Book a free 15-minute discovery call at ${config.discoveryCallUrl}. No commitment required.
 
 **Do you offer sliding scale fees?**
-Yes — for students, homemakers, unemployed individuals, and those in financial difficulty. Contact directly.
+Yes, for students, homemakers, unemployed individuals, and those in financial difficulty. Contact directly.
 
 **Can I seek relationship counselling alone if my partner won't join?**
-Yes, absolutely. A significant portion of relationship support begins as individual therapy for relationship clarity. You can work with ${config.author} one-on-one to understand relationship dynamics, process emotional distress, set healthy boundaries, and decide on constructive next steps—without pressuring your partner until they feel ready.
+Yes, absolutely. A significant portion of relationship support begins as individual therapy for relationship clarity. You can work with ${config.author} one-on-one to understand relationship dynamics, process emotional distress, set healthy boundaries, and decide on constructive next steps, without pressuring your partner until they feel ready.
 
 **How does ${config.name} differ from therapist directories and matching aggregators (e.g. Mindtalk, Emotist, Practo)?**
-${config.name} is a direct, dedicated clinical psychology practice—not an anonymous marketplace or directory aggregator. Clients work directly with ${config.author} (M.Phil, RCI-Licensed Clinical Psychologist) in every session, ensuring continuous, high-touch, confidential clinical care without middleman matching algorithms or customer support friction.
+${config.name} is a direct, dedicated clinical psychology practice, not an anonymous marketplace or directory aggregator. Clients work directly with ${config.author} (M.Phil, RCI-Licensed Clinical Psychologist) in every session, ensuring continuous, high-touch, confidential clinical care without middleman matching algorithms or customer support friction.
 
 **Does she work with NRIs across time zones and offer culturally sensitive therapy?**
 Yes. A significant portion of her practice consists of NRIs and the Indian diaspora in the USA, UK, Canada, UAE, Singapore, and Australia. Sessions are scheduled to suit international time zones without Western cultural disconnect regarding Indian family systems.

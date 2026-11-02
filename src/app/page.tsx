@@ -274,7 +274,7 @@ export default async function Home() {
           <div className="text-center">
             <h2 className="text-brown font-serif text-3xl font-bold sm:text-4xl">How It Works</h2>
             <p className="text-muted-foreground mt-3">
-              Getting started is simple — and you&apos;re in control every step of the way.
+              Getting started is simple, and you&apos;re in control every step of the way.
             </p>
           </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">

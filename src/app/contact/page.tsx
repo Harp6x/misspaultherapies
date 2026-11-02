@@ -62,7 +62,7 @@ export default async function ContactPage() {
           <h1 className="text-brown font-serif text-4xl font-bold sm:text-5xl">Contact Us</h1>
           <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg leading-relaxed">
             Whether you have a question about therapy, want to book a session, or simply need
-            someone to talk to — I&apos;m here to help. Reach out through any of the channels below
+            someone to talk to, I&apos;m here to help. Reach out through any of the channels below
             or fill in the contact form.
           </p>
         </div>

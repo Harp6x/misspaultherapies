@@ -11,7 +11,7 @@ function generateLocation(d: CityEntry): Location {
       region: d.country,
       title: `Online Therapy for Indians in ${d.city}, ${d.country}`,
       description: `Online therapy for Indians and NRIs in ${d.city}, ${d.country}`,
-      metaDescription: `Indian therapist for NRIs in ${d.city}, ${d.country}. Aishani Paul — RCI-licensed clinical psychologist — offers culturally sensitive online therapy for Indians abroad. Individual, couples, and family therapy.`,
+      metaDescription: `Indian therapist for NRIs in ${d.city}, ${d.country}. Aishani Paul, RCI-licensed clinical psychologist, offers culturally sensitive online therapy for Indians abroad. Individual, couples, and family therapy.`,
       keywords: [
         `Indian therapist ${d.city}`,
         `NRI therapist ${d.city}`,
@@ -20,7 +20,7 @@ function generateLocation(d: CityEntry): Location {
         `therapy for NRI ${d.country}`,
         `mental health NRI ${d.country}`,
       ],
-      content: `Are you Indian, living in ${d.city}? Finding a therapist who truly understands your cultural background — joint family pressures, diaspora identity, the weight of expectation from back home — can be difficult. Aishani Paul offers culturally attuned online therapy for Indians in ${d.country}, covering anxiety, relationships, identity, homesickness, and more. Sessions are scheduled to fit your time zone. No need to explain your context; she gets it.`,
+      content: `Are you Indian, living in ${d.city}? Finding a therapist who truly understands your cultural background (joint family pressures, diaspora identity, the weight of expectation from back home) can be difficult. Aishani Paul offers culturally attuned online therapy for Indians in ${d.country}, covering anxiety, relationships, identity, homesickness, and more. Sessions are scheduled to fit your time zone. No need to explain your context; she gets it.`,
     };
   }
 
@@ -30,7 +30,7 @@ function generateLocation(d: CityEntry): Location {
     region: d.state,
     title: `Online Therapy in ${d.city}`,
     description: `Online psychotherapy and counselling for ${d.city} residents by Aishani Paul`,
-    metaDescription: `Online therapy in ${d.city}, ${d.state} by Aishani Paul — RCI-licensed clinical psychologist. Individual, couples, adolescent, and family therapy via secure video sessions. No commute needed.`,
+    metaDescription: `Online therapy in ${d.city}, ${d.state} by Aishani Paul, RCI-licensed clinical psychologist. Individual, couples, adolescent, and family therapy via secure video sessions. No commute needed.`,
     keywords: [
       `therapist ${d.city}`,
       `psychologist ${d.city}`,
@@ -39,7 +39,7 @@ function generateLocation(d: CityEntry): Location {
       `mental health ${d.city}`,
       `online counsellor ${d.city}`,
     ],
-    content: `Looking for a therapist in ${d.city}? Access professional online therapy from the comfort of your home. Aishani Paul, an RCI-licensed clinical psychologist, offers confidential individual, couples, adolescent, and family therapy via secure video sessions. Whether you're dealing with anxiety, depression, relationship challenges, burnout, or life transitions, high-quality mental health support is now just a video call away — no commute, no waiting rooms, no stigma.`,
+    content: `Looking for a therapist in ${d.city}? Access professional online therapy from the comfort of your home. Aishani Paul, an RCI-licensed clinical psychologist, offers confidential individual, couples, adolescent, and family therapy via secure video sessions. Whether you're dealing with anxiety, depression, relationship challenges, burnout, or life transitions, high-quality mental health support is now just a video call away: no commute, no waiting rooms, no stigma.`,
   };
 }
 

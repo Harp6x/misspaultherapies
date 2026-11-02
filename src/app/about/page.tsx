@@ -191,7 +191,7 @@ export default async function AboutPage() {
           <h2 className="text-brown text-center font-serif text-3xl font-bold">Get in Touch</h2>
           <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-center leading-relaxed">
             Have a question or ready to start your journey? Reach out directly or fill in the
-            contact form — I typically respond within 24–48 hours.
+            contact form. I typically respond within 24–48 hours.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a

@@ -19,7 +19,7 @@ export default function Error({
         Something went wrong
       </h1>
       <p className="mb-8 max-w-md text-brown-light">
-        We&apos;re sorry — an unexpected error occurred. Please try again, or
+        We&apos;re sorry, an unexpected error occurred. Please try again, or
         contact us if the problem persists.
       </p>
       <button

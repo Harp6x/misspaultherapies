@@ -39,7 +39,7 @@ export const faqs: FAQ[] = [
   {
     question: "Can I start couples or relationship therapy alone if my partner won't join?",
     answer:
-      "Yes, absolutely. You do not need your partner to attend to begin working on your relationship. Individual sessions for relationship clarity help you understand your emotional triggers, communication patterns, and boundaries. If your partner later feels comfortable joining, we can transition to joint sessions—or continue focusing on your personal emotional growth.",
+      "Yes, absolutely. You do not need your partner to attend to begin working on your relationship. Individual sessions for relationship clarity help you understand your emotional triggers, communication patterns, and boundaries. If your partner later feels comfortable joining, we can transition to joint sessions, or continue focusing on your personal emotional growth.",
     category: "general",
   },
   {
