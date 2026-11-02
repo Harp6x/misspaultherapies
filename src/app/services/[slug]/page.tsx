@@ -2,11 +2,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Check, Clock, CreditCard } from "lucide-react";
 import * as LucideIcons from "lucide-react";
-import { getAllServices, getServiceBySlug, getSiteConfig } from "@/lib/data";
-import { buildMetadata, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { getAllServices, getServiceBySlug, getServiceFaqs, getSiteConfig } from "@/lib/data";
+import { buildMetadata, serviceJsonLd, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { CTASection } from "@/components/CTASection";
+import { FAQAccordion } from "@/components/FAQAccordion";
 
 export const revalidate = false;
 
@@ -30,7 +31,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [service, config] = await Promise.all([getServiceBySlug(slug), getSiteConfig()]);
+  const [service, config, faqs] = await Promise.all([
+    getServiceBySlug(slug),
+    getSiteConfig(),
+    getServiceFaqs(slug),
+  ]);
   if (!service) notFound();
 
   const IconComponent =
@@ -48,6 +53,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           fee: service.fee,
         })}
       />
+      {faqs.length > 0 && <SEOJsonLd data={faqPageJsonLd(faqs)} />}
       <SEOJsonLd
         data={breadcrumbJsonLd([
           { name: "Home", href: "/" },
@@ -134,6 +140,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
           <p className="text-muted-foreground mt-4 text-xs">{config.slidingScale}</p>
         </section>
+
+        {/* FAQs */}
+        {faqs.length > 0 && (
+          <section className="mt-12">
+            <h2 className="text-brown mb-2 font-serif text-2xl font-bold sm:text-3xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted-foreground mb-6 text-sm">
+              Common questions about {service.title.toLowerCase()} and what to expect from sessions.
+            </p>
+            <FAQAccordion faqs={faqs} />
+          </section>
+        )}
 
         {/* CTA */}
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">

@@ -34,6 +34,7 @@ import { siteConfig as staticSiteConfig } from "@/lib/site-config";
 import { services as staticServices } from "@/content/services";
 import { blogPosts as staticBlogPosts, blogCategories } from "@/content/blog";
 import { faqs as staticFaqs, faqCategories } from "@/content/faqs";
+import { getServiceFaqs as getStaticServiceFaqs } from "@/content/service-faqs";
 import { locations as staticLocations } from "@/content/locations";
 
 // Re-export categories (these don't live in Sanity)
@@ -241,6 +242,26 @@ export async function getServiceSlugs(): Promise<string[]> {
     if (sanity && sanity.length > 0) return sanity.map((s) => s.slug);
   } catch {}
   return staticServices.map((s) => s.slug);
+}
+
+export async function getServiceFaqs(slug: string): Promise<FAQ[]> {
+  const staticList = getStaticServiceFaqs(slug);
+  try {
+    const sanityFaqs = await getSanityFaqs();
+    if (sanityFaqs && sanityFaqs.length > 0) {
+      const matchingSanity = sanityFaqs.filter(
+        (f) => f.category === slug || f.category === slug.replace("-therapy", "")
+      );
+      if (matchingSanity.length > 0) {
+        const set = new Set(matchingSanity.map((f) => f.question.toLowerCase().trim()));
+        const additional = staticList.filter(
+          (f) => !set.has(f.question.toLowerCase().trim())
+        );
+        return [...(matchingSanity as unknown as FAQ[]), ...additional];
+      }
+    }
+  } catch {}
+  return staticList;
 }
 
 // ── Blog ──
