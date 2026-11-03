@@ -81,7 +81,7 @@ export const siteConfig = {
 
   // Analytics
   gaId: process.env.NEXT_PUBLIC_GA_ID || "G-Y8Q3KJWNHJ",
-  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || "1814127506150384",
 
   // SEO
   ogImage: "/opengraph-image",
