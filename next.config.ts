@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
           { key: "X-XSS-Protection", value: "1; mode=block" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "Content-Signal", value: "search=yes, ai-input=yes, ai-train=yes" },
           {
             key: "Link",
             value: [
@@ -40,6 +41,7 @@ const nextConfig: NextConfig = {
               '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
               '</.well-known/ai-catalog.json>; rel="service-desc"; type="application/json"',
               '</.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"',
+              '</.well-known/agent-card.json>; rel="service-desc"; type="application/json"',
               '</.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json"',
               '</auth.md>; rel="author"',
             ].join(", "),

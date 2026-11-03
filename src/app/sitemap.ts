@@ -6,11 +6,14 @@ export const revalidate = false;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [siteConfig, services, blogPosts, locations, workshops] = await Promise.all([
-    getSiteConfig(),
-    getAllServices(),
-    getAllBlogPosts(),
-    getAllLocations(),
-    getAllWorkshops(),
+    getSiteConfig().catch(() => ({
+      url: "https://mspaultherapies.in",
+      pageVisibility: { products: true, blog: true, workshops: true, gallery: true, resources: true },
+    })),
+    getAllServices().catch(() => []),
+    getAllBlogPosts().catch(() => []),
+    getAllLocations().catch(() => []),
+    getAllWorkshops().catch(() => []),
   ]);
   const base = siteConfig.url;
 

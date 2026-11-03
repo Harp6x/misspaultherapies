@@ -8,11 +8,14 @@ const AI_CRAWLERS = [
   "anthropic-ai", // Anthropic
   "ClaudeBot", // Claude
   "Claude-Web", // Claude web
+  "Claude-User", // Claude user search
   "PerplexityBot", // Perplexity
   "Applebot", // Apple Intelligence / Siri
+  "Applebot-Extended", // Apple AI training
   "Meta-ExternalAgent", // Meta AI
   "Meta-ExternalFetcher",
   "Bytespider", // ByteDance / TikTok AI
+  "CCBot", // Common Crawl
   "cohere-ai", // Cohere
   "AI2Bot", // Allen Institute for AI
   "DuckAssistBot", // DuckDuckGo AI
