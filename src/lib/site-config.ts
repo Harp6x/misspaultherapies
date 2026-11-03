@@ -79,8 +79,8 @@ export const siteConfig = {
     resources: true,
   },
 
-  // Analytics placeholders
-  gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
+  // Analytics
+  gaId: process.env.NEXT_PUBLIC_GA_ID || "G-Y8Q3KJWNHJ",
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
 
   // SEO

@@ -17,6 +17,7 @@ const footerLinks = {
     { href: "/services/adolescent-therapy", label: "Adolescent Therapy" },
     { href: "/services/family-therapy", label: "Family Therapy" },
     { href: "/services/psychological-assessments", label: "Assessments" },
+    { href: "/services/nri-abroad", label: "Therapy for NRIs" },
   ],
   company: [
     { href: "/about", label: "About" },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import { getSiteConfig } from "@/lib/data";
 import { Header } from "@/components/Header";
@@ -115,6 +116,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const config = await getSiteConfig();
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-Y8Q3KJWNHJ";
   const { formType, uid, scriptUrl } = config.newsletter;
   const showGlobalKit =
     formType === "modal" || formType === "slide-in" || formType === "sticky-bar";
@@ -122,6 +124,22 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
         <DiscoveryCallBanner config={config} />
         <Header config={config} pageVisibility={config.pageVisibility} />
         <main className="flex-1 pb-16 md:pb-0">{children}</main>

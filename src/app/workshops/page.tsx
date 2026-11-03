@@ -55,10 +55,73 @@ export default async function WorkshopsPage() {
         </p>
 
         {workshops.length === 0 ? (
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground">
-              No upcoming workshops at the moment. Follow us on Instagram to get notified!
-            </p>
+          <div className="mt-12 space-y-12">
+            <div className="rounded-2xl border border-beige-dark bg-white p-8 text-center max-w-3xl mx-auto shadow-sm">
+              <h2 className="font-serif text-2xl font-bold text-brown">
+                Corporate &amp; Group Mental Health Workshops
+              </h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Aishani Paul conducts interactive, evidence-based mental health workshops for corporate teams, educational institutions, and private groups across India. Each session blends clinical psychoeducation with practical, somatic tools participants can apply immediately.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sage-dark transition-colors"
+                >
+                  Inquire About a Workshop
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/book"
+                  className="inline-flex items-center gap-2 rounded-full border border-beige-dark bg-cream px-6 py-3 text-sm font-semibold text-brown hover:bg-beige transition-colors"
+                >
+                  Book Discovery Call
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2 max-w-5xl mx-auto">
+              <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+                <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage mb-3">
+                  Workplace Wellbeing
+                </span>
+                <h3 className="font-serif text-lg font-semibold text-brown">Burnout Prevention &amp; Sustainable Productivity</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Recognizing the difference between fatigue and clinical burnout, breaking chronic urgency loops, and establishing healthy work-life boundaries for modern professionals.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+                <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage mb-3">
+                  Family Systems
+                </span>
+                <h3 className="font-serif text-lg font-semibold text-brown">Navigating Family Boundaries Without Guilt</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Practical strategies for emotional differentiation, setting non-aggressive boundaries with parents or in-laws, and preserving personal peace in collectivist households.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+                <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage mb-3">
+                  Emotional Mastery
+                </span>
+                <h3 className="font-serif text-lg font-semibold text-brown">Somatic Regulation for Anxiety &amp; Overwhelm</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Understanding nervous system states (fight, flight, freeze), polyvagal tools, and evidence-based grounding practices to regain calm during acute emotional distress.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+                <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage mb-3">
+                  Relationships
+                </span>
+                <h3 className="font-serif text-lg font-semibold text-brown">Couples Communication &amp; Conflict De-escalation</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Identifying recurring emotional stalemates, understanding attachment needs, and learning collaborative conflict resolution based on the Gottman Method and EFT.
+                </p>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

@@ -14,6 +14,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/services/nri-therapy-abroad",
+        destination: "/services/nri-abroad",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

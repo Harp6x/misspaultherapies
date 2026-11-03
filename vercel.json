@@ -16,6 +16,19 @@
       ],
       "destination": "https://mspaultherapies.in/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.mspaultherapies.in" }
+      ],
+      "destination": "https://mspaultherapies.in/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/services/nri-therapy-abroad",
+      "destination": "/services/nri-abroad",
+      "permanent": true
     }
   ]
 }

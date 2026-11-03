@@ -440,7 +440,7 @@ export const blogPosts: BlogPost[] = [
 <h2>You Deserve to Be Understood</h2>
 <p>If you've tried therapy abroad and felt like something was missing - or if you've never tried because you couldn't find the right fit - know that culturally sensitive options exist.</p>
 
-<p>Living abroad doesn't mean you have to navigate your mental health alone. <a href="/services/nri-therapy-abroad" style="color: inherit; text-decoration: underline;">Learn more about NRI therapy</a> or <a href="/book" style="color: inherit; text-decoration: underline;">book a session</a>.</p>
+<p>Living abroad doesn't mean you have to navigate your mental health alone. <a href="/services/nri-abroad" style="color: inherit; text-decoration: underline;">Learn more about NRI therapy</a> or <a href="/book" style="color: inherit; text-decoration: underline;">book a session</a>.</p>
 `,
   },
   {

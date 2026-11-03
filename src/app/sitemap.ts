@@ -132,19 +132,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.3,
     },
-    // LLM discovery files
-    {
-      url: `${base}/llms.txt`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/llms-full.txt`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({

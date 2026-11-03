@@ -35,13 +35,13 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/studio", "/studio/"],
+        disallow: ["/studio", "/studio/", "/api/"],
       },
       // Explicitly allow all AI crawlers to index the full site
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: ["/studio", "/studio/"],
+        disallow: ["/studio", "/studio/", "/api/"],
       })),
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
