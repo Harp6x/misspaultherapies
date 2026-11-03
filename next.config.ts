@@ -33,6 +33,25 @@ const nextConfig: NextConfig = {
           { key: "X-XSS-Protection", value: "1; mode=block" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          {
+            key: "Link",
+            value: [
+              '</llms.txt>; rel="describedby"; type="text/plain"',
+              '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+              '</.well-known/ai-catalog.json>; rel="service-desc"; type="application/json"',
+              '</.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"',
+              '</.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json"',
+              '</auth.md>; rel="author"',
+            ].join(", "),
+          },
+        ],
+      },
+      {
+        source: "/.well-known/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET, OPTIONS" },
+          { key: "Access-Control-Allow-Headers", value: "Content-Type, Accept" },
         ],
       },
     ];

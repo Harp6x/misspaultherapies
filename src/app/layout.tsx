@@ -8,6 +8,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DiscoveryCallBanner } from "@/components/DiscoveryCallBanner";
 import { StickyBookBar } from "@/components/StickyBookBar";
 import { GlobalKitEmbed } from "@/components/GlobalKitEmbed";
+import { WebMcpProvider } from "@/components/WebMcpProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -174,6 +175,7 @@ export default async function RootLayout({
         <Footer config={config} pageVisibility={config.pageVisibility} />
         <WhatsAppButton config={config} />
         <StickyBookBar config={config} />
+        <WebMcpProvider />
         {showGlobalKit && <GlobalKitEmbed uid={uid} src={scriptUrl} />}
         <Analytics />
         <SpeedInsights />

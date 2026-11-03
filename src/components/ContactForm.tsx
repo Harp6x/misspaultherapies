@@ -77,7 +77,14 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6"
+      {...{
+        toolname: "send_contact_inquiry",
+        tooldescription: "Submit a confidential inquiry to Ms Paul Therapies",
+      }}
+    >
       {/* Name + Email row */}
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
@@ -94,6 +101,7 @@ export function ContactForm() {
             required
             placeholder="Your full name"
             className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-brown placeholder:text-muted-foreground focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-colors"
+            {...{ toolparamdescription: "Your full name" }}
           />
         </div>
         <div>
@@ -110,6 +118,7 @@ export function ContactForm() {
             required
             placeholder="you@example.com"
             className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-brown placeholder:text-muted-foreground focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-colors"
+            {...{ toolparamdescription: "Your email address for reply" }}
           />
         </div>
       </div>
@@ -129,6 +138,7 @@ export function ContactForm() {
             type="tel"
             placeholder="+91 98765 43210"
             className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-brown placeholder:text-muted-foreground focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-colors"
+            {...{ toolparamdescription: "Your telephone or WhatsApp number" }}
           />
         </div>
         <div>
@@ -143,6 +153,7 @@ export function ContactForm() {
             name="subject"
             defaultValue="General Inquiry"
             className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-brown focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-colors"
+            {...{ toolparamdescription: "Subject of your message" }}
           >
             {SUBJECT_OPTIONS.map((opt) => (
               <option key={opt} value={opt}>
@@ -168,6 +179,7 @@ export function ContactForm() {
           rows={5}
           placeholder="How can I help you? Feel free to share as much or as little as you'd like."
           className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-brown placeholder:text-muted-foreground focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-colors resize-y"
+          {...{ toolparamdescription: "Your message or therapy questions for the therapist" }}
         />
       </div>
 
