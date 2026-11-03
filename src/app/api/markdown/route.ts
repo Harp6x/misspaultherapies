@@ -55,7 +55,7 @@ ${services
     (s) => `### [${s.title}](${config.url}/services/${s.slug})
 ${s.description}
 - **Fee**: ${s.fee}
-- **Duration**: ${s.duration}
+- **Duration**: ${config.sessionDuration}
 - **Format**: Secure video call
 `
   )
@@ -80,7 +80,7 @@ ${s.description}
       markdown = `# ${service.title} - ${config.name}
 
 > **Therapist**: ${config.author} (M.Phil, RCI Reg. No. ${config.rciNumber})
-> **Fee**: ${service.fee} | **Duration**: ${service.duration}
+> **Fee**: ${service.fee} | **Duration**: ${config.sessionDuration}
 > **Format**: Secure online video call
 
 ## Description
@@ -121,7 +121,7 @@ ${services
     (s) => `## [${s.title}](${config.url}/services/${s.slug})
 ${s.description}
 - **Fee**: ${s.fee}
-- **Duration**: ${s.duration}
+- **Duration**: ${config.sessionDuration}
 `
   )
   .join("\n")}
