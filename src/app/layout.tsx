@@ -69,6 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
       languages: { "en-IN": config.url, en: config.url },
       types: {
         "text/plain": `${config.url}/llms.txt`,
+        "text/markdown": `${config.url}/api/markdown`,
       },
     },
     icons: {

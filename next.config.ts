@@ -37,6 +37,7 @@ const nextConfig: NextConfig = {
           {
             key: "Link",
             value: [
+              '</api/markdown>; rel="alternate"; type="text/markdown"',
               '</llms.txt>; rel="describedby"; type="text/plain"',
               '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
               '</.well-known/ai-catalog.json>; rel="service-desc"; type="application/json"',

@@ -42,7 +42,12 @@ export function buildMetadata({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      types: {
+        "text/markdown": `${siteConfig.url}/api/markdown?path=${encodeURIComponent(path || "/")}`,
+      },
+    },
     openGraph: {
       title,
       description,
@@ -90,7 +95,12 @@ export function buildArticleMetadata({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      types: {
+        "text/markdown": `${siteConfig.url}/api/markdown?path=${encodeURIComponent(`/blog/${slug}`)}`,
+      },
+    },
     openGraph: {
       title,
       description,
