@@ -31,14 +31,19 @@ describe("Robots Policy Regression Tests", () => {
     const bingRule = rules.find((r) => r.userAgent === "Bingbot");
     expect(bingRule?.allow).toContain("/");
 
-    // Model training crawlers must be blocked per business opt-out policy
+    // GPTBot and CCBot must be allowed to power ChatGPT client recommendations
     const gptBotRule = rules.find((r) => r.userAgent === "GPTBot");
     expect(gptBotRule).toBeDefined();
-    expect(gptBotRule?.disallow).toEqual(["/"]);
+    expect(gptBotRule?.allow).toContain("/");
 
     const ccBotRule = rules.find((r) => r.userAgent === "CCBot");
     expect(ccBotRule).toBeDefined();
-    expect(ccBotRule?.disallow).toEqual(["/"]);
+    expect(ccBotRule?.allow).toContain("/");
+
+    // Aggressive scrapers without discovery value remain blocked
+    const bytespiderRule = rules.find((r) => r.userAgent === "Bytespider");
+    expect(bytespiderRule).toBeDefined();
+    expect(bytespiderRule?.disallow).toEqual(["/"]);
 
     // Default rule protects sensitive administrative routes
     const defaultRule = rules.find((r) => r.userAgent === "*");

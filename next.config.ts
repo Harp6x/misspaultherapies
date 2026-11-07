@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.mspaultherapies.in" }],
+        destination: "https://mspaultherapies.in/:path*",
+        permanent: true,
+      },
+      {
         source: "/services/nri-therapy-abroad",
         destination: "/services/nri-abroad",
         permanent: true,
@@ -33,7 +39,7 @@ const nextConfig: NextConfig = {
           { key: "X-XSS-Protection", value: "1; mode=block" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          { key: "Content-Signal", value: "search=yes, ai-input=yes, ai-train=no" },
+          { key: "Content-Signal", value: "search=yes, ai-input=yes, ai-train=yes" },
           {
             key: "Link",
             value: '</llms.txt>; rel="describedby"; type="text/plain"',

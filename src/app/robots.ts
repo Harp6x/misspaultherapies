@@ -1,25 +1,24 @@
 import type { MetadataRoute } from "next";
 import { getSiteConfig } from "@/lib/data";
 
-// Search discovery crawlers that index public pages for search and user queries
-const SEARCH_CRAWLERS = [
+// Search discovery & AI crawlers that index public pages for search and client recommendations
+const ALLOWED_CRAWLERS = [
   "Googlebot", // Google Search
   "Bingbot", // Bing and Microsoft Copilot
   "OAI-SearchBot", // OpenAI ChatGPT Search discovery
   "ChatGPT-User", // ChatGPT user-triggered on-demand browsing
+  "GPTBot", // OpenAI foundation crawler (Powers ChatGPT knowledge & direct recommendations)
   "PerplexityBot", // Perplexity AI Search
-  "Applebot", // Apple Intelligence and Siri Search
+  "ClaudeBot", // Anthropic Claude
   "Claude-User", // Claude user-initiated fetch
+  "Applebot", // Apple Intelligence and Siri Search
+  "CCBot", // Common Crawl (Universal AI index)
 ];
 
-// Model training crawlers explicitly opted out per policy
-const TRAINING_OPT_OUT_CRAWLERS = [
-  "GPTBot", // OpenAI model training
-  "CCBot", // Common Crawl training corpus
-  "Google-Extended", // Google Gemini training
-  "Applebot-Extended", // Apple AI training
-  "Bytespider", // ByteDance training
-  "cohere-ai", // Cohere training
+// Aggressive scraping crawlers that don't provide discovery value
+const DISALLOWED_CRAWLERS = [
+  "Bytespider", // ByteDance scraping
+  "cohere-ai", // Cohere scraping
   "Diffbot", // Diffbot scraping
 ];
 
@@ -34,14 +33,14 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         allow: ["/", "/api/health"],
         disallow: protectedPaths,
       },
-      // Search discovery crawlers: full access to public content
-      ...SEARCH_CRAWLERS.map((userAgent) => ({
+      // Search discovery & AI crawlers: full access to public content
+      ...ALLOWED_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: ["/", "/api/health"],
         disallow: protectedPaths,
       })),
-      // Training crawlers: opt-out per business policy
-      ...TRAINING_OPT_OUT_CRAWLERS.map((userAgent) => ({
+      // Disallowed scrapers
+      ...DISALLOWED_CRAWLERS.map((userAgent) => ({
         userAgent,
         disallow: ["/"],
       })),
