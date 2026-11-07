@@ -1,50 +1,49 @@
 import type { MetadataRoute } from "next";
 import { getSiteConfig } from "@/lib/data";
 
-const AI_CRAWLERS = [
-  "GPTBot", // OpenAI / ChatGPT
-  "OAI-SearchBot", // OpenAI search
-  "ChatGPT-User", // ChatGPT browsing
-  "anthropic-ai", // Anthropic
-  "ClaudeBot", // Claude
-  "Claude-Web", // Claude web
-  "Claude-User", // Claude user search
-  "PerplexityBot", // Perplexity
-  "Applebot", // Apple Intelligence / Siri
-  "Applebot-Extended", // Apple AI training
+// Explicit priority search engines and AI discovery crawlers
+const ALLOWED_CRAWLERS = [
+  "Googlebot", // Google Search
+  "Bingbot", // Bing & Microsoft Copilot
+  "OAI-SearchBot", // OpenAI ChatGPT Search discovery (Top priority for client acquisition)
+  "ChatGPT-User", // ChatGPT user-triggered real-time browsing
+  "GPTBot", // OpenAI foundation crawler (Powers ChatGPT knowledge & direct recommendations)
+  "PerplexityBot", // Perplexity AI Search
+  "ClaudeBot", // Anthropic Claude
+  "Claude-Web", // Claude web search
+  "Claude-User", // Claude user-initiated fetch
+  "Applebot", // Apple Intelligence & Siri search
+  "Applebot-Extended", // Apple AI
   "Meta-ExternalAgent", // Meta AI
   "Meta-ExternalFetcher",
-  "Bytespider", // ByteDance / TikTok AI
-  "CCBot", // Common Crawl
+  "Bytespider", // ByteDance search / AI
+  "CCBot", // Common Crawl (Universal AI index)
   "cohere-ai", // Cohere
-  "AI2Bot", // Allen Institute for AI
-  "DuckAssistBot", // DuckDuckGo AI
-  "YouBot", // You.com
+  "AI2Bot", // Allen Institute
+  "DuckAssistBot", // DuckDuckGo AI Search
+  "YouBot", // You.com AI Search
   "iaskspider", // iAsk.ai
-  "Diffbot", // Diffbot
-  "Google-Extended", // Google Gemini AI training & search
-  "Amazonbot", // Amazon Alexa / Rufus AI
+  "Diffbot", // Diffbot Knowledge Graph
+  "Google-Extended", // Google Gemini search & training
+  "Amazonbot", // Amazon Alexa / Rufus
 ];
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const siteConfig = await getSiteConfig();
+  const disallowList = ["/studio", "/studio/", "/api/"];
+
   return {
     rules: [
       {
         userAgent: "*",
         allow: ["/", "/api/health"],
-        disallow: ["/studio", "/studio/", "/api/"],
+        disallow: disallowList,
       },
-      {
-        userAgent: "Googlebot",
-        allow: ["/", "/api/health"],
-        disallow: ["/studio", "/studio/", "/api/"],
-      },
-      // Explicitly allow all AI crawlers to index the full site
-      ...AI_CRAWLERS.map((userAgent) => ({
+      // Explicitly declare permissions for all major search engines & AI discovery agents
+      ...ALLOWED_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: ["/", "/api/health"],
-        disallow: ["/studio", "/studio/", "/api/"],
+        disallow: disallowList,
       })),
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
