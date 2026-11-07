@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import {
   Shuffle,
-  Send,
   Sparkles,
   BookOpen,
   Loader2,
@@ -31,7 +30,15 @@ interface JournalEntry {
 export function AIJournal() {
   const [currentPrompt, setCurrentPrompt] = useState<JournalPrompt>(() => getRandomPrompt());
   const [entryText, setEntryText] = useState("");
-  const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [entries, setEntries] = useState<JournalEntry[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const saved = localStorage.getItem("mpt-journal-entries");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState("");
   const [showHistory, setShowHistory] = useState(false);
@@ -39,16 +46,6 @@ export function AIJournal() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [usedPromptIds, setUsedPromptIds] = useState<string[]>([]);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  // Load entries from localStorage
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("mpt-journal-entries");
-      if (saved) setEntries(JSON.parse(saved));
-    } catch {
-      // ignore
-    }
-  }, []);
 
   // Save entries to localStorage
   useEffect(() => {

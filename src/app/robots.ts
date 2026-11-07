@@ -1,49 +1,49 @@
 import type { MetadataRoute } from "next";
 import { getSiteConfig } from "@/lib/data";
 
-// Explicit priority search engines and AI discovery crawlers
-const ALLOWED_CRAWLERS = [
+// Search discovery crawlers that index public pages for search and user queries
+const SEARCH_CRAWLERS = [
   "Googlebot", // Google Search
-  "Bingbot", // Bing & Microsoft Copilot
-  "OAI-SearchBot", // OpenAI ChatGPT Search discovery (Top priority for client acquisition)
-  "ChatGPT-User", // ChatGPT user-triggered real-time browsing
-  "GPTBot", // OpenAI foundation crawler (Powers ChatGPT knowledge & direct recommendations)
+  "Bingbot", // Bing and Microsoft Copilot
+  "OAI-SearchBot", // OpenAI ChatGPT Search discovery
+  "ChatGPT-User", // ChatGPT user-triggered on-demand browsing
   "PerplexityBot", // Perplexity AI Search
-  "ClaudeBot", // Anthropic Claude
-  "Claude-Web", // Claude web search
+  "Applebot", // Apple Intelligence and Siri Search
   "Claude-User", // Claude user-initiated fetch
-  "Applebot", // Apple Intelligence & Siri search
-  "Applebot-Extended", // Apple AI
-  "Meta-ExternalAgent", // Meta AI
-  "Meta-ExternalFetcher",
-  "Bytespider", // ByteDance search / AI
-  "CCBot", // Common Crawl (Universal AI index)
-  "cohere-ai", // Cohere
-  "AI2Bot", // Allen Institute
-  "DuckAssistBot", // DuckDuckGo AI Search
-  "YouBot", // You.com AI Search
-  "iaskspider", // iAsk.ai
-  "Diffbot", // Diffbot Knowledge Graph
-  "Google-Extended", // Google Gemini search & training
-  "Amazonbot", // Amazon Alexa / Rufus
+];
+
+// Model training crawlers explicitly opted out per policy
+const TRAINING_OPT_OUT_CRAWLERS = [
+  "GPTBot", // OpenAI model training
+  "CCBot", // Common Crawl training corpus
+  "Google-Extended", // Google Gemini training
+  "Applebot-Extended", // Apple AI training
+  "Bytespider", // ByteDance training
+  "cohere-ai", // Cohere training
+  "Diffbot", // Diffbot scraping
 ];
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const siteConfig = await getSiteConfig();
-  const disallowList = ["/studio", "/studio/", "/api/"];
+  const protectedPaths = ["/studio", "/studio/", "/api/"];
 
   return {
     rules: [
       {
         userAgent: "*",
         allow: ["/", "/api/health"],
-        disallow: disallowList,
+        disallow: protectedPaths,
       },
-      // Explicitly declare permissions for all major search engines & AI discovery agents
-      ...ALLOWED_CRAWLERS.map((userAgent) => ({
+      // Search discovery crawlers: full access to public content
+      ...SEARCH_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: ["/", "/api/health"],
-        disallow: disallowList,
+        disallow: protectedPaths,
+      })),
+      // Training crawlers: opt-out per business policy
+      ...TRAINING_OPT_OUT_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        disallow: ["/"],
       })),
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,

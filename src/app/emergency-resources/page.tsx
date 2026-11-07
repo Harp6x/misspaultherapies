@@ -1,4 +1,4 @@
-import { Phone, AlertTriangle, ExternalLink } from "lucide-react";
+import { Phone, AlertTriangle } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 

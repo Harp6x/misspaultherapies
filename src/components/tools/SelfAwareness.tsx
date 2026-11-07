@@ -12,18 +12,19 @@ import {
 import { EmailCapture } from "./EmailCapture";
 
 export function SelfAwareness() {
-  const [completedDays, setCompletedDays] = useState<number[]>([]);
+  const [completedDays, setCompletedDays] = useState<number[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const saved = localStorage.getItem("mpt-awareness-progress");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
   const [activeDay, setActiveDay] = useState<AwarenessDay | null>(null);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [dayResult, setDayResult] = useState<DayResult | null>(null);
   const [showEmail, setShowEmail] = useState(false);
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("mpt-awareness-progress");
-      if (saved) setCompletedDays(JSON.parse(saved));
-    } catch { /* ignore */ }
-  }, []);
 
   useEffect(() => {
     if (completedDays.length > 0) {
